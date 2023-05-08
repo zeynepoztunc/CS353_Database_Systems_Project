@@ -1,7 +1,22 @@
-import React from 'react';
+import React, {useState} from 'react'; 
+import {  useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+
 const  HostRentingProperty= () => {
+  const [selectedOption, setSelectedOption] = useState('');
+  const navigate = useNavigate();
+
+  const handleChange = (event) => {
+    setSelectedOption(event.target.id);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (selectedOption === 'formCheck-1') {
+      navigate('/HostRentingRoomDetails');
+    }
+  };
   return (
     <>
   <meta charSet="utf-8" />
@@ -9,8 +24,8 @@ const  HostRentingProperty= () => {
     name="viewport"
     content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
   />
-  <title>Register - WeRent</title>
-  <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" />
+  <title>WeRent-Identify Your Property</title>
+  <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css" />
   <link
     rel="stylesheet"
     href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i&display=swap"
@@ -60,13 +75,13 @@ const  HostRentingProperty= () => {
             data-modal-id="bs4_sldr_cmrce"
             data-bs-toggle="modal"
             style={{
-              fontSize: 20,
+              fontSize: 16,
               background: "var(--bs-blue)",
               color: "var(--bs-white)",
               fontFamily: "Montserrat, sans-serif"
             }}
           >
-            swıtch to customer mode
+            SWITCH TO CUSTOMER MODE
           </a>
           <div
             id="bs4_sldr_cmrce"
@@ -212,21 +227,22 @@ const  HostRentingProperty= () => {
             WeRent!
           </p>
         </div>
-        <form style={{ textAlign: "left", display: "block" }}>
+        <form style={{ textAlign: "left", display: "block" }} onSubmit={handleSubmit}>
           <figure className="figure" />
           <h1>Which describes your property best?</h1>
           <div
             className="form-check"
             style={{
               background:
-                'url("/istockphoto-1160217929-612x612.jpg") right / contain no-repeat',
+                'url("./assets/img/istockphoto-1160217929-612x612.jpg") right / contain no-repeat',
               position: "relative",
               display: "flex",
               textAlign: "initial",
               height: 68
             }}
           >
-            <input className="form-check-input" type="radio" id="formCheck-1" />
+            <input className="form-check-input" type="radio" id="formCheck-1" checked={selectedOption === 'formCheck-1'}
+          onChange={handleChange} />
             <label
               className="form-check-label"
               htmlFor="formCheck-1"
@@ -245,14 +261,15 @@ const  HostRentingProperty= () => {
           <div
             className="form-check"
             style={{
-              background: 'url("/6676508.png") right / contain no-repeat',
+              background: 'url("./assets/img/6676508.png") right / contain no-repeat',
               position: "relative",
               display: "flex",
               textAlign: "right",
               height: 68
             }}
           >
-            <input className="form-check-input" type="radio" id="formCheck-2" />
+            <input className="form-check-input" type="radio" id="formCheck-2" checked={selectedOption === 'formCheck-2'}
+          onChange={handleChange} />
             <label
               className="form-check-label"
               htmlFor="formCheck-2"
