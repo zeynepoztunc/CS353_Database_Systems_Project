@@ -11,6 +11,24 @@ const  HostRentingRoomDetails= () => {
       const getButtonText = (dropdownId) => {
         return selectedCounts[dropdownId] || 'Count';
       };
+
+  const [isValid, setIsValid] = useState(true);
+  const [fileNames, setFileNames] = useState([]);
+  const handleFileUpload = (event) => 
+  {
+    const files = event.target.files;
+    if (files.length < 3) {
+      setIsValid(false);
+    } else {
+      setIsValid(true);
+    }
+    const names = [];
+
+    for (let i = 0; i < files.length; i++) {
+      names.push(files[i].name);
+    }
+    setFileNames(names);
+  };
     return (
       <>
   <meta charSet="utf-8" />
@@ -541,11 +559,28 @@ const  HostRentingRoomDetails= () => {
                 <input
                   className="form-control"
                   type="file"
-                  multiple=""
+                  multiple="true"
                   name="files"
+                  onChange={handleFileUpload}
                 />
               </div>
-              <div style={{ textAlign: "left" }} />
+              {!isValid && (
+        <div style={{ textAlign: "left", color: "red" }}>
+          Please upload at least 3 photographs.
+        </div>
+      )}
+       <div style={{ textAlign: "left" }}>
+          {fileNames.length > 0 && (
+            <div>
+              <h4>Uploaded files:</h4>
+              <ul>
+                {fileNames.map((name, index) => (
+                  <li key={index}>{name}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
             </div>
             <div />
             <div>
