@@ -1,33 +1,13 @@
-import React, {useState} from 'react'; 
 import {  useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
 
-const  HostRentingFlatPricing= () => {
-    const [dateRange, setDateRange] = useState([null, null]);
-    const [startDate, endDate] = dateRange;
-    const [customRefundEnabled, setCustomRefundEnabled] = useState(false);
+
+const  HostRentingMainPage= () => {
     const navigate = useNavigate();
-
-  const handleRadioChange = (event) => {
-    setCustomRefundEnabled(false);
-  };
-
-  const handleCustomRefundCheckbox = (event) => {
-    setCustomRefundEnabled(event.target.checked);
-  };
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    navigate('/HostRentingMainPage');
-  };
-
-    // Example of occupied dates
-  const occupiedDates = [
-    new Date(2023, 5, 10),
-    new Date(2023, 5, 11),
-    new Date(2023, 5, 12),
-  ];
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        navigate('/HostRentingProperty');
+      };
     return (
         <>
   <meta charSet="utf-8" />
@@ -35,7 +15,7 @@ const  HostRentingFlatPricing= () => {
     name="viewport"
     content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
   />
-  <title>Register - WeRent</title>
+  <title>Features - WeRent</title>
   <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css" />
   <link
     rel="stylesheet"
@@ -45,17 +25,18 @@ const  HostRentingFlatPricing= () => {
   <link rel="stylesheet" href="./assets/Font Awesome 5 Free.css" />
   <link rel="stylesheet" href="./assets/fonts/fontawesome-all.min.css" />
   <link rel="stylesheet" href="./assets/fonts/font-awesome.min.css" />
+  <link rel="stylesheet" href="./assets/fonts/simple-line-icons.min.css" />
   <link rel="stylesheet" href="./assets/fonts/fontawesome5-overrides.min.css" />
   <link rel="stylesheet" href="./assets/baguetteBox.min.css" />
   <link rel="stylesheet" href="./assets/Bootstrap-4-Calendar-No-Custom-Code.css" />
-  <link rel="stylesheet" href="./Drag--Drop-Upload-Form.css" />
+  <link rel="stylesheet" href="./assets/Drag--Drop-Upload-Form.css" />
   <link rel="stylesheet" href="./assets/Drag-Drop-File-Input-Upload.css" />
   <link rel="stylesheet" href="./assets/pop-up-boxes.css" />
   <link rel="stylesheet" href="./assets/vanilla-zoom.min.css" />
   <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://cdn.reflowhq.com/v2/toolkit.min.css" />
   <link rel="stylesheet" href="./assets/fonts/fontawesome-all.min.css" />
-  <link rel="stylesheet" href="./assetscss/baguetteBox.min.css" />
+  <link rel="stylesheet" href="./assets/css/baguetteBox.min.css" />
   <link rel="stylesheet" href="./assets/css/Banner-Heading-Image-images.css" />
   <link rel="stylesheet" href="./assets/Button-modal-ecommerce-bs4_modal.min.css" />
   <link rel="stylesheet" href="./assets/Button-modal-ecommerce-styles.css" />
@@ -92,7 +73,7 @@ const  HostRentingFlatPricing= () => {
               fontFamily: "Montserrat, sans-serif"
             }}
           >
-            SWITCH TO CUSTOMER MODE
+           SWITCH TO CUSTOMER MODE
           </a>
           <div
             id="bs4_sldr_cmrce"
@@ -302,177 +283,43 @@ const  HostRentingFlatPricing= () => {
       </div>
     </div>
   </nav>
-  <main className="page registration-page">
-    <section className="clean-block clean-form dark">
+  <main className="page">
+    <section className="clean-block features">
       <div className="container">
         <div className="block-heading">
-          <h2 className="text-info">One way before the rent!</h2>
-          <p>
-            Your flat looks fantastic. Now, you can set a daily price and
-            cancellation policies about your flat.
-          </p>
+          <h2 className="text-info">&nbsp;You can easily rent your home now</h2>
+          <p>Your place can reach to thousands of customers.&nbsp;</p>
         </div>
-        <form
-          className="text-start d-block float-none"
-          style={{ textAlign: "left", display: "block" }}
-          onSubmit={handleSubmit}
-        >
-          <h1
-            className="fs-1 fw-bolder text-center"
-            style={{ textAlign: "center" }}
-          >
-            Check-in and Cancellation Policy
-          </h1>
-          <figure className="figure" />
-          <span />
-          <div>
-            <label
-              className="form-label"
-              style={{ fontWeight: "bold", fontSize: 24 }}
-            >
-              Set available dates for renting&nbsp;
-            </label>
-            <div>
-      <DatePicker
-        selected={startDate}
-        onChange={(update) => {
-          setDateRange(update);
-        }}
-        startDate={startDate}
-        endDate={endDate}
-        selectsRange
-        dateFormat="yyyy/MM/dd"
-        minDate={new Date()} // disable past dates
-        excludeDates={occupiedDates} // exclude occupied dates
-      />
-    </div>
-            <label className="form-label" style={{ fontWeight: "bold" }}>
-              Earliest Check-in hour&nbsp;
-            </label>
-            <input className="form-control" type="time" />
+        <div className="row justify-content-center">
+          <div className="col-md-5 feature-box">
+            <i className="icon-star icon" />
+            <h4>Better than any other renting app</h4>
+            <p>WeRent is a widely used by the customers.</p>
           </div>
-          <div>
-            <div>
-              <span className="text-white-50">Text</span>
-            </div>
-            <label className="form-label" style={{ fontWeight: "bold" }}>
-              Latest Check-in hour&nbsp;
-            </label>
-            <input className="form-control" type="time" />
+          <div className="col-md-5 feature-box">
+            <i className="icon-pencil icon" />
+            <h4>Easy to take attention</h4>
+            <p>
+              You can specify every aspect of your property to make it look
+              fancier!
+            </p>
           </div>
-          <div>
-            <div>
-              <span className="text-white-50">Text</span>
-            </div>
-            <label className="form-label" style={{ fontWeight: "bold" }}>
-              Cancellation hour limit prior to reservation date
-            </label>
-            <input className="form-control" type="number" />
+          <div className="col-md-5 feature-box">
+            <i className="icon-check icon" />
+            <h4>Safety first!</h4>
+            <p>Your earnings are kept safe in WeRent.</p>
           </div>
-          <div>
-            <span className="text-white-50">Text</span>
+          <div className="col-md-5 feature-box">
+            <i className="icon-organization icon" />
+            <h4>Easy to use</h4>
+            <p>User-friendly design make it easier to rent and have fun!</p>
           </div>
-          <div>
-            <label className="form-label fs-3 fw-bold">
-              Daily Price (in USD)
-            </label>
-            <input className="form-control" type="number" />
-            <div>
-              <label className="form-label text-start">
-                Optimal price means more customers!&nbsp;
-              </label>
-            </div>
-          </div>
-          <div>
-      <label
-        className="form-label"
-        style={{ fontWeight: "bold", fontSize: 18 }}
-      >
-        Cancellation refund fee (in USD)
-      </label>
-      <div className="form-check">
-        <input
-          className="form-check-input"
-          type="radio"
-          name="refund"
-          id="formCheck-1"
-          onChange={handleRadioChange}
-        />
-        <label className="form-check-label" htmlFor="formCheck-1">
-          25% of Daily Price
-        </label>
+        </div>
       </div>
-      <div className="form-check">
-        <input
-          className="form-check-input"
-          type="radio"
-          name="refund"
-          id="formCheck-2"
-          onChange={handleRadioChange}
-        />
-        <label className="form-check-label" htmlFor="formCheck-2">
-          50% of Daily Price
-        </label>
-      </div>
-      <div className="form-check">
-        <input
-          className="form-check-input"
-          type="radio"
-          name="refund"
-          id="formCheck-4"
-          onChange={handleRadioChange}
-        />
-        <label className="form-check-label" htmlFor="formCheck-4">
-          100% of Daily Price
-        </label>
-      </div>
-      <label className="form-label" style={{ fontWeight: "bold" }}>
-        OR, Custom Refund Fee:
-      </label>
-      <input
-        className="form-control"
-        type="number"
-        disabled={!customRefundEnabled}
-      />
-      <div>
-        <input
-          type="checkbox"
-          checked={customRefundEnabled}
-          onChange={handleCustomRefundCheckbox}
-        />
-        <span className="text-black-50">Enable Custom Refund Fee</span>
-      </div>
-    </div>
-          
-          <div>
-            <div>
-              <div className="form-check">
-                <input
-                  className="form-check-input"
-                  type="checkbox"
-                  id="formCheck-3"
-                />
-                <label
-                  className="form-check-label fs-4 fw-semibold"
-                  htmlFor="formCheck-3"
-                >
-                  Auto approve cancellation requests
-                </label>
-              </div>
-              <label className="form-label">
-                WeRent can automatically accept cancellation requests sent by
-                customers.&nbsp;
-              </label>
-            </div>
-          </div>
-          <span className="text-white-50">Text</span>
-          <div className="row justify-content-center">
-            <button type="submit" className="btn btn-primary">
-              Rent Now!
-            </button>
-          </div>
-          <div />
-        </form>
+      <div className="text-center">
+        <button className="btn btn-primary" type="button" onClick={handleSubmit} >
+          Rent Your Home Now!
+        </button>
       </div>
     </section>
   </main>
@@ -545,4 +392,5 @@ const  HostRentingFlatPricing= () => {
 
     )
 }
-export default HostRentingFlatPricing;
+
+export  default HostRentingMainPage;

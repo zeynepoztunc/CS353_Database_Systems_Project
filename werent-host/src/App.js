@@ -7,10 +7,12 @@ import HostRentingRoomPricing from './HostRentingRoomPricing';
 import HostRentingFlatDetails from './HostRentingFlatDetails';
 import HostRentingFlatLocation from './HostRentingFlatLocation';
 import HostRentingFlatPricing from './HostRentingFlatPricing';
+import HostRentingMainPage from './HostRentingMainPage';
 
 function App() {
   return (
     <Routes>
+      <Route  path='/HostRentingMainPage' element={<HostRentingMainPage/>} />
       <Route exact path='/HostRentingProperty' element ={<HostRentingProperty/>} />
       <Route exact path='/HostRentingRoomDetails' element={<HostRentingRoomDetails/>} />
       <Route exact path='/HostRentingRoomLocation' element={<HostRentingRoomLocation/>} />

@@ -19,7 +19,7 @@ const  HostRentingRoomPricing= () => {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    navigate('/HostRentingProperty');
+    navigate('/HostRentingMainPage');
   };
 
     // Example of occupied dates
