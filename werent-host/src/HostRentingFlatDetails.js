@@ -1,61 +1,55 @@
 import React, { useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import {  useNavigate } from 'react-router-dom';
-import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-const containerStyle = {
-    width: '100%',
-    height: '400px'
-  };
-  
-  const defaultCenter = {
-    lat: 36.90188844423498,
-    lng: 30.68876901249269
-  };
-  
-const  HostRentingRoomLocation= () => {
-    const [selectedLocation, setSelectedLocation] = useState(null);
+const  HostRentingRoomDetails= () => {
+    const [selectedCounts, setSelectedCounts] = useState({});
+    const [selectedItems, setSelectedItems] = useState({});
+    const navigate = useNavigate();
 
-  const handleMapClick = (event) => {
-    setSelectedLocation({
-      lat: event.latLng.lat(),
-      lng: event.latLng.lng()
-    });
-  };
-  const [selectedCity, setSelectedCity] = useState('');
-  const [districts, setDistricts] = useState([]);
-  const [selectedDistrict,setSelectedDistrict] = useState('');
-
-  const cities = [
-    { name: 'Ankara', districts: ['Çankaya', 'Yenimahalle'] },
-    { name: 'Antalya', districts: ['Kemer', 'Alanya', 'Kaş'] },
-    { name: 'Istanbul', districts: ['Beşiktaş', 'Kadıköy', 'Sultanahmet'] },
-    { name: 'Izmir', districts: ['Çeşme', 'Dikili', 'Karşıyaka'] },
-    { name: 'Muğla', districts: ['Bodrum', 'Marmaris', 'Fethiye'] }
+    const handleDropdownItemClick = (dropdownId, value) => {
+        setSelectedCounts({ ...selectedCounts, [dropdownId]: value });
+      };
     
-  ];
+      const getButtonText = (dropdownId) => {
+        if (dropdownId === 'Flat Type') {
+          return selectedItems['Flat Type'] || 'Select Flat Type';
+        }
+        else{
+          return selectedCounts[dropdownId] || 'Count';
+        }
+  
+      };
+      const handleDropdownItemClickType = (itemType, value) => {
+        setSelectedItems((prevSelectedItems) => ({
+          ...prevSelectedItems,
+          [itemType]: value,
+        }));
+      };
 
-  const handleCitySelection = (event) => {
-    setSelectedCity(event.target.innerText);
-    const city = cities.find((city) => city.name === event.target.innerText);
-    if (city) {
-      setDistricts(city.districts);
+  const [isValid, setIsValid] = useState(true);
+  const [fileNames, setFileNames] = useState([]);
+  const handleFileUpload = (event) => 
+  {
+    const files = event.target.files;
+    if (files.length < 3) {
+      setIsValid(false);
     } else {
-      setDistricts([]);
+      setIsValid(true);
     }
+    const names = [];
+
+    for (let i = 0; i < files.length; i++) {
+      names.push(files[i].name);
+    }
+    setFileNames(names);
   };
-  const handleDistrictSelection = (event) => {
-    setSelectedDistrict(event.target.innerText);
-  };
-  const navigate = useNavigate();
   const handleSubmit = (event) => {
     event.preventDefault();
-    navigate('/HostRentingRoomPricing');
+    navigate('/HostRentingFlatLocation');
   };
-  
-  
     return (
-        <>
+      <>
   <meta charSet="utf-8" />
   <meta
     name="viewport"
@@ -332,56 +326,67 @@ const  HostRentingRoomLocation= () => {
     <section className="clean-block clean-form dark">
       <div className="container">
         <div className="block-heading">
-          <h2 className="text-info">Give Some Details About Your Room</h2>
+          <h2 className="text-info">Now, be specific!</h2>
           <p>
-            Your room's location matters for customers. No worries, we'll share
-            your adress after&nbsp; customer reserves it!
+          Your flat's location is not the only decisive feature for customers. Common areas as well as features of the flat are important. Be catchy!
           </p>
         </div>
-        <form style={{ textAlign: "left", display: "block" }} onSubmit={handleSubmit}>
-          <h1 className="text-center">Where's your room located?</h1>
-          <LoadScript googleMapsApiKey="AIzaSyAdc1phOB8xRTsyJwEa3wBuAGPIg9ZFnJ4">
-      <GoogleMap
-        mapContainerStyle={containerStyle}
-        center={defaultCenter}
-        zoom={10}
-        onClick={handleMapClick}
-      >
-        {selectedLocation && (
-          <Marker position={selectedLocation} />
-        )}
-      </GoogleMap>
-    </LoadScript>
+        <form
+          className="text-start d-block float-none"
+          style={{ textAlign: "left", display: "block" }}
+          onSubmit={handleSubmit}
+        >
+          <h1 className="fs-1 fw-bolder text-center">Details of your room</h1>
+          <figure className="figure" />
+          <span />
           <div>
             <label className="form-label" style={{ fontWeight: "bold" }}>
-              City
+              Flat name&nbsp;
+            </label>
+            <input className="form-control" type="text" />
+          </div>
+          <div>
+            <label className="form-label" style={{ fontWeight: "bold" }}>
+              Flat size (in sqm)
+            </label>
+            <input className="form-control" type="text" />
+          </div>
+          <div>
+            <span className="text-white-50">Text</span>
+          </div>
+          <div>
+            <label className="form-label" style={{ fontWeight: "bold" }}>
+              Number of Rooms
             </label>
             <div className="dropdown">
               <button
-                className="btn btn-light btn-sm dropdown-toggle text-center d-inline align-content-center"
-                aria-expanded="false"
-                data-bs-toggle="dropdown"
-                type="button"
+                 className="btn btn-light btn-sm dropdown-toggle text-center"
+                 aria-expanded="false"
+                 data-bs-toggle="dropdown"
+                 type="button"
               >
-                {selectedCity || 'Select Your City'}
-        </button>
-        <div className="dropdown-menu">
-        {cities.map((city, index) => (
-      <a
-        key={index}
-        className="dropdown-item"
-        href = "#nogo"
-        onClick={handleCitySelection}
-      >
-        {city.name}
-      </a>
-    ))}
+                {getButtonText('Number of Rooms')}
+              </button>
+              <div className="dropdown-menu" >
+              {Array.from({ length: 10 }, (_, i) => (
+            <a
+              key={i}
+              className="dropdown-item"
+              href="#nogo"
+              onClick={() => handleDropdownItemClick('Number of Rooms', (i + 1).toString())}
+            >
+              {i + 1}
+            </a>
+          ))}
               </div>
+            </div>
+            <div>
+              <span className="text-white-50">Text</span>
             </div>
           </div>
           <div>
             <label className="form-label" style={{ fontWeight: "bold" }}>
-              District
+              Flat Type
             </label>
             <div className="dropdown">
               <button
@@ -390,33 +395,304 @@ const  HostRentingRoomLocation= () => {
                 data-bs-toggle="dropdown"
                 type="button"
               >
-                {selectedDistrict || "Select Your District"}
+              {getButtonText('Flat Type')}
               </button>
               <div className="dropdown-menu">
-              {districts.map((District, index)=> (
-                <a
-                key={index}
-                className="dropdown-item"
-                href = "#nogo"
-                onClick={handleDistrictSelection}
-              >
-                {District}
-              </a>
+              {['Apartment', 'Villa'].map((flatType) => (
+      <a
+        key={flatType}
+        className="dropdown-item"
+        href="#nogo"
+        onClick={() => handleDropdownItemClickType('Flat Type', flatType)}
+      >
+        {flatType}
+      </a>
     ))}
               </div>
             </div>
-            
             <div>
               <span className="text-white-50">Text</span>
             </div>
           </div>
-          <label className="form-label" style={{ fontWeight: "bold" }}>
-            Your address
-          </label>
           <div>
-            <textarea className="form-control" defaultValue={""} />
+            <label className="form-label" style={{ fontWeight: "bold" }}>
+              Number of Bathrooms
+            </label>
+            <div className="dropdown">
+              <button
+                className="btn btn-light btn-sm dropdown-toggle text-center"
+                aria-expanded="false"
+                data-bs-toggle="dropdown"
+                type="button"
+              >
+                {getButtonText('Number of Bathrooms')}
+              </button>
+              <div className="dropdown-menu">
+              {Array.from({ length: 6 }, (_, i) => (
+            <a
+              key={i}
+              className="dropdown-item"
+              href="#nogo"
+              onClick={() => handleDropdownItemClick('Number of Bathrooms', (i + 1).toString())}
+            >
+              {i + 1}
+            </a>
+          ))}
+              </div>
+            </div>
+            <div>
+              <span className="text-white-50">Text</span>
+            </div>
           </div>
           <div>
+            <label className="form-label" style={{ fontWeight: "bold" }}>
+              Bed(s) in the Flat
+            </label>
+            <div />
+            <div className="dropdown">
+              <button
+                className="btn btn-light btn-sm dropdown-toggle text-center"
+                aria-expanded="false"
+                data-bs-toggle="dropdown"
+                type="button"
+              >
+                {getButtonText('Bed(s) in the Flat')}
+              </button>
+              <div className="dropdown-menu">
+              {Array.from({ length: 12 }, (_, i) => (
+            <a
+              key={i}
+              className="dropdown-item"
+              href="#nogo"
+              onClick={() => handleDropdownItemClick('Bed(s) in the Flat', (i + 1).toString())}
+            >
+              {i + 1}
+            </a>
+          ))}
+              </div>
+            </div>
+            <div>
+              <span className="text-white-50">Text</span>
+              <div>
+                <label className="form-label" style={{ fontWeight: "bold" }}>
+                  Guest Limit in Person
+                </label>
+                <div className="dropdown">
+                  <button
+                    className="btn btn-light btn-sm dropdown-toggle text-center"
+                    aria-expanded="false"
+                    data-bs-toggle="dropdown"
+                    type="button"
+                  >
+                    {getButtonText('Guest Limit in Person')}
+                  </button>
+                  <div className="dropdown-menu">
+                  {Array.from({ length: 12 }, (_, i) => (
+            <a
+              key={i}
+              className="dropdown-item"
+              href="#nogo"
+              onClick={() => handleDropdownItemClick('Guest Limit in Person', (i + 1).toString())}
+            >
+              {i + 1}
+            </a>
+          ))}
+                  </div>
+                </div>
+                <div>
+                  <span className="text-white-50">Text</span>
+                </div>
+              </div>
+              <div>
+                <div>
+                  <label
+                    className="form-label"
+                    style={{
+                      fontSize: 25,
+                      textAlign: "center",
+                      fontWeight: "bold"
+                    }}
+                  >
+                    Guest policy
+                  </label>
+                  <div className="form-check">
+                    <input
+                      className="form-check-input"
+                      type="checkbox"
+                      id="formCheck-4"
+                    />
+                    <label className="form-check-label" htmlFor="formCheck-4">
+                      Only to families
+                    </label>
+                  </div>
+                  <label className="form-label">
+                    <span style={{ color: "var(--bs-body-bg)" }}>Text</span>For
+                    family friendly hosts.
+                  </label>
+                  <label className="form-label" />
+                  <div className="form-check">
+                    <input
+                      className="form-check-input"
+                      type="checkbox"
+                      id="formCheck-3"
+                    />
+                    <label className="form-check-label" htmlFor="formCheck-3">
+                      No children allowed
+                    </label>
+                  </div>
+                  <label className="form-label">
+                    <span style={{ color: "var(--bs-body-bg)" }}>Text</span>For
+                    someone, no child = tranquilty.
+                  </label>
+                  <div className="form-check">
+                    <input
+                      className="form-check-input"
+                      type="checkbox"
+                      id="formCheck-5"
+                    />
+                    <label className="form-check-label" htmlFor="formCheck-5">
+                      No pets allowed
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <label className="form-label">
+              <span style={{ color: "var(--bs-body-bg)" }}>Text</span>Pets are
+              our best friends, but some people can be allergic to them.
+            </label>
+            <div />
+            <div>
+              <label className="form-label" style={{ fontWeight: "bold" }}>
+                Room description
+              </label>
+              <textarea className="form-control" defaultValue={""} />
+            </div>
+            <span style={{ color: "rgba(33,37,41,0.01)" }}>Text</span>
+            <div>
+              <label className="form-label" style={{ fontWeight: "bold" }}>
+                Upload at least 3 photographs about your room
+              </label>
+              <div className="files color form-group mb-3">
+                <input
+                  className="form-control"
+                  type="file"
+                  multiple="true"
+                  name="files"
+                  onChange={handleFileUpload}
+                />
+              </div>
+              {!isValid && (
+        <div style={{ textAlign: "left", color: "red" }}>
+          Please upload at least 3 photographs.
+        </div>
+      )}
+       <div style={{ textAlign: "left" }}>
+          {fileNames.length > 0 && (
+            <div>
+              <h4>Uploaded files:</h4>
+              <ul>
+                {fileNames.map((name, index) => (
+                  <li key={index}>{name}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+            </div>
+            <div />
+            <div>
+              <h2 className="fs-2 fw-bold text-center">Additional Features</h2>
+              <span className="text-white-50">Text</span>
+              <div className="form-check">
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+                  id="formCheck-1"
+                />
+                <label
+                  className="form-check-label fs-4 fw-semibold text-start"
+                  htmlFor="formCheck-1"
+                >
+                  Free accommodation for earthquake victims&nbsp;
+                </label>
+              </div>
+              <label className="form-label">
+                Millions of earthquake victims in Turkey are now homeless. You
+                can rent your room to them free!
+              </label>
+              <span className="text-white-50">Text</span>
+              <div className="form-check text-start bg-white">
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+                  id="formCheck-2"
+                />
+                <label
+                  className="form-check-label fs-4 fw-semibold text-start"
+                  htmlFor="formCheck-2"
+                >
+                  Couchsurfing
+                </label>
+              </div>
+              <label className="form-label">
+                &nbsp;Use Couchsurfing to find a place to stay or share your
+                home and hometown with travelers and have fun!
+              </label>
+              <div className="col-md-12" style={{ textAlign: "center" }}>
+                <label
+                  className="col-form-label"
+                  style={{ fontWeight: "bold", fontSize: 24 }}
+                >
+                  Select Amenities for this property:
+                </label>
+              </div>
+              <div className="table-responsive">
+                <table className="table">
+                  <thead>
+                    <tr />
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        heating
+                        <i className="fas fa-thermometer-full" />
+                      </td>
+                      <td>
+                        hair-conditioner
+                        <i className="far fa-laugh-beam" />
+                      </td>
+                      <td>
+                        beachfront
+                        <i className="fas fa-umbrella-beach" />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        museum access
+                        <i className="far fa-object-group" />
+                      </td>
+                      <td>
+                        airport access
+                        <i className="fas fa-plane" />
+                      </td>
+                      <td>
+                        private entrance
+                        <i className="far fa-eye-slash" />
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <button
+                className="btn btn-primary"
+                type="button"
+                style={{ textAlign: "center" }}
+              >
+                Show all Amenities
+              </button>
+              <span className="text-white-50">Text</span>
+            </div>
             <span className="text-white-50">Text</span>
           </div>
           <div className="row justify-content-center">
@@ -497,8 +773,7 @@ const  HostRentingRoomLocation= () => {
 </>
 
 
-    );
-
+);
 }
 
-export default HostRentingRoomLocation;
+export default HostRentingRoomDetails;

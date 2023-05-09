@@ -13,7 +13,7 @@ const containerStyle = {
     lng: 30.68876901249269
   };
   
-const  HostRentingRoomLocation= () => {
+const  HostRentingFlatLocation= () => {
     const [selectedLocation, setSelectedLocation] = useState(null);
 
   const handleMapClick = (event) => {
@@ -50,7 +50,7 @@ const  HostRentingRoomLocation= () => {
   const navigate = useNavigate();
   const handleSubmit = (event) => {
     event.preventDefault();
-    navigate('/HostRentingRoomPricing');
+    navigate('/HostRentingFlatPricing');
   };
   
   
@@ -332,14 +332,14 @@ const  HostRentingRoomLocation= () => {
     <section className="clean-block clean-form dark">
       <div className="container">
         <div className="block-heading">
-          <h2 className="text-info">Give Some Details About Your Room</h2>
+          <h2 className="text-info">Give Some Details About Your Flat</h2>
           <p>
-            Your room's location matters for customers. No worries, we'll share
+            Your flat's location matters for customers. No worries, we'll share
             your adress after&nbsp; customer reserves it!
           </p>
         </div>
         <form style={{ textAlign: "left", display: "block" }} onSubmit={handleSubmit}>
-          <h1 className="text-center">Where's your room located?</h1>
+          <h1 className="text-center">Where's your flat located?</h1>
           <LoadScript googleMapsApiKey="AIzaSyAdc1phOB8xRTsyJwEa3wBuAGPIg9ZFnJ4">
       <GoogleMap
         mapContainerStyle={containerStyle}
@@ -501,4 +501,4 @@ const  HostRentingRoomLocation= () => {
 
 }
 
-export default HostRentingRoomLocation;
+export default HostRentingFlatLocation;

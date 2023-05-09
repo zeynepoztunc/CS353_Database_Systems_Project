@@ -1,59 +1,33 @@
-import React, { useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React, {useState} from 'react'; 
 import {  useNavigate } from 'react-router-dom';
-import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
-const containerStyle = {
-    width: '100%',
-    height: '400px'
-  };
-  
-  const defaultCenter = {
-    lat: 36.90188844423498,
-    lng: 30.68876901249269
-  };
-  
-const  HostRentingRoomLocation= () => {
-    const [selectedLocation, setSelectedLocation] = useState(null);
+const  HostRentingFlatPricing= () => {
+    const [dateRange, setDateRange] = useState([null, null]);
+    const [startDate, endDate] = dateRange;
+    const [customRefundEnabled, setCustomRefundEnabled] = useState(false);
+    const navigate = useNavigate();
 
-  const handleMapClick = (event) => {
-    setSelectedLocation({
-      lat: event.latLng.lat(),
-      lng: event.latLng.lng()
-    });
+  const handleRadioChange = (event) => {
+    setCustomRefundEnabled(false);
   };
-  const [selectedCity, setSelectedCity] = useState('');
-  const [districts, setDistricts] = useState([]);
-  const [selectedDistrict,setSelectedDistrict] = useState('');
 
-  const cities = [
-    { name: 'Ankara', districts: ['Çankaya', 'Yenimahalle'] },
-    { name: 'Antalya', districts: ['Kemer', 'Alanya', 'Kaş'] },
-    { name: 'Istanbul', districts: ['Beşiktaş', 'Kadıköy', 'Sultanahmet'] },
-    { name: 'Izmir', districts: ['Çeşme', 'Dikili', 'Karşıyaka'] },
-    { name: 'Muğla', districts: ['Bodrum', 'Marmaris', 'Fethiye'] }
-    
-  ];
-
-  const handleCitySelection = (event) => {
-    setSelectedCity(event.target.innerText);
-    const city = cities.find((city) => city.name === event.target.innerText);
-    if (city) {
-      setDistricts(city.districts);
-    } else {
-      setDistricts([]);
-    }
+  const handleCustomRefundCheckbox = (event) => {
+    setCustomRefundEnabled(event.target.checked);
   };
-  const handleDistrictSelection = (event) => {
-    setSelectedDistrict(event.target.innerText);
-  };
-  const navigate = useNavigate();
   const handleSubmit = (event) => {
     event.preventDefault();
-    navigate('/HostRentingRoomPricing');
+    navigate('/HostRentingProperty');
   };
-  
-  
+
+    // Example of occupied dates
+  const occupiedDates = [
+    new Date(2023, 5, 10),
+    new Date(2023, 5, 11),
+    new Date(2023, 5, 12),
+  ];
     return (
         <>
   <meta charSet="utf-8" />
@@ -74,14 +48,14 @@ const  HostRentingRoomLocation= () => {
   <link rel="stylesheet" href="./assets/fonts/fontawesome5-overrides.min.css" />
   <link rel="stylesheet" href="./assets/baguetteBox.min.css" />
   <link rel="stylesheet" href="./assets/Bootstrap-4-Calendar-No-Custom-Code.css" />
-  <link rel="stylesheet" href="./assets/Drag--Drop-Upload-Form.css" />
+  <link rel="stylesheet" href="./Drag--Drop-Upload-Form.css" />
   <link rel="stylesheet" href="./assets/Drag-Drop-File-Input-Upload.css" />
   <link rel="stylesheet" href="./assets/pop-up-boxes.css" />
   <link rel="stylesheet" href="./assets/vanilla-zoom.min.css" />
   <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://cdn.reflowhq.com/v2/toolkit.min.css" />
   <link rel="stylesheet" href="./assets/fonts/fontawesome-all.min.css" />
-  <link rel="stylesheet" href="./assets/css/baguetteBox.min.css" />
+  <link rel="stylesheet" href="./assetscss/baguetteBox.min.css" />
   <link rel="stylesheet" href="./assets/css/Banner-Heading-Image-images.css" />
   <link rel="stylesheet" href="./assets/Button-modal-ecommerce-bs4_modal.min.css" />
   <link rel="stylesheet" href="./assets/Button-modal-ecommerce-styles.css" />
@@ -332,96 +306,169 @@ const  HostRentingRoomLocation= () => {
     <section className="clean-block clean-form dark">
       <div className="container">
         <div className="block-heading">
-          <h2 className="text-info">Give Some Details About Your Room</h2>
+          <h2 className="text-info">One way before the rent!</h2>
           <p>
-            Your room's location matters for customers. No worries, we'll share
-            your adress after&nbsp; customer reserves it!
+            Your flat looks fantastic. Now, you can set a daily price and
+            cancellation policies about your flat.
           </p>
         </div>
-        <form style={{ textAlign: "left", display: "block" }} onSubmit={handleSubmit}>
-          <h1 className="text-center">Where's your room located?</h1>
-          <LoadScript googleMapsApiKey="AIzaSyAdc1phOB8xRTsyJwEa3wBuAGPIg9ZFnJ4">
-      <GoogleMap
-        mapContainerStyle={containerStyle}
-        center={defaultCenter}
-        zoom={10}
-        onClick={handleMapClick}
-      >
-        {selectedLocation && (
-          <Marker position={selectedLocation} />
-        )}
-      </GoogleMap>
-    </LoadScript>
+        <form
+          className="text-start d-block float-none"
+          style={{ textAlign: "left", display: "block" }}
+          onSubmit={handleSubmit}
+        >
+          <h1
+            className="fs-1 fw-bolder text-center"
+            style={{ textAlign: "center" }}
+          >
+            Check-in and Cancellation Policy
+          </h1>
+          <figure className="figure" />
+          <span />
           <div>
-            <label className="form-label" style={{ fontWeight: "bold" }}>
-              City
+            <label
+              className="form-label"
+              style={{ fontWeight: "bold", fontSize: 24 }}
+            >
+              Set available dates for renting&nbsp;
             </label>
-            <div className="dropdown">
-              <button
-                className="btn btn-light btn-sm dropdown-toggle text-center d-inline align-content-center"
-                aria-expanded="false"
-                data-bs-toggle="dropdown"
-                type="button"
-              >
-                {selectedCity || 'Select Your City'}
-        </button>
-        <div className="dropdown-menu">
-        {cities.map((city, index) => (
-      <a
-        key={index}
-        className="dropdown-item"
-        href = "#nogo"
-        onClick={handleCitySelection}
-      >
-        {city.name}
-      </a>
-    ))}
-              </div>
-            </div>
+            <div>
+      <DatePicker
+        selected={startDate}
+        onChange={(update) => {
+          setDateRange(update);
+        }}
+        startDate={startDate}
+        endDate={endDate}
+        selectsRange
+        dateFormat="yyyy/MM/dd"
+        minDate={new Date()} // disable past dates
+        excludeDates={occupiedDates} // exclude occupied dates
+      />
+    </div>
+            <label className="form-label" style={{ fontWeight: "bold" }}>
+              Earliest Check-in hour&nbsp;
+            </label>
+            <input className="form-control" type="time" />
           </div>
           <div>
-            <label className="form-label" style={{ fontWeight: "bold" }}>
-              District
-            </label>
-            <div className="dropdown">
-              <button
-                className="btn btn-light btn-sm dropdown-toggle text-center"
-                aria-expanded="false"
-                data-bs-toggle="dropdown"
-                type="button"
-              >
-                {selectedDistrict || "Select Your District"}
-              </button>
-              <div className="dropdown-menu">
-              {districts.map((District, index)=> (
-                <a
-                key={index}
-                className="dropdown-item"
-                href = "#nogo"
-                onClick={handleDistrictSelection}
-              >
-                {District}
-              </a>
-    ))}
-              </div>
-            </div>
-            
             <div>
               <span className="text-white-50">Text</span>
             </div>
+            <label className="form-label" style={{ fontWeight: "bold" }}>
+              Latest Check-in hour&nbsp;
+            </label>
+            <input className="form-control" type="time" />
           </div>
-          <label className="form-label" style={{ fontWeight: "bold" }}>
-            Your address
-          </label>
           <div>
-            <textarea className="form-control" defaultValue={""} />
+            <div>
+              <span className="text-white-50">Text</span>
+            </div>
+            <label className="form-label" style={{ fontWeight: "bold" }}>
+              Cancellation hour limit prior to reservation date
+            </label>
+            <input className="form-control" type="number" />
           </div>
           <div>
             <span className="text-white-50">Text</span>
           </div>
+          <div>
+            <label className="form-label fs-3 fw-bold">
+              Daily Price (in USD)
+            </label>
+            <input className="form-control" type="number" />
+            <div>
+              <label className="form-label text-start">
+                Optimal price means more customers!&nbsp;
+              </label>
+            </div>
+          </div>
+          <div>
+      <label
+        className="form-label"
+        style={{ fontWeight: "bold", fontSize: 18 }}
+      >
+        Cancellation refund fee (in USD)
+      </label>
+      <div className="form-check">
+        <input
+          className="form-check-input"
+          type="radio"
+          name="refund"
+          id="formCheck-1"
+          onChange={handleRadioChange}
+        />
+        <label className="form-check-label" htmlFor="formCheck-1">
+          25% of Daily Price
+        </label>
+      </div>
+      <div className="form-check">
+        <input
+          className="form-check-input"
+          type="radio"
+          name="refund"
+          id="formCheck-2"
+          onChange={handleRadioChange}
+        />
+        <label className="form-check-label" htmlFor="formCheck-2">
+          50% of Daily Price
+        </label>
+      </div>
+      <div className="form-check">
+        <input
+          className="form-check-input"
+          type="radio"
+          name="refund"
+          id="formCheck-4"
+          onChange={handleRadioChange}
+        />
+        <label className="form-check-label" htmlFor="formCheck-4">
+          100% of Daily Price
+        </label>
+      </div>
+      <label className="form-label" style={{ fontWeight: "bold" }}>
+        OR, Custom Refund Fee:
+      </label>
+      <input
+        className="form-control"
+        type="number"
+        disabled={!customRefundEnabled}
+      />
+      <div>
+        <input
+          type="checkbox"
+          checked={customRefundEnabled}
+          onChange={handleCustomRefundCheckbox}
+        />
+        <span className="text-black-50">Enable Custom Refund Fee</span>
+      </div>
+    </div>
+          
+          <div>
+            <div>
+              <div className="form-check">
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+                  id="formCheck-3"
+                />
+                <label
+                  className="form-check-label fs-4 fw-semibold"
+                  htmlFor="formCheck-3"
+                >
+                  Auto approve cancellation requests
+                </label>
+              </div>
+              <label className="form-label">
+                WeRent can automatically accept cancellation requests sent by
+                customers.&nbsp;
+              </label>
+            </div>
+          </div>
+          <span className="text-white-50">Text</span>
           <div className="row justify-content-center">
             <button type="submit" className="btn btn-primary">
-              Next
+              Rent Now!
             </button>
           </div>
           <div />
@@ -496,9 +543,6 @@ const  HostRentingRoomLocation= () => {
   </footer>
 </>
 
-
-    );
-
+    )
 }
-
-export default HostRentingRoomLocation;
+export default HostRentingFlatPricing;

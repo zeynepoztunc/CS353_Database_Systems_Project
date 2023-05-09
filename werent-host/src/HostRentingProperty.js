@@ -16,6 +16,9 @@ const  HostRentingProperty= () => {
     if (selectedOption === 'formCheck-1') {
       navigate('/HostRentingRoomDetails');
     }
+    if (selectedOption === 'formCheck-2') {
+      navigate('/HostRentingFlatDetails');
+    }
   };
   return (
     <>
