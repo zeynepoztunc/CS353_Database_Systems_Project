@@ -2,10 +2,33 @@ import React, { useState } from 'react';
 import {  useNavigate } from 'react-router-dom';
 function ProfilePage() {
   const navigate = useNavigate();
+  const reviews = [
+    { id: 1, author: 'John ', comment: 'Clean and kind guest!', image: "assets/img/istockphoto-1200677760-612x612.jpg" },
+    { id: 2, author: 'Jane ', comment: 'Respectful and tidy',image: 'assets/img/happy-young-woman-sitting-on-260nw-2018571389.webp'},
+    { id: 3, author: 'Liz', comment: 'Was very nice and welcoming', image:"assets/img/360_F_367464887_f0w1JrL8PddfuH3P2jSPlIGjKU2BI0rn.jpg" },
+    { id: 4, author: 'Deniz', comment: 'Super guest!', image:"assets/img/smile-young-man-close-gorgeous-260nw-186076112.webp" }
 
+  ];
   const handlePastBookings = (event) => {
     event.preventDefault();
     navigate('/PastBookingsPage');
+  };
+  const [selectedFile, setSelectedFile] = useState(null);
+
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    setSelectedFile(file);
+  };
+
+  const handleFileUpload = () => {
+    // Handle file upload logic here
+    if (selectedFile) {
+      // Perform actions with the selected file
+      console.log('Selected file:', selectedFile);
+    } else {
+      // No file selected
+      console.log('No file selected');
+    }
   };
 
   const handlePastTransactions = (event) => {
@@ -97,7 +120,7 @@ function ProfilePage() {
                         src="assets/img/istockphoto-1225524274-612x612.jpg"
                         width={126}
                         height={111}
-                        style={{ paddingLeft: 0, marginLeft: 48 }}
+                        style={{ paddingLeft: 0, marginLeft: 90 }}
                       />
                       <p style={{ marginTop: 16 }}>
                         <strong>
@@ -278,14 +301,24 @@ function ProfilePage() {
                           Upload Entitlement of Disaster pdf
                         </span>
                       </p>
+                    
                       <h6 className="text-muted card-subtitle mb-2" />
                       <p />
+                      <input
+                          className="form-control"
+                          type="file"
+                          name="files"
+                          accept=".pdf"
+                          id="fileInput" 
+                          onChange={handleFileChange}
+                        />
                       <button
                         className="btn btn-danger"
                         type="button"
+                        onClick={handleFileUpload}
                         style={{
                           paddingTop: 0,
-                          marginTop: "-2px",
+                          marginTop: "5px",
                           paddingLeft: 0,
                           paddingBottom: 7,
                           paddingRight: 0,
@@ -295,6 +328,9 @@ function ProfilePage() {
                       >
                         Upload
                       </button>
+                      
+                      
+                    
                     </div>
                   </div>
                 </div>
@@ -413,10 +449,12 @@ function ProfilePage() {
             </div>
             <div className="container">
               <div className="row">
+              
+              {reviews.map((review) => (
                 <div className="col-md-6" style={{ paddingTop: 17 }}>
                   <img
                     className="rounded-circle"
-                    src="assets/img/istockphoto-1200677760-612x612.jpg"
+                    src={review.image}
                     width={101}
                     height={87}
                   />
@@ -438,122 +476,20 @@ function ProfilePage() {
                         marginRight: 74
                       }}
                     >
-                      <h4
-                        className="card-title"
-                        style={{ marginRight: 0, marginLeft: "-56px" }}
-                      >
-                        Nick
-                      </h4>
-                      <p className="card-text" style={{ marginLeft: "-56px" }}>
-                        Clean and kind guest.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-md-6" style={{ paddingTop: 17 }}>
-                  <img
-                    className="rounded-circle"
-                    src="assets/img/happy-young-woman-sitting-on-260nw-2018571389.webp"
-                    width={101}
-                    height={87}
-                  />
-                  <div
-                    className="card"
-                    style={{
-                      marginLeft: 119,
-                      marginBottom: 0,
-                      paddingBottom: 0,
-                      paddingTop: 0,
-                      marginTop: "-101px"
-                    }}
-                  >
-                    <div
-                      className="card-body"
-                      style={{
-                        marginBottom: "-2px",
-                        marginLeft: 52,
-                        marginRight: 74
-                      }}
-                    >
+                     
                       <h4 className="card-title" style={{ marginLeft: "-56px" }}>
-                        Liz
+                      <p>{review.author}</p>
+
                       </h4>
-                      <p className="card-text" style={{ marginLeft: "-56px" }}>
-                        Respectful and tidy.
-                      </p>
+                       
+                       <p className="card-text" style={{ marginLeft: "-56px" }}>
+                       {review.comment}
+                       </p> 
                     </div>
                   </div>
                 </div>
-                <div className="col-md-6" style={{ paddingTop: 12, marginTop: 5 }}>
-                  <img
-                    className="rounded-circle"
-                    src="assets/img/360_F_367464887_f0w1JrL8PddfuH3P2jSPlIGjKU2BI0rn.jpg"
-                    width={101}
-                    height={87}
-                  />
-                  <div
-                    className="card"
-                    style={{
-                      marginLeft: 119,
-                      marginBottom: 0,
-                      paddingBottom: 0,
-                      paddingTop: 0,
-                      marginTop: "-101px"
-                    }}
-                  >
-                    <div
-                      className="card-body"
-                      style={{
-                        marginBottom: "-2px",
-                        marginLeft: 52,
-                        marginRight: 52
-                      }}
-                    >
-                      <h4 className="card-title" style={{ marginLeft: "-56px" }}>
-                        Sena
-                      </h4>
-                      <p className="card-text" style={{ marginLeft: "-56px" }}>
-                        Super guest!!
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-md-6" style={{ paddingTop: 8, marginTop: 5 }}>
-                  <img
-                    className="rounded-circle"
-                    src="assets/img/smile-young-man-close-gorgeous-260nw-186076112.webp"
-                    width={101}
-                    height={88}
-                  />
-                  <div
-                    className="card"
-                    style={{
-                      marginLeft: 119,
-                      marginBottom: 0,
-                      paddingBottom: 0,
-                      paddingTop: 0,
-                      marginTop: "-97px"
-                    }}
-                  >
-                    <div
-                      className="card-body"
-                      style={{ marginBottom: "-2px", marginLeft: 52, marginRight: 2 }}
-                    >
-                      <h4 className="card-title" style={{ marginLeft: "-56px" }}>
-                        Deniz
-                      </h4>
-                      <p
-                        className="card-text"
-                        style={{ marginRight: "-2px", marginLeft: "-56px" }}
-                      >
-                        Was very nice and welcoming.&nbsp;
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-md-6" style={{ paddingTop: 8 }}>
-                  <div />
-                </div>
+                ))}
+
                 <div className="col-md-6" style={{ paddingTop: 8 }}>
                   <button
                     className="btn btn-danger"
