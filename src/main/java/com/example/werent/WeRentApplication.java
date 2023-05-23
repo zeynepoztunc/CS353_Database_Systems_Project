@@ -6,7 +6,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.PostConstruct;
 import java.util.List;
 import java.util.Map;
 
@@ -18,6 +17,7 @@ public class WeRentApplication {
     }
 }
 
+/*
 @Component
 class DatabaseHealthChecker {
 
@@ -37,3 +37,4 @@ class DatabaseHealthChecker {
         System.out.println("Successfully executed a query on the database");
     }
 }
+*/
