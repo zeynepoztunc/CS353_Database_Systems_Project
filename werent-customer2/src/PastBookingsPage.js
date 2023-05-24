@@ -1,4 +1,5 @@
 import {  useNavigate } from 'react-router-dom';
+import NavBar from './NavBar';
 function PastBookingsPage() {
   const navigate = useNavigate();
 
@@ -24,52 +25,7 @@ function PastBookingsPage() {
   <link rel="stylesheet" href="assets/css/baguetteBox.min.css" />
   <link rel="stylesheet" href="assets/css/Banner-Heading-Image-images.css" />
   <link rel="stylesheet" href="assets/css/vanilla-zoom.min.css" />
-  <nav className="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
-    <div className="container">
-      <p className="fs-3">WeRent</p>
-      <a className="navbar-brand logo" href="#" />
-      <button
-        data-bs-toggle="collapse"
-        className="navbar-toggler"
-        data-bs-target="#navcol-1"
-      >
-        <span className="visually-hidden">Toggle navigation</span>
-        <span className="navbar-toggler-icon" />
-      </button>
-      <div className="collapse navbar-collapse" id="navcol-1">
-        <ul className="navbar-nav ms-auto">
-          <li className="nav-item">
-            <a className="nav-link" href="index.html">
-              Dashboard
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="pricing.html">
-              Map
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="profile.html">
-              <i
-                className="fas fa-shopping-basket text-dark"
-                style={{ fontSize: 22 }}
-              />
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="contact-us.html">
-              <i className="fas fa-user text-dark" style={{ fontSize: 24 }} />
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#">
-              LOG OUT
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+  <NavBar></NavBar>
   <main className="page blog-post-list">
     <section className="clean-block clean-blog-list dark">
       <div

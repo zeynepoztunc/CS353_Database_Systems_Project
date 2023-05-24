@@ -1,5 +1,5 @@
 import {  useNavigate } from 'react-router-dom';
-
+import NavBar from './NavBar';
 function PastTransactionsPage() {
     const navigate = useNavigate();
 
@@ -19,20 +19,8 @@ function PastTransactionsPage() {
     <link rel="stylesheet" href="assets/css/vanilla-zoom.min.css"></link>
   </head>
   <body>
-  <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
-        <div class="container">
-            <p class="fs-3">WeRent</p><a class="navbar-brand logo" href="#"></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navcol-1">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Dashboard</a></li>
-                    <li class="nav-item"><a class="nav-link" href="pricing.html">Map</a></li>
-                    <li class="nav-item"><a class="nav-link" href="profile.html"><i class="fas fa-shopping-basket text-dark" style={{fontSize: "22px"}}></i></a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact-us.html"><i class="fas fa-user text-dark" style={{fontSize: "22px"}}></i></a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">LOG OUT</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+ 
+    <NavBar></NavBar>
     <main class="page blog-post-list">
         <section class="clean-block clean-blog-list dark">
         <div class="container" style={{marginBottom: "-40px",paddingBottom: "0px"}}>
