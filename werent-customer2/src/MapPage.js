@@ -1,10 +1,6 @@
 import React from 'react';
 import {  useNavigate } from 'react-router-dom';
 //import GoogleMapReact from 'google-map-react';
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
 
 function MapPage() {
 
