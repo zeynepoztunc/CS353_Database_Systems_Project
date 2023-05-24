@@ -98,7 +98,7 @@ function ShoppingCart() {
                       <div className="product-image">
                         <img
                           className="img-fluid d-block mx-auto image"
-                          src="assets/img/tech/Ekran%20Görüntüsü%20(1188).png"
+                          src="assets/img/Ekran%20Görüntüsü%20(1188).png"
                           width={146}
                           height={146}
                         />
@@ -143,7 +143,7 @@ function ShoppingCart() {
                       <div className="product-image">
                         <img
                           className="img-fluid d-block mx-auto image"
-                          src="assets/img/tech/Ekran%20Görüntüsü%20(1189).png"
+                          src="assets/img/Ekran%20Görüntüsü%20(1189).png"
                         />
                       </div>
                     </div>
@@ -191,7 +191,7 @@ function ShoppingCart() {
                         <div className="product-image">
                           <img
                             className="img-fluid d-block mx-auto image"
-                            src="assets/img/tech/Ekran%20Görüntüsü%20(1191).png"
+                            src="assets/img/Ekran%20Görüntüsü%20(1191).png"
                           />
                         </div>
                       </div>

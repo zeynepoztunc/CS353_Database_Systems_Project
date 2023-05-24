@@ -1,6 +1,6 @@
 import React from 'react';
 import {  useNavigate } from 'react-router-dom';
-import GoogleMapReact from 'google-map-react';
+//import GoogleMapReact from 'google-map-react';
 
 function MapPage() {
 
@@ -100,13 +100,13 @@ function MapPage() {
         <div className="block-heading">
           <h2 className="text-info">MAP</h2>
           <div style={{ height: '400px', width: '100%' }}>
-            <GoogleMapReact
+            {/* <GoogleMapReact
                 bootstrapURLKeys={{ key: 'YOUR_API_KEY' }}
                 defaultCenter={{ lat: 37.7749, lng: -122.4194 }}
                 defaultZoom={12}
                 yesIWantToUseGoogleMapApiInternals
                 onGoogleApiLoaded={({ map, maps }) => handleApiLoaded(map, maps)}
-            />
+            /> */}
         </div>
         </div>
         <div style={{ marginLeft: 72 }}>
