@@ -134,7 +134,7 @@ function MapPage() {
                   >
                     <img
                       className="img-fluid d-block mx-auto"
-                      src="assets/img/tech/Ekran%20Görüntüsü%20(1189).png"
+                      src="assets/img/Ekran%20Görüntüsü%20(1189).png"
                       width={113}
                       height={113}
                     />
@@ -179,7 +179,7 @@ function MapPage() {
                   >
                     <img
                       className="img-fluid d-block mx-auto"
-                      src="assets/img/tech/Ekran%20Görüntüsü%20(1189).png"
+                      src="assets/img/Ekran%20Görüntüsü%20(1189).png"
                       width={113}
                       height={113}
                     />
@@ -224,7 +224,7 @@ function MapPage() {
                   >
                     <img
                       className="img-fluid d-block mx-auto"
-                      src="assets/img/tech/Ekran%20Görüntüsü%20(1189).png"
+                      src="assets/img/Ekran%20Görüntüsü%20(1189).png"
                       width={113}
                       height={113}
                     />
