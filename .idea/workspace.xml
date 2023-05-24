@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="5e555480-ab5a-407e-a171-4062daf29606" name="Changes" comment="entity classes are uploaded">
+      <change afterPath="$PROJECT_DIR$/.idea/WeRent.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations/WeRentApplication.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/.vscode/launch.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/bootstrap/css/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/bootstrap/js/bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/css/Bootstrap-4-Calendar-No-Custom-Code.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/css/Button-modal-ecommerce-bs4_modal.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/css/Button-modal-ecommerce-styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/css/Drag--Drop-Upload-Form.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/css/Drag-Drop-File-Input-Upload.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/css/Font Awesome 5 Brands.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/css/Font Awesome 5 Free.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/css/Hover-Button-1.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/css/baguetteBox.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/css/bootstrap/css/bootstrap.min-1.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/css/bootstrap/css/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/css/css/Banner-Heading-Image-images.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/css/css/baguetteBox.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/css/fonts/fontawesome-all.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/css/pop-up-boxes.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/css/styles.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/css/vanilla-zoom.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/fonts/FontAwesome.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/fonts/Simple-Line-Icons.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/fonts/Simple-Line-Icons.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/fonts/Simple-Line-Icons.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/fonts/Simple-Line-Icons.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/fonts/Simple-Line-Icons.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/fonts/fa-brands-400.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/fonts/fa-brands-400.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/fonts/fa-brands-400.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/fonts/fa-brands-400.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/fonts/fa-brands-400.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/fonts/fa-regular-400.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/fonts/fa-regular-400.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/fonts/fa-regular-400.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/fonts/fa-regular-400.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/fonts/fa-regular-400.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/fonts/fa-solid-900.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/fonts/fa-solid-900.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/fonts/fa-solid-900.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/fonts/fa-solid-900.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/fonts/fa-solid-900.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/fonts/font-awesome.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/fonts/fontawesome-all.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/fonts/fontawesome-webfont.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/fonts/fontawesome-webfont.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/fonts/fontawesome-webfont.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/fonts/fontawesome-webfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/fonts/fontawesome-webfont.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/fonts/fontawesome5-overrides.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/fonts/simple-line-icons.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/img/360_F_367464887_f0w1JrL8PddfuH3P2jSPlIGjKU2BI0rn.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/img/6676508.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/img/Başlıksız.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/img/CODERED_B1_portrait_photography-P4a_438x447.jpg.img.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/img/Cityhomes_Villa_032-400x300.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/img/IMG-20210205-WA0007.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/img/Stock-Airbnb-Home-AdobeStock-298309756 - Copy-2.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/img/bs4_slider_commerce_01.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/img/bs4_slider_commerce_02.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/img/bs4_slider_commerce_03.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/img/bs4_slider_commerce_04.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/img/c0.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/img/earthquake-icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/img/happy-young-woman-sitting-on-260nw-2018571389.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/img/icons8-room-80.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/img/images.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/img/images2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/img/istockphoto-1160217929-612x612.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/img/istockphoto-1200677760-612x612.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/img/istockphoto-1225524274-612x612.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/img/photo-1603775020644-eb8decd79994.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/img/pp.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/img/smile-young-man-close-gorgeous-260nw-186076112.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/img/star-empty.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/img/star-half-empty.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/img/star.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/img/thumbnail.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/img/thumbnail2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/img/zpwegh2jmdqgqvxiwqyn.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/js/Button-modal-ecommerce-bs4_modal.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/js/baguetteBox.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/js/bootstrap/js/bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/js/js/bs-init.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/js/script.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/js/theme.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/assets/js/vanilla-zoom.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/logo192.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/logo512.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/manifest.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/robots.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/App.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/App.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/App.test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/HostRentingFlatDetails.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/HostRentingFlatLocation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/HostRentingFlatPricing.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/HostRentingMainPage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/HostRentingProperty.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/HostRentingRoomDetails.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/HostRentingRoomLocation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/HostRentingRoomPricing.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/bootstrap/css/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/bootstrap/js/bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/css/Bootstrap-4-Calendar-No-Custom-Code.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/css/Button-modal-ecommerce-bs4_modal.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/css/Button-modal-ecommerce-styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/css/Drag--Drop-Upload-Form.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/css/Drag-Drop-File-Input-Upload.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/css/Font Awesome 5 Brands.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/css/Font Awesome 5 Free.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/css/Hover-Button-1.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/css/baguetteBox.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/css/bootstrap/css/bootstrap.min-1.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/css/bootstrap/css/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/css/css/Banner-Heading-Image-images.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/css/css/baguetteBox.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/css/fonts/fontawesome-all.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/css/pop-up-boxes.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/css/styles.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/css/vanilla-zoom.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/fonts/FontAwesome.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/fonts/Simple-Line-Icons.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/fonts/Simple-Line-Icons.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/fonts/Simple-Line-Icons.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/fonts/Simple-Line-Icons.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/fonts/Simple-Line-Icons.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/fonts/fa-brands-400.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/fonts/fa-brands-400.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/fonts/fa-brands-400.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/fonts/fa-brands-400.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/fonts/fa-brands-400.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/fonts/fa-regular-400.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/fonts/fa-regular-400.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/fonts/fa-regular-400.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/fonts/fa-regular-400.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/fonts/fa-regular-400.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/fonts/fa-solid-900.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/fonts/fa-solid-900.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/fonts/fa-solid-900.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/fonts/fa-solid-900.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/fonts/fa-solid-900.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/fonts/font-awesome.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/fonts/fontawesome-all.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/fonts/fontawesome-webfont.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/fonts/fontawesome-webfont.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/fonts/fontawesome-webfont.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/fonts/fontawesome-webfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/fonts/fontawesome-webfont.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/fonts/fontawesome5-overrides.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/fonts/simple-line-icons.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/img/360_F_367464887_f0w1JrL8PddfuH3P2jSPlIGjKU2BI0rn.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/img/6676508.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/img/Başlıksız.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/img/CODERED_B1_portrait_photography-P4a_438x447.jpg.img.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/img/Stock-Airbnb-Home-AdobeStock-298309756 - Copy-2.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/img/bs4_slider_commerce_01.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/img/bs4_slider_commerce_02.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/img/bs4_slider_commerce_03.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/img/bs4_slider_commerce_04.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/img/earthquake-icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/img/happy-young-woman-sitting-on-260nw-2018571389.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/img/icons8-room-80.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/img/images.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/img/images2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/img/istockphoto-1160217929-612x612.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/img/istockphoto-1200677760-612x612.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/img/istockphoto-1225524274-612x612.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/img/photo-1603775020644-eb8decd79994.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/img/pp.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/img/smile-young-man-close-gorgeous-260nw-186076112.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/img/star-empty.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/img/star-half-empty.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/img/star.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/img/thumbnail.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/img/thumbnail2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/js/Button-modal-ecommerce-bs4_modal.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/js/baguetteBox.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/js/bootstrap/js/bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/js/js/bs-init.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/js/script.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/js/theme.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/assets/js/vanilla-zoom.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/logo.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/reportWebVitals.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/setupTests.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/werent/WeRentApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/werent/controller/UserController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/werent/entity/AdminEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/werent/entity/AmenitiesEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/werent/entity/AmenitiesEntityPK.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/werent/entity/CommentsEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/werent/entity/ComplaintsEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/werent/entity/ComplaintsEntityPK.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/werent/entity/CustomerEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/werent/entity/EGovernmentFileEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/werent/entity/FavoritedLocationsEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/werent/entity/FavoritedLocationsEntityPK.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/werent/entity/FlatEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/werent/entity/GeneratedReportsEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/werent/entity/GeneratedReportsEntityPK.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/werent/entity/GuestEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/werent/entity/GuestEntityPK.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/werent/entity/HostEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/werent/entity/ImagesEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/werent/entity/ImagesEntityPK.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/werent/entity/LandmarksEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/werent/entity/LeavesEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/werent/entity/LeavesEntityPK.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/werent/entity/MakesEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/werent/entity/MakesEntityPK.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/werent/entity/MapLocationEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/werent/entity/OwnsEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/werent/entity/OwnsEntityPK.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/werent/entity/PostsEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/werent/entity/RegisteredUserEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/werent/entity/RentalEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/werent/entity/RentalLocationsEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/werent/entity/RentalLocationsEntityPK.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/werent/entity/ReportsEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/werent/entity/ReportsEntityPK.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/werent/entity/ReservationEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/werent/entity/ReviewEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/werent/entity/RoomEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/werent/entity/ShoppingCartEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/werent/entity/ShoppingCartEntityPK.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/werent/entity/TransactionEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/werent/entity/UserEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/werent/entity/WishlistsEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/werent/entity/WishlistsEntityPK.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/werent/repository/UserRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/werent/WeRentApplicationTests.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="AnnotationType" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectId" id="2QESLHvByl4EtRmibe74UdDgTGa" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "JPA.DatabaseSchemaImportDialog": "7998b21e-a609-4258-8397-36a97024c4bc",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "frontend+backend",
+    "last_directory_selection": "C:/Users/user/IdeaProjects/WeRent/src/main/java/com/example/werent",
+    "last_opened_file_path": "C:/Users/user/Desktop/WeRent",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.importing",
+    "spring.configuration.checksum": "f3f4db96eebdd4ab78486523217d9cc2",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
+    ],
+    "com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect": [
+      "PostgreSQL"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\user\Desktop" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.WeRentApplication (1)">
+    <configuration name="All in generated-requests" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http">
+      <method v="2" />
+    </configuration>
+    <configuration name="WeRentApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="WeRent" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.werent.WeRentApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="HTTP Request.All in generated-requests" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5e555480-ab5a-407e-a171-4062daf29606" name="Changes" comment="" />
+      <created>1684408111407</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1684408111407</updated>
+      <workItem from="1684408113456" duration="3956000" />
+      <workItem from="1684412408403" duration="2755000" />
+      <workItem from="1684914207960" duration="2945000" />
+      <workItem from="1684917194664" duration="89000" />
+      <workItem from="1684917300130" duration="396000" />
+      <workItem from="1684917704002" duration="80000" />
+      <workItem from="1684918342904" duration="3459000" />
+      <workItem from="1684923412902" duration="448000" />
+      <workItem from="1684923938583" duration="4057000" />
+      <workItem from="1684928229572" duration="2567000" />
+    </task>
+    <task id="LOCAL-00001" summary="new upload">
+      <created>1684410800015</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1684410800015</updated>
+    </task>
+    <task id="LOCAL-00002" summary="entity classes are uploaded">
+      <created>1684414566512</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1684414566512</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="new upload" />
+    <MESSAGE value="entity classes are uploaded" />
+    <option name="LAST_COMMIT_MESSAGE" value="entity classes are uploaded" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/WeRent$WeRentApplication.ic" NAME="WeRentApplication Coverage Results" MODIFIED="1684923042518" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
+</project>
