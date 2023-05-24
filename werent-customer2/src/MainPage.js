@@ -432,7 +432,7 @@ const  MainPage = () => {
                           <a href="#">
                             <img
                               className="img-fluid d-block mx-auto"
-                              src="assets/img/tech/Ekran%20Görüntüsü%20(1189).png"
+                              src="assets/img/Ekran%20Görüntüsü%20(1189).png"
                               width={181}
                               height={180}
                             />
@@ -473,7 +473,7 @@ const  MainPage = () => {
                           <a href="#">
                             <img
                               className="img-fluid d-block mx-auto"
-                              src="assets/img/tech/Ekran%20Görüntüsü%20(1195).png"
+                              src="assets/img/Ekran%20Görüntüsü%20(1195).png"
                             />
                           </a>
                         </div>
@@ -517,7 +517,7 @@ const  MainPage = () => {
                           <a href="#">
                             <img
                               className="img-fluid d-block mx-auto"
-                              src="assets/img/tech/Ekran%20Görüntüsü%20(1193).png"
+                              src="assets/img/Ekran%20Görüntüsü%20(1193).png"
                             />
                           </a>
                         </div>
@@ -551,7 +551,7 @@ const  MainPage = () => {
                           <a href="#">
                             <img
                               className="img-fluid d-block mx-auto"
-                              src="assets/img/tech/Ekran%20Görüntüsü%20(1196).png"
+                              src="assets/img/Ekran%20Görüntüsü%20(1196).png"
                             />
                           </a>
                         </div>
@@ -587,7 +587,7 @@ const  MainPage = () => {
                           <a href="#">
                             <img
                               className="img-fluid d-block mx-auto"
-                              src="assets/img/tech/Ekran%20Görüntüsü%20(1192).png"
+                              src="assets/img/Ekran%20Görüntüsü%20(1192).png"
                             />
                           </a>
                         </div>
@@ -623,7 +623,7 @@ const  MainPage = () => {
                           <a href="#">
                             <img
                               className="img-fluid d-block mx-auto"
-                              src="assets/img/tech/Ekran%20Görüntüsü%20(1194).png"
+                              src="assets/img/Ekran%20Görüntüsü%20(1194).png"
                             />
                           </a>
                         </div>
@@ -659,7 +659,7 @@ const  MainPage = () => {
                           <a href="#">
                             <img
                               className="img-fluid d-block mx-auto"
-                              src="assets/img/tech/Ekran%20Görüntüsü%20(1188).png"
+                              src="assets/img/Ekran%20Görüntüsü%20(1188).png"
                             />
                           </a>
                         </div>
@@ -692,7 +692,7 @@ const  MainPage = () => {
                           <a href="#">
                             <img
                               className="img-fluid d-block mx-auto"
-                              src="assets/img/tech/Ekran%20Görüntüsü%20(1191).png"
+                              src="assets/img/Ekran%20Görüntüsü%20(1191).png"
                             />
                           </a>
                         </div>
@@ -728,7 +728,7 @@ const  MainPage = () => {
                           <a href="#">
                             <img
                               className="img-fluid d-block mx-auto"
-                              src="assets/img/tech/Ekran%20Görüntüsü%20(1197).png"
+                              src="assets/img/Ekran%20Görüntüsü%20(1197).png"
                             />
                           </a>
                           <a href="#" />
