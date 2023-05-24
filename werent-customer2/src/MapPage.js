@@ -57,17 +57,17 @@ function MapPage() {
         <ul className="navbar-nav ms-auto">
           <li className="nav-item" />
           <li className="nav-item">
-            <a className="nav-link" href="features.html">
+            <a className="nav-link">
               Dashboard
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="pricing.html">
+            <a className="nav-link">
               MAP
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="about-us.html">
+            <a className="nav-link">
               <i
                 className="fas fa-shopping-basket text-dark"
                 style={{ fontSize: 22 }}
@@ -75,7 +75,7 @@ function MapPage() {
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="PROJECT-leave-rating.html">
+            <a className="nav-link">
               <i
                 className="fas fa-user-alt text-dark"
                 style={{ fontSize: 22 }}
@@ -83,7 +83,7 @@ function MapPage() {
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="features.html">
+            <a className="nav-link">
               LOGout
             </a>
           </li>
