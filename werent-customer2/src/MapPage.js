@@ -1,6 +1,7 @@
 import React from 'react';
 import {  useNavigate } from 'react-router-dom';
 //import GoogleMapReact from 'google-map-react';
+import NavBar from './NavBar';
 
 function MapPage() {
 
@@ -40,57 +41,9 @@ function MapPage() {
   <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css" />
   <link rel="stylesheet" href="assets/css/baguetteBox.min.css" />
   <link rel="stylesheet" href="assets/css/vanilla-zoom.min.css" />
-  <nav className="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
-    <div className="container">
-      <a onClick={goToMainPage} className="navbar-brand logo" href="#">
-        WeRent
-      </a>
-      <button
-        data-bs-toggle="collapse"
-        className="navbar-toggler"
-        data-bs-target="#navcol-1"
-      >
-        <span className="visually-hidden">Toggle navigation</span>
-        <span className="navbar-toggler-icon" />
-      </button>
-      <div className="collapse navbar-collapse" id="navcol-1">
-        <ul className="navbar-nav ms-auto">
-          <li className="nav-item" />
-          <li className="nav-item">
-            <a className="nav-link">
-              Dashboard
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link">
-              MAP
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link">
-              <i
-                className="fas fa-shopping-basket text-dark"
-                style={{ fontSize: 22 }}
-              />
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link">
-              <i
-                className="fas fa-user-alt text-dark"
-                style={{ fontSize: 22 }}
-              />
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link">
-              LOGout
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+  
+  <NavBar></NavBar>
+
   <main className="page faq-page">
     <section
       className="clean-block clean-faq dark"
