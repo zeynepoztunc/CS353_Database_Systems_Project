@@ -1,5 +1,6 @@
 import React from 'react';
 import {  useNavigate } from 'react-router-dom';
+import NavBar from './NavBar';
 
 function ShoppingCart() {
 
@@ -31,57 +32,9 @@ function ShoppingCart() {
   <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css" />
   <link rel="stylesheet" href="assets/css/baguetteBox.min.css" />
   <link rel="stylesheet" href="assets/css/vanilla-zoom.min.css" />
-  <nav className="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
-    <div className="container">
-      <a onClick={goToMainPage} className="navbar-brand logo" href="#">
-        WeRent
-      </a>
-      <button
-        data-bs-toggle="collapse"
-        className="navbar-toggler"
-        data-bs-target="#navcol-1"
-      >
-        <span className="visually-hidden">Toggle navigation</span>
-        <span className="navbar-toggler-icon" />
-      </button>
-      <div className="collapse navbar-collapse" id="navcol-1">
-        <ul className="navbar-nav ms-auto">
-          <li className="nav-item" />
-          <li className="nav-item">
-            <a className="nav-link" href="features.html">
-              Dashboard
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="pricing.html">
-              MAP
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="about-us.html">
-              <i
-                className="fas fa-shopping-basket text-dark"
-                style={{ fontSize: 22 }}
-              />
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="PROJECT-leave-rating.html">
-              <i
-                className="fas fa-user-alt text-dark"
-                style={{ fontSize: 22 }}
-              />
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="features.html">
-              LOGout
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+  
+  <NavBar></NavBar>
+
   <main className="page shopping-cart-page">
     <section className="clean-block clean-cart dark">
       <div className="container">
@@ -98,14 +51,14 @@ function ShoppingCart() {
                       <div className="product-image">
                         <img
                           className="img-fluid d-block mx-auto image"
-                          src="assets/img/tech/Ekran%20Görüntüsü%20(1188).png"
+                          src="assets/img/Ekran%20Görüntüsü%20(1188).png"
                           width={146}
                           height={146}
                         />
                       </div>
                     </div>
                     <div className="col-md-5 product-info">
-                      <a className="product-name" href="#">
+                      <a className="product-name">
                         Luxury Villa
                       </a>
                       <div className="product-specs">
@@ -143,7 +96,7 @@ function ShoppingCart() {
                       <div className="product-image">
                         <img
                           className="img-fluid d-block mx-auto image"
-                          src="assets/img/tech/Ekran%20Görüntüsü%20(1189).png"
+                          src="assets/img/Ekran%20Görüntüsü%20(1189).png"
                         />
                       </div>
                     </div>
@@ -191,7 +144,7 @@ function ShoppingCart() {
                         <div className="product-image">
                           <img
                             className="img-fluid d-block mx-auto image"
-                            src="assets/img/tech/Ekran%20Görüntüsü%20(1191).png"
+                            src="assets/img/Ekran%20Görüntüsü%20(1191).png"
                           />
                         </div>
                       </div>

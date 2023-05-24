@@ -1,6 +1,6 @@
 import React from 'react';
 import {  useNavigate } from 'react-router-dom';
-
+import NavBar from './NavBar';
 
 const  MainPage = () => {
     const navigate = useNavigate();
@@ -37,57 +37,9 @@ const  MainPage = () => {
     <link rel="stylesheet" href="assets/fonts/simple-line-icons.min.css" />
     <link rel="stylesheet" href="assets/css/baguetteBox.min.css" />
     <link rel="stylesheet" href="assets/css/vanilla-zoom.min.css" />
-    <nav className="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
-      <div className="container">
-        <a onClick = {goToMainPage} className="navbar-brand logo">
-          WeRent
-        </a>
-        <button
-          data-bs-toggle="collapse"
-          className="navbar-toggler"
-          data-bs-target="#navcol-1"
-        >
-          <span className="visually-hidden">Toggle navigation</span>
-          <span className="navbar-toggler-icon" />
-        </button>
-        <div className="collapse navbar-collapse" id="navcol-1">
-          <ul className="navbar-nav ms-auto">
-            <li className="nav-item" />
-            <li className="nav-item">
-              <a onClick = {goToMainPage} className="nav-link">
-                Dashboard
-              </a>
-            </li>
-            <li className="nav-item">
-              <a onClick = {goToMapPage} className="nav-link">
-                MAP
-              </a>
-            </li>
-            <li className="nav-item">
-              <a onClick={goToShoppingCartPage} className="nav-link">
-                <i
-                  className="fas fa-shopping-basket text-dark"
-                  style={{ fontSize: 22 }}
-                />
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link">
-                <i
-                  className="fas fa-user-alt text-dark"
-                  style={{ fontSize: 22 }}
-                />
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link">
-                LOGout
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+    
+    <NavBar></NavBar>
+
     <main className="page catalog-page">
       <section className="clean-block clean-catalog dark">
         <div className="container">
@@ -432,7 +384,7 @@ const  MainPage = () => {
                           <a href="#">
                             <img
                               className="img-fluid d-block mx-auto"
-                              src="assets/img/tech/Ekran%20Görüntüsü%20(1189).png"
+                              src="assets/img/Ekran%20Görüntüsü%20(1189).png"
                               width={181}
                               height={180}
                             />
@@ -473,7 +425,7 @@ const  MainPage = () => {
                           <a href="#">
                             <img
                               className="img-fluid d-block mx-auto"
-                              src="assets/img/tech/Ekran%20Görüntüsü%20(1195).png"
+                              src="assets/img/Ekran%20Görüntüsü%20(1195).png"
                             />
                           </a>
                         </div>
@@ -517,7 +469,7 @@ const  MainPage = () => {
                           <a href="#">
                             <img
                               className="img-fluid d-block mx-auto"
-                              src="assets/img/tech/Ekran%20Görüntüsü%20(1193).png"
+                              src="assets/img/Ekran%20Görüntüsü%20(1193).png"
                             />
                           </a>
                         </div>
@@ -551,7 +503,7 @@ const  MainPage = () => {
                           <a href="#">
                             <img
                               className="img-fluid d-block mx-auto"
-                              src="assets/img/tech/Ekran%20Görüntüsü%20(1196).png"
+                              src="assets/img/Ekran%20Görüntüsü%20(1196).png"
                             />
                           </a>
                         </div>
@@ -587,7 +539,7 @@ const  MainPage = () => {
                           <a href="#">
                             <img
                               className="img-fluid d-block mx-auto"
-                              src="assets/img/tech/Ekran%20Görüntüsü%20(1192).png"
+                              src="assets/img/Ekran%20Görüntüsü%20(1192).png"
                             />
                           </a>
                         </div>
@@ -623,7 +575,7 @@ const  MainPage = () => {
                           <a href="#">
                             <img
                               className="img-fluid d-block mx-auto"
-                              src="assets/img/tech/Ekran%20Görüntüsü%20(1194).png"
+                              src="assets/img/Ekran%20Görüntüsü%20(1194).png"
                             />
                           </a>
                         </div>
@@ -659,7 +611,7 @@ const  MainPage = () => {
                           <a href="#">
                             <img
                               className="img-fluid d-block mx-auto"
-                              src="assets/img/tech/Ekran%20Görüntüsü%20(1188).png"
+                              src="assets/img/Ekran%20Görüntüsü%20(1188).png"
                             />
                           </a>
                         </div>
@@ -692,7 +644,7 @@ const  MainPage = () => {
                           <a href="#">
                             <img
                               className="img-fluid d-block mx-auto"
-                              src="assets/img/tech/Ekran%20Görüntüsü%20(1191).png"
+                              src="assets/img/Ekran%20Görüntüsü%20(1191).png"
                             />
                           </a>
                         </div>
@@ -728,7 +680,7 @@ const  MainPage = () => {
                           <a href="#">
                             <img
                               className="img-fluid d-block mx-auto"
-                              src="assets/img/tech/Ekran%20Görüntüsü%20(1197).png"
+                              src="assets/img/Ekran%20Görüntüsü%20(1197).png"
                             />
                           </a>
                           <a href="#" />
