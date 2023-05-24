@@ -22,6 +22,21 @@ function ProfilePage() {
     setSelectedFile(file);
   };
 
+  const [editMode, setEditMode] = useState(false);
+  const [username, setUsername] = useState('JohnDoe');
+  const [profileName, setProfileName] = useState('Alice Thompson');
+  const [email, setEmail] = useState('alice.thompson@gmail.com');
+  const [description, setDescription] = useState('Hi! My  name is Alice and I currently live in Spain');
+  const [password, setPassword] = useState('******');
+  const handleEditClick = () => {
+    setEditMode(true);
+  };
+
+  const handleSaveClick = () => {
+    // Perform save/update logic here
+    setEditMode(false);
+  };
+
   const handleFileUpload = () => {
     // Handle file upload logic here
     if (selectedFile) {
@@ -288,7 +303,6 @@ function ProfilePage() {
                         Upload
                       </button>
                       
-                      
                     
                     </div>
                   </div>
@@ -308,16 +322,27 @@ function ProfilePage() {
                             className="text-muted card-subtitle mb-2"
                             style={{ marginRight: 0 }}
                           >
-                            <span style={{ color: "rgb(5, 6, 7)" }}>
-                              Alice Thompson
+                           
+                            {editMode ? (
+                              <input
+                                type="text"
+                                value={profileName}
+                                onChange={(e) => setProfileName(e.target.value)}
+                              />
+                            ) : (
+                              <span style={{ color: "rgb(5, 6, 7)" }}>
+                              {profileName}
                             </span>
-                            <button
-                              className="btn btn-link text-end link-dark pull-right"
+                            )}
+                            {editMode ? (
+                              <button className="btn btn-link text-end link-dark pull-right"
                               type="button"
-                              style={{ marginTop: "-12px" }}
-                            >
-                              edit
-                            </button>
+                              style={{ marginTop: "-12px" }}onClick={handleSaveClick}>Save</button>
+                            ) : (
+                              <button  className="btn btn-link text-end link-dark pull-right"
+                              type="button"
+                              style={{ marginTop: "-12px" }} onClick={handleEditClick}>Edit</button>
+                            )}
                           </h6>
                         </div>
                       </div>
@@ -328,7 +353,33 @@ function ProfilePage() {
                           <h5 className="card-title">
                             <strong>Email</strong>
                           </h5>
-                          <h6 className="text-muted card-subtitle mb-2">
+                          <h6
+                            className="text-muted card-subtitle mb-2"
+                            style={{ marginRight: 0 }}
+                          >
+                           
+                            {editMode ? (
+                              <input
+                                type="text"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                              />
+                            ) : (
+                              <span style={{ color: "rgb(5, 6, 7)" }}>
+                              {email}
+                            </span>
+                            )}
+                            {editMode ? (
+                              <button className="btn btn-link text-end link-dark pull-right"
+                              type="button"
+                              style={{ marginTop: "-12px" }}onClick={handleSaveClick}>Save</button>
+                            ) : (
+                              <button  className="btn btn-link text-end link-dark pull-right"
+                              type="button"
+                              style={{ marginTop: "-12px" }} onClick={handleEditClick}>Edit</button>
+                            )}
+                          </h6>
+                          {/* <h6 className="text-muted card-subtitle mb-2">
                             <span style={{ color: "rgb(5, 6, 7)" }}>
                               alice.thompson@gmail.com
                             </span>
@@ -339,7 +390,7 @@ function ProfilePage() {
                             >
                               edit
                             </button>
-                          </h6>
+                          </h6> */}
                         </div>
                       </div>
                     </div>
@@ -391,6 +442,8 @@ function ProfilePage() {
                 </div>
               </div>
             </div>
+
+      
             <div className="container">
               <div className="row">
                 <div className="col-md-6 col-lg-4">
