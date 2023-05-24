@@ -27,6 +27,7 @@ import { AdminLandmarkDetailed } from './AdminLandmarkDetailed';
 import { AdminMaintenanceForm } from './AdminMaintenanceForm';
 import { AdminAnalytics } from './AdminAnalytics';
 import { AdminReviews } from './AdminReviews';
+import { AdminReport } from './AdminReport';
 
 const router = createBrowserRouter([
   {
@@ -80,6 +81,10 @@ const router = createBrowserRouter([
   {
     path: "/AdminReviews",
     element: <AdminReviews/>,
+  },
+  {
+    path: "/AdminReport",
+    element: <AdminReport/>,
   },
 ]);
 

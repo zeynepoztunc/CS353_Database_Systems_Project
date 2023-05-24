@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import './assets/bootstrap/css/bootstrap.min.css';
 import './assets/css/vanilla-zoom.min.css';
-
+import { Navbar } from './Navbar';
 
 export const AdminLandmarkDetailed = () => {
     const [email, setEmail] = useState('');

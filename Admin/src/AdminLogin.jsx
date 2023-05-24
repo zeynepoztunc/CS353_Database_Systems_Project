@@ -3,9 +3,9 @@ import './assets/bootstrap/css/bootstrap.min.css';
 import './assets/css/vanilla-zoom.min.css';
 //import 'https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.css';
 import  { Link } from "react-router-dom";
+import { Navbar } from './Navbar';
 
-
-export const AdminLogin = () => {
+export const AdminLogin = (props) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     
@@ -33,36 +33,7 @@ export const AdminLogin = () => {
             href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.css"
         />
         <link rel="stylesheet" href="assets/css/vanilla-zoom.min.css" />
-        <nav className="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
-            <div className="container">
-            <a className="navbar-brand logo" href="#">
-                WeRent
-            </a>
-            <button
-                data-bs-toggle="collapse"
-                className="navbar-toggler"
-                data-bs-target="#navcol-1"
-            >
-                <span className="visually-hidden">Toggle navigation</span>
-                <span className="navbar-toggler-icon" />
-            </button>
-            <div className="collapse navbar-collapse" id="navcol-1">
-                <ul className="navbar-nav ms-auto">
-                <li className="nav-item">
-                    <a className="nav-link" href="index.html">
-                    Home
-                    </a>
-                </li>
-                <li className="nav-item">
-                    <a className="nav-link" href="about-us.html">
-                    About Us
-                    </a>
-                </li>
-                <li className="nav-item" />
-                </ul>
-            </div>
-            </div>
-        </nav>
+        <Navbar/>
         <main className="page login-page">
             <section className="clean-block clean-form dark">
             <div className="container">
@@ -97,7 +68,7 @@ export const AdminLogin = () => {
                     </div>
                     <Link to="/ForgotPassword">
                     <div className="mb-3">
-                        <button className="btn btn-primary" type="submit">
+                        <button className="btn btn-primary" type="submit" onClick={props.onFormSwitch}>
                         Forgot Password?
                         </button>
                     </div>
@@ -114,6 +85,4 @@ export const AdminLogin = () => {
         </>
     )
 }
-
-
 export default AdminLogin;

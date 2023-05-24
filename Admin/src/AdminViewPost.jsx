@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import './assets/bootstrap/css/bootstrap.min.css';
 import './assets/css/vanilla-zoom.min.css';
+import { Navbar } from './Navbar';
 export const AdminViewPost = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -29,49 +30,7 @@ export const AdminViewPost = () => {
         <link rel="stylesheet" href="assets/css/baguetteBox.min.css" />
         <link rel="stylesheet" href="assets/css/Banner-Heading-Image-images.css" />
         <link rel="stylesheet" href="assets/css/vanilla-zoom.min.css" />
-        <nav className="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
-          <div className="container">
-            <a className="navbar-brand logo" href="#" />
-            <button
-              data-bs-toggle="collapse"
-              className="navbar-toggler"
-              data-bs-target="#navcol-1"
-            >
-              <span className="visually-hidden">Toggle navigation</span>
-              <span className="navbar-toggler-icon" />
-            </button>
-            <div className="collapse navbar-collapse" id="navcol-1">
-              <div data-reflow-type="product-search" />
-              <ul className="navbar-nav ms-auto">
-                <li className="nav-item">
-                  <a className="nav-link" href="index.html">
-                    Home
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="features.html">
-                    Features
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="pricing.html">
-                    Pricing
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="profile.html">
-                    About Us
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="contact-us.html">
-                    Contact Us
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
+        <Navbar/>
         <main className="page product-page">
           <section className="clean-block clean-product dark">
             <div className="container">
