@@ -11,6 +11,8 @@ import PaymentPage from './PaymentPage';
 import ShoppingCart from './ShoppingCart';
 import LeaveRating from './LeaveRating';
 import MapPage from './MapPage';
+import NavBar from './NavBar';
+
 
 function App() {
   return (
@@ -26,6 +28,8 @@ function App() {
       <Route exact path ='/ShoppingCart' element={<ShoppingCart/>} />
       <Route exact path ='/LeaveRating' element={<LeaveRating/>} />
       <Route exact path ='/MapPage' element={<MapPage/>} />
+      <Route exact path ='/NavBar' element={<NavBar/>} />
+
 
   </Routes>
 
