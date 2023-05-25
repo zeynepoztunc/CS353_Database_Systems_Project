@@ -17,7 +17,8 @@ public class RentalController {
 
 
     @PostMapping
-    public RentalEntity addRental(@RequestBody RentalEntity newRental){
+    public RentalEntity addRental(@RequestBody RentalEntity newRental)
+    {
         return rentalRepository.addRental(newRental);
     }
 

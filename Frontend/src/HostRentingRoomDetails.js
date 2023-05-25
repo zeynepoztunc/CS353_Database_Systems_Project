@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {  useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import axios from 'axios';
 
 const  HostRentingRoomDetails= () => {
     const [selectedCounts, setSelectedCounts] = useState({});
@@ -31,8 +32,22 @@ const  HostRentingRoomDetails= () => {
     }
     setFileNames(names);
   };
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) =>
+  {
     event.preventDefault();
+    const rentalDetails = {
+      fileNames: fileNames,
+      selectedCounts: selectedCounts,
+      selectedItems: selectedItems,
+    };
+    try
+    {
+      const response = await axios.post('http://localhost:8080/RoomDetails', rentalDetails);
+      console.log(response.data);
+      navigate('/HostRentingRoomLocation');
+    } catch (error) {
+      console.error('Failed to submit form: ', error);
+    }
     navigate('/HostRentingRoomLocation');
   };
 
@@ -351,13 +366,15 @@ const  HostRentingRoomDetails= () => {
             <label className="form-label" style={{ fontWeight: "bold" }}>
               Room name&nbsp;
             </label>
-            <input className="form-control" type="text" />
+            <input className="form-control" type="text"  value={roomName}
+                   onChange={(e) => setRoomName(e.target.value)}/>
           </div>
           <div>
             <label className="form-label" style={{ fontWeight: "bold" }}>
               Room size ( in sqm)
             </label>
-            <input className="form-control" type="text" />
+            <input className="form-control" type="text" value={roomSize}
+                   onChange={(e) => setRoomSize(e.target.value)} />
           </div>
           <div>
             <span className="text-white-50">Text</span>
@@ -381,7 +398,10 @@ const  HostRentingRoomDetails= () => {
               key={i}
               className="dropdown-item"
               href="#nogo"
-              onClick={() => handleDropdownItemClick('Common Kitchen', (i + 1).toString())}
+              onClick={() => {
+                handleDropdownItemClick('Common Kitchen', (i + 1).toString());
+                setCommonKitchen((i + 1).toString());
+              }}
             >
               {i + 1}
             </a>
@@ -411,7 +431,10 @@ const  HostRentingRoomDetails= () => {
               key={i}
               className="dropdown-item"
               href="#nogo"
-              onClick={() => handleDropdownItemClick('Common Bathroom', (i + 1).toString())}
+              onClick={() => {
+                handleDropdownItemClick('Common Bathroom', (i + 1).toString());
+                setCommonBathroom((i + 1).toString());
+              }}
             >
               {i + 1}
             </a>
@@ -441,7 +464,11 @@ const  HostRentingRoomDetails= () => {
               key={i}
               className="dropdown-item"
               href="#nogo"
-              onClick={() => handleDropdownItemClick('Common Living Room', (i + 1).toString())}
+              onClick={() => {
+                handleDropdownItemClick('Common Living Room', (i + 1).toString());
+                setCommonLivingRoom((i + 1).toString());
+              }}
+
             >
               {i + 1}
             </a>
@@ -472,7 +499,10 @@ const  HostRentingRoomDetails= () => {
               key={i}
               className="dropdown-item"
               href="#nogo"
-              onClick={() => handleDropdownItemClick('Bed(s) in the Room', (i + 1).toString())}
+              onClick={() => {
+                handleDropdownItemClick('Bed(s) in the Room', (i + 1).toString());
+                setBedNumber((i + 1).toString());
+              }}
             >
               {i + 1}
             </a>
@@ -500,7 +530,10 @@ const  HostRentingRoomDetails= () => {
               key={i}
               className="dropdown-item"
               href="#nogo"
-              onClick={() => handleDropdownItemClick('Guest Limit in Person', (i + 1).toString())}
+              onClick={() => {
+                handleDropdownItemClick('Guest Limit in Person', (i + 1).toString());
+                setGuestLimit((i + 1).toString());
+              }}
             >
               {i + 1}
             </a>

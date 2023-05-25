@@ -12,13 +12,39 @@ const  HostRentingProperty= () => {
     setSelectedOption(event.target.id);
   };
 
-  const handleSubmit = async (event) => {  // <-- make this function async
+  /*const handleSubmit = async (event) => {  // <-- make this function async
     event.preventDefault();
     try {
       const res = await axios.post('http://localhost:8080/Rentals', { // <-- use your backend server url and api endpoint
         selectedOption: selectedOption
       });
       console.log(res.data);  // <-- response from server
+
+      if (selectedOption === 'formCheck-1') {
+        navigate('/HostRentingRoomDetails');
+      }
+      if (selectedOption === 'formCheck-2') {
+        navigate('/HostRentingFlatDetails');
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  };*/
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    let rentalType = '';
+    if (selectedOption === 'formCheck-1') {
+      rentalType = 'Room';
+    } else if (selectedOption === 'formCheck-2') {
+      rentalType = 'Flat';
+    }
+    try {
+      const res = await axios.post('http://localhost:8080/Rentals', {
+        selectedOption: selectedOption,
+        rentalType: rentalType  // pass rentType in the request body
+      });
+      console.log(res.data);
 
       if (selectedOption === 'formCheck-1') {
         navigate('/HostRentingRoomDetails');
