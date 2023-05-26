@@ -11,7 +11,7 @@ public class RentalEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "rental-id", nullable = false)
-    private int rentalId;
+     private int rentalId;
 
     public int getRentalId() {
         return rentalId;

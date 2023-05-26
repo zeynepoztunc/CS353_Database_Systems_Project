@@ -32,24 +32,67 @@ const  HostRentingRoomDetails= () => {
     }
     setFileNames(names);
   };
-  const handleSubmit = async (event) =>
-  {
+
+  const [roomName, setRoomName] = useState("");
+  const [roomSize, setRoomSize] = useState(0);
+  const [commonKitchen, setCommonKitchen] = useState(0);
+  const [commonBathroom, setCommonBathroom] = useState(0);
+  const [commonLivingRoom, setCommonLivingRoom] = useState(0);
+  const [bedCount, setBedCount] = useState(0);
+  const [guestCount, setGuestCount] = useState(0);
+  const [description, setDescription] = useState("");
+  const [earthquakeSupport, setEarthquakeSupport] = useState(false);
+  const [couchsurfing, setCouchsurfing] = useState(false);
+  const urlParams = new URLSearchParams(window.location.search);
+  const hostId = urlParams.get('hostId');
+  const rentalId = urlParams.get('rentalId');
+
+  const handleRoomDescriptionChange = event => setDescription(event.target.value);
+  const handleEarthquakeSupportChange = event => setEarthquakeSupport(event.target.checked);
+  const handleCouchsurfingChange = event => setCouchsurfing(event.target.checked);
+
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    const rentalDetails = {
-      fileNames: fileNames,
-      selectedCounts: selectedCounts,
-      selectedItems: selectedItems,
+    console.log('rentalid', rentalId);
+    console.log('hostId', hostId);
+    console.log('rentalName', roomName);
+    console.log('areaInM2', roomSize);
+    console.log('guestNo', guestCount);
+    console.log('numOfBeds', bedCount);
+    console.log('description', description);
+    console.log('earthquakeSupport', earthquakeSupport);
+    console.log('couchsurfing', couchsurfing);
+    console.log('commonKitchenNum', commonKitchen);
+    console.log('commonBathroomNum', commonBathroom);
+    console.log('commonLivingRoomNum', commonLivingRoom);
+
+    const formData = {
+      rentalId: rentalId,
+      hostId: hostId,
+      rentalName: roomName,
+      areaInM2: roomSize,
+      guestNo: guestCount,
+      numOfBeds: bedCount,
+      description: description,
+      earthquakeSupport: earthquakeSupport,
+      couchsurfing: couchsurfing,
+      commonKitchenNum: commonKitchen,
+      commonBathroomNum: commonBathroom,
+      commonLivingRoomNum: commonLivingRoom
     };
-    try
-    {
-      const response = await axios.post('http://localhost:8080/RoomDetails', rentalDetails);
+
+    try {
+      const response = await axios.post('http://localhost:8080/updateRoomDetails', formData);
       console.log(response.data);
       navigate('/HostRentingRoomLocation');
     } catch (error) {
       console.error('Failed to submit form: ', error);
     }
-    navigate('/HostRentingRoomLocation');
+
+
   };
+
 
   const initialData = [
     ['heating', 'fas fa-thermometer-full'],
@@ -390,7 +433,7 @@ const  HostRentingRoomDetails= () => {
                  data-bs-toggle="dropdown"
                  type="button"
               >
-                {getButtonText('Common Kitchen')}
+                {commonKitchen}
               </button>
               <div className="dropdown-menu" >
               {Array.from({ length: 6 }, (_, i) => (
@@ -423,7 +466,7 @@ const  HostRentingRoomDetails= () => {
                 data-bs-toggle="dropdown"
                 type="button"
               >
-              {getButtonText('Common Bathroom')}
+              {commonBathroom}
               </button>
               <div className="dropdown-menu">
               {Array.from({ length: 6 }, (_, i) => (
@@ -456,7 +499,7 @@ const  HostRentingRoomDetails= () => {
                 data-bs-toggle="dropdown"
                 type="button"
               >
-                {getButtonText('Common Living Room')}
+                {commonLivingRoom}
               </button>
               <div className="dropdown-menu">
               {Array.from({ length: 6 }, (_, i) => (
@@ -491,7 +534,7 @@ const  HostRentingRoomDetails= () => {
                 data-bs-toggle="dropdown"
                 type="button"
               >
-                {getButtonText('Bed(s) in the Room')}
+                {bedCount}
               </button>
               <div className="dropdown-menu">
               {Array.from({ length: 12 }, (_, i) => (
@@ -501,7 +544,7 @@ const  HostRentingRoomDetails= () => {
               href="#nogo"
               onClick={() => {
                 handleDropdownItemClick('Bed(s) in the Room', (i + 1).toString());
-                setBedNumber((i + 1).toString());
+                setBedCount((i + 1).toString());
               }}
             >
               {i + 1}
@@ -522,7 +565,7 @@ const  HostRentingRoomDetails= () => {
                     data-bs-toggle="dropdown"
                     type="button"
                   >
-                    {getButtonText('Guest Limit in Person')}
+                    {guestCount}
                   </button>
                   <div className="dropdown-menu">
                   {Array.from({ length: 12 }, (_, i) => (
@@ -532,7 +575,7 @@ const  HostRentingRoomDetails= () => {
               href="#nogo"
               onClick={() => {
                 handleDropdownItemClick('Guest Limit in Person', (i + 1).toString());
-                setGuestLimit((i + 1).toString());
+                setGuestCount((i + 1).toString());
               }}
             >
               {i + 1}
@@ -607,7 +650,7 @@ const  HostRentingRoomDetails= () => {
               <label className="form-label" style={{ fontWeight: "bold" }}>
                 Room description
               </label>
-              <textarea className="form-control" defaultValue={""} />
+              <textarea className="form-control" value={description} onChange={handleRoomDescriptionChange} />
             </div>
             <span style={{ color: "rgba(33,37,41,0.01)" }}>Text</span>
             <div>
@@ -650,6 +693,8 @@ const  HostRentingRoomDetails= () => {
                   className="form-check-input"
                   type="checkbox"
                   id="formCheck-1"
+                  checked={earthquakeSupport}
+                  onChange={handleEarthquakeSupportChange}
                 />
                 <label
                   className="form-check-label fs-4 fw-semibold text-start"
@@ -668,6 +713,8 @@ const  HostRentingRoomDetails= () => {
                   className="form-check-input"
                   type="checkbox"
                   id="formCheck-2"
+                  checked={couchsurfing}
+                  onChange={handleCouchsurfingChange}
                 />
                 <label
                   className="form-check-label fs-4 fw-semibold text-start"

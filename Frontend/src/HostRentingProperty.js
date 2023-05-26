@@ -42,15 +42,18 @@ const  HostRentingProperty= () => {
     try {
       const res = await axios.post('http://localhost:8080/Rentals', {
         selectedOption: selectedOption,
-        rentalType: rentalType  // pass rentType in the request body
+        rentalType: rentalType,// pass rentType in the request body
       });
       console.log(res.data);
+      let rentalId = res.data.rentalId;
+      let hostId = res.data.hostId;
 
       if (selectedOption === 'formCheck-1') {
-        navigate('/HostRentingRoomDetails');
+        navigate(`/HostRentingRoomDetails?hostId=${hostId}&rentalId=${rentalId}`);
+
       }
       if (selectedOption === 'formCheck-2') {
-        navigate('/HostRentingFlatDetails');
+        navigate(`/HostRentingFlatDetails?hostId=${hostId}&rentalId=${rentalId}`);
       }
     } catch (err) {
       console.error(err);
