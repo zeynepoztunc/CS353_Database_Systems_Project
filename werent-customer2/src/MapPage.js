@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-//import GoogleMapReact from 'google-map-react';
+import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+import {useState} from 'react'; 
 import NavBar from './NavBar';
 
 function MapPage() {
@@ -12,6 +13,24 @@ function MapPage() {
     console.log(map);
     console.log(maps);
   };
+
+  const containerStyle = {
+    width: '720px',
+    height: '322px',
+    marginLeft:'200px'
+  };
+
+  const defaultCenter = {
+    lat: 39.8813,
+    lng: 32.6984
+  };
+  const handleMapClick = (event) => {
+    setSelectedLocation({
+      lat: event.latLng.lat(),
+      lng: event.latLng.lng()
+    });
+  };
+  const [selectedLocation, setSelectedLocation] = useState(null);
 
   const navigate = useNavigate();
 
@@ -52,15 +71,18 @@ function MapPage() {
           <div className="container">
             <div className="block-heading">
               <h2 className="text-info">MAP</h2>
-              <div style={{ height: '400px', width: '100%' }}>
-                {/* <GoogleMapReact
-                bootstrapURLKeys={{ key: 'YOUR_API_KEY' }}
-                defaultCenter={{ lat: 37.7749, lng: -122.4194 }}
-                defaultZoom={12}
-                yesIWantToUseGoogleMapApiInternals
-                onGoogleApiLoaded={({ map, maps }) => handleApiLoaded(map, maps)}
-            /> */}
-              </div>
+              <LoadScript googleMapsApiKey="AIzaSyAdc1phOB8xRTsyJwEa3wBuAGPIg9ZFnJ4">
+                <GoogleMap
+                  mapContainerStyle={containerStyle}
+                  center={defaultCenter}
+                  zoom={10}
+                  onClick={handleMapClick}
+                >
+                  {selectedLocation && (
+                    <Marker position={selectedLocation} />
+                  )}
+                </GoogleMap>
+              </LoadScript>
             </div>
             <div style={{ marginLeft: 72 }}>
               <h3
