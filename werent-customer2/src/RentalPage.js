@@ -7,6 +7,8 @@ import { addDays, subDays } from "date-fns";
 import DropdownMenu from './DropdownMenu';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import NavBar from './NavBar';
+import Modal from 'react-modal';
+
 
 const  RentalPage= () => {
   const [dateRange, setDateRange] = useState([null, null]);
@@ -772,7 +774,7 @@ const  RentalPage= () => {
                       marginBottom: 0,
                       paddingBottom: 0,
                       paddingTop: 0,
-                      marginTop: "-80px"
+                      marginTop: "-px"
                     }}
                   >
                     <div
@@ -802,6 +804,7 @@ const  RentalPage= () => {
                           <button
                             className="btn btn-danger"
                             type="button"
+                            onClick={handleShowAllReviews}
                             style={{
                               paddingTop: 7,
                               paddingLeft: 0,
@@ -823,6 +826,7 @@ const  RentalPage= () => {
       </div>
     </section>
   </main>
+ 
 </>
 </container>
 
