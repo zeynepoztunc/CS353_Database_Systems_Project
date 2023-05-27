@@ -8,13 +8,21 @@ import DropdownMenu from './DropdownMenu';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import NavBar from './NavBar';
 
-
 const  RentalPage= () => {
   const [dateRange, setDateRange] = useState([null, null]);
   const [startDate, endDate] = dateRange;
   const [selectedCounts, setSelectedCounts] = useState({});
   const [selectedItems, setSelectedItems] = useState({});
   const options = Array.from({ length: 10 }, (_, index) => index + 1);
+  const reviews = [
+    { id: 1, author: 'Jennifer ', comment: 'The place was just perfect.', image: "assets/img/photo-1596813362035-3edcff0c2487.jpg" },
+    { id: 2, author: 'Natalie ', comment: 'I really enjoyed my stay!', image: "assets/img/images.jpg" },
+    { id: 3, author: 'Jonathan', comment: 'Lovely place with a great view.', image: "assets/img/profile.webp" },
+    { id: 4, author: 'Elif', comment: 'Wonderful place...', image: "assets/img/profile.webp" },
+    { id: 5, author: 'Chris', comment: 'Everything was perfect!', image: "assets/img/photo-1584043720379-b56cd9199c94.jpg" },
+    { id: 4, author: 'Nate', comment: 'This place was amazing!', image: "assets/img/dark-haired-man-in-brown-leather-jacket.jpg" }
+
+  ];
   const containerStyle = {
     width: '720px',
     height: '322px',
@@ -731,399 +739,65 @@ const  RentalPage= () => {
                     </div>
                   </div>
                 </div>
-                <div
-                  className="tab-pane fade description"
-                  role="tabpanel"
-                  id="description-1"
-                  style={{ marginRight: 66, marginLeft: 46, paddingRight: 0 }}
-                >
-                  <div className="row">
+              </div>
+            </div>
+            </div>
+            
+          <div
+            className="col-lg-10 offset-lg-0"
+            style={{ marginTop: "-1px", marginBottom: 0, marginLeft: 82 }}
+          >
+            <h2 style={{ paddingTop: 64 }}>
+              <strong>Reviews</strong>
+            </h2>
+          </div>
+
+          <div className="container">
+            <div className="row">
+
+              {reviews.map((review) => (
+                <div className="col-md-6" style={{ paddingTop: 17 }}>
+                  <img
+                    className="rounded-circle"
+                    src={review.image}
+                    
+                    width={87}
+                    height={83}
+                    style={{ marginTop: "-14px" }}
+                  />
+                  <div
+                    className="card"
+                    style={{
+                      marginLeft: 119,
+                      marginBottom: 0,
+                      paddingBottom: 0,
+                      paddingTop: 0,
+                      marginTop: "-101px"
+                    }}
+                  >
                     <div
-                      className="col-md-7 col-lg-7"
-                      style={{ marginRight: "-57px" }}
+                      className="card-body"
+                      style={{
+                        marginBottom: "-2px",
+                        marginLeft: 52,
+                        marginRight: 74
+                      }}
                     >
-                      <div className="row" style={{ marginRight: 15 }}>
-                        <div className="col-lg-3">
-                          <img
-                            className="rounded-circle"
-                            src="assets/img/photo-1596813362035-3edcff0c2487.jpg"
-                            width={87}
-                            height={83}
-                            style={{ marginTop: "-14px" }}
-                          />
-                        </div>
-                        <div className="col-lg-8">
-                          <p className="fs-6">
-                            <strong>Jennifer</strong>
-                          </p>
-                          <p style={{ marginBottom: 21, marginTop: "-44px" }}>
-                            The place was just perfect.
-                          </p>
-                        </div>
-                      </div>
-                      <div className="row">
-                        <div className="col">
-                          <div className="row">
-                            <div className="col-lg-3">
-                              <img
-                                className="rounded-circle"
-                                src="assets/img/images.jpg"
-                                width={96}
-                                height={87}
-                              />
-                            </div>
-                            <div className="col">
-                              <div className="row">
-                                <div className="col-lg-8">
-                                  <p className="fs-6">
-                                    <strong>Natalie</strong>
-                                  </p>
-                                  <p
-                                    style={{
-                                      marginBottom: 21,
-                                      marginTop: "-44px"
-                                    }}
-                                  >
-                                    I really enjoyed my stay!
-                                  </p>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="row">
-                        <div className="col-lg-3">
-                          <img
-                            className="rounded-circle"
-                            src="assets/img/profile.webp"
-                            width={87}
-                            height={83}
-                            style={{ marginTop: 6 }}
-                          />
-                        </div>
-                        <div className="col-lg-8">
-                          <p className="fs-6">
-                            <strong>Jonathan</strong>
-                          </p>
-                          <p style={{ marginBottom: 21, marginTop: "-44px" }}>
-                            Wonderful place...
-                          </p>
-                        </div>
-                      </div>
+
+                      <h4 className="card-title" style={{ marginLeft: "-56px" }}>
+                        <p>{review.author}</p>
+
+                      </h4>
+
+                      <p className="card-text" style={{ marginLeft: "-56px" }}>
+                        {review.comment}
+                      </p>
                     </div>
-                    <div className="col">
-                      <div className="row">
-                        <div className="col-lg-2">
-                          <img
-                            className="rounded-circle ms-lg-0"
-                            src="assets/img/dark-haired-man-in-brown-leather-jacket.jpg"
-                            width={87}
-                            height={83}
-                            style={{ paddingTop: 0, marginTop: "-10px" }}
-                          />
-                        </div>
-                        <div className="col-lg-9">
-                          <p className="fs-6" style={{ marginLeft: 35 }}>
-                            <strong>Nate</strong>
-                          </p>
-                          <p
-                            style={{
-                              marginBottom: 21,
-                              marginTop: "-44px",
-                              marginLeft: 32
-                            }}
-                          >
-                            This place was amazing!
-                          </p>
-                        </div>
-                      </div>
-                      <div className="row">
-                        <div className="col-lg-2">
-                          <img
-                            className="rounded-circle"
-                            src="assets/img/profile.webp"
-                            width={87}
-                            height={83}
-                            style={{ marginTop: 1 }}
-                          />
-                        </div>
-                        <div className="col">
-                          <p className="fs-6" style={{ marginLeft: 28 }}>
-                            <strong>&nbsp;Elif</strong>
-                          </p>
-                          <p
-                            style={{
-                              marginBottom: 21,
-                              marginTop: "-44px",
-                              marginLeft: 32
-                            }}
-                          >
-                            Lovely place with a great view.
-                          </p>
-                        </div>
-                      </div>
-                      <div className="row">
-                        <div className="col-lg-2">
-                          <img
-                            className="rounded-circle"
-                            src="assets/img/photo-1584043720379-b56cd9199c94.jpg"
-                            width={87}
-                            height={83}
-                            style={{
-                              paddingLeft: 0,
-                              paddingTop: 0,
-                              marginTop: 8
-                            }}
-                          />
-                        </div>
-                        <div className="col">
-                          <p className="fs-6" style={{ marginLeft: 35 }}>
-                            <strong>Chris</strong>
-                          </p>
-                          <p
-                            style={{
-                              marginBottom: 21,
-                              marginTop: "-44px",
-                              marginLeft: 32
-                            }}
-                          >
-                            Everything was perfect!
-                          </p>
-                        </div>
-                      </div>
-                      <div className="row">
-                        <div className="col">
-                          <button
-                            className="btn btn-danger"
-                            type="button"
-                            style={{
-                              marginLeft: 178,
-                              paddingTop: 7,
-                              marginTop: 15
-                            }}
-                          >
-                            Show All Reviews
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="row">
-                    <div className="col-md-5">
-                      <figure className="figure" />
-                    </div>
+                    
                   </div>
                 </div>
-                <div
-                  className="tab-pane fade show active description"
-                  role="tabpanel"
-                  id="description"
-                >
-                  <div className="row">
-                    <div className="col-md-7">
-                      <div className="row">
-                        <div
-                          className="col-lg-3 offset-lg-0"
-                          style={{ marginTop: "-1px", marginBottom: 0 }}
-                        >
-                          <img
-                            className="rounded-circle"
-                            src="assets/img/photo-1596813362035-3edcff0c2487.jpg"
-                            width={87}
-                            height={83}
-                            style={{ marginTop: "-14px" }}
-                          />
-                        </div>
-                        <div className="col-lg-8">
-                          <p className="fs-6">
-                            <strong>
-                              Jennifer&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                            </strong>
-                            <i className="fas fa-flag" />
-                          </p>
-                          <p style={{ marginBottom: 21, marginTop: "-44px" }}>
-                            The place was just perfect.
-                          </p>
-                        </div>
-                      </div>
-                      <div className="row">
-                        <div className="col">
-                          <div className="row">
-                            <div className="col-lg-3">
-                              <img
-                                className="rounded-circle"
-                                src="assets/img/images.jpg"
-                                width={96}
-                                height={87}
-                              />
-                            </div>
-                            <div className="col-lg-8">
-                              <p className="fs-6">
-                                <strong>
-                                  Natalie&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                                  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                                  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                                  &nbsp; &nbsp; &nbsp; &nbsp;
-                                </strong>
-                                <i className="fas fa-flag" />
-                              </p>
-                              <p
-                                style={{ marginBottom: 21, marginTop: "-44px" }}
-                              >
-                                I really enjoyed my stay!
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="row">
-                        <div
-                          className="col-lg-3"
-                          style={{
-                            paddingBottom: 0,
-                            marginLeft: 0,
-                            paddingTop: 0
-                          }}
-                        >
-                          <img
-                            className="rounded-circle"
-                            src="assets/img/profile.webp"
-                            width={87}
-                            height={83}
-                            style={{ marginTop: 6 }}
-                          />
-                        </div>
-                        <div className="col-lg-8">
-                          <p className="fs-6">
-                            <strong>
-                              Jonathan&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
-                            </strong>
-                            <i className="fas fa-flag" />
-                          </p>
-                          <p style={{ marginBottom: 21, marginTop: "-44px" }}>
-                            Wonderful place...
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col">
-                      <div className="row">
-                        <div
-                          className="col-lg-3"
-                          style={{ marginLeft: "-31px" }}
-                        >
-                          <img
-                            className="rounded-circle ms-lg-0"
-                            src="assets/img/dark-haired-man-in-brown-leather-jacket.jpg"
-                            width={87}
-                            height={83}
-                            style={{
-                              paddingTop: 0,
-                              marginTop: "-10px",
-                              marginLeft: 24,
-                              paddingLeft: 0
-                            }}
-                          />
-                        </div>
-                        <div
-                          className="col-lg-10"
-                          style={{ marginRight: 0, marginLeft: "-11px" }}
-                        >
-                          <p className="fs-6" style={{ marginLeft: 35 }}>
-                            <strong>
-                              Nate&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                              &nbsp; &nbsp; &nbsp;
-                            </strong>
-                            <i className="fas fa-flag" />
-                          </p>
-                          <p
-                            style={{
-                              marginBottom: 21,
-                              marginTop: "-44px",
-                              marginLeft: 32
-                            }}
-                          >
-                            This place was amazing!
-                          </p>
-                        </div>
-                      </div>
-                      <div className="row">
-                        <div className="col-lg-3">
-                          <img
-                            className="rounded-circle"
-                            src="assets/img/profile.webp"
-                            width={87}
-                            height={83}
-                            style={{ marginLeft: "-31px", marginTop: 4 }}
-                          />
-                        </div>
-                        <div
-                          className="col-lg-10"
-                          style={{ marginLeft: "-41px" }}
-                        >
-                          <p className="fs-6" style={{ marginLeft: 28 }}>
-                            <strong>&nbsp;Elif</strong>&nbsp; &nbsp; &nbsp;
-                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                            &nbsp; &nbsp;
-                            <i className="fas fa-flag" />
-                          </p>
-                          <p
-                            style={{
-                              marginBottom: 21,
-                              marginTop: "-44px",
-                              marginLeft: 32
-                            }}
-                          >
-                            Lovely place with a great view.
-                          </p>
-                        </div>
-                      </div>
-                      <div className="row">
-                        <div className="col-lg-3">
-                          <img
-                            className="rounded-circle"
-                            src="assets/img/photo-1584043720379-b56cd9199c94.jpg"
-                            width={87}
-                            height={83}
-                            style={{
-                              paddingLeft: 0,
-                              marginLeft: "-31px",
-                              paddingTop: 0,
-                              marginTop: "-7px"
-                            }}
-                          />
-                        </div>
-                        <div
-                          className="col-lg-10"
-                          style={{ marginLeft: "-40px" }}
-                        >
-                          <p className="fs-6" style={{ marginLeft: 35 }}>
-                            <strong>
-                              Chris&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                              &nbsp; &nbsp;&nbsp;
-                            </strong>
-                            <i className="fas fa-flag" />
-                          </p>
-                          <p
-                            style={{
-                              marginBottom: 21,
-                              marginTop: "-44px",
-                              marginLeft: 32
-                            }}
-                          >
-                            Everything was perfect!
-                          </p>
-                        </div>
-                      </div>
-                      <div className="row">
+              ))}
+              <div className="row">
                         <div className="col-lg-10" style={{ marginLeft: 45 }}>
                           <button
                             className="btn btn-danger"
@@ -1139,12 +813,9 @@ const  RentalPage= () => {
                           </button>
                         </div>
                       </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
-          </div>
+            </div>
+
           <div className="clean-related-items">
             <div className="items" />
           </div>
