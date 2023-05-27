@@ -1,10 +1,25 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
-import {useState} from 'react'; 
+import { useState } from 'react';
 import NavBar from './NavBar';
 
 function MapPage() {
+
+  const placeValues = [
+    {
+      ID: "123345",
+      rentalName: "2+1 Villa",
+      description: "Luxury Villa With Jakuzzi",
+      isFavorited: "true",
+    },
+    {
+      ID: "123345",
+      rentalName: "Seaside Villa",
+      description: "Luxury Villa With Sea View",
+      isFavorited: "false",
+    },
+  ];
 
 
   const handleApiLoaded = (map, maps) => {
@@ -17,7 +32,7 @@ function MapPage() {
   const containerStyle = {
     width: '720px',
     height: '322px',
-    marginLeft:'200px'
+    marginLeft: '200px'
   };
 
   const defaultCenter = {
@@ -106,6 +121,7 @@ function MapPage() {
                   marginLeft: 178
                 }}
               >
+
                 <div style={{ marginRight: 540 }}>
                   <div className="form-check">
                     <input
@@ -148,138 +164,55 @@ function MapPage() {
                 }}
               >
                 <div>
-                  <div className="row">
-                    <div className="col-xl-6">
-                      <div
-                        className="clean-product-item"
-                        style={{ marginLeft: 76 }}
-                      >
-                        <img
-                          className="img-fluid d-block mx-auto"
-                          src="assets/img/Ekran%20Görüntüsü%20(1189).png"
-                          width={113}
-                          height={113}
-                        />
-                      </div>
-                    </div>
-                    <div
-                      className="col-xl-6"
-                      style={{
-                        marginTop: 18,
-                        paddingRight: 4,
-                        marginRight: 0,
-                        marginLeft: "-38px"
-                      }}
-                    >
-                      <div>
-                        <label
-                          className="form-label"
-                          style={{
-                            color: "var(--bs-blue)",
-                            textDecoration: "underline"
-                          }}
+                  {placeValues.map((item, index) => (
+                    <div className="row">
+                      <div className="col-xl-6">
+                        <div
+                          className="clean-product-item"
+                          style={{ marginLeft: 76 }}
                         >
-                          2+1 Villa
-                        </label>
-                        <i
-                          className="fas fa-heart"
-                          style={{ marginLeft: 88, fontSize: 20 }}
-                        />
+                          <img
+                            className="img-fluid d-block mx-auto"
+                            src="assets/img/Ekran%20Görüntüsü%20(1189).png"
+                            width={113}
+                            height={113}
+                          />
+                        </div>
                       </div>
-                      <div>
-                        <label className="form-label" style={{ marginTop: 26 }}>
-                          Luxury Villa With Jakuzzi
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="row">
-                    <div className="col-xl-6">
                       <div
-                        className="clean-product-item"
-                        style={{ marginLeft: 76 }}
+                        className="col-xl-6"
+                        style={{
+                          marginTop: 18,
+                          paddingRight: 4,
+                          marginRight: 0,
+                          marginLeft: "-38px"
+                        }}
                       >
-                        <img
-                          className="img-fluid d-block mx-auto"
-                          src="assets/img/Ekran%20Görüntüsü%20(1189).png"
-                          width={113}
-                          height={113}
-                        />
+                        <div>
+                          <label
+                            className="form-label"
+                            style={{
+                              color: "var(--bs-blue)",
+                              textDecoration: "underline"
+                            }}
+                          >
+                            {item.rentalName}
+                          </label>
+                          <i
+                            className="fas fa-heart"
+                            style={{ marginLeft: 10, fontSize: 20 }}
+                          />
+                        </div>
+                        <div>
+                          <label className="form-label" style={{ marginTop: 26 }}>
+                            {item.description}
+                          </label>
+                        </div>
                       </div>
                     </div>
-                    <div
-                      className="col-xl-6"
-                      style={{
-                        marginTop: 18,
-                        paddingRight: 4,
-                        marginRight: 0,
-                        marginLeft: "-38px"
-                      }}
-                    >
-                      <div>
-                        <label
-                          className="form-label"
-                          style={{
-                            color: "var(--bs-blue)",
-                            textDecoration: "underline"
-                          }}
-                        >
-                          2+1 Villa
-                        </label>
-                        <i
-                          className="fas fa-heart"
-                          style={{ marginLeft: 88, fontSize: 20 }}
-                        />
-                      </div>
-                      <div>
-                        <label className="form-label" style={{ marginTop: 26 }}>
-                          Luxury Villa With Jakuzzi
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="row">
-                    <div className="col-xl-6">
-                      <div
-                        className="clean-product-item"
-                        style={{ marginLeft: 76 }}
-                      >
-                        <img
-                          className="img-fluid d-block mx-auto"
-                          src="assets/img/Ekran%20Görüntüsü%20(1189).png"
-                          width={113}
-                          height={113}
-                        />
-                      </div>
-                    </div>
-                    <div
-                      className="col-xl-6"
-                      style={{
-                        marginTop: 18,
-                        paddingRight: 4,
-                        marginRight: 0,
-                        marginLeft: "-38px"
-                      }}
-                    >
-                      <div>
-                        <label
-                          className="form-label"
-                          style={{
-                            color: "var(--bs-blue)",
-                            textDecoration: "underline"
-                          }}
-                        >
-                          2+1 Villa
-                        </label>
-                      </div>
-                      <div>
-                        <label className="form-label" style={{ marginTop: 26 }}>
-                          Luxury Villa With Jakuzzi
-                        </label>
-                      </div>
-                    </div>
-                  </div>
+                  ))}
                 </div>
+
               </div>
             </div>
           </div>
