@@ -9,7 +9,6 @@ import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import NavBar from './NavBar';
 
 
-
 const  RentalPage= () => {
   const [dateRange, setDateRange] = useState([null, null]);
   const [startDate, endDate] = dateRange;
@@ -19,7 +18,7 @@ const  RentalPage= () => {
   const containerStyle = {
     width: '720px',
     height: '322px',
-    marginLeft:'322px'
+    marginLeft:'240px'
   };
 
   const defaultCenter = {
