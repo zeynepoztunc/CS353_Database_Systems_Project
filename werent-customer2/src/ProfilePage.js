@@ -6,6 +6,7 @@ import Modal from 'react-modal';
 function ProfilePage() {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
+
   const averageRating=4.5;
 
   const reviews = [
@@ -150,8 +151,16 @@ function ProfilePage() {
                     />
                     <p style={{ marginTop: 16 }}>
                       <strong>
-                        <span style={{ textDecoration: "underline" }}>
+                        <span onClick={handleFileUpload} style={{ textDecoration: "underline" }}>
                           Change profile picture
+                          <input
+                            className="form-control"
+                            type="file"
+                            name="files"
+                            accept=".jpg"
+                            id="fileInput"
+                            onChange={handleFileChange}
+                        />
                         </span>
                       </strong>
                     </p>
@@ -620,6 +629,19 @@ function ProfilePage() {
                 >
                   Show All Reviews
                 </button>
+                <Modal
+                  isOpen={isModalOpen}
+                  onRequestClose={() => setIsModalOpen(false)}
+                  contentLabel="All Reviews"
+                  style={{
+                    content: {
+                      height: '700px', 
+                    },
+                  }}
+                 >
+                  <h2>All Reviews</h2>
+                  <ul>{reviewList}</ul>
+                </Modal>
                 
               </div>
               <div
