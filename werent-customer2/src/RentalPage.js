@@ -15,6 +15,7 @@ const  RentalPage= () => {
   const [startDate, endDate] = dateRange;
   const [selectedCounts, setSelectedCounts] = useState({});
   const [selectedItems, setSelectedItems] = useState({});
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const options = Array.from({ length: 10 }, (_, index) => index + 1);
   const reviews = [
     { id: 1, author: 'Jennifer ', comment: 'The place was just perfect.', image: "assets/img/photo-1596813362035-3edcff0c2487.jpg" },
@@ -25,6 +26,57 @@ const  RentalPage= () => {
     { id: 4, author: 'Nate', comment: 'This place was amazing!', image: "assets/img/dark-haired-man-in-brown-leather-jacket.jpg" }
 
   ];
+  const reviewList = () => (
+    <div className="row">
+
+              {reviews.map((review) => (
+                <div className="col-md-6" style={{ paddingTop: 17 }}>
+                  <img
+                    className="rounded-circle"
+                    src={review.image}
+                    
+                    width={87}
+                    height={83}
+                    style={{ marginTop: "-14px" }}
+                  />
+                  <div
+                    className="card"
+                    style={{
+                      marginLeft: 119,
+                      marginBottom: 0,
+                      paddingBottom: 0,
+                      paddingTop: 0,
+                      marginTop: "-85px"
+                    }}
+                  >
+                    <div
+                      className="card-body"
+                      style={{
+                        marginBottom: "-2px",
+                        marginLeft: 52,
+                        marginRight: 74,
+                      }}
+                    >
+
+                      <h4 className="card-title" style={{ marginLeft: "-56px" }}>
+                        <p>{review.author}</p>
+
+                      </h4>
+
+                      <p className="card-text" style={{ marginLeft: "-56px" }}>
+                        {review.comment}
+                      </p>
+                    </div>
+                    
+                  </div>
+                </div>
+              ))}
+      </div>
+  );
+  
+  const handleShowAllReviews = () => {
+    setIsModalOpen(true);
+  };
   const containerStyle = {
     width: '720px',
     height: '322px',
@@ -42,10 +94,6 @@ const  RentalPage= () => {
     });
   };
   const [selectedLocation, setSelectedLocation] = useState(null);
-
-
-
-
   const handleDropdownItemClick = (dropdownId, value) => {
     setSelectedCounts({ ...selectedCounts, [dropdownId]: value });
   };
@@ -58,7 +106,6 @@ const  RentalPage= () => {
     }
 
   };
-
 
   const reservedDate=new Date(2023, 5, 18);
   return (
@@ -774,7 +821,7 @@ const  RentalPage= () => {
                       marginBottom: 0,
                       paddingBottom: 0,
                       paddingTop: 0,
-                      marginTop: "-px"
+                      marginTop: "-85px"
                     }}
                   >
                     <div
@@ -814,6 +861,19 @@ const  RentalPage= () => {
                           >
                             Show All Reviews
                           </button>
+                          <Modal
+                            isOpen={isModalOpen}
+                            onRequestClose={() => setIsModalOpen(false)}
+                            contentLabel="All Reviews"
+                            style={{
+                              content: {
+                                height: '700px', 
+                              },
+                            }}
+                          >
+                            <h2>All Reviews</h2>
+                            <ul>{reviewList}</ul>
+                          </Modal>
                         </div>
                       </div>
             </div>
