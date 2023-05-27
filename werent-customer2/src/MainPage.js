@@ -271,7 +271,6 @@ const MainPage = () => {
                   </div>
                 </div>
 
-
                 <div className="col-md-9">
                   <div className="products">
 
@@ -295,18 +294,15 @@ const MainPage = () => {
                       </div>
                     </div>
 
-
                     <div className="row g-0">
-
                       {placeValues.map((item, index) => (
-
-                        <div className="col-12 col-md-6 col-lg-4">
-                          <div className="clean-product-item">
+                        <div className="col-12 col-md-6 col-lg-4" key={index}>
+                          <div className="clean-product-item" style={{ display: "flex", flexDirection: "column" }}>
                             <div className="image">
                               <a href="#">
                                 <img
                                   className="img-fluid d-block mx-auto"
-                                  src = {item.img}
+                                  src={item.img}
                                   width={181}
                                   height={180}
                                 />
@@ -316,18 +312,13 @@ const MainPage = () => {
                               <a href="#">
                                 <br />
                                 <strong onClick={goToRentalPage}>
-                                  <span style={{ color: "rgb(34, 34, 34)" }}>
-                                    {item.rentalName}
-                                  </span>
+                                  <span style={{ color: "rgb(34, 34, 34)" }}>{item.rentalName}</span>
                                 </strong>
                                 <br />
                                 <br />
                               </a>
                             </div>
-                            <div
-                              className="about"
-                              style={{ paddingTop: 0, marginTop: 28 }}
-                            >
+                            <div className="about" style={{ paddingTop: 0, marginTop: "auto" }}>
                               <div className="rating">
                                 <img src="assets/img/star.svg" />
                                 <img src="assets/img/star.svg" />
@@ -335,16 +326,15 @@ const MainPage = () => {
                                 <img src="assets/img/star-half-empty.svg" />
                                 <img src="assets/img/star-empty.svg" />
                               </div>
-                              <div className="price">
+                              <div className="price" style={{ alignSelf: "flex-end" }}>
                                 <h3>{item.price}</h3>
                               </div>
                             </div>
                           </div>
                         </div>
-
-                      ))}                
+                      ))}
                     </div>
-                    
+
                     <nav>
                       <ul className="pagination">
                         <li className="page-item disabled">
