@@ -6,6 +6,8 @@ import Modal from 'react-modal';
 function ProfilePage() {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const averageRating=4.5;
+
   const reviews = [
     { id: 1, author: 'John ', comment: 'Clean and kind guest!', image: "assets/img/istockphoto-1200677760-612x612.jpg" },
     { id: 2, author: 'Jane ', comment: 'Respectful and tidy', image: 'assets/img/happy-young-woman-sitting-on-260nw-2018571389.webp' },
@@ -169,7 +171,7 @@ function ProfilePage() {
                       />
                       &nbsp; &nbsp;&nbsp;
                       <span style={{ backgroundColor: "rgb(248, 249, 250)" }}>
-                        4.5 rating average
+                        {averageRating} rating average
                       </span>
                       <br />
                       <br />
