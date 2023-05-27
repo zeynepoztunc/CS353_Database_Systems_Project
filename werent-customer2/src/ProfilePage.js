@@ -612,25 +612,13 @@ function ProfilePage() {
                   style={{
                     paddingTop: 7,
                     paddingLeft: 2,
-                    marginLeft: 298,
+                    marginLeft: 119,
                     marginTop: 14
                   }}
                 >
                   Show All Reviews
                 </button>
-                <Modal
-                  isOpen={isModalOpen}
-                  onRequestClose={() => setIsModalOpen(false)}
-                  contentLabel="All Reviews"
-                  style={{
-                    content: {
-                      height: '700px', 
-                    },
-                  }}
-                >
-                  <h2>All Reviews</h2>
-                  <ul>{reviewList}</ul>
-                </Modal>
+                
               </div>
               <div
                 className="col-md-6 col-lg-12"
