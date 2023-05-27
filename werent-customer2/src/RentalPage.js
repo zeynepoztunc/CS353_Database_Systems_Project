@@ -26,10 +26,9 @@ const  RentalPage= () => {
     { id: 4, author: 'Nate', comment: 'This place was amazing!', image: "assets/img/dark-haired-man-in-brown-leather-jacket.jpg" }
 
   ];
-  const reviewList = () => (
+  const reviewList = reviews.map((review) => (
     <div className="row">
 
-              {reviews.map((review) => (
                 <div className="col-md-6" style={{ paddingTop: 17 }}>
                   <img
                     className="rounded-circle"
@@ -70,9 +69,8 @@ const  RentalPage= () => {
                     
                   </div>
                 </div>
-              ))}
       </div>
-  );
+  ));
   
   const handleShowAllReviews = () => {
     setIsModalOpen(true);
