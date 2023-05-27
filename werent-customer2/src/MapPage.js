@@ -188,21 +188,29 @@ function MapPage() {
                           marginLeft: "-38px"
                         }}
                       >
-                        <div>
+                        <div style={{ position: "relative" }}>
                           <label
                             className="form-label"
                             style={{
                               color: "var(--bs-blue)",
-                              textDecoration: "underline"
+                              textDecoration: "underline",
+                              paddingRight: 30 // Adjust padding as needed
                             }}
                           >
                             {item.rentalName}
                           </label>
                           <i
                             className="fas fa-heart"
-                            style={{ marginLeft: 10, fontSize: 20 }}
+                            style={{
+                              position: "absolute",
+                              right: 0,
+                              top: "50%",
+                              transform: "translateY(-50%)",
+                              fontSize: 20
+                            }}
                           />
                         </div>
+
                         <div>
                           <label className="form-label" style={{ marginTop: 26 }}>
                             {item.description}
