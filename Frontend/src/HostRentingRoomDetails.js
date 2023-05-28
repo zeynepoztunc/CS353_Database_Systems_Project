@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {  useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
@@ -52,6 +52,38 @@ const  HostRentingRoomDetails= () => {
   const handleCouchsurfingChange = event => setCouchsurfing(event.target.checked);
 
 
+
+
+  const [amenities, setAmenities] = useState([]);
+  const [selectedItems, setSelectedItems] = useState([]);
+  useEffect(() => {
+    fetchAmenities().then((data) => {
+      setAmenities(data);
+    });
+  }, []);
+
+  const fetchAmenities = async () => {
+    try
+    {
+      const response = await axios.get('http://localhost:8080/amenities');
+      return response.data;
+    } catch (error)
+    {
+      console.error('Failed to fetch amenities:', error);
+      return [];
+    }
+  };
+
+  const handleClick = (amenity) => {
+    if (selectedItems.includes(amenity)) {
+      // If amenity is already selected, remove it
+      setSelectedItems(selectedItems.filter((item) => item !== amenity));
+    } else {
+      // If amenity is not selected, add it
+      setSelectedItems([...selectedItems, amenity]);
+    }
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     console.log('rentalid', rentalId);
@@ -66,6 +98,7 @@ const  HostRentingRoomDetails= () => {
     console.log('commonKitchenNum', commonKitchen);
     console.log('commonBathroomNum', commonBathroom);
     console.log('commonLivingRoomNum', commonLivingRoom);
+    console.log(selectedItems);
 
     const formData = {
       rentalId: rentalId,
@@ -82,10 +115,23 @@ const  HostRentingRoomDetails= () => {
       commonLivingRoomNum: commonLivingRoom
     };
 
+    const amenitiesData = {
+      rentalId: rentalId,
+      amenities: amenities.map((amenity) => {
+        const amenityData = {};
+        amenityData[amenity.toString().toLowerCase().replace(" ","")] = selectedItems.includes(amenity) ? 1 : 0;
+        return amenityData;
+      }),
+    };
+
+
     try {
+      console.log(amenitiesData);
+      const amenitiesResponse = await axios.post('http://localhost:8080/updateRoomDetails/amenities', amenitiesData);
       const response = await axios.post('http://localhost:8080/updateRoomDetails', formData);
       console.log(response.data);
-      navigate('/HostRentingRoomLocation');
+      console.log(amenitiesResponse.data);
+      navigate('/HostRentingRoomLocation?hostId=' + hostId + '&rentalId=' + rentalId);
     } catch (error) {
       console.error('Failed to submit form: ', error);
     }
@@ -93,26 +139,7 @@ const  HostRentingRoomDetails= () => {
 
   };
 
-
-  const initialData = [
-    ['heating', 'fas fa-thermometer-full'],
-    ['hair-conditioner', 'far fa-laugh-beam'],
-    ['beachfront', 'fas fa-umbrella-beach'],
-    ['museum access', 'far fa-object-group'],
-    ['airport access', 'fas fa-plane'],
-    ['private entrance', 'far fa-eye-slash']
-  ];
-
-  const [cellData, setCellData] = useState(initialData.map(item => ({ data: item, selected: false })));
-
-  const handleClick = (index) => {
-    setCellData(cellData.map((item, i) => (i === index ? { ...item, selected: !item.selected } : item)));
-  };
-
-  const selectedItems = cellData.filter(item => item.selected).map(item => item.data[0]);
-
-
-    return (
+  return (
       <>
   <meta charSet="utf-8" />
   <meta
@@ -727,44 +754,45 @@ const  HostRentingRoomDetails= () => {
                 &nbsp;Use Couchsurfing to find a place to stay or share your
                 home and hometown with travelers and have fun!
               </label>
-              <div className="col-md-12" style={{ textAlign: "center" }}>
-                <label
-                  className="col-form-label"
-                  style={{ fontWeight: "bold", fontSize: 24 }}
-                >
-                  Select Amenities for this property:
-                </label>
+              <div>
+                <div className="col-md-12" style={{ textAlign: "center" }}>
+                  <label className="col-form-label" style={{ fontWeight: "bold", fontSize: 24 }}>
+                    Select Amenities for this property:
+                  </label>
+                </div>
+                <div>
+                  <div className="table-responsive">
+                    <table className="table">
+                      <thead>
+                      <tr>
+                        <th>Amenity</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      {amenities.map((amenity, index) => (
+                          <tr
+                              key={index}
+                              onClick={() => handleClick(amenity)}
+                              className={selectedItems.includes(amenity) ? 'selected' : ''}
+                              style={{ cursor: 'pointer' }}
+                          >
+                            <td>{amenity}</td>
+                          </tr>
+                      ))}
+                      </tbody>
+                    </table>
+                    <div>
+                      <h4><b>Selected Amenities:</b></h4>
+                      <ul>
+                        {selectedItems.map((item, index) => (
+                            <li key={index}>{item}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <span className="text-white-50">Text</span>
               </div>
-    <div>
-      <div className="table-responsive">
-        <table className="table">
-          <thead>
-            <tr />
-          </thead>
-          <tbody>
-            {cellData.map(({ data: [text, iconClass], selected }, index) => (
-              <tr key={index}>
-                <td 
-                  onClick={() => handleClick(index)}
-                  style={selected ? { cursor: 'default', opacity: 0.5 } : { cursor: 'pointer' }}
-                >
-                  {text}
-                  <i className={iconClass} />
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-      <div>
-        <h4><b>Selected Amenities:</b></h4>
-        <ul>
-          {selectedItems.map((item, index) => (
-            <li key={index}>{item}</li>
-          ))}
-        </ul>
-      </div>
-    </div>
               <span className="text-white-50">Text</span>
             </div>
             <span className="text-white-50">Text</span>

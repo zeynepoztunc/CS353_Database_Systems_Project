@@ -4,19 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e555480-ab5a-407e-a171-4062daf29606" name="Changes" comment="Room controller started">
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/entity/RentalDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/entity/RoomDetailsDTO.java" afterDir="false" />
+    <list default="true" id="5e555480-ab5a-407e-a171-4062daf29606" name="Changes" comment="queries executed for room, data passing">
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/controller/AmenitiesController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/controller/LocationController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/entity/AmenitiesDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/entity/LocationDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/repository/AmenitiesRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/repository/ImagesRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/repository/LocationRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/8e55f807-7037-4dd5-bcd7-772618465c0c.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/8e55f807-7037-4dd5-bcd7-772618465c0c.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/8e55f807-7037-4dd5-bcd7-772618465c0c/storage_v2/_src_/database/oyfcmypj.TT0pvw/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/8e55f807-7037-4dd5-bcd7-772618465c0c/storage_v2/_src_/database/oyfcmypj.TT0pvw/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/controller/RentalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/controller/RentalController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/controller/RoomController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/controller/RoomController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/entity/RentalEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/entity/RentalEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/entity/AmenitiesEntity.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/repository/RentalRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/repository/RentalRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/repository/RoomRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/repository/RoomRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/HostRentingProperty.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/HostRentingProperty.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Frontend/src/HostRentingRoomDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/HostRentingRoomDetails.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/HostRentingRoomLocation.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/HostRentingRoomLocation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/index.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,7 +157,10 @@
       <workItem from="1685029294468" duration="218000" />
       <workItem from="1685035039734" duration="864000" />
       <workItem from="1685036925468" duration="5936000" />
-      <workItem from="1685108506429" duration="4555000" />
+      <workItem from="1685108506429" duration="5637000" />
+      <workItem from="1685123630476" duration="5192000" />
+      <workItem from="1685204736180" duration="11718000" />
+      <workItem from="1685265309949" duration="23678000" />
     </task>
     <task id="LOCAL-00001" summary="new upload">
       <created>1684410800015</created>
@@ -189,7 +197,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685006008425</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="queries executed for room, data passing">
+      <created>1685113642451</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1685113642451</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -212,7 +227,8 @@
     <MESSAGE value="entity classes are uploaded" />
     <MESSAGE value="together" />
     <MESSAGE value="Room controller started" />
-    <option name="LAST_COMMIT_MESSAGE" value="Room controller started" />
+    <MESSAGE value="queries executed for room, data passing" />
+    <option name="LAST_COMMIT_MESSAGE" value="queries executed for room, data passing" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
