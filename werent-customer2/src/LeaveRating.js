@@ -3,17 +3,23 @@ import { useState } from "react";
 import { FaStar } from "react-icons/fa";
 import NavBar from './NavBar';
 
+
 const colors = {
   orange: "#FFBA5A",
   grey: "#a9a9a9"
-
 };
 
 function LeaveRating() {
 
   const [currentValue, setCurrentValue] = useState(0);
   const [hoverValue, setHoverValue] = useState(undefined);
+
   const stars = Array(5).fill(0)
+  const stars2 = Array(5).fill(0)
+  const stars3 = Array(5).fill(0)
+  const stars4 = Array(5).fill(0)
+  const stars5 = Array(5).fill(0)
+  const stars6 = Array(5).fill(0)
 
   const handleClick = value => {
     setCurrentValue(value)
@@ -82,8 +88,8 @@ function LeaveRating() {
                   <label className="form-label" htmlFor="name">
                     Communication
                   </label>
-                  <div style={styles.stars}>
-                    {stars.map((_, index) => {
+                  <div style={styles.stars2}>
+                    {stars2.map((_, index) => {
                       return (
                         <FaStar
                           key={index}
@@ -106,8 +112,8 @@ function LeaveRating() {
                   <label className="form-label" htmlFor="name">
                     Check-in
                   </label>
-                  <div style={styles.stars}>
-                    {stars.map((_, index) => {
+                  <div style={styles.stars3}>
+                    {stars3.map((_, index) => {
                       return (
                         <FaStar
                           key={index}
@@ -130,8 +136,8 @@ function LeaveRating() {
                   <label className="form-label" htmlFor="name">
                     Accuracy
                   </label>
-                  <div style={styles.stars}>
-                    {stars.map((_, index) => {
+                  <div style={styles.stars4}>
+                    {stars4.map((_, index) => {
                       return (
                         <FaStar
                           key={index}
@@ -154,8 +160,8 @@ function LeaveRating() {
                   <label className="form-label" htmlFor="name">
                     Location
                   </label>
-                  <div style={styles.stars}>
-                    {stars.map((_, index) => {
+                  <div style={styles.stars5}>
+                    {stars5.map((_, index) => {
                       return (
                         <FaStar
                           key={index}
@@ -178,8 +184,8 @@ function LeaveRating() {
                   <label className="form-label" htmlFor="name">
                     Value
                   </label>
-                  <div style={styles.stars}>
-                    {stars.map((_, index) => {
+                  <div style={styles.stars6}>
+                    {stars6.map((_, index) => {
                       return (
                         <FaStar
                           key={index}
@@ -234,7 +240,6 @@ function LeaveRating() {
                 </button>
               </div>
             </form>
-
           </div>
         </section>
       </main>

@@ -1,9 +1,25 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-//import GoogleMapReact from 'google-map-react';
+import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+import { useState } from 'react';
 import NavBar from './NavBar';
 
 function MapPage() {
+
+  const placeValues = [
+    {
+      ID: "123345",
+      rentalName: "2+1 Villa",
+      description: "Luxury Villa With Jakuzzi",
+      isFavorited: "true",
+    },
+    {
+      ID: "123345",
+      rentalName: "Seaside Villa",
+      description: "Luxury Villa With Sea View",
+      isFavorited: "false",
+    },
+  ];
 
 
   const handleApiLoaded = (map, maps) => {
@@ -12,6 +28,24 @@ function MapPage() {
     console.log(map);
     console.log(maps);
   };
+
+  const containerStyle = {
+    width: '720px',
+    height: '322px',
+    marginLeft: '200px'
+  };
+
+  const defaultCenter = {
+    lat: 39.8813,
+    lng: 32.6984
+  };
+  const handleMapClick = (event) => {
+    setSelectedLocation({
+      lat: event.latLng.lat(),
+      lng: event.latLng.lng()
+    });
+  };
+  const [selectedLocation, setSelectedLocation] = useState(null);
 
   const navigate = useNavigate();
 
@@ -52,15 +86,18 @@ function MapPage() {
           <div className="container">
             <div className="block-heading">
               <h2 className="text-info">MAP</h2>
-              <div style={{ height: '400px', width: '100%' }}>
-                {/* <GoogleMapReact
-                bootstrapURLKeys={{ key: 'YOUR_API_KEY' }}
-                defaultCenter={{ lat: 37.7749, lng: -122.4194 }}
-                defaultZoom={12}
-                yesIWantToUseGoogleMapApiInternals
-                onGoogleApiLoaded={({ map, maps }) => handleApiLoaded(map, maps)}
-            /> */}
-              </div>
+              <LoadScript googleMapsApiKey="AIzaSyAdc1phOB8xRTsyJwEa3wBuAGPIg9ZFnJ4">
+                <GoogleMap
+                  mapContainerStyle={containerStyle}
+                  center={defaultCenter}
+                  zoom={10}
+                  onClick={handleMapClick}
+                >
+                  {selectedLocation && (
+                    <Marker position={selectedLocation} />
+                  )}
+                </GoogleMap>
+              </LoadScript>
             </div>
             <div style={{ marginLeft: 72 }}>
               <h3
@@ -84,6 +121,7 @@ function MapPage() {
                   marginLeft: 178
                 }}
               >
+
                 <div style={{ marginRight: 540 }}>
                   <div className="form-check">
                     <input
@@ -126,138 +164,63 @@ function MapPage() {
                 }}
               >
                 <div>
-                  <div className="row">
-                    <div className="col-xl-6">
-                      <div
-                        className="clean-product-item"
-                        style={{ marginLeft: 76 }}
-                      >
-                        <img
-                          className="img-fluid d-block mx-auto"
-                          src="assets/img/Ekran%20Görüntüsü%20(1189).png"
-                          width={113}
-                          height={113}
-                        />
-                      </div>
-                    </div>
-                    <div
-                      className="col-xl-6"
-                      style={{
-                        marginTop: 18,
-                        paddingRight: 4,
-                        marginRight: 0,
-                        marginLeft: "-38px"
-                      }}
-                    >
-                      <div>
-                        <label
-                          className="form-label"
-                          style={{
-                            color: "var(--bs-blue)",
-                            textDecoration: "underline"
-                          }}
+                  {placeValues.map((item, index) => (
+                    <div className="row">
+                      <div className="col-xl-6">
+                        <div
+                          className="clean-product-item"
+                          style={{ marginLeft: 76 }}
                         >
-                          2+1 Villa
-                        </label>
-                        <i
-                          className="fas fa-heart"
-                          style={{ marginLeft: 88, fontSize: 20 }}
-                        />
+                          <img
+                            className="img-fluid d-block mx-auto"
+                            src="assets/img/Ekran%20Görüntüsü%20(1189).png"
+                            width={113}
+                            height={113}
+                          />
+                        </div>
                       </div>
-                      <div>
-                        <label className="form-label" style={{ marginTop: 26 }}>
-                          Luxury Villa With Jakuzzi
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="row">
-                    <div className="col-xl-6">
                       <div
-                        className="clean-product-item"
-                        style={{ marginLeft: 76 }}
+                        className="col-xl-6"
+                        style={{
+                          marginTop: 18,
+                          paddingRight: 4,
+                          marginRight: 0,
+                          marginLeft: "-38px"
+                        }}
                       >
-                        <img
-                          className="img-fluid d-block mx-auto"
-                          src="assets/img/Ekran%20Görüntüsü%20(1189).png"
-                          width={113}
-                          height={113}
-                        />
+                        <div style={{ position: "relative" }}>
+                          <label
+                            className="form-label"
+                            style={{
+                              color: "var(--bs-blue)",
+                              textDecoration: "underline",
+                              paddingRight: 30 // Adjust padding as needed
+                            }}
+                          >
+                            {item.rentalName}
+                          </label>
+                          <i
+                            className="fas fa-heart"
+                            style={{
+                              position: "absolute",
+                              right: 0,
+                              top: "50%",
+                              transform: "translateY(-50%)",
+                              fontSize: 20
+                            }}
+                          />
+                        </div>
+
+                        <div>
+                          <label className="form-label" style={{ marginTop: 26 }}>
+                            {item.description}
+                          </label>
+                        </div>
                       </div>
                     </div>
-                    <div
-                      className="col-xl-6"
-                      style={{
-                        marginTop: 18,
-                        paddingRight: 4,
-                        marginRight: 0,
-                        marginLeft: "-38px"
-                      }}
-                    >
-                      <div>
-                        <label
-                          className="form-label"
-                          style={{
-                            color: "var(--bs-blue)",
-                            textDecoration: "underline"
-                          }}
-                        >
-                          2+1 Villa
-                        </label>
-                        <i
-                          className="fas fa-heart"
-                          style={{ marginLeft: 88, fontSize: 20 }}
-                        />
-                      </div>
-                      <div>
-                        <label className="form-label" style={{ marginTop: 26 }}>
-                          Luxury Villa With Jakuzzi
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="row">
-                    <div className="col-xl-6">
-                      <div
-                        className="clean-product-item"
-                        style={{ marginLeft: 76 }}
-                      >
-                        <img
-                          className="img-fluid d-block mx-auto"
-                          src="assets/img/Ekran%20Görüntüsü%20(1189).png"
-                          width={113}
-                          height={113}
-                        />
-                      </div>
-                    </div>
-                    <div
-                      className="col-xl-6"
-                      style={{
-                        marginTop: 18,
-                        paddingRight: 4,
-                        marginRight: 0,
-                        marginLeft: "-38px"
-                      }}
-                    >
-                      <div>
-                        <label
-                          className="form-label"
-                          style={{
-                            color: "var(--bs-blue)",
-                            textDecoration: "underline"
-                          }}
-                        >
-                          2+1 Villa
-                        </label>
-                      </div>
-                      <div>
-                        <label className="form-label" style={{ marginTop: 26 }}>
-                          Luxury Villa With Jakuzzi
-                        </label>
-                      </div>
-                    </div>
-                  </div>
+                  ))}
                 </div>
+
               </div>
             </div>
           </div>

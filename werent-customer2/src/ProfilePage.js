@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import NavBar from './NavBar';
+import Modal from 'react-modal';
 
 function ProfilePage() {
   const navigate = useNavigate();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const averageRating=4.5;
+
   const reviews = [
     { id: 1, author: 'John ', comment: 'Clean and kind guest!', image: "assets/img/istockphoto-1200677760-612x612.jpg" },
     { id: 2, author: 'Jane ', comment: 'Respectful and tidy', image: 'assets/img/happy-young-woman-sitting-on-260nw-2018571389.webp' },
@@ -11,6 +16,54 @@ function ProfilePage() {
     { id: 4, author: 'Deniz', comment: 'Super guest!', image: "assets/img/smile-young-man-close-gorgeous-260nw-186076112.webp" }
 
   ];
+  const reviewList = reviews.map((review) => (
+    <div className="row">
+
+                <div className="col-md-6" style={{ paddingTop: 17 }}>
+                  <img
+                    className="rounded-circle"
+                    src={review.image}
+                    
+                    width={87}
+                    height={83}
+                    style={{ marginTop: "-14px" }}
+                  />
+                  <div
+                    className="card"
+                    style={{
+                      marginLeft: 119,
+                      marginBottom: 0,
+                      paddingBottom: 0,
+                      paddingTop: 0,
+                      marginTop: "-85px"
+                    }}
+                  >
+                    <div
+                      className="card-body"
+                      style={{
+                        marginBottom: "-2px",
+                        marginLeft: 52,
+                        marginRight: 74,
+                      }}
+                    >
+
+                      <h4 className="card-title" style={{ marginLeft: "-56px" }}>
+                        <p>{review.author}</p>
+
+                      </h4>
+
+                      <p className="card-text" style={{ marginLeft: "-56px" }}>
+                        {review.comment}
+                      </p>
+                    </div>
+                    
+                  </div>
+                </div>
+      </div>
+  ));
+  const handleShowAllReviews = () => {
+    setIsModalOpen(true);
+  };
   const handlePastBookings = (event) => {
     event.preventDefault();
     navigate('/PastBookingsPage');
@@ -98,8 +151,16 @@ function ProfilePage() {
                     />
                     <p style={{ marginTop: 16 }}>
                       <strong>
-                        <span style={{ textDecoration: "underline" }}>
+                        <span onClick={handleFileUpload} style={{ textDecoration: "underline" }}>
                           Change profile picture
+                          <input
+                            className="form-control"
+                            type="file"
+                            name="files"
+                            accept=".jpg"
+                            id="fileInput"
+                            onChange={handleFileChange}
+                        />
                         </span>
                       </strong>
                     </p>
@@ -119,7 +180,7 @@ function ProfilePage() {
                       />
                       &nbsp; &nbsp;&nbsp;
                       <span style={{ backgroundColor: "rgb(248, 249, 250)" }}>
-                        4.5 rating average
+                        {averageRating} rating average
                       </span>
                       <br />
                       <br />
@@ -558,15 +619,30 @@ function ProfilePage() {
                 <button
                   className="btn btn-danger"
                   type="button"
+                  onClick={handleShowAllReviews}
                   style={{
                     paddingTop: 7,
                     paddingLeft: 2,
-                    marginLeft: 298,
+                    marginLeft: 119,
                     marginTop: 14
                   }}
                 >
                   Show All Reviews
                 </button>
+                <Modal
+                  isOpen={isModalOpen}
+                  onRequestClose={() => setIsModalOpen(false)}
+                  contentLabel="All Reviews"
+                  style={{
+                    content: {
+                      height: '700px', 
+                    },
+                  }}
+                 >
+                  <h2>All Reviews</h2>
+                  <ul>{reviewList}</ul>
+                </Modal>
+                
               </div>
               <div
                 className="col-md-6 col-lg-12"
@@ -589,71 +665,7 @@ function ProfilePage() {
           </div>
         </section>
       </main>
-      <footer className="page-footer dark">
-        <div className="container">
-          <div className="row">
-            <div className="col-sm-3">
-              <h5>Get started</h5>
-              <ul>
-                <li>
-                  <a href="#">Home</a>
-                </li>
-                <li>
-                  <a href="#">Sign up</a>
-                </li>
-                <li>
-                  <a href="#">Downloads</a>
-                </li>
-              </ul>
-            </div>
-            <div className="col-sm-3">
-              <h5>About us</h5>
-              <ul>
-                <li>
-                  <a href="#">Company Information</a>
-                </li>
-                <li>
-                  <a href="#">Contact us</a>
-                </li>
-                <li>
-                  <a href="#">Reviews</a>
-                </li>
-              </ul>
-            </div>
-            <div className="col-sm-3">
-              <h5>Support</h5>
-              <ul>
-                <li>
-                  <a href="#">FAQ</a>
-                </li>
-                <li>
-                  <a href="#">Help desk</a>
-                </li>
-                <li>
-                  <a href="#">Forums</a>
-                </li>
-              </ul>
-            </div>
-            <div className="col-sm-3">
-              <h5>Legal</h5>
-              <ul>
-                <li>
-                  <a href="#">Terms of Service</a>
-                </li>
-                <li>
-                  <a href="#">Terms of Use</a>
-                </li>
-                <li>
-                  <a href="#">Privacy Policy</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div className="footer-copyright">
-          <p>© 2023 Copyright Text</p>
-        </div>
-      </footer>
+
     </>
 
 
