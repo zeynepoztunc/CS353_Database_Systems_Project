@@ -2,17 +2,60 @@ import React, { useState } from "react";
 import './assets/bootstrap/css/bootstrap.min.css';
 import './assets/css/vanilla-zoom.min.css';
 //import 'https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.css';
-import  { Link } from "react-router-dom";
+import  { Link, Navigate } from "react-router-dom";
 import { Navbar } from './Navbar';
 
 export const AdminLogin = (props) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    
-    
+    const [remember_me, setRememberme] = useState(false);
+    const [successful, setSuccesful] = useState(false);
     const handleSubmit = (e) =>{
         e.preventDefault();
+        setEmail(document.getElementById("email").value);
+        setPassword(document.getElementById("password").value);
+        console.log(remember_me+"adsf");
+        //setSuccesful(true);
+        if ( document.getElementById("rememberme").checked){
+            setRememberme(true);
+        }
+        
+        if ( !password ){
+            alert("You have to enter your password");
+            return;
+        }
+        if ( !email ){
+            alert("You have to enter your email.");
+            return;
+        }
+        if ( !email || !password ){
+            alert("You have to input both email and password");
+            return;
+        } 
         console.log(email);
+        console.log(password);
+        console.log(remember_me);
+        //<Link to="/AdminHome"></Link>
+    
+        
+        const trueEmail = "";
+        const truePassword = "";
+        try {
+            if ( email == trueEmail && password == truePassword ){
+                
+            }
+            setEmail("");
+            setPassword("");
+            setRememberme(true);
+            setSuccesful(true);
+            //history.push("/AdminHome");
+        } catch (error) {
+            alert(error.message);
+        }
+        
+        
+       
+        
     };
     
     return( 
@@ -61,7 +104,7 @@ export const AdminLogin = (props) => {
                             type="checkbox"
                             id="checkbox"
                         />
-                        <label className="form-check-label" htmlFor="checkbox">
+                        <label className="form-check-label" value={remember_me} htmlFor="checkbox" id="rememberme">
                             Remember me
                         </label>
                         </div>
@@ -73,11 +116,19 @@ export const AdminLogin = (props) => {
                         </button>
                     </div>
                     </Link> 
-                    <Link to="/AdminHome">
+                    
+                   { successful &&  (<Link to="/AdminHome">
                     <button className="btn btn-primary" type="submit">
                         Log In
                     </button>
                     </Link>
+                    )}
+                    { !successful &&  (
+                    <button className="btn btn-primary" type="submit">
+                        Log In
+                    </button>
+                    
+                    )}
                 </form>
             </div>
             </section>

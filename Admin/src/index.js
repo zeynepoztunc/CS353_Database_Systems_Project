@@ -5,7 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {
   createBrowserRouter,
-  RouterProvider,
+  RouterProvider, BrowserRouter as Router
 } from "react-router-dom";
 
 import { AdminLogin } from './AdminLogin';
