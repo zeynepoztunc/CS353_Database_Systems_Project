@@ -1,17 +1,48 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import './assets/bootstrap/css/bootstrap.min.css';
 import './assets/css/vanilla-zoom.min.css';
 import { Navbar } from './Navbar';
 
 export const AdminManagePosts = () => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [name, setName] = useState('');
+    const [mostRented, setMostRented] = useState(false);
+    const [leastRented, setLeastRented] = useState(false);
+    const [latestAdded, setLatestAdded] = useState(false);
+    const [oldestAdded, setOldestAdded] = useState(false);
+    const [highestRating, setHighestRating] = useState(false);
+    const [lowestRating, setLowestRating] = useState(false);
+    const [search, setSearch] = useState("");
     
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log(email);
+    function handleSearch(){
+      if ( document.getElementById("formCheck-1").checked ){
+        console.log("is checked 1");
+        setMostRented(true);
+      }
+      if ( document.getElementById("formCheck-2").checked ){
+        console.log("is checked 2");
+        setLeastRented(true);
+      }
+      if (document.getElementById("formCheck-3").checked ){
+        console.log("is checked 3");
+        setLatestAdded(true);
+      }
+      if (document.getElementById("formCheck-4").checked ){
+        console.log("is checked 4");
+        setOldestAdded(true);
+      }
+      if (document.getElementById("formCheck-5").checked ){
+        console.log("is checked 5"); 
+        setHighestRating(true);
+      }
+      if (document.getElementById("formCheck-6").checked ){
+        console.log("is checked 6");
+        setLowestRating(true);
+      }
+      
+      const searchInput = document.getElementById("searchInput").value;
+      setSearch(searchInput);
+      console.log(search);
     }
+
     
     return (
         <>
@@ -39,6 +70,81 @@ export const AdminManagePosts = () => {
                 <h2 className="text-info">Posts</h2>
                 <p>Rentals postings made by hosts.</p>
               </div>
+              <p>Select search inputs</p>
+        <div>
+          <div>
+            <div className="form-check">
+              <input
+                className="form-check-input"
+                type="checkbox"
+                id="formCheck-1"
+              />
+              <label className="form-check-label" htmlFor="formCheck-1">
+                Most rented
+              </label>
+            </div>
+            <div className="form-check">
+              <input
+                className="form-check-input"
+                type="checkbox"
+                id="formCheck-2"
+              />
+              <label className="form-check-label" htmlFor="formCheck-2">
+                Least rented
+              </label>
+            </div>
+            <div className="form-check">
+              <input
+                className="form-check-input"
+                type="checkbox"
+                id="formCheck-3"
+              />
+              <label className="form-check-label" htmlFor="formCheck-3">
+                Latest Added
+              </label>
+            </div>
+            <div className="form-check">
+              <input
+                className="form-check-input"
+                type="checkbox"
+                id="formCheck-4"
+              />
+              <label className="form-check-label" htmlFor="formCheck-4">
+                Oldest Added
+              </label>
+            </div>
+            <div className="form-check">
+              <input
+                className="form-check-input"
+                type="checkbox"
+                id="formCheck-5"
+              />
+              <label className="form-check-label" htmlFor="formCheck-5">
+                Highest Rating
+              </label>
+            </div>
+            <div className="form-check">
+              <input
+                className="form-check-input"
+                type="checkbox"
+                id="formCheck-6"
+              />
+              <label className="form-check-label" htmlFor="formCheck-6">
+                Lowest Rating
+              </label>
+            </div>
+          </div>
+        </div>
+        <div>
+          <input type="search" id="searchInput" style={{ marginLeft: 100 }} />
+          <button
+            className="btn btn-primary"
+            type="button" onClick={handleSearch}
+            style={{ marginLeft: 10 }}
+          >
+            Search
+          </button>
+        </div>
               <div className="row">
                 <div className="col-md-6 col-lg-4 item">
                   <a className="lightbox" href="assets/img/scenery/image1.jpg">
