@@ -2,22 +2,26 @@ import React, { useState } from 'react';
 import { FaStar } from 'react-icons/fa';
 import NavBar from './NavBar';
 
-const colors = {
+const colors = 
+{
   orange: "#FFBA5A",
   grey: "#a9a9a9"
 };
 
-function LeaveRating() {
+function LeaveRating() 
+{
   const [cleanlinessValue, setCleanlinessValue] = useState(0);
   const [communicationValue, setCommunicationValue] = useState(0);
   const [checkInValue, setCheckInValue] = useState(0);
   const [accuracyValue, setAccuracyValue] = useState(0);
   const [locationValue, setLocationValue] = useState(0);
   const [valueValue, setValueValue] = useState(0);
-  const [hoverValue, setHoverValue] = useState(0);
+  const [hoverValue, setHoverValue] = useState({});
 
-  const handleClick = (value, ratingType) => {
-    switch (ratingType) {
+  const handleClick = (value, ratingType) => 
+  {
+    switch (ratingType) 
+    {
       case 'cleanliness':
         setCleanlinessValue(value);
         break;
@@ -41,15 +45,24 @@ function LeaveRating() {
     }
   };
 
-  const handleMouseOver = (value) => {
-    setHoverValue(value);
+  const handleMouseOver = (value, ratingType) => 
+  {
+    setHoverValue((prevHoverValue) => ({
+      ...prevHoverValue,
+      [ratingType]: value
+    }));
   };
 
-  const handleMouseLeave = () => {
-    setHoverValue(0);
+  const handleMouseLeave = (ratingType) => 
+  {
+    setHoverValue((prevHoverValue) => ({
+      ...prevHoverValue,
+      [ratingType]: 0
+    }));
   };
 
-  const renderStars = (ratingValue, ratingType) => {
+  const renderStars = (ratingValue, ratingType) => 
+  {
     return Array(5).fill(0).map((_, index) => {
       const rating = index + 1;
       return (
@@ -57,9 +70,9 @@ function LeaveRating() {
           key={index}
           size={24}
           onClick={() => handleClick(rating, ratingType)}
-          onMouseOver={() => handleMouseOver(rating)}
-          onMouseLeave={handleMouseLeave}
-          color={(hoverValue || ratingValue) >= rating ? colors.orange : colors.grey}
+          onMouseOver={() => handleMouseOver(rating, ratingType)}
+          onMouseLeave={() => handleMouseLeave(ratingType)}
+          color={(hoverValue[ratingType] || ratingValue) >= rating ? colors.orange : colors.grey}
           style={{ marginRight: 10, cursor: "pointer" }}
         />
       );
@@ -82,7 +95,7 @@ function LeaveRating() {
       <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css" />
       <link rel="stylesheet" href="assets/css/baguetteBox.min.css" />
       <link rel="stylesheet" href="assets/css/vanilla-zoom.min.css" />
-
+      
       <NavBar />
 
       <main className="page contact-us-page">
@@ -146,6 +159,8 @@ function LeaveRating() {
                     {renderStars(valueValue, 'value')}
                   </div>
                 </div>
+
+                <div className="rating" />
               </div>
               <div className="mb-3" />
               <div className="mb-3" />
@@ -188,16 +203,19 @@ function LeaveRating() {
 }
 
 const styles = {
-  container: {
+  container: 
+  {
     display: "flex",
     flexDirection: "column",
     alignItems: "center"
   },
-  stars: {
+  stars: 
+  {
     display: "flex",
     flexDirection: "row",
   },
-  textarea: {
+  textarea: 
+  {
     border: "1px solid #a9a9a9",
     borderRadius: 5,
     padding: 10,
@@ -205,7 +223,8 @@ const styles = {
     minHeight: 100,
     width: 300
   },
-  button: {
+  button: 
+  {
     border: "1px solid #a9a9a9",
     borderRadius: 5,
     width: 300,
