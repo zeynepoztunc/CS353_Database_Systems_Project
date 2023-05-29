@@ -1,5 +1,6 @@
 package com.example.werent.controller;
 
+import com.example.werent.entity.LocationDTO;
 import com.example.werent.entity.RentalDTO;
 import com.example.werent.repository.RentalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +23,11 @@ public class RentalController {
         return rentalRepository.addRental(newRental);
     }
 
-    //PUT Mapping???
+    @PutMapping
+    public void updateLocation(@RequestBody LocationDTO rentalLocation) {
+        System.out.println(rentalLocation.getRentalId());
+        rentalRepository.updateLocation(rentalLocation.getRentalId(), rentalLocation.getCity(), rentalLocation.getProvince(), rentalLocation.getAddress(),rentalLocation.getLatitude(), rentalLocation.getLongitude());
+    }
     // You can add a method to handle the PUT request and update the rental details
 
     //DELETE Mapping???
