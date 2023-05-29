@@ -16,6 +16,24 @@ const  RentalPage= () => {
   const [selectedCounts, setSelectedCounts] = useState({});
   const [selectedItems, setSelectedItems] = useState({});
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const avgRating=4.5;
+  const dailyPrice=200;
+  const avgCleanlinessRating=4.5;
+  const avgCommunicationRating=4.25;
+  const avgAccuracyRating=4;
+  const avgCheckinRating=5;
+  const avgValueRating=4.5;
+  const avgLocationRating=4.75;
+  const numOfReview=15;
+  const isSuperHost=useState(null);
+  const isHearted=useState(null);
+  const isFreeforEarthquakeVictims=useState(null);
+  const maxAccomodation=6;
+  const bedroomNum=3;
+  const bathroomNum=3;
+  const hostName="Ali";
+  const description=" In Kalkan, with its excellent sea view and location surrounded by nature, awaits you. Our rental villa with the capacity of 6 people has 3 bedrooms. In the rental villa ,it has all the kitchen utensils you may need. It has aspacious lounge with open american kitchen where you can bemodern, convenient and comfortable.";
+
   const options = Array.from({ length: 10 }, (_, index) => index + 1);
   const reviews = [
     { id: 1, author: 'Jennifer ', comment: 'The place was just perfect.', image: "assets/img/photo-1596813362035-3edcff0c2487.jpg" },
@@ -171,12 +189,7 @@ const  RentalPage= () => {
                 </div>
                 <p style={{ marginTop: "-5px" }}>
                   <span style={{ color: "rgb(34, 34, 34)" }}>
-                    In Kalkan, with its excellent sea view and location
-                    surrounded by nature, awaits you. Our rental villa with the
-                    capacity of 6 people has 3 bedrooms. In the rental villa ,
-                    it has all the kitchen utensils you may need. It has a
-                    spacious lounge with open american kitchen where you can be
-                    modern, convenient and comfortable.
+                    {description}
                   </span>
                   <br />
                   <br />
@@ -241,7 +254,7 @@ const  RentalPage= () => {
                       <img src="assets/img/star.svg" />
                       <img src="assets/img/star.svg" width={18} height={19} />
                       <img src="assets/img/star-half-empty.svg" />
-                      <span style={{ color: "rgb(0, 0, 0)" }}>&nbsp;4,5</span>
+                      <span style={{ color: "rgb(0, 0, 0)" }}>&nbsp;{avgRating}</span>
                     </p>
                     <p>
                       <span
@@ -250,7 +263,7 @@ const  RentalPage= () => {
                           color: "rgb(0, 0, 0)"
                         }}
                       >
-                        15 reviews
+                        {numOfReview} reviews
                       </span>
                     </p>
                     <div className="col">
@@ -274,7 +287,7 @@ const  RentalPage= () => {
                     </p>
                   </div>
                   <div className="price">
-                    <h3>$200 /night</h3>
+                    <h3>${dailyPrice} /night</h3>
                     <div className="row">
                       <div className="col-lg-6">
                         <div className="card">
@@ -359,7 +372,7 @@ const  RentalPage= () => {
                 <div />
                 <h6>
                   <strong>
-                    Villa hosted by Ali&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    Hosted by {hostName}&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                     &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                     &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
                   </strong>
@@ -569,7 +582,7 @@ const  RentalPage= () => {
                     <i className="fas fa-star text-warning" />
                     <strong>
                       &nbsp;
-                      <span style={{ color: "rgb(0, 0, 0)" }}>4,5&nbsp;</span>
+                      <span style={{ color: "rgb(0, 0, 0)" }}>{avgRating}&nbsp;</span>
                       <span style={{ color: "rgb(34, 34, 34)" }}>·&nbsp;</span>
                       <span style={{ color: "rgb(0, 0, 0)" }}>&nbsp;</span>
                       <span
@@ -578,7 +591,7 @@ const  RentalPage= () => {
                           color: "rgb(0, 0, 0)"
                         }}
                       >
-                        15 reviews
+                        {numOfReview} reviews
                       </span>
                     </strong>
                   </p>
@@ -597,7 +610,7 @@ const  RentalPage= () => {
                           <p className="fs-5">
                             <i className="far fa-star" />
                             <span style={{ color: "rgb(0, 0, 0)" }}>
-                              &nbsp; &nbsp;4,5&nbsp;
+                              &nbsp; &nbsp;{avgCleanlinessRating}&nbsp;
                             </span>
                           </p>
                         </div>
@@ -614,7 +627,7 @@ const  RentalPage= () => {
                               <p className="fs-5">
                                 <i className="far fa-star" />
                                 <span style={{ color: "rgb(0, 0, 0)" }}>
-                                  &nbsp; &nbsp;4,25&nbsp;
+                                  &nbsp; &nbsp;{avgCleanlinessRating}&nbsp;
                                 </span>
                               </p>
                             </div>
@@ -638,7 +651,7 @@ const  RentalPage= () => {
                           <p className="fs-5">
                             <i className="far fa-star" />
                             <span style={{ color: "rgb(0, 0, 0)" }}>
-                              &nbsp; &nbsp;4,0&nbsp;
+                              &nbsp; &nbsp;{avgAccuracyRating}&nbsp;
                             </span>
                           </p>
                         </div>
@@ -655,7 +668,7 @@ const  RentalPage= () => {
                           <p className="fs-5">
                             <i className="far fa-star" />
                             <span style={{ color: "rgb(0, 0, 0)" }}>
-                              &nbsp; &nbsp;5,0&nbsp;
+                              &nbsp; &nbsp;{avgCheckinRating}&nbsp;
                             </span>
                           </p>
                         </div>
@@ -670,7 +683,7 @@ const  RentalPage= () => {
                           <p className="fs-5">
                             <i className="far fa-star" />
                             <span style={{ color: "rgb(0, 0, 0)" }}>
-                              &nbsp; &nbsp;4,5&nbsp;
+                              &nbsp; &nbsp;{avgValueRating}&nbsp;
                             </span>
                           </p>
                         </div>
@@ -685,7 +698,7 @@ const  RentalPage= () => {
                           <p className="fs-5">
                             <i className="far fa-star" />
                             <span style={{ color: "rgb(0, 0, 0)" }}>
-                              &nbsp; &nbsp;4,75&nbsp;
+                              &nbsp; &nbsp;{avgLocationRating}&nbsp;
                             </span>
                           </p>
                         </div>
@@ -794,7 +807,7 @@ const  RentalPage= () => {
             className="col-lg-10 offset-lg-0"
             style={{ marginTop: "-1px", marginBottom: 0, marginLeft: 82 }}
           >
-            <h2 style={{ paddingTop: 64 }}>
+            <h2 style={{ paddingTop: 64,marginLeft:50 }}>
               <strong>Reviews</strong>
             </h2>
           </div>
