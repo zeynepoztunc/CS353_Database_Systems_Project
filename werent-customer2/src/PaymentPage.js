@@ -70,7 +70,7 @@ function PaymentPage() {
                       className="form-control"
                       type="text"
                       id="card_holder"
-                      placeholder="Zeynep Ak"
+                      placeholder="Name Surname"
                       name="card_holder"
                     />
                   </div>
