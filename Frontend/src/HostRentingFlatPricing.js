@@ -7,12 +7,13 @@ import axios from 'axios';
 
 const  HostRentingFlatPricing= () =>
 {
-    const [startDate, setStartDate] = useState(null);
-    const [endDate, setEndDate] = useState(null);
+  let date = new Date();
+  const [startDate, setStartDate] = useState(date);
+  const [endDate, setEndDate] = useState(date);
 
 
-    const [earliestCheckIn, setEarliestCheckIn] = useState('00:00');
-    const [latestCheckOut, setLatestCheckOut] = useState('00:00');
+    const [earliestCheckIn, setEarliestCheckIn] = useState('00:00:00');
+    const [latestCheckOut, setLatestCheckOut] = useState('00:00:00');
     const [cancellationHourLimit, setCancellationHourLimit] = useState(0);
 
     const [price, setPrice] = useState(0);
@@ -20,7 +21,7 @@ const  HostRentingFlatPricing= () =>
     const [refundFee, setRefundFee] = useState(0.0);
     const [refundFeePercentage, setRefundFeePercentage] = useState(0);
     const [autoApprove, setAutoApprove] = useState(false);
-    const [adminApproval, setAdminApproval] = useState(false);
+    const [isAdminApproved, setisAdminApproved] = useState(true);
     const [customRefundEnabled, setCustomRefundEnabled] = useState(false);
 
     const navigate = useNavigate();
@@ -56,6 +57,7 @@ const  HostRentingFlatPricing= () =>
   const handleSubmit = async (event) =>
   {
     event.preventDefault();
+    console.log(rentalId);
     console.log(startDate);
     console.log(endDate);
     console.log(earliestCheckIn);
@@ -64,27 +66,33 @@ const  HostRentingFlatPricing= () =>
     console.log(price);
     console.log(refundFee);
     console.log(autoApprove);
-    setAdminApproval(true);
+    console.log(isAdminApproved);
       const updateRentalInfoResponse = await axios.put(`http://localhost:8080/Rentals/updateRentalInfo`, {
         rentalId: rentalId,
-        earliestCheckIn: earliestCheckIn,
-        latestCheckOut: latestCheckOut,
+        earliestCheckInHour: earliestCheckIn,
+        latestCheckOutHour: latestCheckOut,
         cancellationHourLimit: cancellationHourLimit,
-        price: price,
+        dailyPrice: price,
         refundFee: refundFee,
         autoApprove: autoApprove,
-        adminApproval: adminApproval
+        isAdminApproved: isAdminApproved
 
       });
-      const updateRentalDatesResponse = await axios.put(`http://localhost:8080/Rentals/updateRentalDates`, {
-        rentalId: rentalId,
-        startDate: startDate,
-        endDate: endDate,
-        });
+    try {
+      const isoStartDate = startDate.toISOString();
+      const isoEndDate = endDate.toISOString();
+
+      const updateRentalDatesResponse = await axios.put(`http://localhost:8080/Rentals/updateRentalDates?rentalId=${rentalId}&hostSelectedStartDate=${isoStartDate}&hostSelectedEndDate=${isoEndDate}`);
+
       console.log(updateRentalDatesResponse.data);
-      console.log(updateRentalInfoResponse.data);
+      // console.log(updateRentalInfoResponse.data); // undefined variable
+
       // If successful, navigate to the next page
-      navigate('/HostRentingRoomPricing?hostId=' + hostId + '&rentalId=' + rentalId);
+      navigate('/HostRentingMainPage', { replace: true });
+    } catch (error) {
+      console.error(error);
+    }
+
   };
 
   const occupiedDates = [
@@ -549,6 +557,9 @@ const  HostRentingFlatPricing= () =>
                 <label
                   className="form-check-label fs-4 fw-semibold"
                   htmlFor="formCheck-3"
+                  type="Boolean"
+                  value={autoApprove}
+                  onChange={event => setAutoApprove(event.target.value)}
                 >
                   Auto approve cancellation requests
                 </label>

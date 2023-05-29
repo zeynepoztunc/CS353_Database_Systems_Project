@@ -4,9 +4,12 @@ import com.example.werent.entity.LocationDTO;
 import com.example.werent.entity.RentalDTO;
 import com.example.werent.repository.RentalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Date;
+import java.sql.Date;
+import java.text.ParseException;
+import java.time.LocalDateTime;
 
 @CrossOrigin
 @RestController
@@ -34,14 +37,18 @@ public class RentalController {
     @PutMapping("/updateRentalInfo")
     public void updateRentalInfo(@RequestBody RentalDTO rentalDTO)
     {
-        rentalRepository.updateRentalInfo(rentalDTO.getRentalId(),rentalDTO.getRentalName(),rentalDTO.getDailyPrice(),rentalDTO.getMaxStayDuration(),rentalDTO.getCancellationRefund(),rentalDTO.getCancellationDayLimit(),rentalDTO.getEarliestCheckInHour(),rentalDTO.getLatestCheckInHour(), rentalDTO.getCancellationHourLimit(), rentalDTO.isAutoApproveRequests(), rentalDTO.getAdminApproved());
+        rentalRepository.updateRentalInfo(rentalDTO.getRentalId(),rentalDTO.getDailyPrice(),rentalDTO.getMaxStayDuration(),rentalDTO.getCancellationRefund(),rentalDTO.getCancellationDayLimit(),rentalDTO.getEarliestCheckInHour(),rentalDTO.getLatestCheckOutHour(), rentalDTO.getCancellationHourLimit(), rentalDTO.isAutoApproveRequests(), rentalDTO.getAdminApproved());
     }
 
     @PutMapping("/updateRentalDates")
-    public void updateRentalDates(int rentalId, Date AvailableStartDate, Date AvailableEndDate, Date selectedStartDate, Date selectedEndDate)
+    public void updateRentalDates(
+            @RequestParam Integer rentalId,
+            @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime hostSelectedStartDate,
+            @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime hostSelectedEndDate)
     {
-        rentalRepository.updateRentalDates(rentalId, AvailableStartDate, AvailableEndDate, selectedStartDate, selectedEndDate);
+        rentalRepository.updateRentalDates(rentalId, hostSelectedStartDate, hostSelectedEndDate);
     }
+
 
     // You can add a method to handle the PUT request and update the rental details
 

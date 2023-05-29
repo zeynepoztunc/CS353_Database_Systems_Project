@@ -1,6 +1,7 @@
 package com.example.werent.entity;
 
 import java.sql.Date;
+
 import java.sql.Time;
 
 public class RentalDTO
@@ -30,10 +31,10 @@ public class RentalDTO
     private int cancellationRefund;
     private int cancellationDayLimit;
     private Time earliestCheckInHour;
-    private Time latestCheckInHour;
+    private Time latestCheckOutHour;
     private int cancellationHourLimit;
     private boolean autoApproveRequests;
-    private Boolean isAdminApproved;
+    private boolean isAdminApproved;
     private boolean couchsurfing;
 
     public int getRentalId() {
@@ -236,12 +237,12 @@ public class RentalDTO
         this.earliestCheckInHour = earliestCheckInHour;
     }
 
-    public Time getLatestCheckInHour() {
-        return latestCheckInHour;
+    public Time getLatestCheckOutHour() {
+        return latestCheckOutHour;
     }
 
-    public void setLatestCheckInHour(Time latestCheckInHour) {
-        this.latestCheckInHour = latestCheckInHour;
+    public void setLatestCheckOutHour(Time latestCheckOutHour) {
+        this.latestCheckOutHour = latestCheckOutHour;
     }
 
     public int getCancellationHourLimit() {
@@ -260,7 +261,7 @@ public class RentalDTO
         this.autoApproveRequests = autoApproveRequests;
     }
 
-    public Boolean getAdminApproved() {
+    public boolean getAdminApproved() {
         return isAdminApproved;
     }
 

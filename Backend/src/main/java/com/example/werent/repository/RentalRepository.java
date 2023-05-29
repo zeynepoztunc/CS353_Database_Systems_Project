@@ -2,12 +2,15 @@ package com.example.werent.repository;
 
 import com.example.werent.entity.RentalDTO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
-import java.util.Date;
+import java.sql.Date;
+import java.sql.Time;
+import java.sql.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 
 @Repository
 public class RentalRepository {
@@ -42,15 +45,20 @@ public class RentalRepository {
     }
 
 
-    public void updateRentalInfo(int id, String name, double dailyPrice, int maxStayDuration, double cancellationRefund, int cancellationDayLimit, Date earliestCheckInHour, Date latestCheckInHour, int cancellationHourLimit, boolean autoApproveRequests, boolean isAdminApproved) {
-        String sql = "UPDATE \"Rental\" SET \"rental-name\" = ?, \"daily-price\" = ?, \"max-stay-duration\" = ?, \"cancellation-refund\" = ?, \"cancellation-day-limit\" = ?, \"earliest-check-in-hour\" = ?, \"latest-check-in-hour\" = ?, \"cancellation-hour-limit\" = ?, \"auto-approve-requests\" = ?, \"is-admin-approved\" = ? WHERE \"rental-id\" = ?";
-        jdbcTemplate.update(sql, name, dailyPrice,  maxStayDuration, cancellationRefund, cancellationDayLimit, earliestCheckInHour, latestCheckInHour, cancellationHourLimit, autoApproveRequests, isAdminApproved, id);
+    public void updateRentalInfo(int id, double dailyPrice, int maxStayDuration, double cancellationRefund, int cancellationDayLimit, Time earliestCheckInHour, Time latestCheckInHour, int cancellationHourLimit, boolean autoApproveRequests, boolean isAdminApproved) {
+        String sql = "UPDATE \"Rental\" SET  \"daily-price\" = ?, \"max-stay-duration\" = ?, \"cancellation-refund\" = ?, \"cancellation-day-limit\" = ?, \"earliest-check-in-hour\" = ?, \"latest-check-in-hour\" = ?, \"cancellation-hour-limit\" = ?, \"auto-approve-requests\" = ?, \"is-admin-approved\" = ? WHERE \"rental-id\" = ?";
+        jdbcTemplate.update(sql, dailyPrice,  maxStayDuration, cancellationRefund, cancellationDayLimit, earliestCheckInHour, latestCheckInHour, cancellationHourLimit, autoApproveRequests, isAdminApproved, id);
     }
 
-    public void updateRentalDates(int id, Date availableStartDate, Date availableEndDate, Date selectedStartDate, Date selectedEndDate) {
-        String sql = "UPDATE \"Rental\" SET \"renting-available-start-date\" = ?, \"renting-available-end-date\" = ?, \"host-selected-rental-start-date\" = ?, \"host-selected-rental-end-date\" = ? WHERE \"rental-id\" = ?";
-        jdbcTemplate.update(sql, availableStartDate, availableEndDate, selectedStartDate, selectedEndDate, id);
+
+    public void updateRentalDates(int id, LocalDateTime availableStartDate, LocalDateTime availableEndDate) {
+        Timestamp startDateTimestamp = Timestamp.valueOf(availableStartDate);
+        Timestamp endDateTimestamp = Timestamp.valueOf(availableEndDate);
+
+        String sql = "UPDATE \"Rental\" SET  \"host-selected-rental-start-date\" = ?, \"host-selected-rental-end-date\" = ? WHERE \"rental-id\" = ?";
+        jdbcTemplate.update(sql, startDateTimestamp, endDateTimestamp, id);
     }
+
 
     public void updateLocation(int id, String city, String province, String address, double latitude, double longitude) {
         String sql = "UPDATE \"Rental\" SET city = ?, province = ?, address = ?, latitude = ?, longitude = ? WHERE \"rental-id\" = ?";
