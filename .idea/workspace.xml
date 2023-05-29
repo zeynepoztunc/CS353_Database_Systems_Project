@@ -4,24 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e555480-ab5a-407e-a171-4062daf29606" name="Changes" comment="queries executed for room, data passing">
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/controller/AmenitiesController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/controller/LocationController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/entity/AmenitiesDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/entity/LocationDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/repository/AmenitiesRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/repository/ImagesRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/repository/LocationRepository.java" afterDir="false" />
+    <list default="true" id="5e555480-ab5a-407e-a171-4062daf29606" name="Changes" comment="up to price selection is done">
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/controller/FlatController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/entity/FlatDetailsDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/repository/FlatRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/8e55f807-7037-4dd5-bcd7-772618465c0c.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/8e55f807-7037-4dd5-bcd7-772618465c0c.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8e55f807-7037-4dd5-bcd7-772618465c0c/storage_v2/_src_/database/oyfcmypj.TT0pvw/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/8e55f807-7037-4dd5-bcd7-772618465c0c/storage_v2/_src_/database/oyfcmypj.TT0pvw/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/controller/RentalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/controller/RentalController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/controller/RoomController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/controller/RoomController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/entity/AmenitiesEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/repository/RentalRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/repository/RentalRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/HostRentingRoomDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/HostRentingRoomDetails.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/HostRentingRoomLocation.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/HostRentingRoomLocation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/repository/RoomRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/repository/RoomRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,7 +149,8 @@
       <workItem from="1685108506429" duration="5637000" />
       <workItem from="1685123630476" duration="5192000" />
       <workItem from="1685204736180" duration="11718000" />
-      <workItem from="1685265309949" duration="23678000" />
+      <workItem from="1685265309949" duration="24250000" />
+      <workItem from="1685310550740" duration="2175000" />
     </task>
     <task id="LOCAL-00001" summary="new upload">
       <created>1684410800015</created>
@@ -204,7 +194,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685113642451</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="up to price selection is done">
+      <created>1685297459262</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1685297459262</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -228,7 +225,8 @@
     <MESSAGE value="together" />
     <MESSAGE value="Room controller started" />
     <MESSAGE value="queries executed for room, data passing" />
-    <option name="LAST_COMMIT_MESSAGE" value="queries executed for room, data passing" />
+    <MESSAGE value="up to price selection is done" />
+    <option name="LAST_COMMIT_MESSAGE" value="up to price selection is done" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
