@@ -35,6 +35,11 @@ public class RentalDTO
     private boolean autoApproveRequests;
     private Boolean isAdminApproved;
     private boolean couchsurfing;
+    private String searchInput;
+    private String filterCity;
+    private String chosenCity;
+    private String filterCategory;
+    private String chosenCategory;
 
     public int getRentalId() {
         return rentalId;
@@ -274,6 +279,46 @@ public class RentalDTO
 
     public void setCouchsurfing(boolean couchsurfing) {
         this.couchsurfing = couchsurfing;
+    }
+
+    public String getSearchInput() {
+        return searchInput;
+    }
+
+    public void setSearchInput(String searchInput) {
+        this.searchInput = searchInput;
+    }
+
+    public String getFilterCity() {
+        return filterCity;
+    }
+
+    public void setFilterCity(String filterCity) {
+        this.filterCity = filterCity;
+    }
+
+    public String getChosenCity() {
+        return chosenCity;
+    }
+
+    public void setChosenCity(String chosenCity) {
+        this.chosenCity = chosenCity;
+    }
+
+    public String getFilterCategory() {
+        return filterCategory;
+    }
+
+    public void setFilterCategory(String filterCategory) {
+        this.filterCategory = filterCategory;
+    }
+
+    public String getChosenCategory() {
+        return chosenCategory;
+    }
+
+    public void setChosenCategory(String chosenCategory) {
+        this.chosenCategory = chosenCategory;
     }
 
     @Override
