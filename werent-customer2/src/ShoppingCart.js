@@ -49,6 +49,28 @@ function ShoppingCart() {
     navigate('/PaymentPage');
   };
 
+  const calculateTotalPrice = () => 
+  {
+    let totalPrice = 0;
+    for (const rental of ApprovedRentalValues) {
+      // Remove the '$' symbol from the price and parse it as a number
+      const rentalPrice = parseInt(rental.price.replace("$", ""));
+      totalPrice += rentalPrice;
+    }
+    return totalPrice;
+  };
+
+  const calculateUnattendedTotalPrice = () => 
+  {
+    let totalPrice = 0;
+    for (const rental of WaitingRentalValues) {
+      // Remove the '$' symbol from the price and parse it as a number
+      const rentalPrice = parseInt(rental.price.replace("$", ""));
+      totalPrice += rentalPrice;
+    }
+    return totalPrice;
+  };
+
   return (
     <>
       <meta charSet="utf-8" />
@@ -193,15 +215,15 @@ function ShoppingCart() {
                     <h3>Summary</h3>
                     <h4>
                       <span className="text">Subtotal</span>
-                      <span className="price">$480</span>
+                      <span className="price">${calculateUnattendedTotalPrice() + calculateTotalPrice()}</span>
                     </h4>
                     <h4>
                       <span className="text">Unattended Total</span>
-                      <span className="price">$160</span>
+                      <span className="price">${calculateUnattendedTotalPrice()}</span>
                     </h4>
                     <h4>
                       <span className="text">Total</span>
-                      <span className="price">$320</span>
+                      <span className="price">${calculateTotalPrice()}</span>
                     </h4>
                     <button
                       onClick={goToPaymentPage}
