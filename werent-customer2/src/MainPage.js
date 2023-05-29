@@ -1,83 +1,156 @@
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import NavBar from './NavBar';
+import React, { useState } from 'react';
 
 const MainPage = () => {
 
-  const placeValues = [
+  const [placeValues, setPlaceValues] = useState([
     {
-      ID: "123345",
-      rentalName: "Thatched cottage surrounded by nature",
+      ID: "1",
+      rentalName: "Sea Thatched cottage surrounded by nature",
       price: "$95",
-      isFavorited: "true",
-      rating: "4",
+      isFavorited: true,
+      rating: "4.556",
       img: "assets/img/Ekran%20Görüntüsü%20(1189).png",
     },
     {
-      ID: "123345",
+      ID: "2",
       rentalName: "Unique & Fascinating Villa With Magnificent Garden",
       price: "$1097",
-      isFavorited: "true",
+      isFavorited: true,
       rating: "5",
       img: "assets/img/Ekran%20Görüntüsü%20(1195).png",
     },
     {
-      ID: "123345",
+      ID: "3",
       rentalName: "Sapanca Loft Bungalowv",
       price: "$130",
-      isFavorited: "true",
-      rating: "4",
+      isFavorited: false,
+      rating: "3",
       img: "assets/img/Ekran%20Görüntüsü%20(1193).png",
     },
     {
-      ID: "123345",
+      ID: "4",
       rentalName: "La Stalla - Casa San Gabriel",
       price: "$178",
-      isFavorited: "true",
-      rating: "4",
+      isFavorited: false,
+      rating: "1",
       img: "assets/img/Ekran%20Görüntüsü%20(1196).png",
     },
     {
-      ID: "123345",
+      ID: "5",
       rentalName: "Cabane Spa Divine",
       price: "$437",
-      isFavorited: "true",
-      rating: "4",
+      isFavorited: false,
+      rating: "2.4",
       img: "assets/img/Ekran%20Görüntüsü%20(1192).png",
     },
     {
-      ID: "123345",
+      ID: "6",
       rentalName: "Boutique house",
       price: "$342",
-      isFavorited: "true",
-      rating: "4",
+      isFavorited: true,
+      rating: "5",
       img: "assets/img/Ekran%20Görüntüsü%20(1194).png",
     },
     {
-      ID: "123345",
+      ID: "7",
       rentalName: "Luxury Villa With a Jakuzzi",
       price: "$100",
-      isFavorited: "true",
+      isFavorited: false,
       rating: "4",
       img: "assets/img/Ekran%20Görüntüsü%20(1188).png",
     },
     {
-      ID: "123345",
+      ID: "8",
       rentalName: "Evaton Marion",
       price: "$80",
-      isFavorited: "true",
+      isFavorited: false,
       rating: "4",
       img: "assets/img/Ekran%20Görüntüsü%20(1191).png",
     },
     {
-      ID: "123345",
+      ID: "9",
       rentalName: "Chalet Lago dei Caprioli",
       price: "$207",
-      isFavorited: "true",
+      isFavorited: true,
       rating: "4",
       img: "assets/img/Ekran%20Görüntüsü%20(1197).png",
     },
-  ];
+  ]);
+
+  function toggleHeart(id) {
+    setPlaceValues((prevPlaceValues) => {
+      const updatedPlaceValues = prevPlaceValues.map((item) => {
+        if (item.ID === id) {
+          return {
+            ...item,
+            isFavorited: !item.isFavorited,
+          };
+        }
+        return item;
+      });
+      return updatedPlaceValues;
+    });
+  }
+
+  const [selectedFilters, setSelectedFilters] = useState([]);
+  const [showFavoritesOnly, setShowFavoritesOnly] = useState(false);
+
+  const applyFilters = () => {
+    let filteredRentals = placeValues;
+
+    if (selectedFilters.length > 0) {
+      filteredRentals = filteredRentals.filter((item) => {
+        const rentalName = item.rentalName.toLowerCase();
+        return selectedFilters.some((filter) => rentalName.includes(filter));
+      });
+    }
+
+    if (showFavoritesOnly) {
+      filteredRentals = filteredRentals.filter((item) => item.isFavorited);
+    }
+
+    return filteredRentals;
+  };
+
+  const handleFilterChange = (event) => {
+    const filterValue = event.target.value.toLowerCase();
+    setSelectedFilters((prevFilters) => {
+      if (prevFilters.includes(filterValue)) {
+        return prevFilters.filter((filter) => filter !== filterValue);
+      } else {
+        return [...prevFilters, filterValue];
+      }
+    });
+  };
+
+  const toggleFavoritesOnly = () => {
+    setShowFavoritesOnly((prevShowFavoritesOnly) => !prevShowFavoritesOnly);
+  };
+
+  function renderStars(rating) {
+    const starCount = 5;
+    const fullStarCount = Math.floor(rating);
+    const hasHalfStar = rating % 1 !== 0;
+
+    const stars = [];
+    for (let i = 0; i < fullStarCount; i++) {
+      stars.push(<img key={i} src="assets/img/star.svg" />);
+    }
+
+    if (hasHalfStar) {
+      stars.push(<img key={fullStarCount} src="assets/img/star-half-empty.svg" />);
+    }
+
+    const emptyStarCount = starCount - fullStarCount - (hasHalfStar ? 1 : 0);
+    for (let i = 0; i < emptyStarCount; i++) {
+      stars.push(<img key={fullStarCount + i + (hasHalfStar ? 1 : 0)} src="assets/img/star-empty.svg" />);
+    }
+
+    return stars;
+  }
+
 
   const navigate = useNavigate();
 
@@ -85,21 +158,6 @@ const MainPage = () => {
     event.preventDefault();
     navigate('/RentalPage');
   }
-
-  const goToMainPage = (event) => {
-    event.preventDefault();
-    navigate('/MainPage');
-  };
-
-  const goToShoppingCartPage = (event) => {
-    event.preventDefault();
-    navigate('/ShoppingCart');
-  };
-
-  const goToMapPage = (event) => {
-    event.preventDefault();
-    navigate('/MapPage');
-  };
 
   return (
     <>
@@ -135,36 +193,14 @@ const MainPage = () => {
                     <div className="filters">
 
                       <div className="filter-item">
-                        <h3>Categories</h3>
-                        <div className="form-check">
-                          <input
-                            className="form-check-input"
-                            type="checkbox"
-                            id="formCheck-1"
-                          />
-                          <label className="form-check-label" htmlFor="formCheck-1">
-                            Room
-                          </label>
-                        </div>
-                        <div className="form-check">
-                          <input
-                            className="form-check-input"
-                            type="checkbox"
-                            id="formCheck-2"
-                          />
-                          <label className="form-check-label" htmlFor="formCheck-2">
-                            Flat
-                          </label>
-                        </div>
-                      </div>
-
-                      <div className="filter-item">
                         <h3>Location</h3>
                         <div className="form-check">
                           <input
                             className="form-check-input"
                             type="checkbox"
                             id="formCheck-5"
+                            value="countryside"
+                            onChange={handleFilterChange}
                           />
                           <label className="form-check-label" htmlFor="formCheck-5">
                             Countryside
@@ -175,6 +211,8 @@ const MainPage = () => {
                             className="form-check-input"
                             type="checkbox"
                             id="formCheck-6"
+                            value="sea"
+                            onChange={handleFilterChange}
                           />
                           <label className="form-check-label" htmlFor="formCheck-6">
                             Sea
@@ -185,6 +223,8 @@ const MainPage = () => {
                             className="form-check-input"
                             type="checkbox"
                             id="formCheck-7"
+                            value="historical"
+                            onChange={handleFilterChange}
                           />
                           <label className="form-check-label" htmlFor="formCheck-7">
                             Historical
@@ -198,9 +238,11 @@ const MainPage = () => {
                           <input
                             className="form-check-input"
                             type="checkbox"
-                            id="formCheck-8"
+                            id="formCheck-5"
+                            value="countryside"
+                            onChange={handleFilterChange}
                           />
-                          <label className="form-check-label" htmlFor="formCheck-8">
+                          <label className="form-check-label" htmlFor="formCheck-5">
                             Earthquake
                           </label>
                         </div>
@@ -208,10 +250,24 @@ const MainPage = () => {
                           <input
                             className="form-check-input"
                             type="checkbox"
-                            id="formCheck-9"
+                            id="formCheck-5"
+                            value="countryside"
+                            onChange={handleFilterChange}
                           />
-                          <label className="form-check-label" htmlFor="formCheck-9">
+                          <label className="form-check-label" htmlFor="formCheck-5">
                             Couchsurfing
+                          </label>
+                        </div>
+                        <div className="form-check">
+                          <input
+                            className="form-check-input"
+                            type="checkbox"
+                            id="formCheck-5"
+                            value="countryside"
+                            onChange={handleFilterChange}
+                          />
+                          <label className="form-check-label" htmlFor="formCheck-5">
+                            Pet-Allowed
                           </label>
                         </div>
                       </div>
@@ -222,49 +278,44 @@ const MainPage = () => {
                           <input
                             className="form-check-input"
                             type="checkbox"
-                            id="formCheck-3"
+                            id="formCheck-5"
+                            value="countryside"
+                            onChange={handleFilterChange}
                           />
-                          <label className="form-check-label" htmlFor="formCheck-3">
-                            Adana
+                          <label className="form-check-label" htmlFor="formCheck-5">
+                            Ankara
                           </label>
                         </div>
                         <div className="form-check">
                           <input
                             className="form-check-input"
                             type="checkbox"
-                            id="formCheck-4"
+                            id="formCheck-5"
+                            value="countryside"
+                            onChange={handleFilterChange}
                           />
-                          <label className="form-check-label" htmlFor="formCheck-4">
-                            Adıyaman
+                          <label className="form-check-label" htmlFor="formCheck-5">
+                            İstanbul
                           </label>
                         </div>
                         <div className="form-check">
                           <input
                             className="form-check-input"
                             type="checkbox"
-                            id="formCheck-10"
+                            id="formCheck-5"
+                            value="countryside"
+                            onChange={handleFilterChange}
                           />
-                          <label
-                            className="form-check-label"
-                            htmlFor="formCheck-10"
-                          >
-                            Afyonkarahisar
+                          <label className="form-check-label" htmlFor="formCheck-5">
+                            İzmir
                           </label>
                         </div>
-                        <div className="form-check">
-                          <input
-                            className="form-check-input"
-                            type="checkbox"
-                            id="formCheck-15"
-                          />
-                          <label
-                            className="form-check-label"
-                            htmlFor="formCheck-15"
-                          >
-                            Ağrı
-                          </label>
-                        </div>
-                        <a href="#">view more</a>
+                      </div>
+
+                      <div>
+                        <button onClick={toggleFavoritesOnly}>
+                          {showFavoritesOnly ? "Show all" : "Show Favorited"}
+                        </button>
                       </div>
 
                     </div>
@@ -295,9 +346,14 @@ const MainPage = () => {
                     </div>
 
                     <div className="row g-0">
-                      {placeValues.map((item, index) => (
+                      {applyFilters().map((item, index) => (
                         <div className="col-12 col-md-6 col-lg-4" key={index}>
                           <div className="clean-product-item" style={{ display: "flex", flexDirection: "column" }}>
+                            <i
+                              className={item.isFavorited ? "fas fa-heart" : "far fa-heart"}
+                              style={{ fontSize: 22, marginBottom: 10, cursor: "pointer" }}
+                              onClick={() => toggleHeart(item.ID)}
+                            ></i>
                             <div className="image">
                               <a href="#">
                                 <img
@@ -320,11 +376,7 @@ const MainPage = () => {
                             </div>
                             <div className="about" style={{ paddingTop: 0, marginTop: "auto" }}>
                               <div className="rating">
-                                <img src="assets/img/star.svg" />
-                                <img src="assets/img/star.svg" />
-                                <img src="assets/img/star.svg" />
-                                <img src="assets/img/star-half-empty.svg" />
-                                <img src="assets/img/star-empty.svg" />
+                                {renderStars(item.rating)}
                               </div>
                               <div className="price" style={{ alignSelf: "flex-end" }}>
                                 <h3>{item.price}</h3>
@@ -334,30 +386,6 @@ const MainPage = () => {
                         </div>
                       ))}
                     </div>
-
-                    <nav>
-                      <ul className="pagination">
-                        <li className="page-item disabled">
-                          <a className="page-link" aria-label="Previous">
-                            <span aria-hidden="true">«</span>
-                          </a>
-                        </li>
-                        <li className="page-item active">
-                          <a className="page-link">1</a>
-                        </li>
-                        <li className="page-item">
-                          <a className="page-link">2</a>
-                        </li>
-                        <li className="page-item">
-                          <a className="page-link">3</a>
-                        </li>
-                        <li className="page-item">
-                          <a className="page-link" aria-label="Next">
-                            <span aria-hidden="true">»</span>
-                          </a>
-                        </li>
-                      </ul>
-                    </nav>
 
                   </div>
                 </div>
