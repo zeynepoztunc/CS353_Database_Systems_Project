@@ -93,7 +93,7 @@ const  HostRentingFlatLocation= () => {
     console.log(lng);
     console.log(rentalId);
     try {
-      const response = await axios.put(`http://localhost:8080/Rentals`, {
+      const response = await axios.put(`http://localhost:8080/Rentals/updateLocation`, {
         rentalId: rentalId,
         city: selectedCity,
         province: selectedDistrict,

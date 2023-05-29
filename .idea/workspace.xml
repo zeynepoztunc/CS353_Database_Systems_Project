@@ -5,10 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5e555480-ab5a-407e-a171-4062daf29606" name="Changes" comment="flat details done">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/HostRentingFlatDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/HostRentingFlatDetails.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/controller/RentalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/controller/RentalController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/repository/RentalRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/repository/RentalRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Frontend/src/HostRentingFlatLocation.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/HostRentingFlatLocation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/HostRentingFlatPricing.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/HostRentingFlatPricing.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Frontend/src/HostRentingRoomLocation.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/HostRentingRoomLocation.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -159,7 +160,7 @@
       <workItem from="1685339238869" duration="910000" />
       <workItem from="1685346423539" duration="148000" />
       <workItem from="1685347732468" duration="6923000" />
-      <workItem from="1685355944473" duration="1112000" />
+      <workItem from="1685355944473" duration="6643000" />
     </task>
     <task id="LOCAL-00001" summary="new upload">
       <created>1684410800015</created>
@@ -224,7 +225,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685354481692</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="flat details done">
+      <created>1685357145186</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1685357145186</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

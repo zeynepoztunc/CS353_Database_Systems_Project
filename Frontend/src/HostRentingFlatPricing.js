@@ -3,32 +3,99 @@ import {  useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import axios from 'axios';
 
-const  HostRentingFlatPricing= () => {
-    const [dateRange, setDateRange] = useState([null, null]);
-    const [startDate, endDate] = dateRange;
+const  HostRentingFlatPricing= () =>
+{
+    const [startDate, setStartDate] = useState(null);
+    const [endDate, setEndDate] = useState(null);
+
+
+    const [earliestCheckIn, setEarliestCheckIn] = useState('00:00');
+    const [latestCheckOut, setLatestCheckOut] = useState('00:00');
+    const [cancellationHourLimit, setCancellationHourLimit] = useState(0);
+
+    const [price, setPrice] = useState(0);
+
+    const [refundFee, setRefundFee] = useState(0.0);
+    const [refundFeePercentage, setRefundFeePercentage] = useState(0);
+    const [autoApprove, setAutoApprove] = useState(false);
+    const [adminApproval, setAdminApproval] = useState(false);
     const [customRefundEnabled, setCustomRefundEnabled] = useState(false);
+
     const navigate = useNavigate();
 
   const handleRadioChange = (event) => {
-    setCustomRefundEnabled(false);
+    if (event.target.id === 'formCheck-1') {
+      let refund = price * 0.25; // calculate 25% of daily price
+      setRefundFee(refund);
+    }
+    else if (event.target.id === 'formCheck-2') {
+      let refund = price * 0.5; // calculate 50% of daily price
+      setRefundFee(refund);
+    }
+    else if (event.target.id === 'formCheck-4') {
+        let refund = price; // calculate 100% of daily price
+        setRefundFee(refund);
+    }
   };
 
-  const handleCustomRefundCheckbox = (event) => {
+  const handleCustomRefundChange = (event) => {
+    let refund =  (event.target.value);
+    setRefundFee(refund);
+  }
+
+  const handleCustomRefundCheckbox = (event) =>
+  {
     setCustomRefundEnabled(event.target.checked);
   };
-  const handleSubmit = (event) => {
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const rentalId = urlParams.get('rentalId');
+  const hostId = urlParams.get('hostId');
+  const handleSubmit = async (event) =>
+  {
     event.preventDefault();
-    navigate('/HostRentingMainPage');
+    console.log(startDate);
+    console.log(endDate);
+    console.log(earliestCheckIn);
+    console.log(latestCheckOut);
+    console.log(cancellationHourLimit);
+    console.log(price);
+    console.log(refundFee);
+    console.log(autoApprove);
+    setAdminApproval(true);
+      const updateRentalInfoResponse = await axios.put(`http://localhost:8080/Rentals/updateRentalInfo`, {
+        rentalId: rentalId,
+        earliestCheckIn: earliestCheckIn,
+        latestCheckOut: latestCheckOut,
+        cancellationHourLimit: cancellationHourLimit,
+        price: price,
+        refundFee: refundFee,
+        autoApprove: autoApprove,
+        adminApproval: adminApproval
+
+      });
+      const updateRentalDatesResponse = await axios.put(`http://localhost:8080/Rentals/updateRentalDates`, {
+        rentalId: rentalId,
+        startDate: startDate,
+        endDate: endDate,
+        });
+      console.log(updateRentalDatesResponse.data);
+      console.log(updateRentalInfoResponse.data);
+      // If successful, navigate to the next page
+      navigate('/HostRentingRoomPricing?hostId=' + hostId + '&rentalId=' + rentalId);
   };
 
-    // Example of occupied dates
   const occupiedDates = [
-    new Date(2023, 5, 10),
-    new Date(2023, 5, 11),
-    new Date(2023, 5, 12),
+    new Date(2021, 1, 1),
+    new Date(2021, 1, 2),
+    new Date(2021, 1, 3)
   ];
-    return (
+
+
+
+  return (
         <>
   <meta charSet="utf-8" />
   <meta
@@ -333,32 +400,43 @@ const  HostRentingFlatPricing= () => {
               Set available dates for renting&nbsp;
             </label>
             <div>
-      <DatePicker
-        selected={startDate}
-        onChange={(update) => {
-          setDateRange(update);
-        }}
-        startDate={startDate}
-        endDate={endDate}
-        selectsRange
-        dateFormat="yyyy/MM/dd"
-        minDate={new Date()} // disable past dates
-        excludeDates={occupiedDates} // exclude occupied dates
-      />
+              <DatePicker
+                  selected={startDate}
+                  onChange={(update) => {
+                    setStartDate(update[0]);
+                    setEndDate(update[1]);
+                  }}
+                  startDate={startDate}
+                  endDate={endDate}
+                  selectsRange
+                  dateFormat="yyyy/MM/dd"
+                  minDate={new Date()} // disable past dates
+                  excludeDates={occupiedDates} // exclude occupied dates
+              />
     </div>
             <label className="form-label" style={{ fontWeight: "bold" }}>
               Earliest Check-in hour&nbsp;
             </label>
-            <input className="form-control" type="time" />
+            <input
+                className="form-control"
+                type="time"
+                value={earliestCheckIn}
+                onChange={event => setEarliestCheckIn(event.target.value)}
+            />
           </div>
           <div>
             <div>
               <span className="text-white-50">Text</span>
             </div>
             <label className="form-label" style={{ fontWeight: "bold" }}>
-              Latest Check-in hour&nbsp;
+              Latest Check-out hour&nbsp;
             </label>
-            <input className="form-control" type="time" />
+            <input
+                className="form-control"
+                type="time"
+                value={latestCheckOut}
+                onChange={event => setLatestCheckOut(event.target.value)}
+            />
           </div>
           <div>
             <div>
@@ -367,7 +445,12 @@ const  HostRentingFlatPricing= () => {
             <label className="form-label" style={{ fontWeight: "bold" }}>
               Cancellation hour limit prior to reservation date
             </label>
-            <input className="form-control" type="number" />
+            <input
+                className="form-control"
+                type="number"
+                value={cancellationHourLimit}
+                onChange={event => setCancellationHourLimit(event.target.value)}
+            />
           </div>
           <div>
             <span className="text-white-50">Text</span>
@@ -376,7 +459,12 @@ const  HostRentingFlatPricing= () => {
             <label className="form-label fs-3 fw-bold">
               Daily Price (in USD)
             </label>
-            <input className="form-control" type="number" />
+            <input
+                className="form-control"
+                type="number"
+                value={price}
+                onChange={event => setPrice(event.target.value)}
+            />
             <div>
               <label className="form-label text-start">
                 Optimal price means more customers!&nbsp;
@@ -397,6 +485,7 @@ const  HostRentingFlatPricing= () => {
           name="refund"
           id="formCheck-1"
           onChange={handleRadioChange}
+          disabled={customRefundEnabled}
         />
         <label className="form-check-label" htmlFor="formCheck-1">
           25% of Daily Price
@@ -409,6 +498,7 @@ const  HostRentingFlatPricing= () => {
           name="refund"
           id="formCheck-2"
           onChange={handleRadioChange}
+          disabled={customRefundEnabled}
         />
         <label className="form-check-label" htmlFor="formCheck-2">
           50% of Daily Price
@@ -421,6 +511,7 @@ const  HostRentingFlatPricing= () => {
           name="refund"
           id="formCheck-4"
           onChange={handleRadioChange}
+          disabled={customRefundEnabled}
         />
         <label className="form-check-label" htmlFor="formCheck-4">
           100% of Daily Price
@@ -433,6 +524,9 @@ const  HostRentingFlatPricing= () => {
         className="form-control"
         type="number"
         disabled={!customRefundEnabled}
+        value={refundFee}
+        onChange={handleCustomRefundChange}
+
       />
       <div>
         <input
