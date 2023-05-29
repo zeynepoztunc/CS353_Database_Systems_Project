@@ -115,7 +115,7 @@ const  HostRentingRoomDetails= () => {
         numOfRoomsInFlat: numberOfRooms,
         flatType: flatType,
         numOfBathrooms: numberOfBathrooms,
-        bedCount: bedCount,
+        numOfBedsInFlat: bedCount,
         guestNo: guestCount,
         description: description,
         earthquakeSupport: earthquakeSupport,

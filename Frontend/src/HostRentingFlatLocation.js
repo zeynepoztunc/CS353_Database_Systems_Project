@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {  useNavigate } from 'react-router-dom';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+import axios from 'axios';
+
 
 const containerStyle = {
     width: '100%',
@@ -14,43 +16,98 @@ const containerStyle = {
   };
   
 const  HostRentingFlatLocation= () => {
-    const [selectedLocation, setSelectedLocation] = useState(null);
-
-  const handleMapClick = (event) => {
-    setSelectedLocation({
-      lat: event.latLng.lat(),
-      lng: event.latLng.lng()
-    });
-  };
-  const [selectedCity, setSelectedCity] = useState('');
+  const [selectedLocation, setSelectedLocation] = useState(null);
+  const [cities, setCities] = useState([]);
   const [districts, setDistricts] = useState([]);
-  const [selectedDistrict,setSelectedDistrict] = useState('');
+  const [selectedCity, setSelectedCity] = useState("");
+  const [selectedDistrict, setSelectedDistrict] = useState("");
 
-  const cities = [
-    { name: 'Ankara', districts: ['Çankaya', 'Yenimahalle'] },
-    { name: 'Antalya', districts: ['Kemer', 'Alanya', 'Kaş'] },
-    { name: 'Istanbul', districts: ['Beşiktaş', 'Kadıköy', 'Sultanahmet'] },
-    { name: 'Izmir', districts: ['Çeşme', 'Dikili', 'Karşıyaka'] },
-    { name: 'Muğla', districts: ['Bodrum', 'Marmaris', 'Fethiye'] }
-    
-  ];
-
-  const handleCitySelection = (event) => {
-    setSelectedCity(event.target.innerText);
-    const city = cities.find((city) => city.name === event.target.innerText);
-    if (city) {
-      setDistricts(city.districts);
-    } else {
-      setDistricts([]);
+  const fetchCities = async () => {
+    try {
+      const response = await axios.get('http://localhost:8080/locations/cities');
+      return response.data;
+    } catch (error) {
+      console.error('Failed to fetch cities:', error);
+      return [];
     }
   };
-  const handleDistrictSelection = (event) => {
-    setSelectedDistrict(event.target.innerText);
+
+  const fetchDistricts = async () => {
+    try {
+      console.log(selectedCity);
+      const response = await axios.get('http://localhost:8080/locations/districts?city=' + selectedCity );
+      return response.data;
+    } catch (error) {
+      console.error('Failed to fetch districts:', error);
+      return [];
+    }
   };
+
+  useEffect(() => {
+    fetchCities().then((data) =>
+    {
+      setCities(data);
+    });
+  }, []);
+
+  const handleMapClick = (event) => {
+    const newLat = event.latLng.lat().toFixed(6);
+    const newLng = event.latLng.lng().toFixed(6);
+
+    setLat(newLat);
+    setLng(newLng);
+    setSelectedLocation({ lat: parseFloat(newLat), lng: parseFloat(newLng) });
+  };
+
+
+
+  const handleCitySelection = (cityName) => {
+    setSelectedCity(cityName);
+    fetchDistricts(cityName).then((data) => {
+      setDistricts(data);
+    }).catch((error) => {
+      console.error('Failed to fetch districts:', error);
+      setDistricts([]);
+    });
+  };
+  const handleDistrictSelection = (districtName) => {
+    setSelectedDistrict(districtName);
+  };
+
+  const [address, setAddress] = useState("");
+  const [lat, setLat] = useState(0.0);
+  const [lng, setLng] = useState(0.0);
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const rentalId = urlParams.get('rentalId');
+  const hostId = urlParams.get('hostId');
   const navigate = useNavigate();
-  const handleSubmit = (event) => {
+
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    navigate('/HostRentingFlatPricing');
+    console.log(selectedCity);
+    console.log(selectedDistrict);
+    console.log(address);
+    console.log(lat);
+    console.log(lng);
+    console.log(rentalId);
+    try {
+      const response = await axios.put(`http://localhost:8080/Rentals`, {
+        rentalId: rentalId,
+        city: selectedCity,
+        province: selectedDistrict,
+        latitude: lat,
+        longitude: lng,
+        address: address
+      });
+      console.log(response.data);
+      // If successful, navigate to the next page
+      navigate('/HostRentingFlatPricing?hostId=' + hostId + '&rentalId=' + rentalId);
+    } catch (error) {
+      console.error('Failed to send rental data:', error);
+      // Handle error appropriately, e.g., show an error message to the user
+    }
   };
   
   
@@ -371,7 +428,7 @@ const  HostRentingFlatLocation= () => {
         key={index}
         className="dropdown-item"
         href = "#nogo"
-        onClick={handleCitySelection}
+        onClick={() => handleCitySelection(city.name)}
       >
         {city.name}
       </a>
@@ -398,9 +455,9 @@ const  HostRentingFlatLocation= () => {
                 key={index}
                 className="dropdown-item"
                 href = "#nogo"
-                onClick={handleDistrictSelection}
+                onClick={() => handleDistrictSelection(District.name)}
               >
-                {District}
+                {District.name}
               </a>
     ))}
               </div>
@@ -414,7 +471,8 @@ const  HostRentingFlatLocation= () => {
             Your address
           </label>
           <div>
-            <textarea className="form-control" defaultValue={""} />
+            <textarea className="form-control" value={address}
+                      onChange={event => setAddress(event.target.value)} />
           </div>
           <div>
             <span className="text-white-50">Text</span>
