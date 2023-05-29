@@ -4,19 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e555480-ab5a-407e-a171-4062daf29606" name="Changes" comment="Room controller started">
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/entity/RentalDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/entity/RoomDetailsDTO.java" afterDir="false" />
+    <list default="true" id="5e555480-ab5a-407e-a171-4062daf29606" name="Changes" comment="together">
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/controller/CustomerController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/entity/AdminDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/entity/RegisteredUserDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/entity/UserDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/entity/WishlistsDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/repository/CustomerRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/8e55f807-7037-4dd5-bcd7-772618465c0c.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/8e55f807-7037-4dd5-bcd7-772618465c0c.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/8e55f807-7037-4dd5-bcd7-772618465c0c/storage_v2/_src_/database/oyfcmypj.TT0pvw/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/8e55f807-7037-4dd5-bcd7-772618465c0c/storage_v2/_src_/database/oyfcmypj.TT0pvw/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/controller/RentalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/controller/RentalController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/controller/RoomController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/controller/RoomController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/entity/RentalEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/entity/RentalEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/repository/RentalRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/repository/RentalRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/repository/RoomRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/repository/RoomRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/HostRentingProperty.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/HostRentingProperty.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/HostRentingRoomDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/HostRentingRoomDetails.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/repository/UserRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,6 +153,8 @@
       <workItem from="1685035039734" duration="864000" />
       <workItem from="1685036925468" duration="5936000" />
       <workItem from="1685108506429" duration="4555000" />
+      <workItem from="1685175415106" duration="15003000" />
+      <workItem from="1685342185448" duration="324000" />
     </task>
     <task id="LOCAL-00001" summary="new upload">
       <created>1684410800015</created>
