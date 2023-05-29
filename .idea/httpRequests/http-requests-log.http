@@ -1,0 +1,10 @@
+POST http://localhost:8080/UpdateFlatDetails/amenities
+Content-Length: 0
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.6)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-05-29T121744.400.json
+
+###
+

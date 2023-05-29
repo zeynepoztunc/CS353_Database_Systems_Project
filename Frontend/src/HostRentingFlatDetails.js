@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import {  useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import axios from 'axios';
 
 const  HostRentingRoomDetails= () => {
     const [selectedCounts, setSelectedCounts] = useState({});
-    const [selectedItems, setSelectedItems] = useState({});
     const navigate = useNavigate();
 
     const handleDropdownItemClick = (dropdownId, value) => {
@@ -44,10 +44,112 @@ const  HostRentingRoomDetails= () => {
     }
     setFileNames(names);
   };
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    navigate('/HostRentingFlatLocation');
+
+  const [flatName, setFlatName] = useState("");
+  const [flatSize, setFlatSize] = useState(0);
+  const [numberOfRooms, setNumberOfRooms] = useState(0);
+  const [flatType, setFlatType] = useState("");
+  const [numberOfBathrooms, setNumberOfBathrooms] = useState(0);
+  const [bedCount, setBedCount] = useState(0);
+  const [guestCount, setGuestCount] = useState(0);
+  const [description, setDescription] = useState("");
+  const [earthquakeSupport, setEarthquakeSupport] = useState(false);
+  const [couchsurfing, setCouchsurfing] = useState(false);
+  const urlParams = new URLSearchParams(window.location.search);
+  const hostId = urlParams.get('hostId');
+  const rentalId = urlParams.get('rentalId');
+
+  const handleFlatDescriptionChange = event => setDescription(event.target.value);
+  const handleEarthquakeSupportChange = event => setEarthquakeSupport(event.target.checked);
+  const handleCouchsurfingChange = event => setCouchsurfing(event.target.checked);
+
+  const [amenities, setAmenities] = useState([]);
+  const [selectedItems, setSelectedItems] = useState([]);
+  useEffect(() => {
+    fetchAmenities().then((data) => {
+      setAmenities(data);
+    });
+  }, []);
+
+  const fetchAmenities = async () => {
+    try
+    {
+      const response = await axios.get('http://localhost:8080/amenities');
+      return response.data;
+    } catch (error)
+    {
+      console.error('Failed to fetch amenities:', error);
+      return [];
+    }
   };
+
+  const handleClick = (amenity) => {
+    if (selectedItems.includes(amenity)) {
+      // If amenity is already selected, remove it
+      setSelectedItems(selectedItems.filter((item) => item !== amenity));
+    } else {
+      // If amenity is not selected, add it
+      setSelectedItems([...selectedItems, amenity]);
+    }
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    console.log("Flat Name: " + flatName);
+    console.log("Flat Size: " + flatSize);
+    console.log("Number of Rooms: " + numberOfRooms);
+    console.log("Flat Type: " + flatType);
+    console.log("Number of Bathrooms: " + numberOfBathrooms);
+    console.log("Bed Count: " + bedCount);
+    console.log("Guest Count: " + guestCount);
+    console.log("Description: " + description);
+    console.log("Earthquake Support: " + earthquakeSupport);
+    console.log("Couchsurfing: " + couchsurfing);
+    console.log("Host ID: " + hostId);
+    console.log("Rental ID: " + rentalId);
+
+    const formData = {
+        rentalName: flatName,
+        areaInM2: flatSize,
+        numOfRoomsInFlat: numberOfRooms,
+        flatType: flatType,
+        numOfBathrooms: numberOfBathrooms,
+        numOfBedsInFlat: bedCount,
+        guestNo: guestCount,
+        description: description,
+        earthquakeSupport: earthquakeSupport,
+        couchsurfing: couchsurfing,
+        hostId: hostId,
+        rentalId: rentalId
+    };
+
+    const amenitiesData = {
+      rentalId: rentalId,
+      amenities: amenities.map((amenity) => {
+        const amenityData = {};
+        amenityData[amenity.toString().toLowerCase().replace(" ","")] = selectedItems.includes(amenity) ? 1 : 0;
+        return amenityData;
+      }),
+    };
+
+    try {
+      console.log(amenitiesData);
+      console.log(formData);
+      const amenitiesResponse = await axios.post('http://localhost:8080/updateRoomDetails/amenities', amenitiesData);
+      const response = await axios.post('http://localhost:8080/UpdateFlatDetails', formData);
+      console.log(response.data);
+      console.log(amenitiesResponse.data);
+      navigate('/HostRentingFlatLocation?hostId=' + hostId + '&rentalId=' + rentalId);
+    }
+    catch (error)
+    {
+      console.error('Failed to submit form: ', error);
+    }
+
+  };
+
+
     return (
       <>
   <meta charSet="utf-8" />
@@ -341,15 +443,17 @@ const  HostRentingRoomDetails= () => {
           <span />
           <div>
             <label className="form-label" style={{ fontWeight: "bold" }}>
-              Flat name&nbsp;
+              Flat  name&nbsp;
             </label>
-            <input className="form-control" type="text" />
+            <input className="form-control" type="text"  value={flatName}
+                   onChange={(e) => setFlatName(e.target.value)}/>
           </div>
           <div>
             <label className="form-label" style={{ fontWeight: "bold" }}>
-              Flat size (in sqm)
+              Flat size ( in sqm)
             </label>
-            <input className="form-control" type="text" />
+            <input className="form-control" type="text" value={flatSize}
+                   onChange={(e) => setFlatSize(e.target.value)} />
           </div>
           <div>
             <span className="text-white-50">Text</span>
@@ -365,7 +469,7 @@ const  HostRentingRoomDetails= () => {
                  data-bs-toggle="dropdown"
                  type="button"
               >
-                {getButtonText('Number of Rooms')}
+                {numberOfRooms}
               </button>
               <div className="dropdown-menu" >
               {Array.from({ length: 10 }, (_, i) => (
@@ -373,7 +477,10 @@ const  HostRentingRoomDetails= () => {
               key={i}
               className="dropdown-item"
               href="#nogo"
-              onClick={() => handleDropdownItemClick('Number of Rooms', (i + 1).toString())}
+              onClick={() => {
+                handleDropdownItemClick('Number of Rooms', (i + 1).toString());
+                setNumberOfRooms((i + 1).toString());
+              }}
             >
               {i + 1}
             </a>
@@ -395,7 +502,7 @@ const  HostRentingRoomDetails= () => {
                 data-bs-toggle="dropdown"
                 type="button"
               >
-              {getButtonText('Flat Type')}
+              {flatType}
               </button>
               <div className="dropdown-menu">
               {['Apartment', 'Villa'].map((flatType) => (
@@ -403,7 +510,10 @@ const  HostRentingRoomDetails= () => {
         key={flatType}
         className="dropdown-item"
         href="#nogo"
-        onClick={() => handleDropdownItemClickType('Flat Type', flatType)}
+        onClick={() => {
+          handleDropdownItemClick('Flat Type', flatType);
+          setFlatType(flatType);
+        }}
       >
         {flatType}
       </a>
@@ -425,7 +535,7 @@ const  HostRentingRoomDetails= () => {
                 data-bs-toggle="dropdown"
                 type="button"
               >
-                {getButtonText('Number of Bathrooms')}
+                {numberOfBathrooms}
               </button>
               <div className="dropdown-menu">
               {Array.from({ length: 6 }, (_, i) => (
@@ -433,7 +543,10 @@ const  HostRentingRoomDetails= () => {
               key={i}
               className="dropdown-item"
               href="#nogo"
-              onClick={() => handleDropdownItemClick('Number of Bathrooms', (i + 1).toString())}
+              onClick={() => {
+                handleDropdownItemClick('Number of Bathrooms', (i + 1).toString());
+                setNumberOfBathrooms((i + 1).toString());
+              }}
             >
               {i + 1}
             </a>
@@ -456,7 +569,7 @@ const  HostRentingRoomDetails= () => {
                 data-bs-toggle="dropdown"
                 type="button"
               >
-                {getButtonText('Bed(s) in the Flat')}
+                {bedCount}
               </button>
               <div className="dropdown-menu">
               {Array.from({ length: 12 }, (_, i) => (
@@ -464,7 +577,10 @@ const  HostRentingRoomDetails= () => {
               key={i}
               className="dropdown-item"
               href="#nogo"
-              onClick={() => handleDropdownItemClick('Bed(s) in the Flat', (i + 1).toString())}
+              onClick={() => {
+                handleDropdownItemClick('Bed(s) in the Room', (i + 1).toString());
+                setBedCount((i + 1).toString());
+              }}
             >
               {i + 1}
             </a>
@@ -484,7 +600,7 @@ const  HostRentingRoomDetails= () => {
                     data-bs-toggle="dropdown"
                     type="button"
                   >
-                    {getButtonText('Guest Limit in Person')}
+                    {guestCount}
                   </button>
                   <div className="dropdown-menu">
                   {Array.from({ length: 12 }, (_, i) => (
@@ -492,7 +608,10 @@ const  HostRentingRoomDetails= () => {
               key={i}
               className="dropdown-item"
               href="#nogo"
-              onClick={() => handleDropdownItemClick('Guest Limit in Person', (i + 1).toString())}
+              onClick={() => {
+                handleDropdownItemClick('Guest Limit in Person', (i + 1).toString());
+                setGuestCount((i + 1).toString());
+              }}
             >
               {i + 1}
             </a>
@@ -564,9 +683,9 @@ const  HostRentingRoomDetails= () => {
             <div />
             <div>
               <label className="form-label" style={{ fontWeight: "bold" }}>
-                Room description
+                Flat description
               </label>
-              <textarea className="form-control" defaultValue={""} />
+              <textarea className="form-control" value={description} onChange={handleFlatDescriptionChange} />
             </div>
             <span style={{ color: "rgba(33,37,41,0.01)" }}>Text</span>
             <div>
@@ -606,13 +725,15 @@ const  HostRentingRoomDetails= () => {
               <span className="text-white-50">Text</span>
               <div className="form-check">
                 <input
-                  className="form-check-input"
-                  type="checkbox"
-                  id="formCheck-1"
+                    className="form-check-input"
+                    type="checkbox"
+                    id="formCheck-1"
+                    checked={earthquakeSupport}
+                    onChange={handleEarthquakeSupportChange}
                 />
                 <label
-                  className="form-check-label fs-4 fw-semibold text-start"
-                  htmlFor="formCheck-1"
+                    className="form-check-label fs-4 fw-semibold text-start"
+                    htmlFor="formCheck-1"
                 >
                   Free accommodation for earthquake victims&nbsp;
                 </label>
@@ -624,13 +745,15 @@ const  HostRentingRoomDetails= () => {
               <span className="text-white-50">Text</span>
               <div className="form-check text-start bg-white">
                 <input
-                  className="form-check-input"
-                  type="checkbox"
-                  id="formCheck-2"
+                    className="form-check-input"
+                    type="checkbox"
+                    id="formCheck-2"
+                    checked={couchsurfing}
+                    onChange={handleCouchsurfingChange}
                 />
                 <label
-                  className="form-check-label fs-4 fw-semibold text-start"
-                  htmlFor="formCheck-2"
+                    className="form-check-label fs-4 fw-semibold text-start"
+                    htmlFor="formCheck-2"
                 >
                   Couchsurfing
                 </label>
@@ -647,52 +770,38 @@ const  HostRentingRoomDetails= () => {
                   Select Amenities for this property:
                 </label>
               </div>
-              <div className="table-responsive">
-                <table className="table">
-                  <thead>
-                    <tr />
-                  </thead>
-                  <tbody>
+              <div>
+                <div className="table-responsive">
+                  <table className="table">
+                    <thead>
                     <tr>
-                      <td>
-                        heating
-                        <i className="fas fa-thermometer-full" />
-                      </td>
-                      <td>
-                        hair-conditioner
-                        <i className="far fa-laugh-beam" />
-                      </td>
-                      <td>
-                        beachfront
-                        <i className="fas fa-umbrella-beach" />
-                      </td>
+                      <th>Amenity</th>
                     </tr>
-                    <tr>
-                      <td>
-                        museum access
-                        <i className="far fa-object-group" />
-                      </td>
-                      <td>
-                        airport access
-                        <i className="fas fa-plane" />
-                      </td>
-                      <td>
-                        private entrance
-                        <i className="far fa-eye-slash" />
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+                    </thead>
+                    <tbody>
+                    {amenities.map((amenity, index) => (
+                        <tr
+                            key={index}
+                            onClick={() => handleClick(amenity)}
+                            className={selectedItems.includes(amenity) ? 'selected' : ''}
+                            style={{ cursor: 'pointer' }}
+                        >
+                          <td>{amenity}</td>
+                        </tr>
+                    ))}
+                    </tbody>
+                  </table>
+                  <div>
+                    <h4><b>Selected Amenities:</b></h4>
+                    <ul>
+                      {selectedItems.map((item, index) => (
+                          <li key={index}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
               </div>
-              <button
-                className="btn btn-primary"
-                type="button"
-                style={{ textAlign: "center" }}
-              >
-                Show all Amenities
-              </button>
-              <span className="text-white-50">Text</span>
-            </div>
+</div>
             <span className="text-white-50">Text</span>
           </div>
           <div className="row justify-content-center">

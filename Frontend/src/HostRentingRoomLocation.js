@@ -51,10 +51,13 @@ const  HostRentingRoomLocation= () => {
 
 
   const handleMapClick = (event) => {
-    setLat(event.latLng.lat().toFixed(6));
-    setLng(event.latLng.lng().toFixed(6));
-  };
+    const newLat = event.latLng.lat().toFixed(6);
+    const newLng = event.latLng.lng().toFixed(6);
 
+    setLat(newLat);
+    setLng(newLng);
+    setSelectedLocation({ lat: parseFloat(newLat), lng: parseFloat(newLng) });
+  };
 
   const handleCitySelection = (cityName) => {
     setSelectedCity(cityName);
@@ -86,7 +89,7 @@ const  HostRentingRoomLocation= () => {
     console.log(lng);
     console.log(rentalId);
     try {
-      const response = await axios.put(`http://localhost:8080/Rentals`, {
+      const response = await axios.put(`http://localhost:8080/Rentals/updateLocation`, {
         rentalId: rentalId,
         city: selectedCity,
         province: selectedDistrict,
