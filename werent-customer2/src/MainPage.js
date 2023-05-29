@@ -95,16 +95,22 @@ const MainPage = () => {
   }
 
   const [selectedFilters, setSelectedFilters] = useState([]);
+  const [showFavoritesOnly, setShowFavoritesOnly] = useState(false);
 
   const applyFilters = () => {
-    if (selectedFilters.length === 0) {
-      return placeValues; // Return all rentals when no filters are selected
+    let filteredRentals = placeValues;
+
+    if (selectedFilters.length > 0) {
+      filteredRentals = filteredRentals.filter((item) => {
+        const rentalName = item.rentalName.toLowerCase();
+        return selectedFilters.some((filter) => rentalName.includes(filter));
+      });
     }
 
-    const filteredRentals = placeValues.filter((item) => {
-      const rentalName = item.rentalName.toLowerCase();
-      return selectedFilters.some((filter) => rentalName.includes(filter));
-    });
+    if (showFavoritesOnly) {
+      filteredRentals = filteredRentals.filter((item) => item.isFavorited);
+    }
+
     return filteredRentals;
   };
 
@@ -117,6 +123,10 @@ const MainPage = () => {
         return [...prevFilters, filterValue];
       }
     });
+  };
+
+  const toggleFavoritesOnly = () => {
+    setShowFavoritesOnly((prevShowFavoritesOnly) => !prevShowFavoritesOnly);
   };
 
   function renderStars(rating) {
@@ -302,21 +312,10 @@ const MainPage = () => {
                         </div>
                       </div>
 
-                      <div className="filter-item">
-                        <h3>More</h3>
-                        <div className="form-check">
-                          <input
-                            className="form-check-input"
-                            type="checkbox"
-                            id="formCheck-5"
-                            value="countryside"
-                            onChange={handleFilterChange}
-                          />
-                          <label className="form-check-label" htmlFor="formCheck-5">
-                            Favorited
-                          </label>
-                        </div>
-
+                      <div>
+                        <button onClick={toggleFavoritesOnly}>
+                          {showFavoritesOnly ? "Show all" : "Show Favorited"}
+                        </button>
                       </div>
 
 
