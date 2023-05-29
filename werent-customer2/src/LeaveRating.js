@@ -1,8 +1,6 @@
-import React from 'react';
-import { useState } from "react";
-import { FaStar } from "react-icons/fa";
+import React, { useState } from 'react';
+import { FaStar } from 'react-icons/fa';
 import NavBar from './NavBar';
-
 
 const colors = {
   orange: "#FFBA5A",
@@ -10,28 +8,63 @@ const colors = {
 };
 
 function LeaveRating() {
+  const [cleanlinessValue, setCleanlinessValue] = useState(0);
+  const [communicationValue, setCommunicationValue] = useState(0);
+  const [checkInValue, setCheckInValue] = useState(0);
+  const [accuracyValue, setAccuracyValue] = useState(0);
+  const [locationValue, setLocationValue] = useState(0);
+  const [valueValue, setValueValue] = useState(0);
+  const [hoverValue, setHoverValue] = useState(0);
 
-  const [currentValue, setCurrentValue] = useState(0);
-  const [hoverValue, setHoverValue] = useState(undefined);
+  const handleClick = (value, ratingType) => {
+    switch (ratingType) {
+      case 'cleanliness':
+        setCleanlinessValue(value);
+        break;
+      case 'communication':
+        setCommunicationValue(value);
+        break;
+      case 'checkIn':
+        setCheckInValue(value);
+        break;
+      case 'accuracy':
+        setAccuracyValue(value);
+        break;
+      case 'location':
+        setLocationValue(value);
+        break;
+      case 'value':
+        setValueValue(value);
+        break;
+      default:
+        break;
+    }
+  };
 
-  const stars = Array(5).fill(0)
-  const stars2 = Array(5).fill(0)
-  const stars3 = Array(5).fill(0)
-  const stars4 = Array(5).fill(0)
-  const stars5 = Array(5).fill(0)
-  const stars6 = Array(5).fill(0)
-
-  const handleClick = value => {
-    setCurrentValue(value)
-  }
-
-  const handleMouseOver = newHoverValue => {
-    setHoverValue(newHoverValue)
+  const handleMouseOver = (value) => {
+    setHoverValue(value);
   };
 
   const handleMouseLeave = () => {
-    setHoverValue(undefined)
-  }
+    setHoverValue(0);
+  };
+
+  const renderStars = (ratingValue, ratingType) => {
+    return Array(5).fill(0).map((_, index) => {
+      const rating = index + 1;
+      return (
+        <FaStar
+          key={index}
+          size={24}
+          onClick={() => handleClick(rating, ratingType)}
+          onMouseOver={() => handleMouseOver(rating)}
+          onMouseLeave={handleMouseLeave}
+          color={(hoverValue || ratingValue) >= rating ? colors.orange : colors.grey}
+          style={{ marginRight: 10, cursor: "pointer" }}
+        />
+      );
+    });
+  };
 
   return (
     <>
@@ -49,8 +82,8 @@ function LeaveRating() {
       <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css" />
       <link rel="stylesheet" href="assets/css/baguetteBox.min.css" />
       <link rel="stylesheet" href="assets/css/vanilla-zoom.min.css" />
-      
-    <NavBar></NavBar>
+
+      <NavBar />
 
       <main className="page contact-us-page">
         <section className="clean-block clean-form dark">
@@ -65,22 +98,7 @@ function LeaveRating() {
                     Cleanliness
                   </label>
                   <div style={styles.stars}>
-                    {stars.map((_, index) => {
-                      return (
-                        <FaStar
-                          key={index}
-                          size={24}
-                          onClick={() => handleClick(index + 1)}
-                          onMouseOver={() => handleMouseOver(index + 1)}
-                          onMouseLeave={handleMouseLeave}
-                          color={(hoverValue || currentValue) > index ? colors.orange : colors.grey}
-                          style={{
-                            marginRight: 10,
-                            cursor: "pointer"
-                          }}
-                        />
-                      )
-                    })}
+                    {renderStars(cleanlinessValue, 'cleanliness')}
                   </div>
                 </div>
 
@@ -88,23 +106,8 @@ function LeaveRating() {
                   <label className="form-label" htmlFor="name">
                     Communication
                   </label>
-                  <div style={styles.stars2}>
-                    {stars2.map((_, index) => {
-                      return (
-                        <FaStar
-                          key={index}
-                          size={24}
-                          onClick={() => handleClick(index + 1)}
-                          onMouseOver={() => handleMouseOver(index + 1)}
-                          onMouseLeave={handleMouseLeave}
-                          color={(hoverValue || currentValue) > index ? colors.orange : colors.grey}
-                          style={{
-                            marginRight: 10,
-                            cursor: "pointer"
-                          }}
-                        />
-                      )
-                    })}
+                  <div style={styles.stars}>
+                    {renderStars(communicationValue, 'communication')}
                   </div>
                 </div>
 
@@ -112,23 +115,8 @@ function LeaveRating() {
                   <label className="form-label" htmlFor="name">
                     Check-in
                   </label>
-                  <div style={styles.stars3}>
-                    {stars3.map((_, index) => {
-                      return (
-                        <FaStar
-                          key={index}
-                          size={24}
-                          onClick={() => handleClick(index + 1)}
-                          onMouseOver={() => handleMouseOver(index + 1)}
-                          onMouseLeave={handleMouseLeave}
-                          color={(hoverValue || currentValue) > index ? colors.orange : colors.grey}
-                          style={{
-                            marginRight: 10,
-                            cursor: "pointer"
-                          }}
-                        />
-                      )
-                    })}
+                  <div style={styles.stars}>
+                    {renderStars(checkInValue, 'checkIn')}
                   </div>
                 </div>
 
@@ -136,23 +124,8 @@ function LeaveRating() {
                   <label className="form-label" htmlFor="name">
                     Accuracy
                   </label>
-                  <div style={styles.stars4}>
-                    {stars4.map((_, index) => {
-                      return (
-                        <FaStar
-                          key={index}
-                          size={24}
-                          onClick={() => handleClick(index + 1)}
-                          onMouseOver={() => handleMouseOver(index + 1)}
-                          onMouseLeave={handleMouseLeave}
-                          color={(hoverValue || currentValue) > index ? colors.orange : colors.grey}
-                          style={{
-                            marginRight: 10,
-                            cursor: "pointer"
-                          }}
-                        />
-                      )
-                    })}
+                  <div style={styles.stars}>
+                    {renderStars(accuracyValue, 'accuracy')}
                   </div>
                 </div>
 
@@ -160,23 +133,8 @@ function LeaveRating() {
                   <label className="form-label" htmlFor="name">
                     Location
                   </label>
-                  <div style={styles.stars5}>
-                    {stars5.map((_, index) => {
-                      return (
-                        <FaStar
-                          key={index}
-                          size={24}
-                          onClick={() => handleClick(index + 1)}
-                          onMouseOver={() => handleMouseOver(index + 1)}
-                          onMouseLeave={handleMouseLeave}
-                          color={(hoverValue || currentValue) > index ? colors.orange : colors.grey}
-                          style={{
-                            marginRight: 10,
-                            cursor: "pointer"
-                          }}
-                        />
-                      )
-                    })}
+                  <div style={styles.stars}>
+                    {renderStars(locationValue, 'location')}
                   </div>
                 </div>
 
@@ -184,28 +142,10 @@ function LeaveRating() {
                   <label className="form-label" htmlFor="name">
                     Value
                   </label>
-                  <div style={styles.stars6}>
-                    {stars6.map((_, index) => {
-                      return (
-                        <FaStar
-                          key={index}
-                          size={24}
-                          onClick={() => handleClick(index + 1)}
-                          onMouseOver={() => handleMouseOver(index + 1)}
-                          onMouseLeave={handleMouseLeave}
-                          color={(hoverValue || currentValue) > index ? colors.orange : colors.grey}
-                          style={{
-                            marginRight: 10,
-                            cursor: "pointer"
-                          }}
-                        />
-                      )
-                    })}
+                  <div style={styles.stars}>
+                    {renderStars(valueValue, 'value')}
                   </div>
                 </div>
-
-                
-                <div className="rating" />
               </div>
               <div className="mb-3" />
               <div className="mb-3" />
@@ -244,7 +184,6 @@ function LeaveRating() {
         </section>
       </main>
     </>
-
   );
 }
 
@@ -272,7 +211,6 @@ const styles = {
     width: 300,
     padding: 10,
   }
-
 };
 
 export default LeaveRating;
