@@ -318,7 +318,6 @@ const MainPage = () => {
                         </button>
                       </div>
 
-
                     </div>
                   </div>
                 </div>
@@ -387,30 +386,6 @@ const MainPage = () => {
                         </div>
                       ))}
                     </div>
-
-                    <nav>
-                      <ul className="pagination">
-                        <li className="page-item disabled">
-                          <a className="page-link" aria-label="Previous">
-                            <span aria-hidden="true">«</span>
-                          </a>
-                        </li>
-                        <li className="page-item active">
-                          <a className="page-link">1</a>
-                        </li>
-                        <li className="page-item">
-                          <a className="page-link">2</a>
-                        </li>
-                        <li className="page-item">
-                          <a className="page-link">3</a>
-                        </li>
-                        <li className="page-item">
-                          <a className="page-link" aria-label="Next">
-                            <span aria-hidden="true">»</span>
-                          </a>
-                        </li>
-                      </ul>
-                    </nav>
 
                   </div>
                 </div>

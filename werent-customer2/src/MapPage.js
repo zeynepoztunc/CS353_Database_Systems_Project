@@ -12,15 +12,16 @@ function MapPage() {
       rentalName: "2+1 Villa",
       description: "Luxury Villa With Jakuzzi",
       isFavorited: "true",
+      location: { lat: 39.8813, lng: 32.6984 }
     },
     {
       ID: "123345",
       rentalName: "Seaside Villa",
       description: "Luxury Villa With Sea View",
       isFavorited: "false",
+      location: { lat: 39.8912, lng: 32.7021 }
     },
   ];
-
 
   const handleApiLoaded = (map, maps) => {
     // Handle the map and maps objects after they are loaded
@@ -46,18 +47,6 @@ function MapPage() {
     });
   };
   const [selectedLocation, setSelectedLocation] = useState(null);
-
-  const navigate = useNavigate();
-
-  const goToMainPage = (event) => {
-    event.preventDefault();
-    navigate('/MainPage');
-  };
-
-  const goToPaymentPage = (event) => {
-    event.preventDefault();
-    navigate('/PaymentPage');
-  };
 
   return (
     <>
