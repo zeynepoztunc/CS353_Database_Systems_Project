@@ -3,11 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import { useState } from 'react';
 import NavBar from './NavBar.js';
-import RentalPage from './RentalPage.js';
 
 function MapPage() {
 
-  const placeValues = [
+  const [placeValues, setPlaceValues] = useState([
     {
       ID: "123345",
       rentalName: "2+1 Villa",
@@ -24,7 +23,42 @@ function MapPage() {
       location: { lat: 39.8912, lng: 32.7021 },
       img: "customerAssets/img/Ekran%20Görüntüsü%20(1195).png"
     },
-  ];
+  ]);
+
+  const [selectedFilters, setSelectedFilters] = useState([]);
+  const [showFavoritesOnly, setShowFavoritesOnly] = useState(false);
+
+  const applyFilters = () => {
+    let filteredRentals = placeValues;
+
+    if (selectedFilters.length > 0) {
+      filteredRentals = filteredRentals.filter((item) => {
+        const rentalName = item.rentalName.toLowerCase();
+        return selectedFilters.some((filter) => rentalName.includes(filter));
+      });
+    }
+
+    if (showFavoritesOnly) {
+      filteredRentals = filteredRentals.filter((item) => item.isFavorited);
+    }
+
+    return filteredRentals;
+  };
+
+  const toggleFavoritesOnly = () => {
+    setShowFavoritesOnly((prevShowFavoritesOnly) => !prevShowFavoritesOnly);
+  };
+
+  const handleFilterChange = (event) => {
+    const filterValue = event.target.value.toLowerCase();
+    setSelectedFilters((prevFilters) => {
+      if (prevFilters.includes(filterValue)) {
+        return prevFilters.filter((filter) => filter !== filterValue);
+      } else {
+        return [...prevFilters, filterValue];
+      }
+    });
+  };
 
   const handleApiLoaded = (map, maps) => {
     // Handle the map and maps objects after they are loaded
@@ -48,7 +82,8 @@ function MapPage() {
       lat: event.latLng.lat(),
       lng: event.latLng.lng()
     });
-  };
+  };  
+
   const [selectedLocation, setSelectedLocation] = useState(null);
 
   const navigate = useNavigate();
@@ -97,6 +132,13 @@ function MapPage() {
                   )}
                 </GoogleMap>
               </LoadScript>
+
+              {selectedLocation && (
+    <div>
+      <p>Latitude: {selectedLocation.lat}</p>
+      <p>Longitude: {selectedLocation.lng}</p>
+    </div>
+  )}
             </div>
             <div style={{ marginLeft: 72 }}>
               <h3
@@ -127,6 +169,7 @@ function MapPage() {
                       className="form-check-input"
                       type="checkbox"
                       id="formCheck-1"
+                      onChange={handleFilterChange}
                     />
                     <label className="form-check-label" htmlFor="formCheck-1">
                       Rentals
@@ -137,6 +180,7 @@ function MapPage() {
                       className="form-check-input"
                       type="checkbox"
                       id="formCheck-2"
+                      onChange={handleFilterChange}
                     />
                     <label className="form-check-label" htmlFor="formCheck-2">
                       Landmarks
@@ -147,6 +191,7 @@ function MapPage() {
                       className="form-check-input"
                       type="checkbox"
                       id="formCheck-3"
+                      onChange={handleFilterChange}
                     />
                     <label className="form-check-label" htmlFor="formCheck-3">
                       Favorited
@@ -163,7 +208,7 @@ function MapPage() {
                 }}
               >
                 <div>
-                  {placeValues.map((item, index) => (
+                  {applyFilters().map((item, index) => (
                     <div className="row">
                       <div className="col-xl-6">
                         <div
