@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import { useState } from 'react';
 import NavBar from './NavBar.js';
+import RentalPage from './RentalPage.js';
 
 function MapPage() {
 
@@ -12,14 +13,16 @@ function MapPage() {
       rentalName: "2+1 Villa",
       description: "Luxury Villa With Jakuzzi",
       isFavorited: "true",
-      location: { lat: 39.8813, lng: 32.6984 }
+      location: { lat: 39.8813, lng: 32.6984 },
+      img: "customerAssets/img/Ekran%20Görüntüsü%20(1189).png"
     },
     {
       ID: "123345",
       rentalName: "Seaside Villa",
       description: "Luxury Villa With Sea View",
       isFavorited: "false",
-      location: { lat: 39.8912, lng: 32.7021 }
+      location: { lat: 39.8912, lng: 32.7021 },
+      img: "customerAssets/img/Ekran%20Görüntüsü%20(1195).png"
     },
   ];
 
@@ -47,6 +50,13 @@ function MapPage() {
     });
   };
   const [selectedLocation, setSelectedLocation] = useState(null);
+
+  const navigate = useNavigate();
+
+  const goToRentalPage = (event) => {
+    event.preventDefault();
+    navigate('/RentalPage');
+  }
 
   return (
     <>
@@ -162,7 +172,7 @@ function MapPage() {
                         >
                           <img
                             className="img-fluid d-block mx-auto"
-                            src="./customerAssets/img/Ekran%20Görüntüsü%20(1189).png"
+                            src={item.img}
                             width={113}
                             height={113}
                           />
@@ -179,6 +189,7 @@ function MapPage() {
                       >
                         <div style={{ position: "relative" }}>
                           <label
+                            onClick={goToRentalPage}
                             className="form-label"
                             style={{
                               color: "var(--bs-blue)",
@@ -215,74 +226,7 @@ function MapPage() {
           </div>
         </section>
       </main>
-      <footer className="page-footer dark">
-        <div className="container">
-          <div className="row">
-            <div className="col-sm-3">
-              <h5>Get started</h5>
-              <ul>
-                <li>
-                  <a href="#">Home</a>
-                </li>
-                <li>
-                  <a href="#">Sign up</a>
-                </li>
-                <li>
-                  <a href="#">Downloads</a>
-                </li>
-              </ul>
-            </div>
-            <div className="col-sm-3">
-              <h5>About us</h5>
-              <ul>
-                <li>
-                  <a href="#">Company Information</a>
-                </li>
-                <li>
-                  <a href="#">Contact us</a>
-                </li>
-                <li>
-                  <a href="#">Reviews</a>
-                </li>
-              </ul>
-            </div>
-            <div className="col-sm-3">
-              <h5>Support</h5>
-              <ul>
-                <li>
-                  <a href="#">FAQ</a>
-                </li>
-                <li>
-                  <a href="#">Help desk</a>
-                </li>
-                <li>
-                  <a href="#">Forums</a>
-                </li>
-              </ul>
-            </div>
-            <div className="col-sm-3">
-              <h5>Legal</h5>
-              <ul>
-                <li>
-                  <a href="#">Terms of Service</a>
-                </li>
-                <li>
-                  <a href="#">Terms of Use</a>
-                </li>
-                <li>
-                  <a href="#">Privacy Policy</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div className="footer-copyright">
-          <p>© 2023 Copyright Text</p>
-        </div>
-      </footer>
     </>
-
-
   );
 }
 
