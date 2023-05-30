@@ -5,25 +5,21 @@ import axios from "axios";
 
 const MainPage = () => {
 
+  const [placeValues, setPlaceValues] = useState([]);
+
   useEffect(() => {
-    deneme().then((data) => {
-      setPlaceValues(data);
-    });
+    fetchData();
   }, []);
 
-  const deneme = async () => {
-    try
-    {
+  const fetchData = async () => {
+    try {
       const response = await axios.get('http://localhost:8080/main');
-      return response.data;
-    } catch (error)
-    {
+      setPlaceValues(response.data);
+    } catch (error) {
       console.error('Failed to fetch rentals:', error);
-      return [];
+      setPlaceValues([]);
     }
-  }
-
-  const [placeValues, setPlaceValues] = useState([]);
+  };
 
   function toggleHeart(id) {
     setPlaceValues((prevPlaceValues) => {
@@ -324,7 +320,7 @@ const MainPage = () => {
                                 {renderStars(item.rating)}
                               </div>
                               <div className="price" style={{ alignSelf: "flex-end" }}>
-                                <h3>{item.price}</h3>
+                                <h3>{item['daily-price']}</h3>
                               </div>
                             </div>
                           </div>
