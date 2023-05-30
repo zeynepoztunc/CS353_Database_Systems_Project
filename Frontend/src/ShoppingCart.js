@@ -12,7 +12,7 @@ function ShoppingCart() {
       description: "Luxury Villa with a Jacuzzi, Antalya Kalkan",
       startDate: "18/08/2023",
       endDate: "25/08/2023",
-      img: "assets/img/Ekran%20Görüntüsü%20(1188).png",
+      img: "customerAssets/img/Ekran%20Görüntüsü%20(1188).png",
     },
     {
       ID: "123345",
@@ -21,7 +21,7 @@ function ShoppingCart() {
       description: "A House With a Garden by the Sea Apart2",
       startDate: "17/10/2024",
       endDate: "27/10/2024",
-      img: "assets/img/Ekran%20Görüntüsü%20(1189).png",
+      img: "customerAssets/img/Ekran%20Görüntüsü%20(1189).png",
     },
   ];
 
@@ -33,16 +33,9 @@ function ShoppingCart() {
       description: "Small House inside a forest",
       startDate: "17/10/2024",
       endDate: "27/10/2024",
-      img: "assets/img/Ekran%20Görüntüsü%20(1191).png",
+      img: "customerAssets/img/Ekran%20Görüntüsü%20(1191).png",
     },
   ];
-
-  const navigate = useNavigate();
-
-  const goToMainPage = (event) => {
-    event.preventDefault();
-    navigate('/MainPage');
-  };
 
   const goToPaymentPage = (event) => {
     event.preventDefault();
@@ -70,6 +63,13 @@ function ShoppingCart() {
     }
     return totalPrice;
   };
+
+  const navigate = useNavigate();
+
+  const goToRentalPage = (event) => {
+    event.preventDefault();
+    navigate('/RentalPage');
+  }
 
   return (
     <>
@@ -116,7 +116,7 @@ function ShoppingCart() {
                           </div>
 
                           <div className="col-md-5 product-info">
-                            <a className="product-name">
+                            <a className="product-name" onClick={goToRentalPage}>
                               {item.rentalName}
                             </a>
                             <div className="product-specs">
@@ -174,7 +174,7 @@ function ShoppingCart() {
                             </div>
 
                             <div className="col-md-5 product-info">
-                              <a className="product-name">
+                              <a className="product-name" onClick={goToRentalPage}>
                                 {item.rentalName}
                               </a>
                               <div className="product-specs">

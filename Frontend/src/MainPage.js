@@ -30,7 +30,7 @@ const MainPage = () => {
       price: "$95",
       isFavorited: true,
       rating: "4.556",
-      img: "assets/img/Ekran%20Görüntüsü%20(1189).png",
+      img: "customerAssets/img/Ekran%20Görüntüsü%20(1189).png",
     },
     {
       ID: "2",
@@ -38,7 +38,7 @@ const MainPage = () => {
       price: "$1097",
       isFavorited: true,
       rating: "5",
-      img: "assets/img/Ekran%20Görüntüsü%20(1195).png",
+      img: "customerAssets/img/Ekran%20Görüntüsü%20(1195).png",
     },
     {
       ID: "3",
@@ -46,7 +46,7 @@ const MainPage = () => {
       price: "$130",
       isFavorited: false,
       rating: "3",
-      img: "assets/img/Ekran%20Görüntüsü%20(1193).png",
+      img: "customerAssets/img/Ekran%20Görüntüsü%20(1193).png",
     },
     {
       ID: "4",
@@ -54,7 +54,7 @@ const MainPage = () => {
       price: "$178",
       isFavorited: false,
       rating: "1",
-      img: "assets/img/Ekran%20Görüntüsü%20(1196).png",
+      img: "customerAssets/img/Ekran%20Görüntüsü%20(1196).png",
     },
     {
       ID: "5",
@@ -62,7 +62,7 @@ const MainPage = () => {
       price: "$437",
       isFavorited: false,
       rating: "2.4",
-      img: "assets/img/Ekran%20Görüntüsü%20(1192).png",
+      img: "customerAssets/img/Ekran%20Görüntüsü%20(1192).png",
     },
     {
       ID: "6",
@@ -70,7 +70,7 @@ const MainPage = () => {
       price: "$342",
       isFavorited: true,
       rating: "5",
-      img: "assets/img/Ekran%20Görüntüsü%20(1194).png",
+      img: "customerAssets/img/Ekran%20Görüntüsü%20(1194).png",
     },
     {
       ID: "7",
@@ -78,7 +78,7 @@ const MainPage = () => {
       price: "$100",
       isFavorited: false,
       rating: "4",
-      img: "assets/img/Ekran%20Görüntüsü%20(1188).png",
+      img: "customerAssets/img/Ekran%20Görüntüsü%20(1188).png",
     },
     {
       ID: "8",
@@ -86,7 +86,7 @@ const MainPage = () => {
       price: "$80",
       isFavorited: false,
       rating: "4",
-      img: "assets/img/Ekran%20Görüntüsü%20(1191).png",
+      img: "customerAssets/img/Ekran%20Görüntüsü%20(1191).png",
     },
     {
       ID: "9",
@@ -94,7 +94,7 @@ const MainPage = () => {
       price: "$207",
       isFavorited: true,
       rating: "4",
-      img: "assets/img/Ekran%20Görüntüsü%20(1197).png",
+      img: "customerAssets/img/Ekran%20Görüntüsü%20(1197).png",
     },
   ]);
 
@@ -155,16 +155,16 @@ const MainPage = () => {
 
     const stars = [];
     for (let i = 0; i < fullStarCount; i++) {
-      stars.push(<img key={i} src="assets/img/star.svg" />);
+      stars.push(<img key={i} src="customerAssets/img/star.svg" />);
     }
 
     if (hasHalfStar) {
-      stars.push(<img key={fullStarCount} src="assets/img/star-half-empty.svg" />);
+      stars.push(<img key={fullStarCount} src="customerAssets/img/star-half-empty.svg" />);
     }
 
     const emptyStarCount = starCount - fullStarCount - (hasHalfStar ? 1 : 0);
     for (let i = 0; i < emptyStarCount; i++) {
-      stars.push(<img key={fullStarCount + i + (hasHalfStar ? 1 : 0)} src="assets/img/star-empty.svg" />);
+      stars.push(<img key={fullStarCount + i + (hasHalfStar ? 1 : 0)} src="customerAssets/img/star-empty.svg" />);
     }
 
     return stars;
@@ -185,7 +185,6 @@ const MainPage = () => {
         name="viewport"
         content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
       />
-      <title>Catalog - Brand</title>
       <link rel="stylesheet" href="customerAssets/bootstrap/css/bootstrap.min.css" />
       <link
         rel="stylesheet"
