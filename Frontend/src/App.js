@@ -75,6 +75,7 @@ function App() {
         <Route exact path='/ProfilePage' element={<ProfilePage/>} />
         <Route exact path='/RentalPage' element={<RentalPage/>} />
         <Route exact path='/ShoppingCart' element={<ShoppingCart/>} />
+        
 
     </Routes>
   );

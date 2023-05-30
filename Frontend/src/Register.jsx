@@ -14,7 +14,7 @@ export const Register = (props) => {
   const [gender, setGender] = useState("");
   const [successful, setSuccessful] = useState(false);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     console.log('Form submitted:');
     console.log(name, surname, phoneNo, birthDate, gender, email, password);

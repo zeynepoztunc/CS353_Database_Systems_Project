@@ -3,14 +3,61 @@ import "./adminAssets/bootstrap/css/bootstrap.min.css";
 import "./adminAssets/css/vanilla-zoom.min.css";
 import { Navbar } from "./Navbar.jsx";
 export const AdminCustomerReportings = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
+  const [mostRented, setMostRented] = useState(false);
+  const [leastRented, setLeastRented] = useState(false);
+  const [latestAdded, setLatestAdded] = useState(false);
+  const [oldestAdded, setOldestAdded] = useState(false);
+  const [highestRating, setHighestRating] = useState(false);
+  const [lowestRating, setLowestRating] = useState(false);
+  const [search, setSearch] = useState("");
+  const users = [
+    {
+      name: "Airi Satou",
+      userType: "Host",
+      complaintCount: 0,
+      joinDate: "2022/11/28",
+      photo: "assets/img/avatars/avatar1.jpeg",
+    },
+    {
+      name: "Airi Satou",
+      userType: "Host",
+      complaintCount: 0,
+      joinDate: "2022/11/28",
+      photo: "assets/img/avatars/avatar1.jpeg",
+    },
+  ];
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(email);
-  };
+  function handleSearch() {
+    if (document.getElementById("formCheck-1").checked) {
+      console.log("is checked 1");
+      setMostRented(true);
+    }
+    if (document.getElementById("formCheck-2").checked) {
+      console.log("is checked 2");
+      setLeastRented(true);
+    }
+    if (document.getElementById("formCheck-3").checked) {
+      console.log("is checked 3");
+      setLatestAdded(true);
+    }
+    if (document.getElementById("formCheck-4").checked) {
+      console.log("is checked 4");
+      setOldestAdded(true);
+    }
+    if (document.getElementById("formCheck-5").checked) {
+      console.log("is checked 5");
+      setHighestRating(true);
+    }
+    if (document.getElementById("formCheck-6").checked) {
+      console.log("is checked 6");
+      setLowestRating(true);
+    }
+    var searchInput = document.getElementById("searchInput");
+    if (searchInput) {
+      setSearch(searchInput.value);
+      console.log(search);
+    }
+  }
 
   const customerReportings = [
     {
@@ -63,6 +110,123 @@ export const AdminCustomerReportings = () => {
               <h2 className="text-info">Customer Reportings</h2>
               <p>All post and user reports made by users.</p>
             </div>
+            
+            
+            
+            
+            
+            
+            <p>Select search inputs</p>
+                      <div>
+                        <div>
+                          <div className="form-check">
+                            <input
+                              className="form-check-input"
+                              type="checkbox"
+                              id="formCheck-1"
+                            />
+                            <label
+                              className="form-check-label"
+                              htmlFor="formCheck-1"
+                            >
+                              Most rented
+                            </label>
+                          </div>
+                          <div className="form-check">
+                            <input
+                              className="form-check-input"
+                              type="checkbox"
+                              id="formCheck-2"
+                            />
+                            <label
+                              className="form-check-label"
+                              htmlFor="formCheck-2"
+                            >
+                              Least rented
+                            </label>
+                          </div>
+                          <div className="form-check">
+                            <input
+                              className="form-check-input"
+                              type="checkbox"
+                              id="formCheck-3"
+                            />
+                            <label
+                              className="form-check-label"
+                              htmlFor="formCheck-3"
+                            >
+                              Latest Added
+                            </label>
+                          </div>
+                          <div className="form-check">
+                            <input
+                              className="form-check-input"
+                              type="checkbox"
+                              id="formCheck-4"
+                            />
+                            <label
+                              className="form-check-label"
+                              htmlFor="formCheck-4"
+                            >
+                              Oldest Added
+                            </label>
+                          </div>
+                          <div className="form-check">
+                            <input
+                              className="form-check-input"
+                              type="checkbox"
+                              id="formCheck-5"
+                            />
+                            <label
+                              className="form-check-label"
+                              htmlFor="formCheck-5"
+                            >
+                              Highest Rating
+                            </label>
+                          </div>
+                          <div className="form-check">
+                            <input
+                              className="form-check-input"
+                              type="checkbox"
+                              id="formCheck-6"
+                            />
+                            <label
+                              className="form-check-label"
+                              htmlFor="formCheck-6"
+                            >
+                              Lowest Rating
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="col-md-6">
+                        <div
+                          className="text-md-end dataTables_filter"
+                          id="dataTable_filter"
+                        >
+                          <input
+                            type="search"
+                            id="searchInput"
+                            className="form-control form-control-sm"
+                            aria-controls="dataTable"
+                            placeholder="Search"
+                          />
+                          <button
+                            className="btn btn-primary"
+                            type="button"
+                            onClick={handleSearch}
+                            style={{
+                              paddingLeft: 10,
+                              margin: "auto",
+                              /*borderLeft: 10, */ textAlign: "center",
+                            }}
+                          >
+                            Search
+                          </button>
+                          <label className="form-label" />
+                        </div>
+                      </div>
             <div className="block-content">
               <div className="clean-blog-post">
                 <div className="row">

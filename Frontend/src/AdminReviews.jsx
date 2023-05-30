@@ -4,14 +4,78 @@ import './adminAssets/css/vanilla-zoom.min.css';
 import { Navbar } from './Navbar.jsx';
 
 export const AdminReviews = () => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [name, setName] = useState('');
-    
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log(email);
+  const [highestCleanliness, setHighestCleanliness] = useState(false);
+  const [highestCheckIn, setHighestCheckIn] = useState(false);
+  const [highestCommunication, setHighestCommunication] = useState(false);
+  const [highestAccuracy, setHighestAccuracy] = useState(false);
+  const [highestSafety, setHighestSafety] = useState(false);
+  const [highestLocation, setHighestLocation] = useState(false);
+  const [highestValue, setHighestValue] = useState(false);
+  const [leastReviewed, setLeastReviewed] = useState(false);
+  const [mostReviewed, setMostReviewed] = useState(false);
+  const [search, setSearch] = useState("");
+  
+  const reviews = [
+    {
+      name: "Airi Satou",
+      userType: "Host",
+      complaintCount: 0,
+      joinDate: "2022/11/28",
+      photo: "assets/img/avatars/avatar1.jpeg",
+    },
+    {
+      name: "Airi Satou",
+      userType: "Host",
+      complaintCount: 0,
+      joinDate: "2022/11/28",
+      photo: "assets/img/avatars/avatar1.jpeg",
+    },
+  ];
+
+  function handleSearch() {
+    if (document.getElementById("formCheck-1").checked) {
+      console.log("is checked 1");
+      setHighestCleanliness(true);
     }
+    if (document.getElementById("formCheck-2").checked) {
+      console.log("is checked 2");
+      setHighestCheckIn(true);
+    }
+    if (document.getElementById("formCheck-3").checked) {
+      console.log("is checked 3");
+      setHighestCommunication(true);
+    }
+    if (document.getElementById("formCheck-4").checked) {
+      console.log("is checked 4");
+      setHighestAccuracy(true);
+    }
+    if (document.getElementById("formCheck-5").checked) {
+      console.log("is checked 5");
+      setHighestSafety(true);
+    }
+    if (document.getElementById("formCheck-6").checked) {
+      console.log("is checked 6");
+      setHighestLocation(true);
+    }
+    if (document.getElementById("formCheck-7").checked) {
+      console.log("is checked 7");
+      setHighestValue(true);
+    }
+    if (document.getElementById("formCheck-8").checked) {
+      console.log("is checked 7");
+      setLeastReviewed(true);
+    }
+    if (document.getElementById("formCheck-8").checked) {
+      console.log("is checked 7");
+      setMostReviewed(true);
+    }
+    var searchInput = document.getElementById("searchInput");
+    if (searchInput) {
+      setSearch(searchInput.value);
+      console.log(search);
+    }
+  }
+
     
     return (
         <>
@@ -39,6 +103,161 @@ export const AdminReviews = () => {
           <h2 className="text-info">Reviews</h2>
           <p>Reviews left by all users are shown below.</p>
         </div>
+        
+        
+        <p>Select search inputs</p>
+                      <div>
+                        <div>
+                          <div className="form-check">
+                            <input
+                              className="form-check-input"
+                              type="checkbox"
+                              id="formCheck-1"
+                            />
+                            <label
+                              className="form-check-label"
+                              htmlFor="formCheck-1"
+                            >
+                              Highest Cleanliness
+                            </label>
+                          </div>
+                          <div className="form-check">
+                            <input
+                              className="form-check-input"
+                              type="checkbox"
+                              id="formCheck-2"
+                            />
+                            <label
+                              className="form-check-label"
+                              htmlFor="formCheck-2"
+                            >
+                              Highest Check-in
+                            </label>
+                          </div>
+                          <div className="form-check">
+                            <input
+                              className="form-check-input"
+                              type="checkbox"
+                              id="formCheck-3"
+                            />
+                            <label
+                              className="form-check-label"
+                              htmlFor="formCheck-3"
+                            >
+                              Highest Communication
+                            </label>
+                          </div>
+                          <div className="form-check">
+                            <input
+                              className="form-check-input"
+                              type="checkbox"
+                              id="formCheck-4"
+                            />
+                            <label
+                              className="form-check-label"
+                              htmlFor="formCheck-4"
+                            >
+                              Highest Accuracy
+                            </label>
+                          </div>
+                          <div className="form-check">
+                            <input
+                              className="form-check-input"
+                              type="checkbox"
+                              id="formCheck-5"
+                            />
+                            <label
+                              className="form-check-label"
+                              htmlFor="formCheck-5"
+                            >
+                              Highest Safety
+                            </label>
+                          </div>
+                          <div className="form-check">
+                            <input
+                              className="form-check-input"
+                              type="checkbox"
+                              id="formCheck-6"
+                            />
+                            <label
+                              className="form-check-label"
+                              htmlFor="formCheck-6"
+                            >
+                              Highest Location
+                            </label>
+                          </div>
+                          <div className="form-check">
+                            <input
+                              className="form-check-input"
+                              type="checkbox"
+                              id="formCheck-7"
+                            />
+                            <label
+                              className="form-check-label"
+                              htmlFor="formCheck-7"
+                            >
+                              Highest Value
+                            </label>
+                          </div>
+                          <div className="form-check">
+                            <input
+                              className="form-check-input"
+                              type="checkbox"
+                              id="formCheck-8"
+                            />
+                            <label
+                              className="form-check-label"
+                              htmlFor="formCheck-8"
+                            >
+                              Least Reviewed
+                            </label>
+                          </div>
+                          <div className="form-check">
+                            <input
+                              className="form-check-input"
+                              type="checkbox"
+                              id="formCheck-9"
+                            />
+                            <label
+                              className="form-check-label"
+                              htmlFor="formCheck-9"
+                            >
+                              Most Reviewed
+                            </label>
+                          </div>
+                          
+                        </div>
+                      </div>
+
+                      <div className="col-md-6">
+                        <div
+                          className="text-md-end dataTables_filter"
+                          id="dataTable_filter"
+                        >
+                          <input
+                            type="search"
+                            id="searchInput"
+                            className="form-control form-control-sm"
+                            aria-controls="dataTable"
+                            placeholder="Search"
+                          />
+                          <button
+                            className="btn btn-primary"
+                            type="button"
+                            onClick={handleSearch}
+                            style={{
+                              paddingLeft: 10,
+                              margin: "auto",
+                              /*borderLeft: 10, */ textAlign: "center",
+                            }}
+                          >
+                            Search
+                          </button>
+                          <label className="form-label" />
+                        </div>
+                      </div>
+        
+        
         <div className="block-content">
           <div className="faq-item">
             <h4 className="question">Host Evaluation</h4>
