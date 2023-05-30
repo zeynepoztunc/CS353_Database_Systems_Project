@@ -7,59 +7,58 @@ function ProfilePage() {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const averageRating=4.5;
+  const averageRating = 4.5;
 
   const reviews = [
-    { id: 1, author: 'John ', comment: 'Clean and kind guest!', image: "customerAssets/img/istockphoto-1200677760-612x612.jpg" },
-    { id: 2, author: 'Jane ', comment: 'Respectful and tidy', image: 'customerAssets/img/happy-young-woman-sitting-on-260nw-2018571389.webp' },
-    { id: 3, author: 'Liz', comment: 'Was very nice and welcoming', image: "customerAssets/img/360_F_367464887_f0w1JrL8PddfuH3P2jSPlIGjKU2BI0rn.jpg" },
-    { id: 4, author: 'Deniz', comment: 'Super guest!', image: "customerAssets/img/smile-young-man-close-gorgeous-260nw-186076112.webp" }
-
+    { id: 1, author: 'John ', comment: 'Clean and kind guest!', image: "./customerAssets/img/istockphoto-1200677760-612x612.jpg" },
+    { id: 2, author: 'Jane ', comment: 'Respectful and tidy', image: './customerAssets/img/happy-young-woman-sitting-on-260nw-2018571389.webp' },
+    { id: 3, author: 'Liz', comment: 'Was very nice and welcoming', image: "./customerAssets/img/360_F_367464887_f0w1JrL8PddfuH3P2jSPlIGjKU2BI0rn.jpg" },
+    { id: 4, author: 'Deniz', comment: 'Super guest!', image: "./customerAssets/img/smile-young-man-close-gorgeous-260nw-186076112.webp" }
   ];
   const reviewList = reviews.map((review) => (
     <div className="row">
 
-                <div className="col-md-6" style={{ paddingTop: 17 }}>
-                  <img
-                    className="rounded-circle"
-                    src={review.image}
-                    
-                    width={87}
-                    height={83}
-                    style={{ marginTop: "-14px" }}
-                  />
-                  <div
-                    className="card"
-                    style={{
-                      marginLeft: 119,
-                      marginBottom: 0,
-                      paddingBottom: 0,
-                      paddingTop: 0,
-                      marginTop: "-85px"
-                    }}
-                  >
-                    <div
-                      className="card-body"
-                      style={{
-                        marginBottom: "-2px",
-                        marginLeft: 52,
-                        marginRight: 74,
-                      }}
-                    >
+      <div className="col-md-6" style={{ paddingTop: 17 }}>
+        <img
+          className="rounded-circle"
+          src={review.image}
 
-                      <h4 className="card-title" style={{ marginLeft: "-56px" }}>
-                        <p>{review.author}</p>
+          width={87}
+          height={83}
+          style={{ marginTop: "-14px" }}
+        />
+        <div
+          className="card"
+          style={{
+            marginLeft: 119,
+            marginBottom: 0,
+            paddingBottom: 0,
+            paddingTop: 0,
+            marginTop: "-85px"
+          }}
+        >
+          <div
+            className="card-body"
+            style={{
+              marginBottom: "-2px",
+              marginLeft: 52,
+              marginRight: 74,
+            }}
+          >
 
-                      </h4>
+            <h4 className="card-title" style={{ marginLeft: "-56px" }}>
+              <p>{review.author}</p>
 
-                      <p className="card-text" style={{ marginLeft: "-56px" }}>
-                        {review.comment}
-                      </p>
-                    </div>
-                    
-                  </div>
-                </div>
+            </h4>
+
+            <p className="card-text" style={{ marginLeft: "-56px" }}>
+              {review.comment}
+            </p>
+          </div>
+
+        </div>
       </div>
+    </div>
   ));
   const handleShowAllReviews = () => {
     setIsModalOpen(true);
@@ -119,12 +118,12 @@ function ProfilePage() {
         rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i&display=swap"
       />
-      <link rel="stylesheet" href="customerAssets/fonts/fontawesome-all.min.css" />
-      <link rel="stylesheet" href="customerAssets/css/baguetteBox.min.css" />
-      <link rel="stylesheet" href="customerAssets/css/Banner-Heading-Image-images.css" />
-      <link rel="stylesheet" href="customerAssets/css/vanilla-zoom.min.css" />
-      <NavBar></NavBar>
+      <link rel="stylesheet" href="./customerAssets/fonts/fontawesome-all.min.css" />
+      <link rel="stylesheet" href="./customerAssets/css/baguetteBox.min.css" />
+      <link rel="stylesheet" href="./customerAssets/css/Banner-Heading-Image-images.css" />
+      <link rel="stylesheet" href="./customerAssets/css/vanilla-zoom.min.css" />
 
+      <NavBar></NavBar>
 
       <main className="page">
         <section className="clean-block about-us">
@@ -139,9 +138,13 @@ function ProfilePage() {
                   paddingLeft: 31
                 }}
               >
+                <h4 className="fs-2" style={{ paddingBottom: 0, marginBottom: 28 }}>
+                  <strong> </strong>
+                </h4>
                 <div className="card">
                   <div className="card-body">
                     <h6 className="text-muted card-subtitle mb-2" />
+
                     <img
                       className="rounded-circle d-lg-flex align-items-lg-start"
                       src="customerAssets/img/istockphoto-1225524274-612x612.jpg"
@@ -160,7 +163,7 @@ function ProfilePage() {
                             accept=".jpg"
                             id="fileInput"
                             onChange={handleFileChange}
-                        />
+                          />
                         </span>
                       </strong>
                     </p>
@@ -369,6 +372,15 @@ function ProfilePage() {
                 </div>
               </div>
               <div className="col-md-6 col-lg-8" style={{ marginTop: 40 }}>
+                <h4 className="fs-2" style={{ paddingBottom: 0, marginBottom: 28 }}>
+                  <strong>Spacer </strong>
+                </h4>
+                <h4 className="fs-2" style={{ paddingBottom: 0, marginBottom: 28 }}>
+                  <strong> </strong>
+                </h4>
+                <h4 className="fs-2" style={{ paddingBottom: 0, marginBottom: 28 }}>
+                  <strong> </strong>
+                </h4>
                 <h4 className="fs-2" style={{ paddingBottom: 0, marginBottom: 28 }}>
                   <strong>Welcome, Alice</strong>
                 </h4>
@@ -635,14 +647,14 @@ function ProfilePage() {
                   contentLabel="All Reviews"
                   style={{
                     content: {
-                      height: '700px', 
+                      height: '700px',
                     },
                   }}
-                 >
+                >
                   <h2>All Reviews</h2>
                   <ul>{reviewList}</ul>
                 </Modal>
-                
+
               </div>
               <div
                 className="col-md-6 col-lg-12"

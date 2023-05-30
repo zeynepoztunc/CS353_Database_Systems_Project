@@ -37,13 +37,6 @@ function ShoppingCart() {
     },
   ];
 
-  const navigate = useNavigate();
-
-  const goToMainPage = (event) => {
-    event.preventDefault();
-    navigate('/MainPage');
-  };
-
   const goToPaymentPage = (event) => {
     event.preventDefault();
     navigate('/PaymentPage');
@@ -70,6 +63,13 @@ function ShoppingCart() {
     }
     return totalPrice;
   };
+
+  const navigate = useNavigate();
+
+  const goToRentalPage = (event) => {
+    event.preventDefault();
+    navigate('/RentalPage');
+  }
 
   return (
     <>
@@ -116,7 +116,7 @@ function ShoppingCart() {
                           </div>
 
                           <div className="col-md-5 product-info">
-                            <a className="product-name">
+                            <a className="product-name" onClick={goToRentalPage}>
                               {item.rentalName}
                             </a>
                             <div className="product-specs">
@@ -174,7 +174,7 @@ function ShoppingCart() {
                             </div>
 
                             <div className="col-md-5 product-info">
-                              <a className="product-name">
+                              <a className="product-name" onClick={goToRentalPage}>
                                 {item.rentalName}
                               </a>
                               <div className="product-specs">
