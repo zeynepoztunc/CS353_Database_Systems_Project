@@ -143,6 +143,9 @@ const  RentalPage= () => {
   <link rel="stylesheet" href="customerAssets/css/Banner-Heading-Image-images.css" />
   <link rel="stylesheet" href="customerAssets/css/vanilla-zoom.min.css" />
   <NavBar></NavBar>
+  <h4 className="fs-2" style={{ paddingBottom: 0, marginBottom: 28 }}>
+      <strong>Spacer </strong>
+  </h4>
   <main className="page product-page">
     <section className="clean-block clean-product dark">
       <div className="container">
