@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import NavBar from './NavBar.js';
+import NavBar from './NavBar';
 import Modal from 'react-modal';
 
 function ProfilePage() {
@@ -10,10 +10,10 @@ function ProfilePage() {
   const averageRating=4.5;
 
   const reviews = [
-    { id: 1, author: 'John ', comment: 'Clean and kind guest!', image: "./customerAssets/img/istockphoto-1200677760-612x612.jpg" },
-    { id: 2, author: 'Jane ', comment: 'Respectful and tidy', image: './customerAssets/img/happy-young-woman-sitting-on-260nw-2018571389.webp' },
-    { id: 3, author: 'Liz', comment: 'Was very nice and welcoming', image: "./customerAssets/img/360_F_367464887_f0w1JrL8PddfuH3P2jSPlIGjKU2BI0rn.jpg" },
-    { id: 4, author: 'Deniz', comment: 'Super guest!', image: "./customerAssets/img/smile-young-man-close-gorgeous-260nw-186076112.webp" }
+    { id: 1, author: 'John ', comment: 'Clean and kind guest!', image: "customerAssets/img/istockphoto-1200677760-612x612.jpg" },
+    { id: 2, author: 'Jane ', comment: 'Respectful and tidy', image: 'customerAssets/img/happy-young-woman-sitting-on-260nw-2018571389.webp' },
+    { id: 3, author: 'Liz', comment: 'Was very nice and welcoming', image: "customerAssets/img/360_F_367464887_f0w1JrL8PddfuH3P2jSPlIGjKU2BI0rn.jpg" },
+    { id: 4, author: 'Deniz', comment: 'Super guest!', image: "customerAssets/img/smile-young-man-close-gorgeous-260nw-186076112.webp" }
 
   ];
   const reviewList = reviews.map((review) => (
@@ -114,15 +114,15 @@ function ProfilePage() {
         content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
       />
       <title>About Us - Brand</title>
-      <link rel="stylesheet" href="./customerAssets/bootstrap/css/bootstrap.min.css" />
+      <link rel="stylesheet" href="customerAssets/bootstrap/css/bootstrap.min.css" />
       <link
         rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i&display=swap"
       />
-      <link rel="stylesheet" href="./customerAssets/fonts/fontawesome-all.min.css" />
-      <link rel="stylesheet" href="./customerAssets/css/baguetteBox.min.css" />
-      <link rel="stylesheet" href="./customerAssets/css/Banner-Heading-Image-images.css" />
-      <link rel="stylesheet" href="./customerAssets/css/vanilla-zoom.min.css" />
+      <link rel="stylesheet" href="customerAssets/fonts/fontawesome-all.min.css" />
+      <link rel="stylesheet" href="customerAssets/css/baguetteBox.min.css" />
+      <link rel="stylesheet" href="customerAssets/css/Banner-Heading-Image-images.css" />
+      <link rel="stylesheet" href="customerAssets/css/vanilla-zoom.min.css" />
       <NavBar></NavBar>
 
 
@@ -144,7 +144,7 @@ function ProfilePage() {
                     <h6 className="text-muted card-subtitle mb-2" />
                     <img
                       className="rounded-circle d-lg-flex align-items-lg-start"
-                      src="assets/img/istockphoto-1225524274-612x612.jpg"
+                      src="customerAssets/img/istockphoto-1225524274-612x612.jpg"
                       width={126}
                       height={111}
                       style={{ paddingLeft: 0, marginLeft: 90 }}

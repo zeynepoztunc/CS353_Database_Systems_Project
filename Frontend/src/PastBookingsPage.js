@@ -1,7 +1,13 @@
 import {  useNavigate } from 'react-router-dom';
-import NavBar from './NavBar.js';
+import NavBar from './NavBar';
 function PastBookingsPage() {
   const navigate = useNavigate();
+  const booking = [
+    { id:1, sdate: "24/03/2023", edate: "27/03/2023", name: 'Kaş Luxury Villa ',  city:"Antalya",host: 'Timur',guestNum:2},
+    { id:2, sdate: "16/01/2022", edate: "20/03/2022",name: 'Bursa 3+1 Flat', city:"Bursa", host: 'Connor', guestNum:4 },
+    { id:3, sdate: "20/11/2022", edate: "14/11/2022",name: 'İzmir Beach House ',  city:"İzmir", host: 'Melih',guestNum:5 },
+    { id:4, sdate: "2/02/2021", edate: "30/01/2021",name: 'Villa Suites', city:"Muğla", host:'Jenna',guestNum:3 },
+  ];
 
   const goBackToProfile = (event) => {
     event.preventDefault();
@@ -16,15 +22,15 @@ function PastBookingsPage() {
     content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
   />
   <title>Blog - Brand</title>
-  <link rel="stylesheet" href="./customerAssets/bootstrap/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
   <link
     rel="stylesheet"
     href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i&display=swap"
   />
-  <link rel="stylesheet" href="./customerAssets/fonts/fontawesome-all.min.css" />
-  <link rel="stylesheet" href="./customerAssets/css/baguetteBox.min.css" />
-  <link rel="stylesheet" href="./customerAssets/css/Banner-Heading-Image-images.css" />
-  <link rel="stylesheet" href="./customerAssets/css/vanilla-zoom.min.css" />
+  <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css" />
+  <link rel="stylesheet" href="assets/css/baguetteBox.min.css" />
+  <link rel="stylesheet" href="assets/css/Banner-Heading-Image-images.css" />
+  <link rel="stylesheet" href="assets/css/vanilla-zoom.min.css" />
   <NavBar></NavBar>
   <main className="page blog-post-list">
     <section className="clean-block clean-blog-list dark">
@@ -77,13 +83,14 @@ function PastBookingsPage() {
                     <th className="text-danger">Add Landmark</th>
                   </tr>
                 </thead>
+                {booking.map((booking) => (
                 <tbody>
                   <tr>
-                    <td>24.03.2023</td>
-                    <td>28.03.2023</td>
-                    <td>Antalya</td>
-                    <td>Kaş Luxury Villa</td>
-                    <td>Timur</td>
+                    <td>{booking.sdate}</td>
+                    <td>{booking.edate}</td>
+                    <td>{booking.city}</td>
+                    <td>{booking.name}</td>
+                    <td>{booking.host}</td>
                     <td className="text-center">3</td>
                     <td>
                       <button
@@ -95,58 +102,12 @@ function PastBookingsPage() {
                       </button>
                     </td>
                   </tr>
-                  <tr>
-                    <td>20.08.2022</td>
-                    <td>28.08.2022</td>
-                    <td>Dublin</td>
-                    <td>Villa Serenity</td>
-                    <td>Connor</td>
-                    <td className="text-center">5</td>
-                    <td>
-                      <button
-                        className="btn btn-danger text-center btn-custom-class"
-                        type="button"
-                        style={{ marginLeft: 36 }}
-                      >
-                        Add
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>26.04.2022</td>
-                    <td>30.04.2022</td>
-                    <td>İzmir</td>
-                    <td>&nbsp;1+1 Flat Alsancak</td>
-                    <td>Melih</td>
-                    <td className="text-center">2</td>
-                    <td>
-                      <button
-                        className="btn btn-danger text-center btn-custom-class"
-                        type="button"
-                        style={{ marginLeft: 36 }}
-                      >
-                        Add
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>06.08.2020</td>
-                    <td>15.08.2020</td>
-                    <td>Muğla</td>
-                    <td>&nbsp;Voila Suites</td>
-                    <td>Jenna</td>
-                    <td className="text-center">2</td>
-                    <td>
-                      <button
-                        className="btn btn-danger text-center btn-custom-class"
-                        type="button"
-                        style={{ marginLeft: 36 }}
-                      >
-                        Add
-                      </button>
-                    </td>
-                  </tr>
+               
+                 
+              
                 </tbody>
+                ))}
+
               </table>
             </div>
           </div>
@@ -169,71 +130,6 @@ function PastBookingsPage() {
       </div>
     </section>
   </main>
-  <footer className="page-footer dark">
-    <div className="container">
-      <div className="row">
-        <div className="col-sm-3">
-          <h5>Get started</h5>
-          <ul>
-            <li>
-              <a href="#">Home</a>
-            </li>
-            <li>
-              <a href="#">Sign up</a>
-            </li>
-            <li>
-              <a href="#">Downloads</a>
-            </li>
-          </ul>
-        </div>
-        <div className="col-sm-3">
-          <h5>About us</h5>
-          <ul>
-            <li>
-              <a href="#">Company Information</a>
-            </li>
-            <li>
-              <a href="#">Contact us</a>
-            </li>
-            <li>
-              <a href="#">Reviews</a>
-            </li>
-          </ul>
-        </div>
-        <div className="col-sm-3">
-          <h5>Support</h5>
-          <ul>
-            <li>
-              <a href="#">FAQ</a>
-            </li>
-            <li>
-              <a href="#">Help desk</a>
-            </li>
-            <li>
-              <a href="#">Forums</a>
-            </li>
-          </ul>
-        </div>
-        <div className="col-sm-3">
-          <h5>Legal</h5>
-          <ul>
-            <li>
-              <a href="#">Terms of Service</a>
-            </li>
-            <li>
-              <a href="#">Terms of Use</a>
-            </li>
-            <li>
-              <a href="#">Privacy Policy</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div className="footer-copyright">
-      <p>© 2023 Copyright Text</p>
-    </div>
-  </footer>
 </>
 
     

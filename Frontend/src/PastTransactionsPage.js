@@ -1,8 +1,14 @@
 import {  useNavigate } from 'react-router-dom';
-import NavBar from './NavBar.js';
+import NavBar from './NavBar';
 function PastTransactionsPage() {
     const navigate = useNavigate();
-
+    const transaction = [
+        { id:1, date: "24/03/2023", name: 'Kaş Luxury Villa ', type: 'Payment', amount: "420₺",status:"Successful" },
+        { id:2, date: "16/01/2022", name: 'Bursa 3+1 Flat', type: 'Refund', amount: "560₺",status:"Successful" },
+        { id:3, date: "20/11/2022", name: 'İzmir Beach House ', type: 'Payment', amount: "270₺",status:"Successful" },
+        { id:4, date: "2/02/2021", name: 'Ankara 1+1 Flat', type: 'Payment', amount: "96₺",status:"Successful" },
+      ];
+  
     const goBackToProfile = (event) => {
         event.preventDefault();
         navigate('/ProfilePage');
@@ -11,12 +17,12 @@ function PastTransactionsPage() {
     <container>
     <head>
     <title>Product - Brand</title>
-    <link rel="stylesheet" href="./customerAssets/bootstrap/css/bootstrap.min.css"></link>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css"></link>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i&amp;display=swap"></link>
-    <link rel="stylesheet" href="./customerAssets/fonts/fontawesome-all.min.css"></link>
-    <link rel="stylesheet" href="./customerAssets/css/baguetteBox.min.css"></link>
-    <link rel="stylesheet" href="./customerAssets/css/Banner-Heading-Image-images.css"></link>
-    <link rel="stylesheet" href="./customerAssets/css/vanilla-zoom.min.css"></link>
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css"></link>
+    <link rel="stylesheet" href="assets/css/baguetteBox.min.css"></link>
+    <link rel="stylesheet" href="assets/css/Banner-Heading-Image-images.css"></link>
+    <link rel="stylesheet" href="assets/css/vanilla-zoom.min.css"></link>
   </head>
   <body>
  
@@ -43,36 +49,20 @@ function PastTransactionsPage() {
                                         <th class="text-danger">Status</th>
                                     </tr>
                                 </thead>
+                                {transaction.map((transaction) => (
                                 <tbody>
+                               
                                     <tr>
-                                        <td>24.03.2023</td>
-                                        <td>Kaş Luxury Villa</td>
-                                        <td>Payment</td>
-                                        <td>$420</td>
-                                        <td>Successfull</td>
-                                    </tr>
-                                    <tr>
-                                        <td>20.08.2022</td>
-                                        <td>Bursa 3+1 Flat</td>
-                                        <td>Refund</td>
-                                        <td>$560</td>
-                                        <td>Successfull</td>
-                                    </tr>
-                                    <tr>
-                                        <td>27.04.2022</td>
-                                        <td>İzmir Beach House</td>
-                                        <td>Payment</td>
-                                        <td>$270</td>
-                                        <td>Successfull</td>
-                                    </tr>
-                                    <tr>
-                                        <td>06.08.2020</td>
-                                        <td>Ankara 1+1 Flat</td>
-                                        <td>Payment</td>
-                                        <td>$96</td>
-                                        <td>Successfull</td>
-                                    </tr>
+                                    <td>{transaction.date}</td>
+                                    <td>{transaction.name}</td>
+                                    <td>{transaction.type}</td>
+                                    <td>{transaction.amount}</td>
+                                    <td>{transaction.status}</td>
+                                </tr>
+ 
                                 </tbody>
+                                    ))}
+
                             </table>
                         </div>
                     </div><button             
@@ -82,57 +72,16 @@ function PastTransactionsPage() {
         </section>
     </main>
 
-
-    <footer class="page-footer dark">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-3">
-                    <h5>Get started</h5>
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Sign up</a></li>
-                        <li><a href="#">Downloads</a></li>
-                    </ul>
-                </div>
-                <div class="col-sm-3">
-                    <h5>About us</h5>
-                    <ul>
-                        <li><a href="#">Company Information</a></li>
-                        <li><a href="#">Contact us</a></li>
-                        <li><a href="#">Reviews</a></li>
-                    </ul>
-                </div>
-                <div class="col-sm-3">
-                    <h5>Support</h5>
-                    <ul>
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Help desk</a></li>
-                        <li><a href="#">Forums</a></li>
-                    </ul>
-                </div>
-                <div class="col-sm-3">
-                    <h5>Legal</h5>
-                    <ul>
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Terms of Use</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="footer-copyright">
-            <p>© 2023 Copyright Text</p>
-        </div>
-    </footer>
-    <script src="./customerAssets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="./customerAssets/js/baguetteBox.min.js"></script>
-    <script src="./customerAssets/js/vanilla-zoom.js"></script>
-    <script src="./customerAssets/js/theme.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/baguetteBox.min.js"></script>
+    <script src="assets/js/vanilla-zoom.js"></script>
+    <script src="assets/js/theme.js"></script>
   </body>
 
     </container> 
-
+  
 
   );
 }
 export default PastTransactionsPage;
+

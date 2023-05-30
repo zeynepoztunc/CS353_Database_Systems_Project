@@ -6,7 +6,7 @@ import {useState} from 'react';
 import { addDays, subDays } from "date-fns";
 import DropdownMenu from './DropdownMenu';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
-import NavBar from './NavBar.js';
+import NavBar from './NavBar';
 import Modal from 'react-modal';
 
 
@@ -16,14 +16,32 @@ const  RentalPage= () => {
   const [selectedCounts, setSelectedCounts] = useState({});
   const [selectedItems, setSelectedItems] = useState({});
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const avgRating=4.5;
+  const dailyPrice=200;
+  const avgCleanlinessRating=4.5;
+  const avgCommunicationRating=4.25;
+  const avgAccuracyRating=4;
+  const avgCheckinRating=5;
+  const avgValueRating=4.5;
+  const avgLocationRating=4.75;
+  const numOfReview=15;
+  const isSuperHost=useState(null);
+  const isHearted=useState(null);
+  const isFreeforEarthquakeVictims=useState(null);
+  const maxAccomodation=6;
+  const bedroomNum=3;
+  const bathroomNum=3;
+  const hostName="Ali";
+  const description=" In Kalkan, with its excellent sea view and location surrounded by nature, awaits you. Our rental villa with the capacity of 6 people has 3 bedrooms. In the rental villa ,it has all the kitchen utensils you may need. It has aspacious lounge with open american kitchen where you can bemodern, convenient and comfortable.";
+
   const options = Array.from({ length: 10 }, (_, index) => index + 1);
   const reviews = [
-    { id: 1, author: 'Jennifer ', comment: 'The place was just perfect.', image: "assets/img/photo-1596813362035-3edcff0c2487.jpg" },
-    { id: 2, author: 'Natalie ', comment: 'I really enjoyed my stay!', image: "assets/img/images.jpg" },
-    { id: 3, author: 'Jonathan', comment: 'Lovely place with a great view.', image: "assets/img/profile.webp" },
-    { id: 4, author: 'Elif', comment: 'Wonderful place...', image: "assets/img/profile.webp" },
-    { id: 5, author: 'Chris', comment: 'Everything was perfect!', image: "assets/img/photo-1584043720379-b56cd9199c94.jpg" },
-    { id: 4, author: 'Nate', comment: 'This place was amazing!', image: "assets/img/dark-haired-man-in-brown-leather-jacket.jpg" }
+    { id: 1, author: 'Jennifer ', comment: 'The place was just perfect.', image: "customerAssets/img/photo-1596813362035-3edcff0c2487.jpg" },
+    { id: 2, author: 'Natalie ', comment: 'I really enjoyed my stay!', image: "customerAssets/img/images.jpg" },
+    { id: 3, author: 'Jonathan', comment: 'Lovely place with a great view.', image: "customerAssets/img/profile.webp" },
+    { id: 4, author: 'Elif', comment: 'Wonderful place...', image: "customerAssets/img/profile.webp" },
+    { id: 5, author: 'Chris', comment: 'Everything was perfect!', image: "customerAssets/img/photo-1584043720379-b56cd9199c94.jpg" },
+    { id: 4, author: 'Nate', comment: 'This place was amazing!', image: "customerAssets/img/dark-haired-man-in-brown-leather-jacket.jpg" }
 
   ];
   const reviewList = reviews.map((review) => (
@@ -115,15 +133,15 @@ const  RentalPage= () => {
     content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
   />
   <title>Product - Brand</title>
-  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="customerAssets/bootstrap/css/bootstrap.min.css" />
   <link
     rel="stylesheet"
     href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i&display=swap"
   />
-  <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css" />
-  <link rel="stylesheet" href="assets/css/baguetteBox.min.css" />
-  <link rel="stylesheet" href="assets/css/Banner-Heading-Image-images.css" />
-  <link rel="stylesheet" href="assets/css/vanilla-zoom.min.css" />
+  <link rel="stylesheet" href="customerAssets/fonts/fontawesome-all.min.css" />
+  <link rel="stylesheet" href="customerAssets/css/baguetteBox.min.css" />
+  <link rel="stylesheet" href="customerAssets/css/Banner-Heading-Image-images.css" />
+  <link rel="stylesheet" href="customerAssets/css/vanilla-zoom.min.css" />
   <NavBar></NavBar>
   <main className="page product-page">
     <section className="clean-block clean-product dark">
@@ -138,45 +156,40 @@ const  RentalPage= () => {
                       <img
                         width={405}
                         height={299}
-                        src="assets/img/e447ece9-eb6d-41b2-a90a-008c82f607da.webp"
+                        src="customerAssets/img/e447ece9-eb6d-41b2-a90a-008c82f607da.webp"
                       />
                     </div>
                     <div className="sidebar">
                       <img
                         className="img-fluid d-block small-preview"
-                        src="assets/img/tech/9f3826b0-98e6-469b-bb92-30d517fc5d50.webp"
+                        src="customerAssets/img/tech/9f3826b0-98e6-469b-bb92-30d517fc5d50.webp"
                       />
                       <img
                         className="img-fluid d-block small-preview"
-                        src="assets/img/tech/c4ac305f-878c-43a5-8638-3007c262d529.webp"
+                        src="customerAssets/img/tech/c4ac305f-878c-43a5-8638-3007c262d529.webp"
                       />
                       <img
                         className="img-fluid d-block small-preview"
-                        src="assets/img/tech/37fe2a4e-d234-4443-92b2-19b65e1bb356.webp"
+                        src="customerAssets/img/tech/37fe2a4e-d234-4443-92b2-19b65e1bb356.webp"
                       />
                       <img
                         className="img-fluid d-block small-preview"
-                        src="assets/img/tech/0892a134-a933-42e0-bb48-fd91b6c915ca.webp"
+                        src="customerAssets/img/tech/0892a134-a933-42e0-bb48-fd91b6c915ca.webp"
                       />
                       <img
                         className="img-fluid d-block small-preview"
-                        src="assets/img/tech/2383b7af-246a-48e0-8c83-b6ac69856d46.webp"
+                        src="customerAssets/img/tech/2383b7af-246a-48e0-8c83-b6ac69856d46.webp"
                       />
                       <img
                         className="img-fluid d-block small-preview"
-                        src="assets/img/tech/0f8870df-97d8-4de6-a8ec-203c64785273.webp"
+                        src="customerAssets/img/tech/0f8870df-97d8-4de6-a8ec-203c64785273.webp"
                       />
                     </div>
                   </div>
                 </div>
                 <p style={{ marginTop: "-5px" }}>
                   <span style={{ color: "rgb(34, 34, 34)" }}>
-                    In Kalkan, with its excellent sea view and location
-                    surrounded by nature, awaits you. Our rental villa with the
-                    capacity of 6 people has 3 bedrooms. In the rental villa ,
-                    it has all the kitchen utensils you may need. It has a
-                    spacious lounge with open american kitchen where you can be
-                    modern, convenient and comfortable.
+                    {description}
                   </span>
                   <br />
                   <br />
@@ -194,7 +207,7 @@ const  RentalPage= () => {
                   <i className="fas fa-bed" />
                   <strong>
                     <span style={{ color: "rgb(34, 34, 34)" }}>
-                      &nbsp;3 bedrooms&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                      &nbsp;{bedroomNum} bedrooms&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                       &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                       &nbsp; &nbsp; &nbsp;
                     </span>
@@ -202,7 +215,7 @@ const  RentalPage= () => {
                   <i className="fas fa-shower" style={{ fontSize: 22 }} />
                   <strong>
                     <span style={{ color: "rgb(34, 34, 34)" }}>
-                      &nbsp; 2 bathrooms
+                      &nbsp; {bathroomNum} bathrooms
                     </span>
                   </strong>
                 </p>
@@ -236,12 +249,12 @@ const  RentalPage= () => {
                         marginRight: 113
                       }}
                     >
-                      <img src="assets/img/star.svg" />
-                      <img src="assets/img/star.svg" />
-                      <img src="assets/img/star.svg" />
-                      <img src="assets/img/star.svg" width={18} height={19} />
-                      <img src="assets/img/star-half-empty.svg" />
-                      <span style={{ color: "rgb(0, 0, 0)" }}>&nbsp;4,5</span>
+                      <img src="customerAssets/img/star.svg" />
+                      <img src="customerAssets/img/star.svg" />
+                      <img src="customerAssets/img/star.svg" />
+                      <img src="customerAssets/img/star.svg" width={18} height={19} />
+                      <img src="customerAssets/img/star-half-empty.svg" />
+                      <span style={{ color: "rgb(0, 0, 0)" }}>&nbsp;{avgRating}</span>
                     </p>
                     <p>
                       <span
@@ -250,7 +263,7 @@ const  RentalPage= () => {
                           color: "rgb(0, 0, 0)"
                         }}
                       >
-                        15 reviews
+                        {numOfReview} reviews
                       </span>
                     </p>
                     <div className="col">
@@ -274,7 +287,7 @@ const  RentalPage= () => {
                     </p>
                   </div>
                   <div className="price">
-                    <h3>$200 /night</h3>
+                    <h3>${dailyPrice} /night</h3>
                     <div className="row">
                       <div className="col-lg-6">
                         <div className="card">
@@ -359,7 +372,7 @@ const  RentalPage= () => {
                 <div />
                 <h6>
                   <strong>
-                    Villa hosted by Ali&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    Hosted by {hostName}&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                     &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                     &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
                   </strong>
@@ -367,7 +380,7 @@ const  RentalPage= () => {
                     className="rounded-circle"
                     width={93}
                     height={74}
-                    src="assets/img/stock-photo-headshot-portrait-of-happy-millennial-man-in-casual-clothes-isolated-on-grey-studio-background-250nw-1548802709.webp"
+                    src="customerAssets/img/stock-photo-headshot-portrait-of-happy-millennial-man-in-casual-clothes-isolated-on-grey-studio-background-250nw-1548802709.webp"
                   />
                   <strong>&nbsp;</strong>
                 </h6>
@@ -541,7 +554,7 @@ const  RentalPage= () => {
                       {/* <img
                         width={720}
                         height={322}
-                        src="assets/img/Ekran%20Görüntüsü%20(486).png"
+                        src="customerAssets/img/Ekran%20Görüntüsü%20(486).png"
                       /> */}
                     </div>
                   </div>
@@ -569,7 +582,7 @@ const  RentalPage= () => {
                     <i className="fas fa-star text-warning" />
                     <strong>
                       &nbsp;
-                      <span style={{ color: "rgb(0, 0, 0)" }}>4,5&nbsp;</span>
+                      <span style={{ color: "rgb(0, 0, 0)" }}>{avgRating}&nbsp;</span>
                       <span style={{ color: "rgb(34, 34, 34)" }}>·&nbsp;</span>
                       <span style={{ color: "rgb(0, 0, 0)" }}>&nbsp;</span>
                       <span
@@ -578,7 +591,7 @@ const  RentalPage= () => {
                           color: "rgb(0, 0, 0)"
                         }}
                       >
-                        15 reviews
+                        {numOfReview} reviews
                       </span>
                     </strong>
                   </p>
@@ -597,7 +610,7 @@ const  RentalPage= () => {
                           <p className="fs-5">
                             <i className="far fa-star" />
                             <span style={{ color: "rgb(0, 0, 0)" }}>
-                              &nbsp; &nbsp;4,5&nbsp;
+                              &nbsp; &nbsp;{avgCleanlinessRating}&nbsp;
                             </span>
                           </p>
                         </div>
@@ -614,7 +627,7 @@ const  RentalPage= () => {
                               <p className="fs-5">
                                 <i className="far fa-star" />
                                 <span style={{ color: "rgb(0, 0, 0)" }}>
-                                  &nbsp; &nbsp;4,25&nbsp;
+                                  &nbsp; &nbsp;{avgCleanlinessRating}&nbsp;
                                 </span>
                               </p>
                             </div>
@@ -638,7 +651,7 @@ const  RentalPage= () => {
                           <p className="fs-5">
                             <i className="far fa-star" />
                             <span style={{ color: "rgb(0, 0, 0)" }}>
-                              &nbsp; &nbsp;4,0&nbsp;
+                              &nbsp; &nbsp;{avgAccuracyRating}&nbsp;
                             </span>
                           </p>
                         </div>
@@ -655,7 +668,7 @@ const  RentalPage= () => {
                           <p className="fs-5">
                             <i className="far fa-star" />
                             <span style={{ color: "rgb(0, 0, 0)" }}>
-                              &nbsp; &nbsp;5,0&nbsp;
+                              &nbsp; &nbsp;{avgCheckinRating}&nbsp;
                             </span>
                           </p>
                         </div>
@@ -670,7 +683,7 @@ const  RentalPage= () => {
                           <p className="fs-5">
                             <i className="far fa-star" />
                             <span style={{ color: "rgb(0, 0, 0)" }}>
-                              &nbsp; &nbsp;4,5&nbsp;
+                              &nbsp; &nbsp;{avgValueRating}&nbsp;
                             </span>
                           </p>
                         </div>
@@ -685,7 +698,7 @@ const  RentalPage= () => {
                           <p className="fs-5">
                             <i className="far fa-star" />
                             <span style={{ color: "rgb(0, 0, 0)" }}>
-                              &nbsp; &nbsp;4,75&nbsp;
+                              &nbsp; &nbsp;{avgLocationRating}&nbsp;
                             </span>
                           </p>
                         </div>
@@ -725,11 +738,11 @@ const  RentalPage= () => {
                   <div className="reviews">
                     <div className="review-item">
                       <div className="rating">
-                        <img src="assets/img/star.svg" />
-                        <img src="assets/img/star.svg" />
-                        <img src="assets/img/star.svg" />
-                        <img src="assets/img/star.svg" />
-                        <img src="assets/img/star-empty.svg" />
+                        <img src="customerAssets/img/star.svg" />
+                        <img src="customerAssets/img/star.svg" />
+                        <img src="customerAssets/img/star.svg" />
+                        <img src="customerAssets/img/star.svg" />
+                        <img src="customerAssets/img/star-empty.svg" />
                       </div>
                       <h4>Incredible product</h4>
                       <span className="text-muted">
@@ -746,11 +759,11 @@ const  RentalPage= () => {
                   <div className="reviews">
                     <div className="review-item">
                       <div className="rating">
-                        <img src="assets/img/star.svg" />
-                        <img src="assets/img/star.svg" />
-                        <img src="assets/img/star.svg" />
-                        <img src="assets/img/star.svg" />
-                        <img src="assets/img/star-empty.svg" />
+                        <img src="customerAssets/img/star.svg" />
+                        <img src="customerAssets/img/star.svg" />
+                        <img src="customerAssets/img/star.svg" />
+                        <img src="customerAssets/img/star.svg" />
+                        <img src="customerAssets/img/star-empty.svg" />
                       </div>
                       <h4>Incredible product</h4>
                       <span className="text-muted">
@@ -767,11 +780,11 @@ const  RentalPage= () => {
                   <div className="reviews">
                     <div className="review-item">
                       <div className="rating">
-                        <img src="assets/img/star.svg" />
-                        <img src="assets/img/star.svg" />
-                        <img src="assets/img/star.svg" />
-                        <img src="assets/img/star.svg" />
-                        <img src="assets/img/star-empty.svg" />
+                        <img src="customerAssets/img/star.svg" />
+                        <img src="customerAssets/img/star.svg" />
+                        <img src="customerAssets/img/star.svg" />
+                        <img src="customerAssets/img/star.svg" />
+                        <img src="customerAssets/img/star-empty.svg" />
                       </div>
                       <h4>Incredible product</h4>
                       <span className="text-muted">
@@ -794,7 +807,7 @@ const  RentalPage= () => {
             className="col-lg-10 offset-lg-0"
             style={{ marginTop: "-1px", marginBottom: 0, marginLeft: 82 }}
           >
-            <h2 style={{ paddingTop: 64 }}>
+            <h2 style={{ paddingTop: 64,marginLeft:50 }}>
               <strong>Reviews</strong>
             </h2>
           </div>
@@ -891,3 +904,4 @@ const  RentalPage= () => {
   );
 }
 export default RentalPage;
+
