@@ -207,7 +207,7 @@ const  RentalPage= () => {
                   <i className="fas fa-bed" />
                   <strong>
                     <span style={{ color: "rgb(34, 34, 34)" }}>
-                      &nbsp;3 bedrooms&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                      &nbsp;{bedroomNum} bedrooms&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                       &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                       &nbsp; &nbsp; &nbsp;
                     </span>
@@ -215,7 +215,7 @@ const  RentalPage= () => {
                   <i className="fas fa-shower" style={{ fontSize: 22 }} />
                   <strong>
                     <span style={{ color: "rgb(34, 34, 34)" }}>
-                      &nbsp; 2 bathrooms
+                      &nbsp; {bathroomNum} bathrooms
                     </span>
                   </strong>
                 </p>
