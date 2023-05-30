@@ -1,8 +1,27 @@
 import { useNavigate } from 'react-router-dom';
 import NavBar from './NavBar.js';
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
+import axios from "axios";
 
 const MainPage = () => {
+
+  useEffect(() => {
+    deneme().then((data) => {
+      //setttt
+    });
+  }, []);
+
+  const deneme = async () => {
+    try
+    {
+      const response = await axios.get('http://localhost:8080/main');
+      return response.data;
+    } catch (error)
+    {
+      console.error('Failed to fetch rentals:', error);
+      return [];
+    }
+  }
 
   const [placeValues, setPlaceValues] = useState([
     {
