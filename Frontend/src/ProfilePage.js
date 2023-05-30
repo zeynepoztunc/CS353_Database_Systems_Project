@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import NavBar from './NavBar.js';
+import NavBar from './NavBar';
 import Modal from 'react-modal';
 
 function ProfilePage() {
@@ -113,7 +113,7 @@ function ProfilePage() {
         content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
       />
       <title>About Us - Brand</title>
-      <link rel="stylesheet" href="./customerAssets/bootstrap/css/bootstrap.min.css" />
+      <link rel="stylesheet" href="customerAssets/bootstrap/css/bootstrap.min.css" />
       <link
         rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i&display=swap"
@@ -147,7 +147,7 @@ function ProfilePage() {
 
                     <img
                       className="rounded-circle d-lg-flex align-items-lg-start"
-                      src="assets/img/istockphoto-1225524274-612x612.jpg"
+                      src="customerAssets/img/istockphoto-1225524274-612x612.jpg"
                       width={126}
                       height={111}
                       style={{ paddingLeft: 0, marginLeft: 90 }}
