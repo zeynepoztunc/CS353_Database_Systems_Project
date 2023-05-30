@@ -34,6 +34,32 @@ const  RentalPage= () => {
   const hostName="Ali";
   const description=" In Kalkan, with its excellent sea view and location surrounded by nature, awaits you. Our rental villa with the capacity of 6 people has 3 bedrooms. In the rental villa ,it has all the kitchen utensils you may need. It has aspacious lounge with open american kitchen where you can bemodern, convenient and comfortable.";
   const [isFavorited, setIsFavorited] = useState(false);
+  const [cleanlinessRating, setCleanlinessRating] = useState(0);
+  const [communicationRating, setCommunicationRating] = useState(0);
+  const [accuracyRating, setAccuracyRating] = useState(0);
+  const [checkinRating, setCheckinRating] = useState(0);
+  const [valueRating, setValueRating] = useState(0);
+  const [locationRating, setLocationRating] = useState(0);
+
+  const handleStarClick = (rating) => {
+    setCleanlinessRating(rating);
+  };
+  const handleCommunication= (rating) => {
+    setCommunicationRating(rating);
+  };
+  const handleAccuracy = (rating) => {
+    setAccuracyRating(rating);
+  };
+  const handleCheckin = (rating) => {
+    setCheckinRating(rating);
+  };const handleValue = (rating) => {
+    setValueRating(rating);
+  };const handleLocation = (rating) => {
+    setLocationRating(rating);
+  };const handleCleanliness = (rating) => {
+    setCleanlinessRating(rating);
+  };
+
 
   const handleFavoriteClick = () => {
     setIsFavorited(!isFavorited);
@@ -611,15 +637,26 @@ const  RentalPage= () => {
                           style={{ marginTop: "-1px", marginBottom: 0 }}
                         >
                           <p className="fs-5">
-                            <strong>Cleanliness</strong>
+                            <strong>Cleanliness ({avgCleanlinessRating}) </strong>
                           </p>
                         </div>
                         <div className="col">
                           <p className="fs-5">
-                            <i className="far fa-star" />
-                            <span style={{ color: "rgb(0, 0, 0)" }}>
+                          {/* <span style={{ color: "rgb(0, 0, 0)" }}>
                               &nbsp; &nbsp;{avgCleanlinessRating}&nbsp;
-                            </span>
+                            </span> */}
+                            {[1, 2, 3, 4, 5].map((index) => (
+                              <span key={index} onClick={() => handleStarClick(index)}>
+                                {index <= cleanlinessRating ? (
+                                  <i className="fas fa-star text-warning" />
+                                ) : index - 0.5 === cleanlinessRating ? (
+                                  <i className="fas fa-star-half-alt text-warning" />
+                                ) : (
+                                  <i className="far fa-star text-warning" />
+                                )}
+                              </span>
+                            ))}
+      
                           </p>
                         </div>
                       </div>
@@ -633,10 +670,17 @@ const  RentalPage= () => {
                             </div>
                             <div className="col">
                               <p className="fs-5">
-                                <i className="far fa-star" />
-                                <span style={{ color: "rgb(0, 0, 0)" }}>
-                                  &nbsp; &nbsp;{avgCleanlinessRating}&nbsp;
-                                </span>
+                              {[1, 2, 3, 4, 5].map((index) => (
+                              <span key={index} onClick={() => handleStarClick(index)}>
+                                {index <= cleanlinessRating ? (
+                                  <i className="fas fa-star text-warning" />
+                                ) : index - 0.5 === cleanlinessRating ? (
+                                  <i className="fas fa-star-half-alt text-warning" />
+                                ) : (
+                                  <i className="far fa-star text-warning" />
+                                )}
+                              </span>
+                            ))}
                               </p>
                             </div>
                           </div>
@@ -657,10 +701,17 @@ const  RentalPage= () => {
                         </div>
                         <div className="col">
                           <p className="fs-5">
-                            <i className="far fa-star" />
-                            <span style={{ color: "rgb(0, 0, 0)" }}>
-                              &nbsp; &nbsp;{avgAccuracyRating}&nbsp;
-                            </span>
+                          {[1, 2, 3, 4, 5].map((index) => (
+                              <span key={index} onClick={() => handleStarClick(index)}>
+                                {index <= cleanlinessRating ? (
+                                  <i className="fas fa-star text-warning" />
+                                ) : index - 0.5 === cleanlinessRating ? (
+                                  <i className="fas fa-star-half-alt text-warning" />
+                                ) : (
+                                  <i className="far fa-star text-warning" />
+                                )}
+                              </span>
+                            ))}
                           </p>
                         </div>
                       </div>
@@ -674,10 +725,17 @@ const  RentalPage= () => {
                         </div>
                         <div className="col">
                           <p className="fs-5">
-                            <i className="far fa-star" />
-                            <span style={{ color: "rgb(0, 0, 0)" }}>
-                              &nbsp; &nbsp;{avgCheckinRating}&nbsp;
-                            </span>
+                          {[1, 2, 3, 4, 5].map((index) => (
+                              <span key={index} onClick={() => handleStarClick(index)}>
+                                {index <= cleanlinessRating ? (
+                                  <i className="fas fa-star text-warning" />
+                                ) : index - 0.5 === cleanlinessRating ? (
+                                  <i className="fas fa-star-half-alt text-warning" />
+                                ) : (
+                                  <i className="far fa-star text-warning" />
+                                )}
+                              </span>
+                            ))}
                           </p>
                         </div>
                       </div>
@@ -689,10 +747,17 @@ const  RentalPage= () => {
                         </div>
                         <div className="col">
                           <p className="fs-5">
-                            <i className="far fa-star" />
-                            <span style={{ color: "rgb(0, 0, 0)" }}>
-                              &nbsp; &nbsp;{avgValueRating}&nbsp;
-                            </span>
+                          {[1, 2, 3, 4, 5].map((index) => (
+                              <span key={index} onClick={() => handleStarClick(index)}>
+                                {index <= cleanlinessRating ? (
+                                  <i className="fas fa-star text-warning" />
+                                ) : index - 0.5 === cleanlinessRating ? (
+                                  <i className="fas fa-star-half-alt text-warning" />
+                                ) : (
+                                  <i className="far fa-star text-warning" />
+                                )}
+                              </span>
+                            ))}
                           </p>
                         </div>
                       </div>
@@ -704,10 +769,17 @@ const  RentalPage= () => {
                         </div>
                         <div className="col">
                           <p className="fs-5">
-                            <i className="far fa-star" />
-                            <span style={{ color: "rgb(0, 0, 0)" }}>
-                              &nbsp; &nbsp;{avgLocationRating}&nbsp;
-                            </span>
+                          {[1, 2, 3, 4, 5].map((index) => (
+                              <span key={index} onClick={() => handleStarClick(index)}>
+                                {index <= cleanlinessRating ? (
+                                  <i className="fas fa-star text-warning" />
+                                ) : index - 0.5 === cleanlinessRating ? (
+                                  <i className="fas fa-star-half-alt text-warning" />
+                                ) : (
+                                  <i className="far fa-star text-warning" />
+                                )}
+                              </span>
+                            ))}
                           </p>
                         </div>
                       </div>
