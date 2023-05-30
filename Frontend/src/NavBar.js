@@ -49,7 +49,7 @@ const  NavBar= () => {
   <link rel="stylesheet" href="./customerAssets/css/baguetteBox.min.css" />
   <link rel="stylesheet" href="./customerAssets/css/Banner-Heading-Image-images.css" />
   <link rel="stylesheet" href="./customerAssets/css/vanilla-zoom.min.css" />
-  <nav className="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar" style={{ paddingTop: 0, marginTop: 0 }}>
+  <nav className="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar" style={{ paddingTop: 0, marginTop: 0}}>
     <div className="container">
       <p onClick={goToMainPage}className="fs-3">WeRent</p>
       <a className="navbar-brand logo" href="#" />
