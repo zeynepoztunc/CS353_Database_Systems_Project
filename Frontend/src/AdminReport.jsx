@@ -6,6 +6,45 @@ import { useNavigate } from "react-router-dom";
 import { Navbar } from "./Navbar.jsx";
 
 export const AdminReport = () => {
+  
+  const [oldestReport, setOldestReport] = useState(false);
+  const [newestReport, setNewestReport] = useState(false);
+  const [highestUserCount, setHighestUserCount] = useState(false);
+  const [highestHostCount, setHighestHostCount] = useState(false);
+  const [highestPostingsCount, setHighestPostingsCount] = useState(false);
+  const [date, setDate] = useState("");
+  
+  
+  function handleSearch() {
+    if (document.getElementById("formCheck-1").checked) {
+      console.log("is checked 1");
+      setOldestReport(true);
+    }
+    if (document.getElementById("formCheck-2").checked) {
+      console.log("is checked 2");
+      setNewestReport(true);
+    }
+    if (document.getElementById("formCheck-3").checked) {
+      console.log("is checked 3");
+      setHighestUserCount(true);
+    }
+    if (document.getElementById("formCheck-4").checked) {
+      console.log("is checked 4");
+      setHighestHostCount(true);
+    }
+    if (document.getElementById("formCheck-5").checked) {
+      console.log("is checked 5");
+      setHighestPostingsCount(true);
+    }
+   
+    var inputDate = document.getElementById("date");
+    if (inputDate) {
+      setDate(inputDate.value);
+      console.log(inputDate);
+    }
+  }
+  
+
   const reportValues = [
     {
       date: "15.05.2023",
@@ -21,18 +60,18 @@ export const AdminReport = () => {
       postReportingCount: 23,
     },
     {
-        date: "15.05.2023",
-        reportID: "123345",
-        userCount: 4,
-        hostCount: 435,
-        postingCount: 32,
-        bookingCount: 23,
-        victimCountHost: 3,
-        victimCountUser: 23,
-        superhostCount: 32,
-        userReportingCount: 234,
-        postReportingCount: 23,
-      },
+      date: "15.05.2023",
+      reportID: "123345",
+      userCount: 4,
+      hostCount: 435,
+      postingCount: 32,
+      bookingCount: 23,
+      victimCountHost: 3,
+      victimCountUser: 23,
+      superhostCount: 32,
+      userReportingCount: 234,
+      postReportingCount: 23,
+    },
   ];
   return (
     <>
@@ -59,6 +98,72 @@ export const AdminReport = () => {
             <div className="block-heading">
               <h2 className="text-info">Analytics Page</h2>
               <p>The current analytics are given below.</p>
+            </div>
+
+            <p>Select search inputs</p>
+            <div>
+              <div>
+                <div className="form-check">
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    id="formCheck-1"
+                  />
+                  <label className="form-check-label" htmlFor="formCheck-1">
+                    Oldest Report
+                  </label>
+                </div>
+                <div className="form-check">
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    id="formCheck-2"
+                  />
+                  <label className="form-check-label" htmlFor="formCheck-2">
+                    Newest Report
+                  </label>
+                </div>
+                <div className="form-check">
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    id="formCheck-3"
+                  />
+                  <label className="form-check-label" htmlFor="formCheck-3">
+                    Highest User Count
+                  </label>
+                </div>
+                <div className="form-check">
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    id="formCheck-4"
+                  />
+                  <label className="form-check-label" htmlFor="formCheck-4">
+                    Highest Host Count
+                  </label>
+                </div>
+                <div className="form-check">
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    id="formCheck-5"
+                  />
+                  <label className="form-check-label" htmlFor="formCheck-5">
+                    Highest Postings Count
+                  </label>
+                </div>
+
+                <div className="faq-item">
+                  <div className="row">
+                    <p>Date:</p>
+
+                    <div className="col">
+                      <input type="date" id="date" />
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
             <div className="block-content">

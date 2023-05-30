@@ -108,7 +108,7 @@ export const AdminHome = () => {
                             <Link to="/AdminReviews">
                                 <div className="card text-white bg-danger shadow">
                                 <div className="card-body">
-                                    <p className="m-0">Surveys</p>
+                                    <p className="m-0">Reviews</p>
                                 </div>
                                 </div>
                                 </Link>

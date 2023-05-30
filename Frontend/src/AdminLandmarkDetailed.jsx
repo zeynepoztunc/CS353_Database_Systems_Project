@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import './adminAssets/bootstrap/css/bootstrap.min.css';
 import './adminAssets/css/vanilla-zoom.min.css';
 import { Navbar } from './Navbar.jsx';
+import { Link } from "react-router-dom";
 
 export const AdminLandmarkDetailed = () => {
     const [email, setEmail] = useState('');
@@ -32,41 +33,7 @@ export const AdminLandmarkDetailed = () => {
     href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.css"
   />
   <link rel="stylesheet" href="assets/css/vanilla-zoom.min.css" />
-  <nav className="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
-    <div className="container">
-      <a className="navbar-brand logo" href="#">
-        WeRent
-      </a>
-      <button
-        data-bs-toggle="collapse"
-        className="navbar-toggler"
-        data-bs-target="#navcol-1"
-      >
-        <span className="visually-hidden">Toggle navigation</span>
-        <span className="navbar-toggler-icon" />
-      </button>
-      <div className="collapse navbar-collapse" id="navcol-1">
-        <ul className="navbar-nav ms-auto">
-          <li className="nav-item">
-            <a className="nav-link" href="index.html">
-              Home
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="about-us.html">
-              About Us
-            </a>
-          </li>
-          <li className="nav-item" />
-          <li className="nav-item">
-            <a className="nav-link" href="registration-1.html">
-              Register
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+  <Navbar />
   <main className="page product-page">
     <section className="clean-block clean-product dark">
       <div className="container">
