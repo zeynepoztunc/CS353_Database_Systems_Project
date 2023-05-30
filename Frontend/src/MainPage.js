@@ -7,7 +7,7 @@ const MainPage = () => {
 
   useEffect(() => {
     deneme().then((data) => {
-      //setttt
+      setPlaceValues(data);
     });
   }, []);
 
@@ -23,80 +23,7 @@ const MainPage = () => {
     }
   }
 
-  const [placeValues, setPlaceValues] = useState([
-    {
-      ID: "1",
-      rentalName: "Sea Thatched cottage surrounded by nature",
-      price: "$95",
-      isFavorited: true,
-      rating: "4.556",
-      img: "customerAssets/img/Ekran%20Görüntüsü%20(1189).png",
-    },
-    {
-      ID: "2",
-      rentalName: "Unique & Fascinating Villa With Magnificent Garden",
-      price: "$1097",
-      isFavorited: true,
-      rating: "5",
-      img: "customerAssets/img/Ekran%20Görüntüsü%20(1195).png",
-    },
-    {
-      ID: "3",
-      rentalName: "Sapanca Loft Bungalowv",
-      price: "$130",
-      isFavorited: false,
-      rating: "3",
-      img: "customerAssets/img/Ekran%20Görüntüsü%20(1193).png",
-    },
-    {
-      ID: "4",
-      rentalName: "La Stalla - Casa San Gabriel",
-      price: "$178",
-      isFavorited: false,
-      rating: "1",
-      img: "customerAssets/img/Ekran%20Görüntüsü%20(1196).png",
-    },
-    {
-      ID: "5",
-      rentalName: "Cabane Spa Divine",
-      price: "$437",
-      isFavorited: false,
-      rating: "2.4",
-      img: "customerAssets/img/Ekran%20Görüntüsü%20(1192).png",
-    },
-    {
-      ID: "6",
-      rentalName: "Boutique house",
-      price: "$342",
-      isFavorited: true,
-      rating: "5",
-      img: "customerAssets/img/Ekran%20Görüntüsü%20(1194).png",
-    },
-    {
-      ID: "7",
-      rentalName: "Luxury Villa With a Jakuzzi",
-      price: "$100",
-      isFavorited: false,
-      rating: "4",
-      img: "customerAssets/img/Ekran%20Görüntüsü%20(1188).png",
-    },
-    {
-      ID: "8",
-      rentalName: "Evaton Marion",
-      price: "$80",
-      isFavorited: false,
-      rating: "4",
-      img: "customerAssets/img/Ekran%20Görüntüsü%20(1191).png",
-    },
-    {
-      ID: "9",
-      rentalName: "Chalet Lago dei Caprioli",
-      price: "$207",
-      isFavorited: true,
-      rating: "4",
-      img: "customerAssets/img/Ekran%20Görüntüsü%20(1197).png",
-    },
-  ]);
+  const [placeValues, setPlaceValues] = useState([]);
 
   function toggleHeart(id) {
     setPlaceValues((prevPlaceValues) => {
@@ -386,7 +313,7 @@ const MainPage = () => {
                               <a href="#">
                                 <br />
                                 <strong onClick={goToRentalPage}>
-                                  <span style={{ color: "rgb(34, 34, 34)" }}>{item.rentalName}</span>
+                                  <span style={{ color: "rgb(34, 34, 34)" }}>{item['rental-name']}</span>
                                 </strong>
                                 <br />
                                 <br />
