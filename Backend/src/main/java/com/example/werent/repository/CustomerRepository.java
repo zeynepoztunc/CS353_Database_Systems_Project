@@ -1,9 +1,6 @@
 package com.example.werent.repository;
 
-import com.example.werent.entity.HostDTO;
-import com.example.werent.entity.RegisteredUserDTO;
-import com.example.werent.entity.RentalDTO;
-import com.example.werent.entity.WishlistsDTO;
+import com.example.werent.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -198,4 +195,200 @@ public class CustomerRepository {
         }
     }
 
+    public void addReservation(ReservationDTO reservationInfo, int rentalId){
+        System.out.println(rentalId + " " + reservationInfo.getReservationStartDate()+ " " +reservationInfo.getReservationEndDate()+ " " +reservationInfo.getStayOfDuration());
+        String sqlAddReservation = "INSERT INTO \"Reservation\"(\"rental-id\",\"reservation-start-date\",\"reservation-end-date\",\"stay-of-duration\",\"is-paid-for\",\"is-approved-by-host\",\"number-of-guests\") VALUES (?,?,?,?,?,?,?)";
+        jdbcTemplate.update(sqlAddReservation, rentalId, reservationInfo.getReservationStartDate(), reservationInfo.getReservationEndDate(), reservationInfo.getStayOfDuration(), false, null, reservationInfo.getNumberOfGuests());
+    }
+
+    public RentalDTO getLocation(int rentalId){
+        String sqlGetLocation = "SELECT latitude, longitude FROM \"Rental\" WHERE r\"rental-id\" = ?";
+
+        RowMapper<RentalDTO> rowMapper = (rs, rowNum) -> {
+            RentalDTO rental = new RentalDTO();
+            rental.setLatitude(rs.getFloat("latitude"));
+            rental.setLongitude(rs.getFloat("longitude"));
+            return rental;
+        };
+
+        try{
+            RentalDTO rentalDTO = jdbcTemplate.queryForObject(sqlGetLocation, new Object[]{rentalId}, rowMapper);
+            return rentalDTO;
+        }
+        catch (EmptyResultDataAccessException e){
+            System.out.println("Location retrieval for the rental failed!");
+            return null;
+        }
+    }
+
+    public List<Map<String, Object>> getAvgForHostAndRental(RegisteredUserDTO customer, int rentalId){
+        String sqlGetAverages = "SELECT avg(\"Review\".\"cleanliness-rating\") AS \"avg-cleanliness\", avg(\"Review\".\"check-in-rating\") AS \"avg-check-in\", avg(\"Review\".\"communication-rating\") AS \"avg-communication\", avg(\"Review\".\"accuracy-rating\") AS \"avg-accuracy\", avg(\"Review\".\"safety-rating\") AS \"avg-safety\", avg(\"Review\".\"location-rating\") AS \"avg-location\", avg(\"Review\".\"value-rating\") AS \"avg-value\" FROM \"Leaves\" JOIN \"Review\" ON \"Leaves\".\"review-id\" = \"Review\".\"review-id\" JOIN \"Makes\" ON \"Leaves\".\"reservation-id\" = \"Makes\".\"reservation-id\" JOIN \"Rental\" ON \"Makes\".\"rental-id\" = \"Rental\".\"rental-id\" WHERE \"Leaves\".\"user-id2\" = ? AND \"Rental\".\"rental-id\" = ?";
+
+        List<Map<String, Object>> rows = jdbcTemplate.queryForList(sqlGetAverages, customer.getUserId(), rentalId);
+        if (rows.isEmpty()){
+            return null;
+        }
+        else{
+            return rows;
+        }
+
+        /*
+        RowMapper<ReviewAggregateDTO> rowMapper = (rs, rowNum) -> {
+            ReviewAggregateDTO reviewAggregate = new ReviewAggregateDTO();
+            reviewAggregate.setAvgCleanliness(rs.getFloat("avg-cleanliness"));
+            reviewAggregate.setAvgCheckIn(rs.getFloat("acg-check-in"));
+            reviewAggregate.setAvgCommunication(rs.getFloat("avg-communication"));
+            reviewAggregate.setAvgAccuracy(rs.getFloat("avg-accuracy"));
+            reviewAggregate.setAvgSafety(rs.getFloat("avg-safety"));
+            reviewAggregate.setAvgLocation(rs.getFloat("avg-location"));
+            reviewAggregate.setAvgValue(rs.getFloat("avg-value"));
+            return reviewAggregate;
+        };
+
+        try{
+            ReviewAggregateDTO reviewAggregateDTO = jdbcTemplate.queryForObject(sqlGetAverages, new Object[]{customer.getUserId(), rentalId}, rowMapper);
+            return reviewAggregateDTO;
+        }
+        catch (EmptyResultDataAccessException e){
+            System.out.println("Average information retrieval for the rental failed!");
+            return null;
+        }
+        */
+    }
+
+    public List<Map<String, Object>> getReviews(RegisteredUserDTO customer, int rentalId){
+        String sqlGetReviews = "SELECT \"RegisteredUser\".name, \"Review\".review FROM \"Leaves\" JOIN \"Review\" ON \"Leaves\".\"review-id\" = \"Review\".\"review.id\" JOIN \"Makes\" ON \"Leaves\".\"reservation-id\" = \"Makes\".\"reservation-id\" JOIN \"Rental\" ON \"Makes\".\"rental-id\" = \"Rental\".\"rental-id\" JOIN \"RegisteredUser\" ON \"Leaves\".\"user-id1\" = \"RegisteredUser\".\"user-id\" WHERE \"Leaves\".\"user-id2\" = ? AND \"Rental\".\"rental-id\" = ?";
+
+        List<Map<String, Object>> rows = jdbcTemplate.queryForList(sqlGetReviews, customer.getUserId(), rentalId);
+        if (rows.isEmpty()){
+            return null;
+        }
+        else{
+            return rows;
+        }
+
+        /*
+        RowMapper<ReviewDTO> rowMapper = (rs, rowNum) -> {
+            ReviewDTO review = new ReviewDTO();
+            review.setName(rs.getString("name"));
+            review.setReview(rs.getString("review"));
+            return review;
+        };
+
+        try{
+            ReviewDTO reviewDTO = jdbcTemplate.queryForObject(sqlGetReviews, new Object[]{customer.getUserId(), rentalId}, rowMapper);
+            return reviewDTO;
+        }
+        catch (EmptyResultDataAccessException e){
+            System.out.println("Reviews retrieval for the rental failed!");
+            return null;
+        }
+        */
+    }
+
+    public List<Map<String, Object>> getPastTransactions(){
+        String sqlGetPastTransactions = "SELECT \"Transaction\".date, \"Rental\".\"rental-name\", \"Transaction\".\"transaction-type\", \"Transaction\".amount, \"Transaction\".status FROM Transaction JOIN \"Rental\" ON \"Transaction\".\"rental-id\"=\"Rental\".\"rental-id\" ORDER BY \"Transaction\".date DESC";
+
+        List<Map<String, Object>> rows = jdbcTemplate.queryForList(sqlGetPastTransactions);
+        if (rows.isEmpty()){
+            return null;
+        }
+        else{
+            return rows;
+        }
+    }
+
+    public RegisteredUserDTO getProfileInfo(int userId){
+        String sqlGetProfile = "SELECT name, email, password, description, \"user-rating\" FROM \"RegisteredUser\" WHERE \"user-id\" = ?";
+
+        RowMapper<RegisteredUserDTO> rowMapper = (rs, rowNum) -> {
+            RegisteredUserDTO user = new RegisteredUserDTO();
+            user.setName(rs.getString("name"));
+            user.setEmail(rs.getString("email"));
+            user.setPassword(rs.getString("password"));
+            user.setDescription(rs.getString("description"));
+            user.setUserRating(rs.getFloat("user-rating"));
+            return user;
+        };
+
+        try{
+            RegisteredUserDTO registeredUserDTO = jdbcTemplate.queryForObject(sqlGetProfile, new Object[]{userId}, rowMapper);
+            return registeredUserDTO;
+        }
+        catch (EmptyResultDataAccessException e){
+            System.out.println("Profile information retrieval for the rental failed!");
+            return null;
+        }
+    }
+
+    public void switchToHost(int userId){
+        String sqlSwitchHost = "UPDATE \"RegisteredUser\" SET \"usage-mode\" = ? WHERE \"user-id\" = ?";
+        jdbcTemplate.update(sqlSwitchHost, "host", userId);
+    }
+
+    public void editProfileInfo(RegisteredUserDTO newInfo, int userId){
+        String sqlEdit = "UPDATE \"RegisteredUser\" SET name = ?, surname = ?, password = ?, \"e-mail\" = ?, description = ? WHERE \"user-id\" = ?";
+        jdbcTemplate.update(sqlEdit, newInfo.getName(), newInfo.getSurname(), newInfo.getPassword(), newInfo.getEmail(), newInfo.getDescription(), userId);
+    }
+
+    public List<Map<String, Object>> getHostReviews(int userId){
+        String sqlGetHostReviews = "SELECT \"RegisteredUser\".name, \"Review\".review FROM \"Leaves\" JOIN \"Review\" ON \"Leaves\".\"review-id\"= \"Review\".\"review-id\" JOIN \"RegisteredUser\" ON \"Leaves\".\"user-id1\"=\"RegisteredUser\".\"user-id\" WHERE \"Leaves\".\"user-id2\" = ?";
+
+        List<Map<String, Object>> rows = jdbcTemplate.queryForList(sqlGetHostReviews, userId);
+        if (rows.isEmpty()){
+            return null;
+        }
+        else{
+            return rows;
+        }
+    }
+
+    public List<Map<String, Object>> getPreviousBookings(int userId){
+        String sqlPreviousBookings = "SELECT \"Reservation\".\"reservation-start-date\", \"Reservation\".\"reservation-end-date\", \"Rental\".city, \"Rental\".\"rental-name\", \"Host\".name, \"Reservation\".\"number-of-guests\" FROM \"Makes\" JOIN \"Rental\" ON \"Makes\".\"rental-id\" = \"Rental\".\"rental-id\" JOIN \"Host\" ON \"Rental\".\"host-id\" = \"Host\".\"user-id\" JOIN \"Reservation\" ON \"Makes\".\"reservation-id\" = \"Reservation\".\"reservation-id\" WHERE \"Makes\".\"user-id\" = ? ORDER BY \"Reservation\".\"end-date\" DESC";
+
+        List<Map<String, Object>> rows = jdbcTemplate.queryForList(sqlPreviousBookings, userId);
+        if (rows.isEmpty()){
+            return null;
+        }
+        else{
+            return rows;
+        }
+    }
+
+    public void addLandmark(LandmarksDTO landmarkInfo){
+        String sqlAddLandmark = "INSERT INTO \"Landmark\" (\"user-id\", \"landmark-name\", description, city, province, latitude, longitude, accepted) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        jdbcTemplate.update(sqlAddLandmark, landmarkInfo.getUserId(), landmarkInfo.getLandmarkName(), landmarkInfo.getDescription(), landmarkInfo.getCity(), landmarkInfo.getProvince(), landmarkInfo.getLatitude(), landmarkInfo.getLongitude(), null);
+    }
+
+    public void leaveRating(ReviewDTO review){
+        String sqlLeaveRating = "INSERT INTO \"Review\" (review, \"cleanliness-rating\", \"check-in-rating\", \"communication-rating\", \"accuracy-rating\", \"safety-rating\", \"location-rating\", \"value-rating\", \"is-anonymous\") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        jdbcTemplate.update(sqlLeaveRating, review.getReview(), review.getCleanlinessRating(), review.getCheckInRating(), review.getCommunicationRating(), review.getAccuracyRating(), review.getSafetyRating(), review.getLocationRating(), review.getValueRating(), review.isAnonymous());
+    }
+
+    public void putReport(ReportsDTO reportDetails){
+        String sqlPutReport = "INSERT INTO \"Reports\"(\"user-id\", \"rental-id\", \"report-date\", description, \"is-confirmed\", evaluated) VALUES (?, ?, ?, ?, ?, ?)";
+        jdbcTemplate.update(sqlPutReport, reportDetails.getUserId(), reportDetails.getRentalId(), reportDetails.getReportDate(),reportDetails.getDescription(), false, false);
+    }
+
+    public void putComplaint(ComplaintsDTO complaintDetails){
+        String sqlPutComplaint = "INSERT INTO \"Complaints\" VALUES (?, ?, ?, ?, ?, ?)";
+        jdbcTemplate.update(sqlPutComplaint, complaintDetails.getUserId1(), complaintDetails.getUserId2(), complaintDetails.getComplaintDate(), complaintDetails.getDescription(), false, false);
+    }
+
+    public List<Map<String, Object>> rentalsInWishlist(int userId){
+        String sqlRentalsInWishlist = "SELECT ren.\"rental-name\", ren.description, wish.date FROM \"Rental\" ren, \"Wishlists\" wish WHERE ren.\"rental-id\" = wish.\"rental-id\" AND wish.\"user-id\" = ?";
+
+        List<Map<String, Object>> rows = jdbcTemplate.queryForList(sqlRentalsInWishlist, userId);
+        if (rows.isEmpty()){
+            return null;
+        }
+        else{
+            return rows;
+        }
+    }
+
+    public void removeFromWishlist(RentalDTO rentalInfo, int userId){
+        String sqlRemoveRentalFromWishlist = "DELETE FROM \"Wishlists\" WHERE \"user-id\" = ? AND \"rental-id\" = ?";
+        jdbcTemplate.update(sqlRemoveRentalFromWishlist, userId, rentalInfo.getRentalId());
+    }
 }

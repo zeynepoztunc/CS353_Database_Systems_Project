@@ -1,9 +1,6 @@
 package com.example.werent.controller;
 
-import com.example.werent.entity.HostDTO;
-import com.example.werent.entity.RegisteredUserDTO;
-import com.example.werent.entity.RentalDTO;
-import com.example.werent.entity.WishlistsDTO;
+import com.example.werent.entity.*;
 import com.example.werent.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -93,8 +90,87 @@ public class CustomerController {
         return customerRepository.getHostInfo(rentalId);
     }
 
+    //NEED TESTING! (false query)
     @RequestMapping(value = "/main/{rentalId}/reserve", method = RequestMethod.POST)
-    public void addReservation(@RequestBody RentalDTO rentalInformation){
+    public void addReservation(@RequestBody ReservationDTO reservationInfo, @PathVariable int rentalId){
+        customerRepository.addReservation(reservationInfo, rentalId);
+    }
 
+    @RequestMapping(value = "/main/{rentalId}/location", method = RequestMethod.GET)
+    public RentalDTO getLocation(@PathVariable int rentalId){
+        return customerRepository.getLocation(rentalId);
+    }
+
+    //NEED TESTING! (time)
+    @RequestMapping(value = "/main/{rentalId}/averages", method = RequestMethod.GET)
+    public List<Map<String, Object>> getAvgForHostAndRental(@RequestBody RegisteredUserDTO customer, @PathVariable int rentalId){
+        return customerRepository.getAvgForHostAndRental(customer, rentalId);
+    }
+
+    //NEED TESTING! (time)
+    @RequestMapping(value = "/main/{rentalId}/reviews", method = RequestMethod.GET)
+    public List<Map<String, Object>> getReviews(@RequestBody RegisteredUserDTO customer, @PathVariable int rentalId){
+        return customerRepository.getReviews(customer, rentalId);
+    }
+
+    //NEED TESTING! (false query)
+    @RequestMapping(value = "/pastTransactions", method = RequestMethod.GET)
+    public List<Map<String, Object>> getPastTransactions(){
+        return customerRepository.getPastTransactions();
+    }
+
+    @RequestMapping(value = "/profile/{userId}", method = RequestMethod.GET)
+    public RegisteredUserDTO getProfileInfo(@PathVariable int userId){
+        return customerRepository.getProfileInfo(userId);
+    }
+
+    @RequestMapping(value = "/profile/{userId}/switch", method = RequestMethod.PUT)
+    public void switchToHost(@PathVariable int userId){
+        customerRepository.switchToHost(userId);
+    }
+
+    @RequestMapping(value = "/profile/{userId}/edit", method = RequestMethod.PUT)
+    public void editProfileInfo(@RequestBody RegisteredUserDTO newInfo, @PathVariable int userId){
+        customerRepository.editProfileInfo(newInfo, userId);
+    }
+
+    @RequestMapping(value = "/profile/{userId}/hostReviews", method = RequestMethod.GET)
+    public List<Map<String, Object>> getHostReviews(@PathVariable int userId){
+        return customerRepository.getHostReviews(userId);
+    }
+
+    @RequestMapping(value = "/previousRentings/{userId}", method = RequestMethod.GET)
+    public List<Map<String, Object>> getPreviousBookings(@PathVariable int userId){
+        return customerRepository.getPreviousBookings(userId);
+    }
+
+    @RequestMapping(value = "/addLandmark", method = RequestMethod.POST)
+    public void addLandmark(@RequestBody LandmarksDTO landmarkInfo){
+        customerRepository.addLandmark(landmarkInfo);
+    }
+
+    @RequestMapping(value = "/leaveRating", method = RequestMethod.POST)
+    public void leaveRating(@RequestBody ReviewDTO review){
+        customerRepository.leaveRating(review);
+    }
+
+    @RequestMapping(value = "/putReport", method = RequestMethod.POST)
+    public void putReport(@RequestBody ReportsDTO reportDetails){
+        customerRepository.putReport(reportDetails);
+    }
+
+    @RequestMapping(value = "/putComplaint", method = RequestMethod.POST)
+    public void putComplaint(@RequestBody ComplaintsDTO complaintDetails){
+        customerRepository.putComplaint(complaintDetails);
+    }
+
+    @RequestMapping(value = "/wishlistRentals/{userId}", method = RequestMethod.GET)
+    public List<Map<String, Object>> rentalsInWishlist(@PathVariable int userId){
+        return customerRepository.rentalsInWishlist(userId);
+    }
+
+    @RequestMapping(value = "/wishlistRentals/{userId}", method = RequestMethod.DELETE)
+    public void removeFromWishlist(@RequestBody RentalDTO rentalInfo, @PathVariable int userId){
+        customerRepository.removeFromWishlist(rentalInfo, userId);
     }
 }
