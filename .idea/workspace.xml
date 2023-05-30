@@ -5,666 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5e555480-ab5a-407e-a171-4062daf29606" name="Changes" comment="all frontend is put together">
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2023-05-29T121744.400.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/bootstrap/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/bootstrap/js/bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/css/vanilla-zoom.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/fonts/Simple-Line-Icons.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/fonts/Simple-Line-Icons.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/fonts/Simple-Line-Icons.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/fonts/Simple-Line-Icons.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/fonts/Simple-Line-Icons.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/fonts/fa-brands-400.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/fonts/fa-brands-400.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/fonts/fa-brands-400.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/fonts/fa-brands-400.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/fonts/fa-brands-400.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/fonts/fa-regular-400.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/fonts/fa-regular-400.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/fonts/fa-regular-400.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/fonts/fa-regular-400.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/fonts/fa-regular-400.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/fonts/fa-solid-900.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/fonts/fa-solid-900.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/fonts/fa-solid-900.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/fonts/fa-solid-900.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/fonts/fa-solid-900.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/fonts/fontawesome-all.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/fonts/simple-line-icons.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/img/0b09f88e-41f1-484a-bdd6-ac7ff5830424.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/img/1529289660763.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/img/Screenshot 2023-03-26 at 17.59.52.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/img/avatars/avatar1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/img/avatars/avatar1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/img/avatars/avatar2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/img/avatars/avatar2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/img/avatars/avatar3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/img/avatars/avatar3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/img/avatars/avatar4.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/img/avatars/avatar5.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/img/be6c5f51-51cb-4a0e-a23b-fd50534f29b7.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/img/d408c07e-533f-401e-bd3c-70d1fc510d33.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/img/q2qnno7jyzyg1lyfekvw.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/img/scenery/0b09f88e-41f1-484a-bdd6-ac7ff5830424.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/img/scenery/3222a878-4e0e-46b8-92d2-90fee6a9caa4.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/img/scenery/3d.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/img/scenery/60a2e0f6-3c10-41c5-acce-1e4951e0dd41.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/img/scenery/63818d95-36e0-4c04-bee2-f3811c7d47d8.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/img/scenery/Airbnb 39271504.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/img/scenery/Alanya-excursions-3.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/img/scenery/Famous-Lycian-Tombs-of-ancient-Caunos-city-Dalyan-Turkey_Depositphotos_467017994_s-2019.jpeg.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/img/scenery/Screenshot 2023-03-26 at 18.00.59.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/img/scenery/Stone-head-statues-at-Nemrut-Mountain-in-Turkey_Depositphotos_74526735_s-2019.jpeg.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/img/scenery/Waterfall-Duden-at-Antalya-Turkey_Depositphotos_8524062_s-2019.jpeg.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/img/scenery/a9deb25f-9830-4d2a-9520-f9de76d17ac9.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/img/scenery/airbnb-beach-dominican-6939168.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/img/scenery/bcf9680c-1812-4f29-83ee-0ba8e22afb2c.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/img/scenery/be6c5f51-51cb-4a0e-a23b-fd50534f29b7.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/img/scenery/d8db92b5-4852-4647-9169-ebb514b66cbd.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/img/scenery/e6034faf-5c55-42a0-b5e8-ed0b8e330b33.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/img/scenery/f91f480a-f1f6-4ad7-b24a-40d8a0d346e4.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/img/scenery/image1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/img/scenery/image2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/img/scenery/image3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/img/scenery/image4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/img/scenery/image5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/img/scenery/image6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/img/scenery/turkey-alanya-top-things-to-do-explore-alanya-castle.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/img/star-empty.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/img/star-half-empty.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/img/star.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/img/tech/airbnb-quebec-2.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/img/tech/image1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/img/tech/image2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/img/tech/image3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/img/tech/image4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/js/theme.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/adminAssets/js/vanilla-zoom.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/bootstrap/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/bootstrap/js/bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/css/vanilla-zoom.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/fonts/Simple-Line-Icons.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/fonts/Simple-Line-Icons.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/fonts/Simple-Line-Icons.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/fonts/Simple-Line-Icons.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/fonts/Simple-Line-Icons.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/fonts/fa-brands-400.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/fonts/fa-brands-400.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/fonts/fa-brands-400.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/fonts/fa-brands-400.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/fonts/fa-brands-400.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/fonts/fa-regular-400.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/fonts/fa-regular-400.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/fonts/fa-regular-400.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/fonts/fa-regular-400.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/fonts/fa-regular-400.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/fonts/fa-solid-900.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/fonts/fa-solid-900.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/fonts/fa-solid-900.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/fonts/fa-solid-900.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/fonts/fa-solid-900.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/fonts/fontawesome-all.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/fonts/simple-line-icons.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/img/0b09f88e-41f1-484a-bdd6-ac7ff5830424.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/img/1529289660763.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/img/Screenshot 2023-03-26 at 17.59.52.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/img/avatars/avatar1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/img/avatars/avatar1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/img/avatars/avatar2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/img/avatars/avatar2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/img/avatars/avatar3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/img/avatars/avatar3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/img/avatars/avatar4.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/img/avatars/avatar5.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/img/be6c5f51-51cb-4a0e-a23b-fd50534f29b7.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/img/d408c07e-533f-401e-bd3c-70d1fc510d33.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/img/q2qnno7jyzyg1lyfekvw.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/img/scenery/0b09f88e-41f1-484a-bdd6-ac7ff5830424.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/img/scenery/3222a878-4e0e-46b8-92d2-90fee6a9caa4.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/img/scenery/3d.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/img/scenery/60a2e0f6-3c10-41c5-acce-1e4951e0dd41.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/img/scenery/63818d95-36e0-4c04-bee2-f3811c7d47d8.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/img/scenery/Airbnb 39271504.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/img/scenery/Alanya-excursions-3.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/img/scenery/Famous-Lycian-Tombs-of-ancient-Caunos-city-Dalyan-Turkey_Depositphotos_467017994_s-2019.jpeg.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/img/scenery/Screenshot 2023-03-26 at 18.00.59.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/img/scenery/Stone-head-statues-at-Nemrut-Mountain-in-Turkey_Depositphotos_74526735_s-2019.jpeg.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/img/scenery/Waterfall-Duden-at-Antalya-Turkey_Depositphotos_8524062_s-2019.jpeg.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/img/scenery/a9deb25f-9830-4d2a-9520-f9de76d17ac9.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/img/scenery/airbnb-beach-dominican-6939168.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/img/scenery/bcf9680c-1812-4f29-83ee-0ba8e22afb2c.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/img/scenery/be6c5f51-51cb-4a0e-a23b-fd50534f29b7.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/img/scenery/d8db92b5-4852-4647-9169-ebb514b66cbd.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/img/scenery/e6034faf-5c55-42a0-b5e8-ed0b8e330b33.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/img/scenery/f91f480a-f1f6-4ad7-b24a-40d8a0d346e4.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/img/scenery/image1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/img/scenery/image2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/img/scenery/image3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/img/scenery/image4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/img/scenery/image5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/img/scenery/image6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/img/scenery/turkey-alanya-top-things-to-do-explore-alanya-castle.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/img/star-empty.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/img/star-half-empty.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/img/star.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/img/tech/airbnb-quebec-2.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/img/tech/image1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/img/tech/image2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/img/tech/image3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/img/tech/image4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/js/theme.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/adminAssets/js/vanilla-zoom.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/bootstrap/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/bootstrap/js/bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/css/Banner-Heading-Image-images.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/css/baguetteBox.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/css/vanilla-zoom.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/fonts/Simple-Line-Icons.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/fonts/Simple-Line-Icons.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/fonts/Simple-Line-Icons.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/fonts/Simple-Line-Icons.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/fonts/Simple-Line-Icons.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/fonts/fa-brands-400.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/fonts/fa-brands-400.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/fonts/fa-brands-400.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/fonts/fa-brands-400.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/fonts/fa-brands-400.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/fonts/fa-regular-400.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/fonts/fa-regular-400.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/fonts/fa-regular-400.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/fonts/fa-regular-400.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/fonts/fa-regular-400.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/fonts/fa-solid-900.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/fonts/fa-solid-900.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/fonts/fa-solid-900.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/fonts/fa-solid-900.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/fonts/fa-solid-900.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/fonts/fontawesome-all.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/fonts/simple-line-icons.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/img/360_F_367464887_f0w1JrL8PddfuH3P2jSPlIGjKU2BI0rn.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/img/5-50689_man-stock-png-png-freeuse-download-hair-building.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/img/53873c47-8ff3-4126-b744-a027d8fa0710.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/img/9f3826b0-98e6-469b-bb92-30d517fc5d50.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/img/Ekran Görüntüsü (1188).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/img/Ekran Görüntüsü (1189).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/img/Ekran Görüntüsü (1191).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/img/Ekran Görüntüsü (1192).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/img/Ekran Görüntüsü (1193).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/img/Ekran Görüntüsü (1194).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/img/Ekran Görüntüsü (1195).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/img/Ekran Görüntüsü (1196).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/img/Ekran Görüntüsü (1197).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/img/Ekran Görüntüsü (486).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/img/avatars/avatar1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/img/avatars/avatar2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/img/avatars/avatar3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/img/dark-haired-man-in-brown-leather-jacket.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/img/e447ece9-eb6d-41b2-a90a-008c82f607da.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/img/happy-young-woman-sitting-on-260nw-2018571389.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/img/image1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/img/image2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/img/image3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/img/image4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/img/images.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/img/istockphoto-1200677760-612x612.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/img/istockphoto-1225524274-612x612.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/img/photo-1584043720379-b56cd9199c94.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/img/photo-1596813362035-3edcff0c2487.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/img/profile.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/img/scenery/image1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/img/scenery/image3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/img/scenery/image4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/img/scenery/image5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/img/scenery/image6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/img/smile-young-man-close-gorgeous-260nw-186076112.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/img/star-empty.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/img/star-half-empty.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/img/star.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/img/tech/0892a134-a933-42e0-bb48-fd91b6c915ca.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/img/tech/0f8870df-97d8-4de6-a8ec-203c64785273.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/img/tech/2383b7af-246a-48e0-8c83-b6ac69856d46.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/img/tech/37fe2a4e-d234-4443-92b2-19b65e1bb356.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/img/tech/9f3826b0-98e6-469b-bb92-30d517fc5d50-1.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/img/tech/9f3826b0-98e6-469b-bb92-30d517fc5d50.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/img/tech/c4ac305f-878c-43a5-8638-3007c262d529.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/img/tech/e447ece9-eb6d-41b2-a90a-008c82f607da.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/img/tech/image1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/img/tech/image2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/img/tech/image3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/img/tech/image4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/img/unnamed.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/js/baguetteBox.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/js/theme.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/public/customerAssets/js/vanilla-zoom.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/AdminAnalytics.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/AdminCustomerReportings.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/AdminHome.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/AdminLandmarkDetailed.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/AdminLandmarkSuggestions.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/AdminLogin.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/AdminMaintenanceForm.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/AdminManagePosts.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/AdminManageUsers.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/AdminReport.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/AdminReviews.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/AdminViewPost.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/AdminViewReporting.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/DropdownMenu.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/ForgotPassword.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/GeneralLogin.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/LeaveRating.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/MainPage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/MapPage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/NavBar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/Navbar.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/PastBookingsPage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/PastTransactionsPage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/PaymentPage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/ProfilePage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/Register.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/RenderPage.test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/RentalPage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/ShoppingCart.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/bootstrap/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/bootstrap/js/bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/css/vanilla-zoom.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/fonts/Simple-Line-Icons.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/fonts/Simple-Line-Icons.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/fonts/Simple-Line-Icons.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/fonts/Simple-Line-Icons.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/fonts/Simple-Line-Icons.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/fonts/fa-brands-400.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/fonts/fa-brands-400.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/fonts/fa-brands-400.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/fonts/fa-brands-400.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/fonts/fa-brands-400.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/fonts/fa-regular-400.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/fonts/fa-regular-400.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/fonts/fa-regular-400.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/fonts/fa-regular-400.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/fonts/fa-regular-400.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/fonts/fa-solid-900.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/fonts/fa-solid-900.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/fonts/fa-solid-900.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/fonts/fa-solid-900.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/fonts/fa-solid-900.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/fonts/fontawesome-all.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/fonts/simple-line-icons.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/img/0b09f88e-41f1-484a-bdd6-ac7ff5830424.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/img/1529289660763.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/img/Screenshot 2023-03-26 at 17.59.52.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/img/avatars/avatar1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/img/avatars/avatar1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/img/avatars/avatar2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/img/avatars/avatar2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/img/avatars/avatar3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/img/avatars/avatar3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/img/avatars/avatar4.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/img/avatars/avatar5.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/img/be6c5f51-51cb-4a0e-a23b-fd50534f29b7.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/img/d408c07e-533f-401e-bd3c-70d1fc510d33.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/img/q2qnno7jyzyg1lyfekvw.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/img/scenery/0b09f88e-41f1-484a-bdd6-ac7ff5830424.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/img/scenery/3222a878-4e0e-46b8-92d2-90fee6a9caa4.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/img/scenery/3d.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/img/scenery/60a2e0f6-3c10-41c5-acce-1e4951e0dd41.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/img/scenery/63818d95-36e0-4c04-bee2-f3811c7d47d8.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/img/scenery/Airbnb 39271504.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/img/scenery/Alanya-excursions-3.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/img/scenery/Famous-Lycian-Tombs-of-ancient-Caunos-city-Dalyan-Turkey_Depositphotos_467017994_s-2019.jpeg.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/img/scenery/Screenshot 2023-03-26 at 18.00.59.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/img/scenery/Stone-head-statues-at-Nemrut-Mountain-in-Turkey_Depositphotos_74526735_s-2019.jpeg.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/img/scenery/Waterfall-Duden-at-Antalya-Turkey_Depositphotos_8524062_s-2019.jpeg.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/img/scenery/a9deb25f-9830-4d2a-9520-f9de76d17ac9.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/img/scenery/airbnb-beach-dominican-6939168.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/img/scenery/bcf9680c-1812-4f29-83ee-0ba8e22afb2c.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/img/scenery/be6c5f51-51cb-4a0e-a23b-fd50534f29b7.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/img/scenery/d8db92b5-4852-4647-9169-ebb514b66cbd.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/img/scenery/e6034faf-5c55-42a0-b5e8-ed0b8e330b33.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/img/scenery/f91f480a-f1f6-4ad7-b24a-40d8a0d346e4.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/img/scenery/image1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/img/scenery/image2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/img/scenery/image3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/img/scenery/image4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/img/scenery/image5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/img/scenery/image6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/img/scenery/turkey-alanya-top-things-to-do-explore-alanya-castle.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/img/star-empty.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/img/star-half-empty.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/img/star.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/img/tech/airbnb-quebec-2.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/img/tech/image1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/img/tech/image2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/img/tech/image3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/img/tech/image4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/js/theme.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/adminAssets/js/vanilla-zoom.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/bootstrap/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/bootstrap/js/bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/css/vanilla-zoom.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/fonts/Simple-Line-Icons.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/fonts/Simple-Line-Icons.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/fonts/Simple-Line-Icons.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/fonts/Simple-Line-Icons.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/fonts/Simple-Line-Icons.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/fonts/fa-brands-400.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/fonts/fa-brands-400.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/fonts/fa-brands-400.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/fonts/fa-brands-400.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/fonts/fa-brands-400.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/fonts/fa-regular-400.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/fonts/fa-regular-400.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/fonts/fa-regular-400.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/fonts/fa-regular-400.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/fonts/fa-regular-400.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/fonts/fa-solid-900.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/fonts/fa-solid-900.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/fonts/fa-solid-900.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/fonts/fa-solid-900.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/fonts/fa-solid-900.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/fonts/fontawesome-all.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/fonts/simple-line-icons.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/img/0b09f88e-41f1-484a-bdd6-ac7ff5830424.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/img/1529289660763.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/img/Screenshot 2023-03-26 at 17.59.52.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/img/avatars/avatar1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/img/avatars/avatar1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/img/avatars/avatar2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/img/avatars/avatar2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/img/avatars/avatar3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/img/avatars/avatar3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/img/avatars/avatar4.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/img/avatars/avatar5.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/img/be6c5f51-51cb-4a0e-a23b-fd50534f29b7.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/img/d408c07e-533f-401e-bd3c-70d1fc510d33.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/img/q2qnno7jyzyg1lyfekvw.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/img/scenery/0b09f88e-41f1-484a-bdd6-ac7ff5830424.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/img/scenery/3222a878-4e0e-46b8-92d2-90fee6a9caa4.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/img/scenery/3d.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/img/scenery/60a2e0f6-3c10-41c5-acce-1e4951e0dd41.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/img/scenery/63818d95-36e0-4c04-bee2-f3811c7d47d8.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/img/scenery/Airbnb 39271504.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/img/scenery/Alanya-excursions-3.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/img/scenery/Famous-Lycian-Tombs-of-ancient-Caunos-city-Dalyan-Turkey_Depositphotos_467017994_s-2019.jpeg.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/img/scenery/Screenshot 2023-03-26 at 18.00.59.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/img/scenery/Stone-head-statues-at-Nemrut-Mountain-in-Turkey_Depositphotos_74526735_s-2019.jpeg.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/img/scenery/Waterfall-Duden-at-Antalya-Turkey_Depositphotos_8524062_s-2019.jpeg.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/img/scenery/a9deb25f-9830-4d2a-9520-f9de76d17ac9.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/img/scenery/airbnb-beach-dominican-6939168.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/img/scenery/bcf9680c-1812-4f29-83ee-0ba8e22afb2c.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/img/scenery/be6c5f51-51cb-4a0e-a23b-fd50534f29b7.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/img/scenery/d8db92b5-4852-4647-9169-ebb514b66cbd.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/img/scenery/e6034faf-5c55-42a0-b5e8-ed0b8e330b33.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/img/scenery/f91f480a-f1f6-4ad7-b24a-40d8a0d346e4.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/img/scenery/image1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/img/scenery/image2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/img/scenery/image3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/img/scenery/image4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/img/scenery/image5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/img/scenery/image6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/img/scenery/turkey-alanya-top-things-to-do-explore-alanya-castle.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/img/star-empty.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/img/star-half-empty.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/img/star.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/img/tech/airbnb-quebec-2.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/img/tech/image1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/img/tech/image2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/img/tech/image3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/img/tech/image4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/js/theme.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/adminAssets/js/vanilla-zoom.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/bootstrap/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/bootstrap/js/bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/css/Banner-Heading-Image-images.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/css/baguetteBox.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/css/vanilla-zoom.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/fonts/Simple-Line-Icons.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/fonts/Simple-Line-Icons.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/fonts/Simple-Line-Icons.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/fonts/Simple-Line-Icons.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/fonts/Simple-Line-Icons.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/fonts/fa-brands-400.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/fonts/fa-brands-400.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/fonts/fa-brands-400.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/fonts/fa-brands-400.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/fonts/fa-brands-400.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/fonts/fa-regular-400.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/fonts/fa-regular-400.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/fonts/fa-regular-400.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/fonts/fa-regular-400.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/fonts/fa-regular-400.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/fonts/fa-solid-900.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/fonts/fa-solid-900.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/fonts/fa-solid-900.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/fonts/fa-solid-900.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/fonts/fa-solid-900.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/fonts/fontawesome-all.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/fonts/simple-line-icons.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/img/360_F_367464887_f0w1JrL8PddfuH3P2jSPlIGjKU2BI0rn.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/img/5-50689_man-stock-png-png-freeuse-download-hair-building.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/img/53873c47-8ff3-4126-b744-a027d8fa0710.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/img/9f3826b0-98e6-469b-bb92-30d517fc5d50.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/img/Ekran Görüntüsü (1188).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/img/Ekran Görüntüsü (1189).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/img/Ekran Görüntüsü (1191).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/img/Ekran Görüntüsü (1192).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/img/Ekran Görüntüsü (1193).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/img/Ekran Görüntüsü (1194).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/img/Ekran Görüntüsü (1195).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/img/Ekran Görüntüsü (1196).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/img/Ekran Görüntüsü (1197).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/img/Ekran Görüntüsü (486).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/img/avatars/avatar1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/img/avatars/avatar2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/img/avatars/avatar3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/img/dark-haired-man-in-brown-leather-jacket.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/img/e447ece9-eb6d-41b2-a90a-008c82f607da.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/img/happy-young-woman-sitting-on-260nw-2018571389.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/img/image1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/img/image2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/img/image3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/img/image4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/img/images.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/img/istockphoto-1200677760-612x612.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/img/istockphoto-1225524274-612x612.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/img/photo-1584043720379-b56cd9199c94.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/img/photo-1596813362035-3edcff0c2487.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/img/profile.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/img/scenery/image1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/img/scenery/image3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/img/scenery/image4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/img/scenery/image5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/img/scenery/image6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/img/smile-young-man-close-gorgeous-260nw-186076112.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/img/star-empty.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/img/star-half-empty.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/img/star.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/img/tech/0892a134-a933-42e0-bb48-fd91b6c915ca.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/img/tech/0f8870df-97d8-4de6-a8ec-203c64785273.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/img/tech/2383b7af-246a-48e0-8c83-b6ac69856d46.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/img/tech/37fe2a4e-d234-4443-92b2-19b65e1bb356.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/img/tech/9f3826b0-98e6-469b-bb92-30d517fc5d50-1.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/img/tech/9f3826b0-98e6-469b-bb92-30d517fc5d50.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/img/tech/c4ac305f-878c-43a5-8638-3007c262d529.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/img/tech/e447ece9-eb6d-41b2-a90a-008c82f607da.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/img/tech/image1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/img/tech/image2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/img/tech/image3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/img/tech/image4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/img/unnamed.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/js/baguetteBox.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/js/theme.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/customerAssets/js/vanilla-zoom.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/bootstrap/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/bootstrap/js/bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/css/Bootstrap-4-Calendar-No-Custom-Code.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/css/Button-modal-ecommerce-bs4_modal.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/css/Button-modal-ecommerce-styles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/css/Drag--Drop-Upload-Form.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/css/Drag-Drop-File-Input-Upload.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/css/Font Awesome 5 Brands.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/css/Font Awesome 5 Free.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/css/Hover-Button-1.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/css/baguetteBox.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/css/bootstrap/css/bootstrap.min-1.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/css/bootstrap/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/css/css/Banner-Heading-Image-images.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/css/css/baguetteBox.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/css/fonts/fontawesome-all.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/css/pop-up-boxes.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/css/styles.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/css/vanilla-zoom.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/fonts/FontAwesome.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/fonts/Simple-Line-Icons.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/fonts/Simple-Line-Icons.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/fonts/Simple-Line-Icons.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/fonts/Simple-Line-Icons.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/fonts/Simple-Line-Icons.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/fonts/fa-brands-400.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/fonts/fa-brands-400.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/fonts/fa-brands-400.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/fonts/fa-brands-400.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/fonts/fa-brands-400.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/fonts/fa-regular-400.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/fonts/fa-regular-400.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/fonts/fa-regular-400.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/fonts/fa-regular-400.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/fonts/fa-regular-400.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/fonts/fa-solid-900.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/fonts/fa-solid-900.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/fonts/fa-solid-900.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/fonts/fa-solid-900.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/fonts/fa-solid-900.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/fonts/font-awesome.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/fonts/fontawesome-all.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/fonts/fontawesome-webfont.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/fonts/fontawesome-webfont.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/fonts/fontawesome-webfont.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/fonts/fontawesome-webfont.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/fonts/fontawesome-webfont.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/fonts/fontawesome5-overrides.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/fonts/simple-line-icons.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/img/360_F_367464887_f0w1JrL8PddfuH3P2jSPlIGjKU2BI0rn.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/img/6676508.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/img/Başlıksız.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/img/CODERED_B1_portrait_photography-P4a_438x447.jpg.img.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/img/Stock-Airbnb-Home-AdobeStock-298309756 - Copy-2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/img/bs4_slider_commerce_01.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/img/bs4_slider_commerce_02.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/img/bs4_slider_commerce_03.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/img/bs4_slider_commerce_04.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/img/earthquake-icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/img/happy-young-woman-sitting-on-260nw-2018571389.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/img/icons8-room-80.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/img/images.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/img/images2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/img/istockphoto-1160217929-612x612.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/img/istockphoto-1200677760-612x612.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/img/istockphoto-1225524274-612x612.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/img/photo-1603775020644-eb8decd79994.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/img/pp.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/img/smile-young-man-close-gorgeous-260nw-186076112.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/img/star-empty.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/img/star-half-empty.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/img/star.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/img/thumbnail.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/img/thumbnail2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/js/Button-modal-ecommerce-bs4_modal.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/js/baguetteBox.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/js/bootstrap/js/bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/js/js/bs-init.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/js/script.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/js/theme.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/src/hostAssets/js/vanilla-zoom.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/HostRentingFlatDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/HostRentingFlatDetails.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/HostRentingFlatLocation.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/HostRentingFlatLocation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/HostRentingFlatPricing.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/HostRentingFlatPricing.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/bootstrap/css/bootstrap.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/bootstrap/js/bootstrap.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/css/Bootstrap-4-Calendar-No-Custom-Code.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/css/Button-modal-ecommerce-bs4_modal.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/css/Button-modal-ecommerce-styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/css/Drag--Drop-Upload-Form.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/css/Drag-Drop-File-Input-Upload.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/css/Font Awesome 5 Brands.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/css/Font Awesome 5 Free.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/css/Hover-Button-1.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/css/baguetteBox.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/css/bootstrap/css/bootstrap.min-1.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/css/bootstrap/css/bootstrap.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/css/css/Banner-Heading-Image-images.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/css/css/baguetteBox.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/css/fonts/fontawesome-all.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/css/pop-up-boxes.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/css/styles.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/css/vanilla-zoom.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/fonts/FontAwesome.otf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/fonts/Simple-Line-Icons.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/fonts/Simple-Line-Icons.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/fonts/Simple-Line-Icons.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/fonts/Simple-Line-Icons.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/fonts/Simple-Line-Icons.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/fonts/fa-brands-400.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/fonts/fa-brands-400.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/fonts/fa-brands-400.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/fonts/fa-brands-400.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/fonts/fa-brands-400.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/fonts/fa-regular-400.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/fonts/fa-regular-400.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/fonts/fa-regular-400.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/fonts/fa-regular-400.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/fonts/fa-regular-400.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/fonts/fa-solid-900.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/fonts/fa-solid-900.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/fonts/fa-solid-900.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/fonts/fa-solid-900.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/fonts/fa-solid-900.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/fonts/font-awesome.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/fonts/fontawesome-all.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/fonts/fontawesome-webfont.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/fonts/fontawesome-webfont.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/fonts/fontawesome-webfont.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/fonts/fontawesome-webfont.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/fonts/fontawesome-webfont.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/fonts/fontawesome5-overrides.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/fonts/simple-line-icons.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/img/360_F_367464887_f0w1JrL8PddfuH3P2jSPlIGjKU2BI0rn.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/img/6676508.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/img/Başlıksız.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/img/CODERED_B1_portrait_photography-P4a_438x447.jpg.img.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/img/Stock-Airbnb-Home-AdobeStock-298309756 - Copy-2.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/img/bs4_slider_commerce_01.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/img/bs4_slider_commerce_02.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/img/bs4_slider_commerce_03.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/img/bs4_slider_commerce_04.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/img/earthquake-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/img/happy-young-woman-sitting-on-260nw-2018571389.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/img/icons8-room-80.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/img/images.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/img/images2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/img/istockphoto-1160217929-612x612.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/img/istockphoto-1200677760-612x612.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/img/istockphoto-1225524274-612x612.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/img/photo-1603775020644-eb8decd79994.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/img/pp.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/img/smile-young-man-close-gorgeous-260nw-186076112.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/img/star-empty.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/img/star-half-empty.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/img/star.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/img/thumbnail.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/img/thumbnail2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/js/Button-modal-ecommerce-bs4_modal.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/js/baguetteBox.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/js/bootstrap/js/bootstrap.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/js/js/bs-init.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/js/script.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/js/theme.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/js/vanilla-zoom.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/Register.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/Register.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -713,43 +58,43 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "JPA.DatabaseSchemaImportDialog": "7998b21e-a609-4258-8397-36a97024c4bc",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "extract.method.default.visibility": "private",
-    "git-widget-placeholder": "frontend+backend",
-    "last_directory_selection": "C:/Users/user/IdeaProjects/WeRent/src/main/java/com/example/werent",
-    "last_opened_file_path": "C:/Users/user/Desktop/WeRent/Frontend",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "spring.configuration.checksum": "f3f4db96eebdd4ab78486523217d9cc2",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;JPA.DatabaseSchemaImportDialog&quot;: &quot;7998b21e-a609-4258-8397-36a97024c4bc&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;frontend+backend&quot;,
+    &quot;last_directory_selection&quot;: &quot;C:/Users/user/IdeaProjects/WeRent/src/main/java/com/example/werent&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/user/Desktop/WeRent/Frontend&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;f3f4db96eebdd4ab78486523217d9cc2&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ],
-    "com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect": [
-      "PostgreSQL"
+    &quot;com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect&quot;: [
+      &quot;PostgreSQL&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\user\Desktop" />
@@ -817,7 +162,9 @@
       <workItem from="1685355944473" duration="6983000" />
       <workItem from="1685375520327" duration="9397000" />
       <workItem from="1685388085225" duration="3560000" />
-      <workItem from="1685430429695" duration="2229000" />
+      <workItem from="1685430429695" duration="2423000" />
+      <workItem from="1685442004205" duration="1012000" />
+      <workItem from="1685447310586" duration="1087000" />
     </task>
     <task id="LOCAL-00001" summary="new upload">
       <created>1684410800015</created>
@@ -903,7 +250,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685383856386</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="all frontend is put together">
+      <created>1685432727503</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1685432727503</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

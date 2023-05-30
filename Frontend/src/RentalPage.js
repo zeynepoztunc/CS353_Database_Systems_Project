@@ -33,7 +33,11 @@ const  RentalPage= () => {
   const bathroomNum=3;
   const hostName="Ali";
   const description=" In Kalkan, with its excellent sea view and location surrounded by nature, awaits you. Our rental villa with the capacity of 6 people has 3 bedrooms. In the rental villa ,it has all the kitchen utensils you may need. It has aspacious lounge with open american kitchen where you can bemodern, convenient and comfortable.";
+  const [isFavorited, setIsFavorited] = useState(false);
 
+  const handleFavoriteClick = () => {
+    setIsFavorited(!isFavorited);
+  };
   const options = Array.from({ length: 10 }, (_, index) => index + 1);
   const reviews = [
     { id: 1, author: 'Jennifer ', comment: 'The place was just perfect.', image: "customerAssets/img/photo-1596813362035-3edcff0c2487.jpg" },
@@ -143,6 +147,9 @@ const  RentalPage= () => {
   <link rel="stylesheet" href="customerAssets/css/Banner-Heading-Image-images.css" />
   <link rel="stylesheet" href="customerAssets/css/vanilla-zoom.min.css" />
   <NavBar></NavBar>
+  <h4 className="fs-2" style={{ paddingBottom: 0, marginBottom: 28 }}>
+      <strong>Spacer </strong>
+  </h4>
   <main className="page product-page">
     <section className="clean-block clean-product dark">
       <div className="container">
@@ -235,8 +242,9 @@ const  RentalPage= () => {
                       Antalya, Kalkan Beach House&nbsp; &nbsp;&nbsp;
                     </strong>
                     <i
-                      className="far fa-heart text-end text-danger justify-content-end"
-                      style={{ fontSize: 27 }}
+                       className={`far fa-heart ${isFavorited ? 'fas' : ''} text-end text-danger justify-content-end`}
+                       style={{ fontSize: 27 }}
+                       onClick={handleFavoriteClick}
                     />
                   </h4>
                   <div className="text-start rating">
