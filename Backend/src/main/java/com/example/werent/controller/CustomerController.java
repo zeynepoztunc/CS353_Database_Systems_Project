@@ -18,8 +18,8 @@ public class CustomerController {
 
     //CUSTOMER Main Page
     @RequestMapping(value = "/main", method = RequestMethod.GET)
-    public List<Map<String, Object>> listRentalsForCustomer(@RequestBody RegisteredUserDTO searcher){
-        return customerRepository.listRentalsForCustomer(searcher);
+    public List<Map<String, Object>> listRentalsForCustomer(){
+        return customerRepository.listRentalsForCustomer();
     }
 
     @RequestMapping(value = "/main", method = RequestMethod.POST)
