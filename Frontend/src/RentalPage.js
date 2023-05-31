@@ -32,6 +32,7 @@ const  RentalPage= () => {
   const maxAccomodation=6;
   const bedroomNum=3;
   const bathroomNum=3;
+  const name="Antalya, Kalkan Beach House";
   const hostName="Ali";
   const description=" In Kalkan, with its excellent sea view and location surrounded by nature, awaits you. Our rental villa with the capacity of 6 people has 3 bedrooms. In the rental villa ,it has all the kitchen utensils you may need. It has aspacious lounge with open american kitchen where you can bemodern, convenient and comfortable.";
   const [isFavorited, setIsFavorited] = useState(false);
@@ -77,7 +78,7 @@ const  RentalPage= () => {
   ];
   const reviewList = reviews.map((review) => (
     <div className="row">
-
+                
                 <div className="col-md-6" style={{ paddingTop: 17 }}>
                   <img
                     className="rounded-circle"
@@ -266,7 +267,7 @@ const  RentalPage= () => {
                 <div className="info">
                   <h4>
                     <strong>
-                      Antalya, Kalkan Beach House&nbsp; &nbsp;&nbsp;
+                      {name}&nbsp; &nbsp;&nbsp;
                     </strong>
                     <i
                        className={`far fa-heart ${isFavorited ? 'fas' : ''} text-end text-danger justify-content-end`}
@@ -933,6 +934,9 @@ const  RentalPage= () => {
                               },
                             }}
                           >
+                            <h4 className="fs-2" style={{ paddingBottom: 0, marginBottom: 28 }}>
+                  <strong> </strong>
+                </h4>
                             <h2>All Reviews</h2>
                             <ul>{reviewList}</ul>
                           </Modal>
