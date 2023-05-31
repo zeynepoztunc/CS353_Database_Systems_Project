@@ -8,6 +8,7 @@ import AdminReport from "./AdminReport";
 import { PDFDocument, rgb } from "pdf-lib";
 
 export const AdminHome = () => {
+    //get the latest version of the report
   const reportValues = [
     {
       date: "15.05.2023",
@@ -33,63 +34,67 @@ export const AdminHome = () => {
   const handleDownload = async () => {};
 
   const GeneratePDFButton = async () => {
-    console.log("sdaf");
-    
-        console.log("gfhjhfg");
-        try {
-            const pdfDoc = await PDFDocument.create();
-            const page = pdfDoc.addPage();
-        
-            const fontSize = 12;
-            const textColor = rgb(0, 0, 0);
-        
-            const drawText = (text, x, y) => {
-              page.drawText(text, {
-                x,
-                y,
-                size: fontSize,
-                color: textColor,
-              });
-            };
-        
-            let x = 50;
-            let y = page.getHeight() - 50;
-        
-            drawText('Date: ' + reportValues[0].date, x, y);
-            y -= 20;
-            drawText('Report ID: ' + reportValues[0].reportID, x, y);
-            y -= 20;
-            drawText('User Count: ' + reportValues[0].userCount, x, y);
-            y -= 20;
-            drawText('Host Count: ' + reportValues[0].hostCount, x, y);
-            y -= 20;
-            drawText('Posting Count: ' + reportValues[0].postingCount, x, y);
-            y -= 20;
-            drawText('Booking Count: ' + reportValues[0].bookingCount, x, y);
-            y -= 20;
-            drawText('Victim Count (Host): ' + reportValues[0].victimCountHost, x, y);
-            y -= 20;
-            drawText('Victim Count (User): ' + reportValues[0].victimCountUser, x, y);
-            y -= 20;
-            drawText('Superhost Count: ' + reportValues[0].superhostCount, x, y);
-            y -= 20;
-            drawText('User Reporting Count: ' + reportValues[0].userReportingCount, x, y);
-            y -= 20;
-            drawText('Post Reporting Count: ' + reportValues[0].postReportingCount, x, y);
-        
-            const pdfBytes = await pdfDoc.save();
-            const blob = new Blob([pdfBytes], { type: 'application/pdf' });
-        
-            // Download the PDF
-            const link = document.createElement('a');
-            link.href = window.URL.createObjectURL(blob);
-            link.download = 'report.pdf';
-            link.click();
-          } catch (error) {
-            console.error('Error generating PDF:', error);
-          }
-  }
+    try {
+      const pdfDoc = await PDFDocument.create();
+      const page = pdfDoc.addPage();
 
+      const fontSize = 12;
+      const textColor = rgb(0, 0, 0);
+
+      const drawText = (text, x, y) => {
+        page.drawText(text, {
+          x,
+          y,
+          size: fontSize,
+          color: textColor,
+        });
+      };
+
+      let x = 50;
+      let y = page.getHeight() - 50;
+
+      drawText("Date: " + reportValues[0].date, x, y);
+      y -= 20;
+      drawText("Report ID: " + reportValues[0].reportID, x, y);
+      y -= 20;
+      drawText("User Count: " + reportValues[0].userCount, x, y);
+      y -= 20;
+      drawText("Host Count: " + reportValues[0].hostCount, x, y);
+      y -= 20;
+      drawText("Posting Count: " + reportValues[0].postingCount, x, y);
+      y -= 20;
+      drawText("Booking Count: " + reportValues[0].bookingCount, x, y);
+      y -= 20;
+      drawText("Victim Count (Host): " + reportValues[0].victimCountHost, x, y);
+      y -= 20;
+      drawText("Victim Count (User): " + reportValues[0].victimCountUser, x, y);
+      y -= 20;
+      drawText("Superhost Count: " + reportValues[0].superhostCount, x, y);
+      y -= 20;
+      drawText(
+        "User Reporting Count: " + reportValues[0].userReportingCount,
+        x,
+        y
+      );
+      y -= 20;
+      drawText(
+        "Post Reporting Count: " + reportValues[0].postReportingCount,
+        x,
+        y
+      );
+
+      const pdfBytes = await pdfDoc.save();
+      const blob = new Blob([pdfBytes], { type: "application/pdf" });
+
+      // Download the PDF
+      const link = document.createElement("a");
+      link.href = window.URL.createObjectURL(blob);
+      link.download = "report.pdf";
+      link.click();
+    } catch (error) {
+      console.error("Error generating PDF:", error);
+    }
+  };
 
   return (
     <>
