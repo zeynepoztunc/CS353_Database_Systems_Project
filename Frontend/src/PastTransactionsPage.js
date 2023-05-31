@@ -29,6 +29,9 @@ function PastTransactionsPage() {
   <body>
  
     <NavBar></NavBar>
+    <h4 className="fs-2" style={{ paddingBottom: 0, marginBottom: 28 }}>
+      <strong>Spacer </strong>
+    </h4>
     <main class="page blog-post-list">
         <section class="clean-block clean-blog-list dark">
         <div class="container" style={{marginBottom: "-40px",paddingBottom: "0px"}}>

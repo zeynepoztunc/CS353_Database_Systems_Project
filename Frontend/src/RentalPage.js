@@ -474,7 +474,17 @@ const  RentalPage= () => {
                   </a>
                 </li>
               </ul>
+              <div
+                  className="tab-pane fade show active description"
+                  role="tabpanel"
+                  id="description"
+                >
+              <p className="fs-4">
+                    <strong>What this place offers</strong>
+                </p>
               {amenities.map((amenities) => (
+              <div className="row">
+
                 <div className="col-md-7">
                 <div className="row">
                   <div className="col-lg-1">
@@ -488,10 +498,15 @@ const  RentalPage= () => {
                       <strong>{amenities.name}</strong>
                     </p>
                   </div>
+                
                 </div>
               </div>
+              </div>
+
                 
               ))}
+              </div>
+            
               <div className="tab-content" id="myTabContent">
                 <div
                   className="tab-pane fade show active description"
@@ -647,17 +662,17 @@ const  RentalPage= () => {
                 </div>
 
                 <LoadScript googleMapsApiKey="AIzaSyAdc1phOB8xRTsyJwEa3wBuAGPIg9ZFnJ4">
-                <GoogleMap
-                  mapContainerStyle={containerStyle}
-                  center={defaultCenter}
-                  zoom={10}
-                  onClick={handleMapClick}
-                >
+                  <GoogleMap
+                    mapContainerStyle={containerStyle}
+                    center={defaultCenter}
+                    zoom={10}
+                    onClick={handleMapClick}
+                  >
                   {selectedLocation && (
                     <Marker position={selectedLocation} />
                   )}
-                </GoogleMap>
-              </LoadScript>
+                  </GoogleMap>
+                </LoadScript>
               
                 <div
                   className="tab-pane fade show active description"
