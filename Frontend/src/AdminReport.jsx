@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { Navbar } from "./Navbar.jsx";
 
+
+
 export const AdminReport = () => {
   
   const [oldestReport, setOldestReport] = useState(false);
@@ -13,6 +15,7 @@ export const AdminReport = () => {
   const [highestHostCount, setHighestHostCount] = useState(false);
   const [highestPostingsCount, setHighestPostingsCount] = useState(false);
   const [date, setDate] = useState("");
+  
   
   
   function handleSearch() {
