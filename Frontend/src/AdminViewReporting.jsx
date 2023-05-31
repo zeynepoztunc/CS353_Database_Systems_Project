@@ -4,13 +4,15 @@ import './adminAssets/css/vanilla-zoom.min.css';
 import { Navbar } from './Navbar.jsx';
 export const AdminViewReporting = () => {
     const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [name, setName] = useState('');
-    
-    const handleSubmit = (e) => {
+
+    const deleteUser = (e) => {
         e.preventDefault();
         console.log(email);
     }
+    const removePost = (e) => {
+      e.preventDefault();
+      console.log(email);
+  }
     
     return (
         <>
@@ -91,13 +93,15 @@ export const AdminViewReporting = () => {
                             className="btn btn-outline-primary btn-sm"
                             type="button"
                             style={{ marginLeft: 10 }}
+                            onClick={deleteUser}
                           >
-                            Block User
+                            Delete User
                           </button>
                           <button
                             className="btn btn-outline-primary btn-sm"
                             type="button"
                             style={{ marginLeft: 30 }}
+                            onClick={removePost}
                           >
                             Remove Post
                           </button>

@@ -65,9 +65,9 @@ export const AdminHome = () => {
       y -= 20;
       drawText("Booking Count: " + reportValues[0].bookingCount, x, y);
       y -= 20;
-      drawText("Victim Count (Host): " + reportValues[0].victimCountHost, x, y);
+      drawText("Earthquake Victim Count (Host): " + reportValues[0].victimCountHost, x, y);
       y -= 20;
-      drawText("Victim Count (User): " + reportValues[0].victimCountUser, x, y);
+      drawText("Earthquake Victim Count (User): " + reportValues[0].victimCountUser, x, y);
       y -= 20;
       drawText("Superhost Count: " + reportValues[0].superhostCount, x, y);
       y -= 20;
