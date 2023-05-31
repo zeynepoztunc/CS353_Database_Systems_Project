@@ -373,9 +373,13 @@ function ProfilePage() {
                   </div>
                 </div>
               </div>
+              
               <div className="col-md-6 col-lg-8" style={{ marginTop: 40 }}>
                 <h4 className="fs-2" style={{ paddingBottom: 0, marginBottom: 28 }}>
-                  <strong>Spacer </strong>
+                  <strong> </strong>
+                </h4>
+                <h4 className="fs-2" style={{ paddingBottom: 0, marginBottom: 28 }}>
+                  <strong> </strong>
                 </h4>
                 <h4 className="fs-2" style={{ paddingBottom: 0, marginBottom: 28 }}>
                   <strong> </strong>

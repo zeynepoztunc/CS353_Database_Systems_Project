@@ -17,6 +17,7 @@ const  RentalPage= () => {
   const [selectedCounts, setSelectedCounts] = useState({});
   const [selectedItems, setSelectedItems] = useState({});
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModal2Open, setIsModal2Open] = useState(false);
   const avgRating=4.5;
   const dailyPrice=200;
   const avgCleanlinessRating=4.5;
@@ -76,6 +77,15 @@ const  RentalPage= () => {
     { id: 4, author: 'Nate', comment: 'This place was amazing!', image: "customerAssets/img/dark-haired-man-in-brown-leather-jacket.jpg" }
 
   ];
+  const amenities = [
+    { id: 1, name: 'Wifi ',  image: 'fas fa-wifi' },
+    { id: 2, name: 'Free Parking ',  image: 'fas fa-parking' },
+    { id: 3, name: 'First-aid kit',  image: 'fas fa-medkit' },
+    { id: 4, name: 'Fire Extinguisher',  image: 'fas fa-fire-extinguisher' },
+    { id: 5, name: 'Beach Accesss', image: 'fas fa-umbrella-beach' },
+    { id: 4, name: 'Transportation Access',  image: 'fas fa-bus' }
+
+  ];
   const reviewList = reviews.map((review) => (
     <div className="row">
                 
@@ -106,7 +116,6 @@ const  RentalPage= () => {
                         marginRight: 74,
                       }}
                     >
-
                       <h4 className="card-title" style={{ marginLeft: "-56px" }}>
                         <p>{review.author}</p>
 
@@ -121,9 +130,14 @@ const  RentalPage= () => {
                 </div>
       </div>
   ));
-  
+  const amenitiesList = reviews.map((review) => (
+    <div></div>
+  ));
   const handleShowAllReviews = () => {
     setIsModalOpen(true);
+  };
+  const handleShowAllAmenities = () => {
+    setIsModal2Open(true);
   };
   const containerStyle = {
     width: '720px',
@@ -460,6 +474,24 @@ const  RentalPage= () => {
                   </a>
                 </li>
               </ul>
+              {amenities.map((amenities) => (
+                <div className="col-md-7">
+                <div className="row">
+                  <div className="col-lg-1">
+                    <i
+                      className={amenities.image}
+                      style={{ fontSize: 26 }}
+                    />
+                  </div>
+                  <div className="col">
+                    <p className="fs-5">
+                      <strong>{amenities.name}</strong>
+                    </p>
+                  </div>
+                </div>
+              </div>
+                
+              ))}
               <div className="tab-content" id="myTabContent">
                 <div
                   className="tab-pane fade show active description"
@@ -570,9 +602,27 @@ const  RentalPage= () => {
                       </div>
                       <div className="row">
                         <div className="col">
-                          <button className="btn btn-danger" type="button">
+                          <button className="btn btn-danger" type="button"  onClick={handleShowAllAmenities}>
                             Show All Amenties
                           </button>
+                          <Modal
+                            isOpen={isModalOpen}
+                            onRequestClose={() => setIsModal2Open(false)}
+                            contentLabel="All Ammenities"
+                            style={{
+                              content: {
+                                height: '700px', 
+                              },
+                            }}
+                          >
+                            <h4 className="fs-2" style={{ paddingBottom: 0, marginBottom: 28 }}>
+                            <strong> </strong>
+                            </h4>
+                            <h2>All Ammenities</h2>
+                            <ul>{reviewList}</ul>
+                          </Modal>
+                          
+                          
                         </div>
                       </div>
                     </div>
@@ -895,7 +945,6 @@ const  RentalPage= () => {
                         marginRight: 74,
                       }}
                     >
-
                       <h4 className="card-title" style={{ marginLeft: "-56px" }}>
                         <p>{review.author}</p>
 
@@ -935,8 +984,8 @@ const  RentalPage= () => {
                             }}
                           >
                             <h4 className="fs-2" style={{ paddingBottom: 0, marginBottom: 28 }}>
-                  <strong> </strong>
-                </h4>
+                            <strong> </strong>
+                            </h4>
                             <h2>All Reviews</h2>
                             <ul>{reviewList}</ul>
                           </Modal>
