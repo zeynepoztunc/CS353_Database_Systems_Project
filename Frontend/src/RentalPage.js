@@ -646,7 +646,7 @@ const  RentalPage= () => {
                               &nbsp; &nbsp;{avgCleanlinessRating}&nbsp;
                             </span> */}
                             {[1, 2, 3, 4, 5].map((index) => (
-                              <span key={index} onClick={() => handleStarClick(index)}>
+                              <span key={index} onClick={() => handleCleanliness(index)}>
                                 {index <= cleanlinessRating ? (
                                   <i className="fas fa-star text-warning" />
                                 ) : index - 0.5 === cleanlinessRating ? (
@@ -665,16 +665,16 @@ const  RentalPage= () => {
                           <div className="row">
                             <div className="col-lg-6">
                               <p className="fs-5">
-                                <strong>Communication</strong>
+                                <strong>Communication ({avgCommunicationRating})</strong>
                               </p>
                             </div>
                             <div className="col">
                               <p className="fs-5">
                               {[1, 2, 3, 4, 5].map((index) => (
-                              <span key={index} onClick={() => handleStarClick(index)}>
-                                {index <= cleanlinessRating ? (
+                              <span key={index} onClick={() => handleCommunication(index)}>
+                                {index <= communicationRating ? (
                                   <i className="fas fa-star text-warning" />
-                                ) : index - 0.5 === cleanlinessRating ? (
+                                ) : index - 0.5 === communicationRating ? (
                                   <i className="fas fa-star-half-alt text-warning" />
                                 ) : (
                                   <i className="far fa-star text-warning" />
@@ -696,14 +696,14 @@ const  RentalPage= () => {
                           }}
                         >
                           <p className="fs-5">
-                            <strong>Accuracy</strong>
+                            <strong>Accuracy ({avgAccuracyRating})</strong>
                           </p>
                         </div>
                         <div className="col">
                           <p className="fs-5">
                           {[1, 2, 3, 4, 5].map((index) => (
-                              <span key={index} onClick={() => handleStarClick(index)}>
-                                {index <= cleanlinessRating ? (
+                              <span key={index} onClick={() => handleAccuracy(index)}>
+                                {index <= accuracyRating ? (
                                   <i className="fas fa-star text-warning" />
                                 ) : index - 0.5 === cleanlinessRating ? (
                                   <i className="fas fa-star-half-alt text-warning" />
@@ -720,16 +720,16 @@ const  RentalPage= () => {
                       <div className="row">
                         <div className="col">
                           <p className="fs-5">
-                            <strong>Check-in</strong>
+                            <strong>Check-in({avgCheckinRating})</strong>
                           </p>
                         </div>
                         <div className="col">
                           <p className="fs-5">
                           {[1, 2, 3, 4, 5].map((index) => (
-                              <span key={index} onClick={() => handleStarClick(index)}>
-                                {index <= cleanlinessRating ? (
+                              <span key={index} onClick={() => handleCheckin(index)}>
+                                {index <= checkinRating ? (
                                   <i className="fas fa-star text-warning" />
-                                ) : index - 0.5 === cleanlinessRating ? (
+                                ) : index - 0.5 === checkinRating ? (
                                   <i className="fas fa-star-half-alt text-warning" />
                                 ) : (
                                   <i className="far fa-star text-warning" />
@@ -742,16 +742,16 @@ const  RentalPage= () => {
                       <div className="row">
                         <div className="col">
                           <p className="fs-5">
-                            <strong>Value</strong>
+                            <strong>Value({avgValueRating})</strong>
                           </p>
                         </div>
                         <div className="col">
                           <p className="fs-5">
                           {[1, 2, 3, 4, 5].map((index) => (
-                              <span key={index} onClick={() => handleStarClick(index)}>
-                                {index <= cleanlinessRating ? (
+                              <span key={index} onClick={() => handleValue(index)}>
+                                {index <= valueRating ? (
                                   <i className="fas fa-star text-warning" />
-                                ) : index - 0.5 === cleanlinessRating ? (
+                                ) : index - 0.5 === valueRating ? (
                                   <i className="fas fa-star-half-alt text-warning" />
                                 ) : (
                                   <i className="far fa-star text-warning" />
@@ -764,16 +764,16 @@ const  RentalPage= () => {
                       <div className="row">
                         <div className="col">
                           <p className="fs-5">
-                            <strong>Location</strong>
+                            <strong>Location({avgLocationRating})</strong>
                           </p>
                         </div>
                         <div className="col">
                           <p className="fs-5">
                           {[1, 2, 3, 4, 5].map((index) => (
-                              <span key={index} onClick={() => handleStarClick(index)}>
-                                {index <= cleanlinessRating ? (
+                              <span key={index} onClick={() => handleLocation(index)}>
+                                {index <= locationRating ? (
                                   <i className="fas fa-star text-warning" />
-                                ) : index - 0.5 === cleanlinessRating ? (
+                                ) : index - 0.5 === locationRating ? (
                                   <i className="fas fa-star-half-alt text-warning" />
                                 ) : (
                                   <i className="far fa-star text-warning" />
@@ -792,26 +792,7 @@ const  RentalPage= () => {
                   id="specifications"
                 >
                   <div className="table-responsive">
-                    <table className="table table-bordered">
-                      <tbody>
-                        <tr>
-                          <td className="stat">Display</td>
-                          <td>5.2"</td>
-                        </tr>
-                        <tr>
-                          <td className="stat">Camera</td>
-                          <td>12MP</td>
-                        </tr>
-                        <tr>
-                          <td className="stat">RAM</td>
-                          <td>4GB</td>
-                        </tr>
-                        <tr>
-                          <td className="stat">OS</td>
-                          <td>iOS</td>
-                        </tr>
-                      </tbody>
-                    </table>
+                   
                   </div>
                 </div>
                 <div className="tab-pane fade" role="tabpanel" id="reviews">
@@ -828,12 +809,7 @@ const  RentalPage= () => {
                       <span className="text-muted">
                         <a href="#">John Smith</a>, 20 Jan 2018
                       </span>
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Donec augue nunc, pretium at augue at, convallis
-                        pellentesque ipsum. Lorem ipsum dolor sit amet,
-                        consectetur adipiscing elit.
-                      </p>
+                     
                     </div>
                   </div>
                   <div className="reviews">
@@ -870,12 +846,6 @@ const  RentalPage= () => {
                       <span className="text-muted">
                         <a href="#">John Smith</a>, 20 Jan 2018
                       </span>
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Donec augue nunc, pretium at augue at, convallis
-                        pellentesque ipsum. Lorem ipsum dolor sit amet,
-                        consectetur adipiscing elit.
-                      </p>
                     </div>
                   </div>
                 </div>
