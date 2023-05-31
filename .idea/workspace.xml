@@ -4,12 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e555480-ab5a-407e-a171-4062daf29606" name="Changes" comment="all frontend is put together">
+    <list default="true" id="5e555480-ab5a-407e-a171-4062daf29606" name="Changes" comment="register page corrected">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/Register.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/Register.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/HostRentingFlatDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/HostRentingFlatDetails.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/HostRentingMainPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/HostRentingMainPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/HostRentingProperty.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/HostRentingProperty.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/HostRentingRoomDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/HostRentingRoomDetails.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/HostRentingRoomLocation.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/HostRentingRoomLocation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/HostRentingRoomPricing.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/HostRentingRoomPricing.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,7 +166,10 @@
       <workItem from="1685388085225" duration="3560000" />
       <workItem from="1685430429695" duration="2423000" />
       <workItem from="1685442004205" duration="1012000" />
-      <workItem from="1685447310586" duration="1087000" />
+      <workItem from="1685447310586" duration="1784000" />
+      <workItem from="1685460165304" duration="1309000" />
+      <workItem from="1685461989849" duration="80000" />
+      <workItem from="1685508642680" duration="297000" />
     </task>
     <task id="LOCAL-00001" summary="new upload">
       <created>1684410800015</created>
@@ -257,7 +262,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685432727503</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="register page corrected">
+      <created>1685448619494</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1685448619494</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -287,7 +299,8 @@
     <MESSAGE value="price and cancel policy done" />
     <MESSAGE value="rental mostly done" />
     <MESSAGE value="all frontend is put together" />
-    <option name="LAST_COMMIT_MESSAGE" value="all frontend is put together" />
+    <MESSAGE value="register page corrected" />
+    <option name="LAST_COMMIT_MESSAGE" value="register page corrected" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
