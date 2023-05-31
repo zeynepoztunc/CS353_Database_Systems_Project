@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import NavBar from './NavBar';
 import Modal from 'react-modal';
+import axios from 'axios';
+
 
 function ProfilePage() {
   const navigate = useNavigate();

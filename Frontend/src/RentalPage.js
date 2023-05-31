@@ -8,6 +8,7 @@ import DropdownMenu from './DropdownMenu';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import NavBar from './NavBar';
 import Modal from 'react-modal';
+import axios from 'axios';
 
 
 const  RentalPage= () => {

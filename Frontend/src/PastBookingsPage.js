@@ -1,5 +1,7 @@
 import {  useNavigate } from 'react-router-dom';
 import NavBar from './NavBar';
+import axios from 'axios';
+
 function PastBookingsPage() {
   const navigate = useNavigate();
   const booking = [
@@ -22,15 +24,15 @@ function PastBookingsPage() {
     content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
   />
   <title>Blog - Brand</title>
-  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="customerAssets/bootstrap/css/bootstrap.min.css" />
   <link
     rel="stylesheet"
     href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i&display=swap"
   />
-  <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css" />
-  <link rel="stylesheet" href="assets/css/baguetteBox.min.css" />
-  <link rel="stylesheet" href="assets/css/Banner-Heading-Image-images.css" />
-  <link rel="stylesheet" href="assets/css/vanilla-zoom.min.css" />
+  <link rel="stylesheet" href="customerAssets/fonts/fontawesome-all.min.css" />
+  <link rel="stylesheet" href="customerAssets/css/baguetteBox.min.css" />
+  <link rel="stylesheet" href="customerAssets/css/Banner-Heading-Image-images.css" />
+  <link rel="stylesheet" href="customerAssets/css/vanilla-zoom.min.css" />
   <NavBar></NavBar>
   <main className="page blog-post-list">
     <section className="clean-block clean-blog-list dark">

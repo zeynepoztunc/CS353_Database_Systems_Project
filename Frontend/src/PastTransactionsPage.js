@@ -1,5 +1,7 @@
 import {  useNavigate } from 'react-router-dom';
 import NavBar from './NavBar';
+import axios from 'axios';
+
 function PastTransactionsPage() {
     const navigate = useNavigate();
     const transaction = [
@@ -17,12 +19,12 @@ function PastTransactionsPage() {
     <container>
     <head>
     <title>Product - Brand</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css"></link>
+    <link rel="stylesheet" href="customerAssets/bootstrap/css/bootstrap.min.css"></link>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i&amp;display=swap"></link>
-    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css"></link>
-    <link rel="stylesheet" href="assets/css/baguetteBox.min.css"></link>
-    <link rel="stylesheet" href="assets/css/Banner-Heading-Image-images.css"></link>
-    <link rel="stylesheet" href="assets/css/vanilla-zoom.min.css"></link>
+    <link rel="stylesheet" href="customerAssets/fonts/fontawesome-all.min.css"></link>
+    <link rel="stylesheet" href="customerAssets/css/baguetteBox.min.css"></link>
+    <link rel="stylesheet" href="customerAssets/css/Banner-Heading-Image-images.css"></link>
+    <link rel="stylesheet" href="customerAssets/css/vanilla-zoom.min.css"></link>
   </head>
   <body>
  
@@ -72,10 +74,10 @@ function PastTransactionsPage() {
         </section>
     </main>
 
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/baguetteBox.min.js"></script>
-    <script src="assets/js/vanilla-zoom.js"></script>
-    <script src="assets/js/theme.js"></script>
+    <script src="customerAssets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="customerAssets/js/baguetteBox.min.js"></script>
+    <script src="customerAssets/js/vanilla-zoom.js"></script>
+    <script src="customerAssets/js/theme.js"></script>
   </body>
 
     </container> 
