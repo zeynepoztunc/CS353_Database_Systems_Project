@@ -37,6 +37,7 @@ import PaymentPage from "./PaymentPage";
 import ProfilePage from "./ProfilePage";
 import RentalPage from "./RentalPage";
 import ShoppingCart from "./ShoppingCart";
+import UserLogin from "./UserLogin";
 
 
 function App() {
@@ -75,6 +76,7 @@ function App() {
         <Route exact path='/ProfilePage' element={<ProfilePage/>} />
         <Route exact path='/RentalPage' element={<RentalPage/>} />
         <Route exact path='/ShoppingCart' element={<ShoppingCart/>} />
+        <Route exact path='/UserLogin' element={<UserLogin/>} />
         
 
     </Routes>

@@ -3,6 +3,8 @@ import "./adminAssets/bootstrap/css/bootstrap.min.css";
 import "./adminAssets/css/vanilla-zoom.min.css";
 import { Link } from "react-router-dom";
 import { Navbar } from "./Navbar.jsx";
+import axios from 'axios';
+import {  useNavigate } from 'react-router-dom';
 
 export const Register = (props) => {
   const [email, setEmail] = useState("");
@@ -14,10 +16,32 @@ export const Register = (props) => {
   const [gender, setGender] = useState("");
   const [successful, setSuccessful] = useState(false);
 
+  const navigate = useNavigate();
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     console.log('Form submitted:');
     console.log(name, surname, phoneNo, birthDate, gender, email, password);
+
+    const registerData = {
+      name: name,
+      surname: surname,
+      password: password,
+      email: email,
+      dateOfBirth: birthDate,
+      telephoneNo: phoneNo,
+      gender: gender
+    }
+
+    try {
+      const response = await axios.post('http://localhost:8080/register', registerData);
+      console.log(response.data);
+      navigate('/UserLogin');
+    }
+    catch (error)
+    {
+      console.error('Failed to submit form: ', error);
+    }
   }
 
   return (
