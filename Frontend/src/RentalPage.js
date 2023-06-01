@@ -853,6 +853,131 @@ const  RentalPage= () => {
                     </div>
                   </div>
                 </div> */}
+{amenities.map((amenities) => (
+  <div className="tab-pane fade show active description" role="tabpanel" id="description">
+  <p className="fs-5"><strong>&nbsp;<span style={{color: 'rgb(0, 0, 0)'}}>What this place offers&nbsp;</span></strong></p>
+  <div className="row">
+    <div className="col-md-7">
+      <div className="row">
+        <div className="col-lg-6 offset-lg-0" style={{marginTop: '-1px', marginBottom: '0px'}}>
+          <p className="fs-5"><strong>{amenities.name}</strong></p>
+        </div>
+        <div className="col">
+          <p className="fs-5"><i className="fas fa-star text-warning" /><span style={{color: 'rgb(0, 0, 0)'}}>&nbsp; &nbsp;{avgCleanlinessRating}&nbsp;</span></p>
+        </div>
+      </div>
+      <div className="row">
+        <div className="col">
+          <div className="row">
+            <div className="col-lg-6">
+              <p className="fs-5"><strong>Transportation</strong></p>
+            </div>
+            <div className="col">
+              <p className="fs-5"><i className="fas fa-star text-warning" /><span style={{color: 'rgb(0, 0, 0)'}}>&nbsp; &nbsp;{avgCommunicationRating}&nbsp;</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="row">
+        <div className="col" style={{paddingBottom: '0px', marginLeft: '0px', paddingTop: '0px'}}>
+          <p className="fs-5"><strong>Wifi</strong></p>
+        </div>
+        <div className="col">
+          <p className="fs-5"><i className="fas fa-star text-warning" /><span style={{color: 'rgb(0, 0, 0)'}}>&nbsp; &nbsp;{avgAccuracyRating}&nbsp;</span></p>
+        </div>
+      </div>
+    </div>
+    <div className="col">
+      <div className="row">
+        <div className="col">
+          <p className="fs-5"><strong>Free Parking</strong></p>
+        </div>
+        <div className="col">
+          <p className="fs-5"><i className="fas fa-star text-warning" /><span style={{color: 'rgb(0, 0, 0)'}}>&nbsp; &nbsp;{avgCheckinRating}&nbsp;</span></p>
+        </div>
+      </div>
+      <div className="row">
+        <div className="col">
+          <p className="fs-5"><strong>Value</strong></p>
+        </div>
+        <div className="col">
+          <p className="fs-5"><i className="fas fa-star text-warning" /><span style={{color: 'rgb(0, 0, 0)'}}>&nbsp; &nbsp;{avgValueRating}&nbsp;</span></p>
+        </div>
+      </div>
+      <div className="row">
+        <div className="col">
+          <p className="fs-5"><strong>Location</strong></p>
+        </div>
+        <div className="col">
+          <p className="fs-5"><i className="fas fa-star text-warning" /><span style={{color: 'rgb(0, 0, 0)'}}>&nbsp; &nbsp;{avgLocationRating}&nbsp;</span></p>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+
+      ))}
+<div className="tab-pane fade show active description" role="tabpanel" id="description">
+        <p className="fs-5"><i className="fas fa-star text-warning" /><strong>&nbsp;<span style={{color: 'rgb(0, 0, 0)'}}>4,5&nbsp;</span><span style={{color: 'rgb(34, 34, 34)'}}>·&nbsp;</span><span style={{color: 'rgb(0, 0, 0)'}}>&nbsp;</span><span style={{textDecoration: 'underline', color: 'rgb(0, 0, 0)'}}>{numOfReview} reviews</span></strong></p>
+        <div className="row">
+          <div className="col-md-7">
+            <div className="row">
+              <div className="col-lg-6 offset-lg-0" style={{marginTop: '-1px', marginBottom: '0px'}}>
+                <p className="fs-5"><strong>Beach-access</strong></p>
+              </div>
+              <div className="col">
+                <p className="fs-5"><i className="fas fa-star text-warning" /><span style={{color: 'rgb(0, 0, 0)'}}>&nbsp; &nbsp;{avgCleanlinessRating}&nbsp;</span></p>
+              </div>
+            </div>
+            <div className="row">
+              <div className="col">
+                <div className="row">
+                  <div className="col-lg-6">
+                    <p className="fs-5"><strong>Transportation</strong></p>
+                  </div>
+                  <div className="col">
+                    <p className="fs-5"><i className="fas fa-star text-warning" /><span style={{color: 'rgb(0, 0, 0)'}}>&nbsp; &nbsp;{avgCommunicationRating}&nbsp;</span></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="row">
+              <div className="col" style={{paddingBottom: '0px', marginLeft: '0px', paddingTop: '0px'}}>
+                <p className="fs-5"><strong>Wifi</strong></p>
+              </div>
+              <div className="col">
+                <p className="fs-5"><i className="fas fa-star text-warning" /><span style={{color: 'rgb(0, 0, 0)'}}>&nbsp; &nbsp;{avgAccuracyRating}&nbsp;</span></p>
+              </div>
+            </div>
+          </div>
+          <div className="col">
+            <div className="row">
+              <div className="col">
+                <p className="fs-5"><strong>Free Parking</strong></p>
+              </div>
+              <div className="col">
+                <p className="fs-5"><i className="fas fa-star text-warning" /><span style={{color: 'rgb(0, 0, 0)'}}>&nbsp; &nbsp;{avgCheckinRating}&nbsp;</span></p>
+              </div>
+            </div>
+            <div className="row">
+              <div className="col">
+                <p className="fs-5"><strong>Value</strong></p>
+              </div>
+              <div className="col">
+                <p className="fs-5"><i className="fas fa-star text-warning" /><span style={{color: 'rgb(0, 0, 0)'}}>&nbsp; &nbsp;{avgValueRating}&nbsp;</span></p>
+              </div>
+            </div>
+            <div className="row">
+              <div className="col">
+                <p className="fs-5"><strong>Location</strong></p>
+              </div>
+              <div className="col">
+                <p className="fs-5"><i className="fas fa-star text-warning" /><span style={{color: 'rgb(0, 0, 0)'}}>&nbsp; &nbsp;{avgLocationRating}&nbsp;</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+</div>
 
       <div className="tab-pane fade show active description" role="tabpanel" id="description">
         <p className="fs-5"><i className="fas fa-star text-warning" /><strong>&nbsp;<span style={{color: 'rgb(0, 0, 0)'}}>4,5&nbsp;</span><span style={{color: 'rgb(34, 34, 34)'}}>·&nbsp;</span><span style={{color: 'rgb(0, 0, 0)'}}>&nbsp;</span><span style={{textDecoration: 'underline', color: 'rgb(0, 0, 0)'}}>{numOfReview} reviews</span></strong></p>
@@ -915,6 +1040,8 @@ const  RentalPage= () => {
           </div>
         </div>
       </div>
+                          
+
 
                 <div
                   className="tab-pane fade specifications"
@@ -951,6 +1078,7 @@ const  RentalPage= () => {
                     </div>
                   </div>
                 </div>
+
               </div>
             </div>
             </div>

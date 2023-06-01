@@ -28,7 +28,7 @@ import AdminViewPost from './AdminViewPost';
 import AdminViewReporting from './AdminViewReporting';
 
 //Customer Pages
-//import LeaveRating from './LeaveRating';
+import LeaveRating from './LeaveRating';
 import MainPage from './MainPage';
 import MapPage  from "./MapPage";
 import PastBookingsPage from "./PastBookingsPage";
@@ -43,7 +43,7 @@ import UserLogin from "./UserLogin";
 function App() {
   return (
     <Routes>
-      <Route  path='/' element={<HostRentingMainPage/>} />
+      <Route  path='/' element={<GeneralLogin/>} />
       <Route exact path='/HostRentingProperty' element ={<HostRentingProperty/>} />
       <Route exact path='/HostRentingRoomDetails' element={<HostRentingRoomDetails/>} />
       <Route exact path='/HostRentingRoomLocation' element={<HostRentingRoomLocation/>} />
@@ -77,6 +77,8 @@ function App() {
         <Route exact path='/RentalPage' element={<RentalPage/>} />
         <Route exact path='/ShoppingCart' element={<ShoppingCart/>} />
         <Route exact path='/UserLogin' element={<UserLogin/>} />
+        <Route exact path='/LeaveRating' element={<LeaveRating/>} />
+
         
 
     </Routes>

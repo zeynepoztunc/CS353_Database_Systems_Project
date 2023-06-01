@@ -39,6 +39,10 @@ export const UserLogin = () => {
     console.log(password);
     console.log(remember_me);
 
+    const loginData = {
+
+    }
+
     const trueEmail = "";
     const truePassword = "";
     try {
@@ -46,11 +50,11 @@ export const UserLogin = () => {
         const loginResponse = await axios.get('http://localhost:8080/userLogin?email=' + email + '&password=' + password);
         console.log(loginResponse.data);
         if(loginResponse.data.loginSuccessful == true && loginResponse.data.usageMode == "Customer"){
-          //userId = loginResponse.data.userId; diyeceğiz burada
-          navigate('/MainPage');
+          let userid = loginResponse.data.userId;
+          navigate('/MainPage?userid=' + userid);
         }
         else if(loginResponse.data.loginSuccessful == true && loginResponse.data.usageMode == "Host"){
-          navigate('/HostRentingMainPage');
+          navigate('/HostRentingMainPage?userid=' + loginResponse.data.userId);
         }
         else{
           alert("Login unsuccessful");
