@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import "./assets/bootstrap/css/bootstrap.min.css";
-import "./assets/css/vanilla-zoom.min.css";
+import "./adminAssets/bootstrap/css/bootstrap.min.css";
+import "./adminAssets/css/vanilla-zoom.min.css";
 import { Link } from "react-router-dom";
 import { Navbar } from "./Navbar.jsx";
 
