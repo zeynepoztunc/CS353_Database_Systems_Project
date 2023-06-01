@@ -861,7 +861,7 @@ const  RentalPage= () => {
     <div className="col-md-7">
       <div className="row">
         <div className="col-lg-6 offset-lg-0" style={{marginTop: '-1px', marginBottom: '0px'}}>
-          <p className="fs-5"><strong>{amenities[0].name}</strong></p>
+          <p className="fs-5"><strong>{amenities.name}</strong></p>
         </div>
         <div className="col">
           <p className="fs-5"><i className="fas fa-star text-warning" /><span style={{color: 'rgb(0, 0, 0)'}}>&nbsp; &nbsp;{avgCleanlinessRating}&nbsp;</span></p>
@@ -872,7 +872,7 @@ const  RentalPage= () => {
     <div className="col">
       <div className="row">
         <div className="col">
-          <p className="fs-5"><strong>{amenities[1].name}</strong></p>
+          <p className="fs-5"><strong>{amenities.name}</strong></p>
         </div>
         <div className="col">
           <p className="fs-5"><i className="fas fa-star text-warning" /><span style={{color: 'rgb(0, 0, 0)'}}>&nbsp; &nbsp;{avgCheckinRating}&nbsp;</span></p>
