@@ -18,24 +18,24 @@ const  RentalPage= () => {
   const [selectedItems, setSelectedItems] = useState({});
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isModal2Open, setIsModal2Open] = useState(false);
-  const avgRating=4.5;
-  const dailyPrice=200;
-  const avgCleanlinessRating=4.5;
-  const avgCommunicationRating=4.25;
-  const avgAccuracyRating=4;
-  const avgCheckinRating=5;
-  const avgValueRating=4.5;
-  const avgLocationRating=4.75;
-  const numOfReview=15;
+  const avgRating=useState(4.5);
+  const dailyPrice=useState(200);
+  const avgCleanlinessRating=useState(4.5);
+  const avgCommunicationRating=useState(4.25);
+  const avgAccuracyRating=useState(4);
+  const avgCheckinRating=useState(5);
+  const avgValueRating=useState(4.5);
+  const avgLocationRating=useState(4.75);
+  const numOfReview=useState(15);
   const isSuperHost=useState(null);
   const isHearted=useState(null);
   const isFreeforEarthquakeVictims=useState(null);
-  const maxAccomodation=6;
-  const bedroomNum=3;
-  const bathroomNum=3;
-  const name="Antalya, Kalkan Beach House";
-  const hostName="Ali";
-  const description=" In Kalkan, with its excellent sea view and location surrounded by nature, awaits you. Our rental villa with the capacity of 6 people has 3 bedrooms. In the rental villa ,it has all the kitchen utensils you may need. It has aspacious lounge with open american kitchen where you can bemodern, convenient and comfortable.";
+  const maxAccomodation=useState(6);
+  const bedroomNum=useState(3);
+  const bathroomNum=useState(3);
+  const name=useState("Antalya, Kalkan Beach House");
+  const hostName=useState("Ali");
+  const description=useState(" In Kalkan, with its excellent sea view and location surrounded by nature, awaits you. Our rental villa with the capacity of 6 people has 3 bedrooms. In the rental villa ,it has all the kitchen utensils you may need. It has aspacious lounge with open american kitchen where you can bemodern, convenient and comfortable.");
   const [isFavorited, setIsFavorited] = useState(false);
   const [cleanlinessRating, setCleanlinessRating] = useState(0);
   const [communicationRating, setCommunicationRating] = useState(0);
@@ -62,7 +62,6 @@ const  RentalPage= () => {
   };const handleCleanliness = (rating) => {
     setCleanlinessRating(rating);
   };
-
 
   const handleFavoriteClick = () => {
     setIsFavorited(!isFavorited);
