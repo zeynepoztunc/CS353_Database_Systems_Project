@@ -651,7 +651,8 @@ function ProfilePage() {
                   contentLabel="All Reviews"
                   style={{
                     content: {
-                      height: '700px',
+                      height: '600px', 
+                      marginTop: '100px'
                     },
                   }}
                 >

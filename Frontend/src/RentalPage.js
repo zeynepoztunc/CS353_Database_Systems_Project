@@ -1125,13 +1125,12 @@ const  RentalPage= () => {
                             contentLabel="All Reviews"
                             style={{
                               content: {
-                                height: '700px', 
+                                height: '600px', 
+                                marginTop: '100px'
                               },
                             }}
                           >
-                            <h4 className="fs-2" style={{ paddingBottom: 0, marginBottom: 28 }}>
-                            <strong> </strong>
-                            </h4>
+                            
                             <h2>All Reviews</h2>
                             <ul>{reviewList}</ul>
                           </Modal>
