@@ -1,15 +1,16 @@
 import {  useNavigate } from 'react-router-dom';
 import NavBar from './NavBar';
 import axios from 'axios';
+import React, { useState } from 'react';
 
 function PastBookingsPage() {
   const navigate = useNavigate();
-  const booking = [
+  const [booking] = useState([
     { id:1, sdate: "24/03/2023", edate: "27/03/2023", name: 'Kaş Luxury Villa ',  city:"Antalya",host: 'Timur',guestNum:2},
     { id:2, sdate: "16/01/2022", edate: "20/03/2022",name: 'Bursa 3+1 Flat', city:"Bursa", host: 'Connor', guestNum:4 },
     { id:3, sdate: "20/11/2022", edate: "14/11/2022",name: 'İzmir Beach House ',  city:"İzmir", host: 'Melih',guestNum:5 },
     { id:4, sdate: "2/02/2021", edate: "30/01/2021",name: 'Villa Suites', city:"Muğla", host:'Jenna',guestNum:3 },
-  ];
+  ]);
 
   const goBackToProfile = (event) => {
     event.preventDefault();

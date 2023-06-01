@@ -1,15 +1,17 @@
 import {  useNavigate } from 'react-router-dom';
 import NavBar from './NavBar';
 import axios from 'axios';
+import React, { useState } from 'react';
+
 
 function PastTransactionsPage() {
     const navigate = useNavigate();
-    const transaction = [
+    const [transaction]= useState([
         { id:1, date: "24/03/2023", name: 'Kaş Luxury Villa ', type: 'Payment', amount: "420₺",status:"Successful" },
         { id:2, date: "16/01/2022", name: 'Bursa 3+1 Flat', type: 'Refund', amount: "560₺",status:"Successful" },
         { id:3, date: "20/11/2022", name: 'İzmir Beach House ', type: 'Payment', amount: "270₺",status:"Successful" },
         { id:4, date: "2/02/2021", name: 'Ankara 1+1 Flat', type: 'Payment', amount: "96₺",status:"Successful" },
-      ];
+      ]);
   
     const goBackToProfile = (event) => {
         event.preventDefault();

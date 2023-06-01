@@ -9,7 +9,7 @@ function ProfilePage() {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const averageRating = 4.5;
+  const averageRating = useState(4.5);
 
   const reviews = [
     { id: 1, author: 'John ', comment: 'Clean and kind guest!', image: "./customerAssets/img/istockphoto-1200677760-612x612.jpg" },
