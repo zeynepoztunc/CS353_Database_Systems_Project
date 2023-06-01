@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { Navbar } from "./Navbar.jsx";
 import AdminReport from "./AdminReport";
 import { PDFDocument, rgb } from "pdf-lib";
+import axios from 'axios';
 
 export const AdminHome = () => {
     //get the latest version of the report
@@ -35,6 +36,20 @@ export const AdminHome = () => {
 
   const GeneratePDFButton = async () => {
     try {
+      const reportResponse = await axios.get('http://localhost:8080/adminHome');
+      console.log(reportResponse.data);
+      reportValues[0].date = reportResponse.data.date;
+      reportValues[0].reportID = reportResponse.data.reportId;
+      reportValues[0].userCount = reportResponse.data.userCnt;
+      reportValues[0].hostCount = reportResponse.data.hostCnt;
+      reportValues[0].postingCount = reportResponse.data.postingsCnt;
+      reportValues[0].bookingCount = reportResponse.data.bookingCnt;
+      reportValues[0].victimCountUser = reportResponse.data.userEarthquakeVictimCnt;
+      reportValues[0].victimCountHost = reportResponse.data.hostEarthquakeVictimCnt;
+      reportValues[0].superhostCount = reportResponse.data.superhostCnt;
+      reportValues[0].userReportingCount = reportResponse.data.userReportingCnt;
+      reportValues[0].postReportingCount = reportResponse.data.postReportingCnt;
+
       const pdfDoc = await PDFDocument.create();
       const page = pdfDoc.addPage();
 

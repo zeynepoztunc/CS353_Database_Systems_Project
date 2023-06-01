@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import "./adminAssets/bootstrap/css/bootstrap.min.css";
 import "./adminAssets/css/vanilla-zoom.min.css";
 import { Navbar } from "./Navbar.jsx";
+import axios from "axios";
 export const AdminCustomerReportings = () => {
   const [mostRented, setMostRented] = useState(false);
   const [leastRented, setLeastRented] = useState(false);
@@ -26,6 +27,31 @@ export const AdminCustomerReportings = () => {
       photo: "assets/img/avatars/avatar1.jpeg",
     },
   ];
+
+  const fetchReportings = async () => {
+    try {
+      const response = await axios.get('http://localhost:8080/customerReportings');
+      console.log(response.data);
+      return response.data;
+    } catch (error) {
+      console.error('Failed to fetch cities:', error);
+      return [];
+    }
+  };
+
+  useEffect(() => {
+    fetchReportings().then((data) =>
+    {
+      for (let i = 0; i < data.length; i++){
+        customerReportings[i].flatName = data[i]['rental-name'];
+        customerReportings[i].reportType = "Post Reporting";
+        customerReportings[i].date = data[i]['report-date'];
+        customerReportings[i].userName = data[i].name;
+        customerReportings[i].email = data[i]['e-mail'];
+        customerReportings[i].content = data[i].description;
+      }
+    });
+  }, []);
 
   function handleSearch() {
     if (document.getElementById("formCheck-1").checked) {
@@ -71,7 +97,7 @@ export const AdminCustomerReportings = () => {
       pictureLink:
         "adminAssets/img/scenery/3222a878-4e0e-46b8-92d2-90fee6a9caa4.webp",
     },
-    {
+    /*{
       flatName: "Stylish flat in Muratpaşa",
       reportType: "Post Reporting",
       date: "Jan 16, 2022",
@@ -81,7 +107,7 @@ export const AdminCustomerReportings = () => {
         "The pictures looked nothing like the actual house. The house also had heating problems and the host ignored our calls.",
       pictureLink:
         "adminAssets/img/scenery/3222a878-4e0e-46b8-92d2-90fee6a9caa4.webp",
-    },
+    },*/
   ];
 
   return (
