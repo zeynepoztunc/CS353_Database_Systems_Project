@@ -1,5 +1,5 @@
 import React, {useState} from 'react'; 
-import {  useNavigate } from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios'; 
 
@@ -7,6 +7,8 @@ import axios from 'axios';
 const  HostRentingProperty= () => {
   const [selectedOption, setSelectedOption] = useState('');
   const navigate = useNavigate();
+  const urlParams = new URLSearchParams(window.location.search);
+  const hostId = urlParams.get('userid');
 
   const handleChange = (event) => {
     setSelectedOption(event.target.id);
@@ -36,29 +38,32 @@ const  HostRentingProperty= () => {
     let rentalType = '';
     if (selectedOption === 'formCheck-1') {
       rentalType = 'Room';
+
     } else if (selectedOption === 'formCheck-2') {
       rentalType = 'Flat';
+
     }
     try {
-      const res = await axios.post('http://localhost:8080/Rentals', {
+      const res = await axios.post('http://localhost:8080/Rentals/addRental', {
         selectedOption: selectedOption,
         rentalType: rentalType,// pass rentType in the request body
+        hostId: hostId
       });
       console.log(res.data);
       let rentalId = res.data.rentalId;
-      let hostId = res.data.hostId;
 
       if (selectedOption === 'formCheck-1') {
-        navigate(`/HostRentingRoomDetails?hostId=${hostId}&rentalId=${rentalId}`);
+        navigate(`/HostRentingRoomDetails?userid=${hostId}&rentalId=${rentalId}`);
 
       }
       if (selectedOption === 'formCheck-2') {
-        navigate(`/HostRentingFlatDetails?hostId=${hostId}&rentalId=${rentalId}`);
+        navigate(`/HostRentingFlatDetails?userid=${hostId}&rentalId=${rentalId}`);
       }
     } catch (err) {
       console.error(err);
     }
   };
+  let userId = urlParams.get('userid');
   return (
     <>
   <meta charSet="utf-8" />
@@ -113,7 +118,7 @@ const  HostRentingProperty= () => {
         <div>
           <a
             className="bs4_modal_trigger"
-            href="#"
+            href="/MainPage?userid=${userid}"
             data-modal-id="bs4_sldr_cmrce"
             data-bs-toggle="modal"
             style={{
@@ -138,7 +143,7 @@ const  HostRentingProperty= () => {
               <div className="modal-content">
                 <a
                   className="bs4_btn_x_out_shtr bs4_sldr_cmrce_close"
-                  href="#"
+                  href="/MainPage?userid=${userid}"
                   data-bs-dismiss="modal"
                 >
                   close
@@ -228,10 +233,11 @@ const  HostRentingProperty= () => {
         <ul className="navbar-nav ms-auto" />
         <ul className="navbar-nav">
           <li className="nav-item">
-            <a className="nav-link" href="#registration.html">
+            <Link className="nav-link" to={`/HostRentingProperty?userid=${userId}`}>
               RENT YOUR HOME
-            </a>
+            </Link>
           </li>
+
           <li className="nav-item">
             <a className="nav-link active" href="#">
               YOUR RENTS

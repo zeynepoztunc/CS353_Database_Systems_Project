@@ -3,29 +3,38 @@ package com.example.werent.controller;
 import com.example.werent.entity.LocationDTO;
 import com.example.werent.entity.RentalDTO;
 import com.example.werent.repository.RentalRepository;
+import com.example.werent.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
-import java.sql.Date;
-import java.text.ParseException;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @CrossOrigin
 @RestController
 @RequestMapping("/Rentals")
 public class RentalController {
     private final RentalRepository rentalRepository;
+    private UserRepository userRepository;
 
     @Autowired
-    public RentalController(RentalRepository rentalRepository) {
+    public RentalController(RentalRepository rentalRepository, UserRepository userRepository) {
+
         this.rentalRepository = rentalRepository;
+        this.userRepository = userRepository;
+
     }
 
-    @PostMapping
+    @PostMapping("/addRental")
     public RentalDTO addRental(@RequestBody RentalDTO newRental) {
 
         return rentalRepository.addRental(newRental);
+    }
+
+    @GetMapping("/getRentalsByUserId")
+    public List<RentalDTO> getAllRentals(@RequestParam Integer userid) {
+        return userRepository.getRentalsByHostId(userid);
     }
 
     @PutMapping("/updateLocation")

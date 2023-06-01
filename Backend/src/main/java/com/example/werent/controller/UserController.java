@@ -2,6 +2,7 @@ package com.example.werent.controller;
 
 import com.example.werent.entity.AdminDTO;
 import com.example.werent.entity.RegisteredUserDTO;
+import com.example.werent.entity.UserDTO;
 import com.example.werent.entity.UserEntity;
 import com.example.werent.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,17 +36,17 @@ public class UserController {
         return userRepository.adminLogin(adminId, password);
     }
 
-    /*@GetMapping
+    @GetMapping
     public List<Map<String, Object>> getAllUsers(){
         return userRepository.getAllUsers();
     }
 
     @GetMapping("/{userId}")
-    public UserEntity getSingleUser(@PathVariable int userId){
+    public UserDTO getSingleUser(@RequestParam Integer userId){
         System.out.println("CONTROLLERDAA: " + userId);
         //Custom Exception ekle
         return userRepository.getSingleUser(userId);
-    }*/
+    }
 
     //DELETE Mapping???
 }

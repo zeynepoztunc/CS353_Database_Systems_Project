@@ -4,13 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e555480-ab5a-407e-a171-4062daf29606" name="Changes" comment="minor corrections">
+    <list default="true" id="5e555480-ab5a-407e-a171-4062daf29606" name="Changes" comment="reached main page in customer">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/HostRentingCurrentRents.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/controller/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/controller/CustomerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/controller/RentalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/controller/RentalController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/repository/RentalRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/repository/RentalRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/repository/UserRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/GeneralLogin.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/GeneralLogin.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/MainPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/MainPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/UserLogin.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/UserLogin.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/HostRentingFlatLocation.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/HostRentingFlatLocation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/HostRentingFlatPricing.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/HostRentingFlatPricing.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/HostRentingMainPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/HostRentingMainPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/HostRentingProperty.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/HostRentingProperty.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/HostRentingRoomDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/HostRentingRoomDetails.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/HostRentingRoomLocation.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/HostRentingRoomLocation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/HostRentingRoomPricing.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/HostRentingRoomPricing.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,43 +69,45 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;JPA.DatabaseSchemaImportDialog&quot;: &quot;7998b21e-a609-4258-8397-36a97024c4bc&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;frontend+backend&quot;,
-    &quot;last_directory_selection&quot;: &quot;C:/Users/user/IdeaProjects/WeRent/src/main/java/com/example/werent&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/user/Desktop/WeRent/Frontend&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;f3f4db96eebdd4ab78486523217d9cc2&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "JPA.DatabaseSchemaImportDialog": "7998b21e-a609-4258-8397-36a97024c4bc",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "extract.method.default.visibility": "private",
+    "git-widget-placeholder": "frontend+backend",
+    "last_directory_selection": "C:/Users/user/IdeaProjects/WeRent/src/main/java/com/example/werent",
+    "last_opened_file_path": "C:/Users/user/Desktop/WeRent/Frontend",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "spring.configuration.checksum": "f3f4db96eebdd4ab78486523217d9cc2",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\IntelliJ IDEA 2023.1.2\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ],
-    &quot;com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect&quot;: [
-      &quot;PostgreSQL&quot;
+    "com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect": [
+      "PostgreSQL"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\user\Desktop" />
@@ -170,7 +182,8 @@
       <workItem from="1685461989849" duration="80000" />
       <workItem from="1685508642680" duration="442000" />
       <workItem from="1685617767940" duration="77000" />
-      <workItem from="1685617865400" duration="4499000" />
+      <workItem from="1685617865400" duration="6587000" />
+      <workItem from="1685636858038" duration="12568000" />
     </task>
     <task id="LOCAL-00001" summary="new upload">
       <created>1684410800015</created>
@@ -277,7 +290,21 @@
       <option name="project" value="LOCAL" />
       <updated>1685509011993</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="reached main page in customer">
+      <created>1685623538155</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1685623538155</updated>
+    </task>
+    <task id="LOCAL-00017" summary="reached main page in customer">
+      <created>1685625367667</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1685625367667</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -309,7 +336,8 @@
     <MESSAGE value="all frontend is put together" />
     <MESSAGE value="register page corrected" />
     <MESSAGE value="minor corrections" />
-    <option name="LAST_COMMIT_MESSAGE" value="minor corrections" />
+    <MESSAGE value="reached main page in customer" />
+    <option name="LAST_COMMIT_MESSAGE" value="reached main page in customer" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

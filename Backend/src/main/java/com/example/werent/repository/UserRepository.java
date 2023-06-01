@@ -1,8 +1,6 @@
 package com.example.werent.repository;
 
-import com.example.werent.entity.AdminDTO;
-import com.example.werent.entity.RegisteredUserDTO;
-import com.example.werent.entity.UserEntity;
+import com.example.werent.entity.*;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -102,15 +100,24 @@ public class UserRepository {
         }
     }
 
-    /*public List<Map<String, Object>> getAllUsers(){
+    public List<Map<String, Object>> getAllUsers(){
         //List<UserEntity> resultList = new ArrayList<UserEntity>();
         List<Map<String, Object>> rows = jdbcTemplate.queryForList("SELECT * FROM \"User\"");
         System.out.println("GET all Users executed");
         return rows;
     }
 
-    public UserEntity getSingleUser(int userId){
+    public UserDTO getSingleUser(int userId){
         System.out.println("REPODAAA: " + userId);
-        return (UserEntity) jdbcTemplate.queryForObject("SELECT * FROM \"User\" WHERE \"user-id\" = ?", new Object[]{userId}, new BeanPropertyRowMapper(UserEntity.class));
-    } */
+        return (UserDTO) jdbcTemplate.queryForObject("SELECT * FROM \"User\" WHERE \"user-id\" = ?", new Object[]{userId}, new BeanPropertyRowMapper(UserEntity.class));
+    }
+
+    public List<RentalDTO> getRentalsByHostId(Integer hostId) {
+        String sql = "SELECT * FROM \"Rental\" WHERE \"host-id\" = ?";
+        RowMapper<RentalDTO> rowMapper = new BeanPropertyRowMapper<>(RentalDTO.class);
+        List<RentalDTO> rentals = jdbcTemplate.query(sql, rowMapper, hostId);
+        System.out.println("RENTALS: " + rentals);
+        return rentals;
+    }
+
 }

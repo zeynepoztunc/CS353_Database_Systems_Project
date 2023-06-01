@@ -78,7 +78,7 @@ const  HostRentingRoomLocation= () => {
 
   const urlParams = new URLSearchParams(window.location.search);
   const rentalId = urlParams.get('rentalId');
-  const hostId = urlParams.get('hostId');
+  const userid = urlParams.get("userid");
   const navigate = useNavigate();
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -99,7 +99,7 @@ const  HostRentingRoomLocation= () => {
       });
       console.log(response.data);
       // If successful, navigate to the next page
-      navigate('/HostRentingRoomPricing?hostId=' + hostId + '&rentalId=' + rentalId);
+      navigate('/HostRentingRoomPricing?userid=' + userid + '&rentalId=' + rentalId);
     } catch (error) {
       console.error('Failed to send rental data:', error);
       // Handle error appropriately, e.g., show an error message to the user
