@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Map;
 
+@CrossOrigin
 @RestController
 @RequestMapping("")
 public class CustomerController {
@@ -17,8 +18,8 @@ public class CustomerController {
     public CustomerController(CustomerRepository customerRepository){ this.customerRepository = customerRepository; }
 
     //CUSTOMER Main Page
-    @RequestMapping(value = "/main", method = RequestMethod.GET)
-    public List<Map<String, Object>> listRentalsForCustomer(@RequestParam int userId){
+    @RequestMapping( "/main/listRentalsForCustomer")
+    public List<Map<String, Object>> listRentalsForCustomer(@RequestParam Integer userId){
         return customerRepository.listRentalsForCustomer(userId);
     }
 

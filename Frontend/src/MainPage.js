@@ -8,18 +8,24 @@ const MainPage = () => {
   const [placeValues, setPlaceValues] = useState([]);
 
   useEffect(() => {
-    fetchData();
+    fetchData().then(r => console.log('fetched data'));
   }, []);
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const userIdString = urlParams.get('userid');
+  const userId = parseInt(userIdString, 10);
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('http://localhost:8080/main?userId='); //+userId laziım
+      const response = await axios.get(`http://localhost:8080/main/listRentalsForCustomer?userId=${userId}`);
+      console.log(response.data);
       setPlaceValues(response.data);
     } catch (error) {
       console.error('Failed to fetch rentals:', error);
       setPlaceValues([]);
     }
   };
+
 
   function toggleHeart(id) {
     setPlaceValues((prevPlaceValues) => {
@@ -78,16 +84,16 @@ const MainPage = () => {
 
     const stars = [];
     for (let i = 0; i < fullStarCount; i++) {
-      stars.push(<img key={i} src="customerAssets/img/star.svg" />);
+      stars.push(<img key={i} src="./customerAssets/img/star.svg" />);
     }
 
     if (hasHalfStar) {
-      stars.push(<img key={fullStarCount} src="customerAssets/img/star-half-empty.svg" />);
+      stars.push(<img key={fullStarCount} src="./customerAssets/img/star-half-empty.svg" />);
     }
 
     const emptyStarCount = starCount - fullStarCount - (hasHalfStar ? 1 : 0);
     for (let i = 0; i < emptyStarCount; i++) {
-      stars.push(<img key={fullStarCount + i + (hasHalfStar ? 1 : 0)} src="customerAssets/img/star-empty.svg" />);
+      stars.push(<img key={fullStarCount + i + (hasHalfStar ? 1 : 0)} src="./customerAssets/img/star-empty.svg" />);
     }
 
     return stars;
@@ -108,15 +114,15 @@ const MainPage = () => {
         name="viewport"
         content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
       />
-      <link rel="stylesheet" href="customerAssets/bootstrap/css/bootstrap.min.css" />
+      <link rel="stylesheet" href="./customerAssets/bootstrap/css/bootstrap.min.css" />
       <link
         rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i&display=swap"
       />
-      <link rel="stylesheet" href="customerAssets/fonts/fontawesome-all.min.css" />
-      <link rel="stylesheet" href="customerAssets/fonts/simple-line-icons.min.css" />
-      <link rel="stylesheet" href="customerAssets/css/baguetteBox.min.css" />
-      <link rel="stylesheet" href="customerAssets/css/vanilla-zoom.min.css" />
+      <link rel="stylesheet" href="./customerAssets/fonts/fontawesome-all.min.css" />
+      <link rel="stylesheet" href="./customerAssets/fonts/simple-line-icons.min.css" />
+      <link rel="stylesheet" href="./customerAssets/css/baguetteBox.min.css" />
+      <link rel="stylesheet" href="./customerAssets/css/vanilla-zoom.min.css" />
 
       <NavBar></NavBar>
 
