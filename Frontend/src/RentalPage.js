@@ -67,7 +67,7 @@ const  RentalPage= () => {
     setIsFavorited(!isFavorited);
   };
   const options = Array.from({ length: 10 }, (_, index) => index + 1);
-  const reviews = [
+  const [reviews]= useState( [
     { id: 1, author: 'Jennifer ', comment: 'The place was just perfect.', image: "customerAssets/img/photo-1596813362035-3edcff0c2487.jpg" },
     { id: 2, author: 'Natalie ', comment: 'I really enjoyed my stay!', image: "customerAssets/img/images.jpg" },
     { id: 3, author: 'Jonathan', comment: 'Lovely place with a great view.', image: "customerAssets/img/profile.webp" },
@@ -75,8 +75,8 @@ const  RentalPage= () => {
     { id: 5, author: 'Chris', comment: 'Everything was perfect!', image: "customerAssets/img/photo-1584043720379-b56cd9199c94.jpg" },
     { id: 4, author: 'Nate', comment: 'This place was amazing!', image: "customerAssets/img/dark-haired-man-in-brown-leather-jacket.jpg" }
 
-  ];
-  const amenities = [
+  ]);
+  const [amenities] =useState( [
     { id: 1, name: 'Wifi ',  image: 'fas fa-wifi' },
     { id: 2, name: 'Free Parking ',  image: 'fas fa-parking' },
     { id: 3, name: 'First-aid kit',  image: 'fas fa-medkit' },
@@ -84,7 +84,7 @@ const  RentalPage= () => {
     { id: 5, name: 'Beach Accesss', image: 'fas fa-umbrella-beach' },
     { id: 4, name: 'Transportation Access',  image: 'fas fa-bus' }
 
-  ];
+  ]);
   const reviewList = reviews.map((review) => (
     <div className="row">
                 

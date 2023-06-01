@@ -8,15 +8,13 @@ import axios from 'axios';
 function ProfilePage() {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
-
   const averageRating = useState(4.5);
-
-  const reviews = [
+  const [reviews]= useState([
     { id: 1, author: 'John ', comment: 'Clean and kind guest!', image: "./customerAssets/img/istockphoto-1200677760-612x612.jpg" },
     { id: 2, author: 'Jane ', comment: 'Respectful and tidy', image: './customerAssets/img/happy-young-woman-sitting-on-260nw-2018571389.webp' },
     { id: 3, author: 'Liz', comment: 'Was very nice and welcoming', image: "./customerAssets/img/360_F_367464887_f0w1JrL8PddfuH3P2jSPlIGjKU2BI0rn.jpg" },
     { id: 4, author: 'Deniz', comment: 'Super guest!', image: "./customerAssets/img/smile-young-man-close-gorgeous-260nw-186076112.webp" }
-  ];
+  ]);
   const reviewList = reviews.map((review) => (
     <div className="row">
 
