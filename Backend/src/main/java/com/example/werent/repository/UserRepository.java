@@ -66,7 +66,6 @@ public class UserRepository {
             RegisteredUserDTO registeredUser = new RegisteredUserDTO();
             registeredUser.setUserId(rs.getInt("user-id"));
             registeredUser.setUsageMode(rs.getString("usage-mode"));
-            registeredUser.setLoginSuccessful(true);
             return registeredUser;
         };
 
@@ -81,9 +80,7 @@ public class UserRepository {
         }
     }
 
-    public AdminDTO adminLogin(AdminDTO loginCredentials){
-        int adminId = loginCredentials.getAdminId();
-        String password = loginCredentials.getPassword();
+    public AdminDTO adminLogin(int adminId, String password){
         System.out.println("Login Credentials -> Admin ID: " + adminId + " Password: " + password);
         String sqlAdminLogin = "SELECT * FROM \"Admin\" A, \"User\" U WHERE A.\"admin-id\" = ? AND U.password = ? AND A.\"user-id\" = U.\"user-id\"";
 
@@ -96,6 +93,7 @@ public class UserRepository {
 
         try{
             AdminDTO adminDTO = jdbcTemplate.queryForObject(sqlAdminLogin, new Object[]{adminId, password}, rowMapper);
+            adminDTO.setLoginSuccessful(true);
             return adminDTO;
         }
         catch (EmptyResultDataAccessException e){
