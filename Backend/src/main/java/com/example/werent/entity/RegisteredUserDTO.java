@@ -18,6 +18,15 @@ public class RegisteredUserDTO {
     private String description;
     private String userType;
     private Date joinDate;
+    private boolean creationSuccesful;
+
+    public boolean isCreationSuccesful() {
+        return creationSuccesful;
+    }
+
+    public void setCreationSuccesful(boolean creationSuccesful) {
+        this.creationSuccesful = creationSuccesful;
+    }
 
     public int getUserId() {
         return userId;

@@ -3,6 +3,8 @@ import "./adminAssets/bootstrap/css/bootstrap.min.css";
 import "./adminAssets/css/vanilla-zoom.min.css";
 import { Link } from "react-router-dom";
 import { Navbar } from "./Navbar.jsx";
+import axios from 'axios';
+import {  useNavigate } from 'react-router-dom';
 
 export const UserLogin = () => {
   const [email, setEmail] = useState("");
@@ -10,7 +12,9 @@ export const UserLogin = () => {
   const [remember_me, setRememberme] = useState(false);
   const [successful, setSuccesful] = useState(false);
 
-  const handleSubmit = (e) => {
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setEmail(document.getElementById("email").value);
     setPassword(document.getElementById("password").value);
@@ -35,10 +39,22 @@ export const UserLogin = () => {
     console.log(password);
     console.log(remember_me);
 
+    const loginData = {
+
+    }
+
     const trueEmail = "";
     const truePassword = "";
     try {
-      if (password.equals(truePassword)) {
+      if (password != truePassword) {
+        const loginResponse = await axios.get('http://localhost:8080/userLogin?email=' + email + '&password=' + password);
+        console.log(loginResponse.data);
+        if(loginResponse.data.creationSuccesful == true && loginResponse.data.usageMode == "Customer"){
+          navigate('/MainPage');
+        }
+        else{
+          alert("Login unsuccessful");
+        }
       }
       setEmail("");
       setPassword("");
@@ -76,7 +92,7 @@ export const UserLogin = () => {
               <h2 className="text-info">User/Host Log In</h2>
               <p>Welcome to WeRent!</p>
             </div>
-            <form>
+            <form onSubmit={handleSubmit}>
               <div className="mb-3">
                 <label className="form-label" htmlFor="email">
                   Email
@@ -120,11 +136,9 @@ export const UserLogin = () => {
                   Register
                 </label>
               </div>
-              <Link to="/AdminHome">
                 <button className="btn btn-primary" type="submit">
                   Log In
                 </button>
-              </Link>
             </form>
           </div>
         </section>

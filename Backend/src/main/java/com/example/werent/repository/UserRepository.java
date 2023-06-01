@@ -24,27 +24,41 @@ public class UserRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public void addUser(RegisteredUserDTO newUser){
-        System.out.println("Registering User...");
-        String sqlAddUser = "INSERT INTO \"User\" (name, surname, password) VALUES (?, ?, ?)";
-        jdbcTemplate.update(sqlAddUser, newUser.getName(), newUser.getSurname(), newUser.getPassword());
+    public RegisteredUserDTO addUser(RegisteredUserDTO newUser){
+        RegisteredUserDTO resultingUser = new RegisteredUserDTO();
 
-        int userId = jdbcTemplate.queryForObject("SELECT lastval()", Integer.class);
-        newUser.setUserId(userId);
+        Integer cnt = jdbcTemplate.queryForObject(
+                "SELECT count(*) FROM \"RegisteredUser\" WHERE \"e-mail\" =  ?", Integer.class, newUser.getEmail()
+        );
+        if(cnt <= 0){
+            System.out.println("Registering User...");
+            String sqlAddUser = "INSERT INTO \"User\" (name, surname, password) VALUES (?, ?, ?)";
+            jdbcTemplate.update(sqlAddUser, newUser.getName(), newUser.getSurname(), newUser.getPassword());
 
-        String sqlAddRegisteredUser = "INSERT INTO \"RegisteredUser\" (\"user-id\", \"e-mail\", \"date-of-birth\", \"telephone-no\", gender, \"is-earthquake-victim\", balance, \"user-rating\", \"usage-mode\", description, \"user-type\", \"join-date\") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        jdbcTemplate.update(sqlAddRegisteredUser,userId, newUser.getEmail(), newUser.getDateOfBirth(), newUser.getTelephoneNo(), newUser.getGender(), false, 0, 0, "Customer", null, "Customer", newUser.getJoinDate());
+            int userId = jdbcTemplate.queryForObject("SELECT lastval()", Integer.class);
+            newUser.setUserId(userId);
 
-        String sqlAddCustomer = "INSERT INTO \"Customer\" (\"user-id\", \"credit-card-number\") VALUES (?, ?)";
-        jdbcTemplate.update(sqlAddCustomer, userId, "");
+            String sqlAddRegisteredUser = "INSERT INTO \"RegisteredUser\" (\"user-id\", \"e-mail\", \"date-of-birth\", \"telephone-no\", gender, \"is-earthquake-victim\", balance, \"user-rating\", \"usage-mode\", description, \"user-type\", \"join-date\") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            jdbcTemplate.update(sqlAddRegisteredUser,userId, newUser.getEmail(), newUser.getDateOfBirth(), newUser.getTelephoneNo(), newUser.getGender(), false, 0, 0, "Customer", null, "Customer", newUser.getJoinDate());
 
-        String sqlAddHost = "INSERT INTO \"Host\" (\"user-id\", iban, region, language, job, \"is-superhost\") VALUES (?, ?, ?, ?, ?, ?)";
-        jdbcTemplate.update(sqlAddHost, userId, "", "", "", "", false);
+            String sqlAddCustomer = "INSERT INTO \"Customer\" (\"user-id\", \"credit-card-number\") VALUES (?, ?)";
+            jdbcTemplate.update(sqlAddCustomer, userId, "");
+
+            String sqlAddHost = "INSERT INTO \"Host\" (\"user-id\", iban, region, language, job, \"is-superhost\") VALUES (?, ?, ?, ?, ?, ?)";
+            jdbcTemplate.update(sqlAddHost, userId, "", "", "", "", false);
+
+            resultingUser.setCreationSuccesful(true);
+            return resultingUser;
+        }
+        else{
+            System.out.println("Email already registered!");
+            resultingUser.setCreationSuccesful(false);
+            return resultingUser;
+        }
+
     }
 
-    public RegisteredUserDTO login(RegisteredUserDTO loginCredentials){
-        String email = loginCredentials.getEmail();
-        String password = loginCredentials.getPassword();
+    public RegisteredUserDTO login(String email, String password){
         System.out.println("Login Credentials -> Email: " + email + " Password: " + password);
         String sqlLogin = "SELECT * FROM \"RegisteredUser\" R, \"User\" U WHERE R.\"e-mail\" = ? AND U.password = ? AND R.\"user-id\" = U.\"user-id\"";
 
@@ -52,11 +66,13 @@ public class UserRepository {
             RegisteredUserDTO registeredUser = new RegisteredUserDTO();
             registeredUser.setUserId(rs.getInt("user-id"));
             registeredUser.setUsageMode(rs.getString("usage-mode"));
+            registeredUser.setCreationSuccesful(true);
             return registeredUser;
         };
 
         try{
             RegisteredUserDTO registeredUserDTO = jdbcTemplate.queryForObject(sqlLogin, new Object[]{email, password}, rowMapper);
+            registeredUserDTO.setCreationSuccesful(true);
             return registeredUserDTO;
         }
         catch (EmptyResultDataAccessException e){

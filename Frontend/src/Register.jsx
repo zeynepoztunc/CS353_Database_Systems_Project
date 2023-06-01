@@ -30,13 +30,19 @@ export const Register = (props) => {
       email: email,
       dateOfBirth: birthDate,
       telephoneNo: phoneNo,
-      gender: gender
+      gender: gender,
+      joinDate: new Date()
     }
 
     try {
       const response = await axios.post('http://localhost:8080/register', registerData);
       console.log(response.data);
-      navigate('/UserLogin');
+      if(response.data.creationSuccesful == true){
+        navigate('/UserLogin');
+      }
+      else{
+        alert("Email already registered!");
+      }
     }
     catch (error)
     {

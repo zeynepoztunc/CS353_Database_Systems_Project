@@ -21,13 +21,13 @@ public class UserController {
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public void addUser(@RequestBody RegisteredUserDTO newUser){
-        userRepository.addUser(newUser);
+    public RegisteredUserDTO addUser(@RequestBody RegisteredUserDTO newUser){
+        return userRepository.addUser(newUser);
     }
 
     @RequestMapping(value = "/userLogin", method = RequestMethod.GET)
-    public RegisteredUserDTO login(@RequestBody RegisteredUserDTO loginCredentials){
-        return userRepository.login(loginCredentials);
+    public RegisteredUserDTO login(@RequestParam String email, @RequestParam String password){
+        return userRepository.login(email, password);
     }
 
     @RequestMapping(value = "/adminLogin", method = RequestMethod.GET)
