@@ -674,7 +674,7 @@ const  RentalPage= () => {
                   </GoogleMap>
                 </LoadScript>
               
-                <div
+                {/* <div
                   className="tab-pane fade show active description"
                   role="tabpanel"
                   id="description"
@@ -711,7 +711,7 @@ const  RentalPage= () => {
                           <p className="fs-5">
                           {/* <span style={{ color: "rgb(0, 0, 0)" }}>
                               &nbsp; &nbsp;{avgCleanlinessRating}&nbsp;
-                            </span> */}
+                            </span> }
                             {[1, 2, 3, 4, 5].map((index) => (
                               <span key={index} onClick={() => handleCleanliness(index)}>
                                 {index <= cleanlinessRating ? (
@@ -852,15 +852,76 @@ const  RentalPage= () => {
                       </div>
                     </div>
                   </div>
+                </div> */}
+
+      <div className="tab-pane fade show active description" role="tabpanel" id="description">
+        <p className="fs-5"><i className="fas fa-star text-warning" /><strong>&nbsp;<span style={{color: 'rgb(0, 0, 0)'}}>4,5&nbsp;</span><span style={{color: 'rgb(34, 34, 34)'}}>·&nbsp;</span><span style={{color: 'rgb(0, 0, 0)'}}>&nbsp;</span><span style={{textDecoration: 'underline', color: 'rgb(0, 0, 0)'}}>{numOfReview} reviews</span></strong></p>
+        <div className="row">
+          <div className="col-md-7">
+            <div className="row">
+              <div className="col-lg-6 offset-lg-0" style={{marginTop: '-1px', marginBottom: '0px'}}>
+                <p className="fs-5"><strong>Cleanliness</strong></p>
+              </div>
+              <div className="col">
+                <p className="fs-5"><i className="fas fa-star text-warning" /><span style={{color: 'rgb(0, 0, 0)'}}>&nbsp; &nbsp;{avgCleanlinessRating}&nbsp;</span></p>
+              </div>
+            </div>
+            <div className="row">
+              <div className="col">
+                <div className="row">
+                  <div className="col-lg-6">
+                    <p className="fs-5"><strong>Communication</strong></p>
+                  </div>
+                  <div className="col">
+                    <p className="fs-5"><i className="fas fa-star text-warning" /><span style={{color: 'rgb(0, 0, 0)'}}>&nbsp; &nbsp;{avgCommunicationRating}&nbsp;</span></p>
+                  </div>
                 </div>
+              </div>
+            </div>
+            <div className="row">
+              <div className="col" style={{paddingBottom: '0px', marginLeft: '0px', paddingTop: '0px'}}>
+                <p className="fs-5"><strong>Accuracy</strong></p>
+              </div>
+              <div className="col">
+                <p className="fs-5"><i className="fas fa-star text-warning" /><span style={{color: 'rgb(0, 0, 0)'}}>&nbsp; &nbsp;{avgAccuracyRating}&nbsp;</span></p>
+              </div>
+            </div>
+          </div>
+          <div className="col">
+            <div className="row">
+              <div className="col">
+                <p className="fs-5"><strong>Check-in</strong></p>
+              </div>
+              <div className="col">
+                <p className="fs-5"><i className="fas fa-star text-warning" /><span style={{color: 'rgb(0, 0, 0)'}}>&nbsp; &nbsp;{avgCheckinRating}&nbsp;</span></p>
+              </div>
+            </div>
+            <div className="row">
+              <div className="col">
+                <p className="fs-5"><strong>Value</strong></p>
+              </div>
+              <div className="col">
+                <p className="fs-5"><i className="fas fa-star text-warning" /><span style={{color: 'rgb(0, 0, 0)'}}>&nbsp; &nbsp;{avgValueRating}&nbsp;</span></p>
+              </div>
+            </div>
+            <div className="row">
+              <div className="col">
+                <p className="fs-5"><strong>Location</strong></p>
+              </div>
+              <div className="col">
+                <p className="fs-5"><i className="fas fa-star text-warning" /><span style={{color: 'rgb(0, 0, 0)'}}>&nbsp; &nbsp;{avgLocationRating}&nbsp;</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
                 <div
                   className="tab-pane fade specifications"
                   role="tabpanel"
                   id="specifications"
                 >
-                  <div className="table-responsive">
-                   
-                  </div>
+                
                 </div>
                 <div className="tab-pane fade" role="tabpanel" id="reviews">
                   <div className="reviews">
@@ -872,43 +933,17 @@ const  RentalPage= () => {
                         <img src="customerAssets/img/star.svg" />
                         <img src="customerAssets/img/star-empty.svg" />
                       </div>
-                      <h4>Incredible product</h4>
-                      <span className="text-muted">
-                        <a href="#">John Smith</a>, 20 Jan 2018
-                      </span>
                      
                     </div>
                   </div>
                   <div className="reviews">
                     <div className="review-item">
-                      <div className="rating">
-                        <img src="customerAssets/img/star.svg" />
-                        <img src="customerAssets/img/star.svg" />
-                        <img src="customerAssets/img/star.svg" />
-                        <img src="customerAssets/img/star.svg" />
-                        <img src="customerAssets/img/star-empty.svg" />
-                      </div>
-                      <h4>Incredible product</h4>
-                      <span className="text-muted">
-                        <a href="#">John Smith</a>, 20 Jan 2018
-                      </span>
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Donec augue nunc, pretium at augue at, convallis
-                        pellentesque ipsum. Lorem ipsum dolor sit amet,
-                        consectetur adipiscing elit.
-                      </p>
+                     
+                    
                     </div>
                   </div>
                   <div className="reviews">
-                    <div className="review-item">
-                      <div className="rating">
-                        <img src="customerAssets/img/star.svg" />
-                        <img src="customerAssets/img/star.svg" />
-                        <img src="customerAssets/img/star.svg" />
-                        <img src="customerAssets/img/star.svg" />
-                        <img src="customerAssets/img/star-empty.svg" />
-                      </div>
+                    <div className="review-item">s
                       <h4>Incredible product</h4>
                       <span className="text-muted">
                         <a href="#">John Smith</a>, 20 Jan 2018
