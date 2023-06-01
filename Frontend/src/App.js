@@ -43,7 +43,7 @@ import UserLogin from "./UserLogin";
 function App() {
   return (
     <Routes>
-      <Route  path='/' element={<HostRentingMainPage/>} />
+      <Route  path='/' element={<GeneralLogin/>} />
       <Route exact path='/HostRentingProperty' element ={<HostRentingProperty/>} />
       <Route exact path='/HostRentingRoomDetails' element={<HostRentingRoomDetails/>} />
       <Route exact path='/HostRentingRoomLocation' element={<HostRentingRoomLocation/>} />

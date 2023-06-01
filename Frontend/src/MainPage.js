@@ -8,7 +8,7 @@ const MainPage = () => {
   const [placeValues, setPlaceValues] = useState([]);
 
   useEffect(() => {
-    fetchData();
+    fetchData().then(r => console.log('fetched data'));
   }, []);
 
   const urlParams = new URLSearchParams(window.location.search);
@@ -18,6 +18,7 @@ const MainPage = () => {
   const fetchData = async () => {
     try {
       const response = await axios.get(`http://localhost:8080/main/listRentalsForCustomer?userId=${userId}`);
+      console.log(response.data);
       setPlaceValues(response.data);
     } catch (error) {
       console.error('Failed to fetch rentals:', error);
