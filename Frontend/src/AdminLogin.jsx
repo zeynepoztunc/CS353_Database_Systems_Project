@@ -43,7 +43,7 @@ export const AdminLogin = (props) => {
     const trueAdminId = "";
     const truePassword = "";
     try {
-      if (password.equals(truePassword)) {
+      if (password != truePassword) {
         const loginResponse = await axios.get('http://localhost:8080/adminLogin?adminId=' + adminId + '&password=' + password);
         console.log(loginResponse.data);
         if(loginResponse.data.loginSuccessful == true){
