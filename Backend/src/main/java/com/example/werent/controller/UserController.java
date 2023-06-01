@@ -31,8 +31,8 @@ public class UserController {
     }
 
     @RequestMapping(value = "/adminLogin", method = RequestMethod.GET)
-    public AdminDTO adminLogin(@RequestBody AdminDTO loginCredentials){
-        return userRepository.adminLogin(loginCredentials);
+    public AdminDTO adminLogin(@RequestParam int adminId, @RequestParam String password){
+        return userRepository.adminLogin(adminId, password);
     }
 
     /*@GetMapping

@@ -4,16 +4,19 @@ import "./adminAssets/css/vanilla-zoom.min.css";
 //import 'https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.css';
 import { Link, Navigate } from "react-router-dom";
 import { Navbar } from "./Navbar.jsx";
+import axios from 'axios';
+import {  useNavigate } from 'react-router-dom';
 
 export const AdminLogin = (props) => {
-  const [email, setEmail] = useState("");
+  const [adminId, setAdminId] = useState("");
   const [password, setPassword] = useState("");
   const [remember_me, setRememberme] = useState(false);
   const [successful, setSuccesful] = useState(false);
 
-  const handleSubmit = (e) => {
+  const navigate = useNavigate();
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setEmail(document.getElementById("email").value);
+    setAdminId(document.getElementById("adminId").value);
     setPassword(document.getElementById("password").value);
     console.log(remember_me + "adsf");
     //setSuccesful(true);
@@ -25,24 +28,33 @@ export const AdminLogin = (props) => {
       alert("You have to enter your password");
       return;
     }
-    if (!email) {
-      alert("You have to enter your email.");
+    if (!adminId) {
+      alert("You have to enter your admin ID.");
       return;
     }
-    if (!email || !password) {
-      alert("You have to input both email and password");
+    if (!adminId || !password) {
+      alert("You have to input both admin ID and password");
       return;
     }
-    console.log(email);
+    console.log(adminId);
     console.log(password);
     console.log(remember_me);
 
-    const trueEmail = "";
+    const trueAdminId = "";
     const truePassword = "";
     try {
-      if (password.equals(truePassword)) {
+      if (password != truePassword) {
+        const loginResponse = await axios.get('http://localhost:8080/adminLogin?adminId=' + adminId + '&password=' + password);
+        console.log(loginResponse.data);
+        if(loginResponse.data.loginSuccessful == true){
+          //adminId = loginResponse.data.adminId; diyeceğiz burada
+          navigate('/AdminHome');
+        }
+        else{
+          alert("Login unsuccessful");
+        }
       }
-      setEmail("");
+      setAdminId("");
       setPassword("");
       setRememberme(true);
       setSuccesful(true);
@@ -80,15 +92,15 @@ export const AdminLogin = (props) => {
             </div>
             <form onSubmit={handleSubmit}>
               <div className="mb-3">
-                <label className="form-label" htmlFor="email">
-                  Email
+                <label className="form-label" htmlFor="adminId">
+                  Admin ID
                 </label>
                 <input
                   className="form-control item"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  type="email"
-                  id="email"
+                  value={adminId}
+                  onChange={(e) => setAdminId(e.target.value)}
+                  type="adminId"
+                  id="adminId"
                 />
               </div>
               <div className="mb-3">

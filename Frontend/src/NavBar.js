@@ -7,7 +7,6 @@ import { addDays, subDays } from "date-fns";
 import DropdownMenu from './DropdownMenu';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 
-
 const  NavBar= () => {
     const navigate = useNavigate();
     
@@ -97,7 +96,6 @@ const  NavBar= () => {
     </div>
   </nav>
   
-
 </>
 </container>
 

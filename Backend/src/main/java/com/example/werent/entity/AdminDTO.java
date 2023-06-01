@@ -6,6 +6,15 @@ public class AdminDTO {
     private String surname;
     private String password;
     private int adminId;
+    private boolean loginSuccessful;
+
+    public boolean isLoginSuccessful() {
+        return loginSuccessful;
+    }
+
+    public void setLoginSuccessful(boolean loginSuccessful) {
+        this.loginSuccessful = loginSuccessful;
+    }
 
     public int getUserId() {
         return userId;
