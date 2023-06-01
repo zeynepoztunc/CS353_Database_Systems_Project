@@ -13,7 +13,7 @@ const MainPage = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('http://localhost:8080/main');
+      const response = await axios.get('http://localhost:8080/main?userId='); //+userId laziım
       setPlaceValues(response.data);
     } catch (error) {
       console.error('Failed to fetch rentals:', error);

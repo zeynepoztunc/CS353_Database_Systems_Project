@@ -18,8 +18,8 @@ public class CustomerController {
 
     //CUSTOMER Main Page
     @RequestMapping(value = "/main", method = RequestMethod.GET)
-    public List<Map<String, Object>> listRentalsForCustomer(){
-        return customerRepository.listRentalsForCustomer();
+    public List<Map<String, Object>> listRentalsForCustomer(@RequestParam int userId){
+        return customerRepository.listRentalsForCustomer(userId);
     }
 
     @RequestMapping(value = "/main", method = RequestMethod.POST)
