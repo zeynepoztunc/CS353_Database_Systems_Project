@@ -49,8 +49,11 @@ export const UserLogin = () => {
       if (password != truePassword) {
         const loginResponse = await axios.get('http://localhost:8080/userLogin?email=' + email + '&password=' + password);
         console.log(loginResponse.data);
-        if(loginResponse.data.creationSuccesful == true && loginResponse.data.usageMode == "Customer"){
+        if(loginResponse.data.loginSuccessful == true && loginResponse.data.usageMode == "Customer"){
           navigate('/MainPage');
+        }
+        else if(loginResponse.data.loginSuccessful == true && loginResponse.data.usageMode == "Host"){
+          navigate('/HostRentingMainPage');
         }
         else{
           alert("Login unsuccessful");

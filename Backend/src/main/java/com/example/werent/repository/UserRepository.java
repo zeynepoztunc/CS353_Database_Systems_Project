@@ -66,13 +66,13 @@ public class UserRepository {
             RegisteredUserDTO registeredUser = new RegisteredUserDTO();
             registeredUser.setUserId(rs.getInt("user-id"));
             registeredUser.setUsageMode(rs.getString("usage-mode"));
-            registeredUser.setCreationSuccesful(true);
+            registeredUser.setLoginSuccessful(true);
             return registeredUser;
         };
 
         try{
             RegisteredUserDTO registeredUserDTO = jdbcTemplate.queryForObject(sqlLogin, new Object[]{email, password}, rowMapper);
-            registeredUserDTO.setCreationSuccesful(true);
+            registeredUserDTO.setLoginSuccessful(true);
             return registeredUserDTO;
         }
         catch (EmptyResultDataAccessException e){

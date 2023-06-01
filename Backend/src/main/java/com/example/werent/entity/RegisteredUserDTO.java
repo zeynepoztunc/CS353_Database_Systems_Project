@@ -19,6 +19,15 @@ public class RegisteredUserDTO {
     private String userType;
     private Date joinDate;
     private boolean creationSuccesful;
+    private boolean loginSuccessful;
+
+    public boolean isLoginSuccessful() {
+        return loginSuccessful;
+    }
+
+    public void setLoginSuccessful(boolean loginSuccessful) {
+        this.loginSuccessful = loginSuccessful;
+    }
 
     public boolean isCreationSuccesful() {
         return creationSuccesful;
