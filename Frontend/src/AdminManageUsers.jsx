@@ -84,7 +84,10 @@ export const AdminManageUsers = () => {
           <div className="d-flex flex-column" id="content-wrapper">
             <div id="content">
               <div className="container-fluid">
-                <h3 className="text-dark mb-4">Manage Users</h3>
+                <div className="block-heading">
+                  <h2 className="text-info">Manage Users</h2>
+                  <p>All users and basic statistics about them.</p>
+                </div>
                 <div className="card shadow">
                   <div className="card-header py-3">
                     <p className="text-primary m-0 fw-bold">User Info</p>
@@ -235,7 +238,6 @@ export const AdminManageUsers = () => {
                             <th>Name</th>
                             <th>User Type</th>
                             <th>Complaint Count</th>
-                            <th>See Complaints</th>
                             <th>Join Date</th>
                             <th>Manage</th>
                           </tr>
@@ -254,19 +256,7 @@ export const AdminManageUsers = () => {
                             </td>
                             <td>Host</td>
                             <td>0</td>
-                            <td style={{ textAlign: "center" }}>
-                              <button
-                                className="btn btn-primary"
-                                type="button"
-                                style={{
-                                  paddingLeft: 10,
-                                  margin: "auto",
-                                  /*borderLeft: 10, */ textAlign: "center",
-                                }}
-                              >
-                                View
-                              </button>
-                            </td>
+
                             <td>2022/11/28</td>
                             <td style={{ textAlign: "center" }}>
                               <button
@@ -296,19 +286,7 @@ export const AdminManageUsers = () => {
                               </td>
                               <td>{item.userType}</td>
                               <td>{item.complaintCount}</td>
-                              <td style={{ textAlign: "center" }}>
-                                <button
-                                  className="btn btn-primary"
-                                  type="button"
-                                  style={{
-                                    paddingLeft: 10,
-                                    margin: "auto",
-                                    /*borderLeft: 10, */ textAlign: "center",
-                                  }}
-                                >
-                                  View
-                                </button>
-                              </td>
+
                               <td>
                                 {item.joinDate}
                                 <br />
@@ -334,358 +312,6 @@ export const AdminManageUsers = () => {
                               </td>
                             </tr>
                           ))}
-
-                          <tr>
-                            <td>
-                              <img
-                                className="rounded-circle me-2"
-                                width={30}
-                                height={30}
-                                src="adminAssets/img/avatars/avatar3.jpeg"
-                              />
-                              Ashton Cox
-                            </td>
-                            <td>User</td>
-                            <td>1</td>
-                            <td style={{ textAlign: "center" }}>
-                              <button
-                                className="btn btn-primary"
-                                type="button"
-                                style={{
-                                  paddingLeft: 10,
-                                  margin: "auto",
-                                  /*borderLeft: 10, */ textAlign: "center",
-                                }}
-                              >
-                                View
-                              </button>
-                            </td>
-                            <td>
-                              2022/01/12
-                              <br />
-                            </td>
-                            <td style={{ textAlign: "center" }}>
-                              <button
-                                className="btn btn-primary"
-                                type="button"
-                                style={{
-                                  paddingLeft: 10,
-                                  margin: "auto",
-                                  /*borderLeft: 10, */ textAlign: "center",
-                                }}
-                              >
-                                <span
-                                  style={{
-                                    backgroundColor: "rgb(11, 94, 215)",
-                                  }}
-                                >
-                                  View Profile
-                                </span>
-                              </button>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <img
-                                className="rounded-circle me-2"
-                                width={30}
-                                height={30}
-                                src="adminAssets/img/avatars/avatar4.jpeg"
-                              />
-                              Bradley Greer
-                            </td>
-                            <td>User</td>
-                            <td>0</td>
-                            <td style={{ textAlign: "center" }}>
-                              <button
-                                className="btn btn-primary"
-                                type="button"
-                                style={{
-                                  paddingLeft: 10,
-                                  margin: "auto",
-                                  /*borderLeft: 10, */ textAlign: "center",
-                                }}
-                              >
-                                View
-                              </button>
-                            </td>
-                            <td>
-                              2022/10/13
-                              <br />
-                            </td>
-                            <td style={{ textAlign: "center" }}>
-                              <button
-                                className="btn btn-primary"
-                                type="button"
-                                style={{
-                                  paddingLeft: 10,
-                                  margin: "auto",
-                                  /*borderLeft: 10, */ textAlign: "center",
-                                }}
-                              >
-                                View Profile
-                              </button>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <img
-                                className="rounded-circle me-2"
-                                width={30}
-                                height={30}
-                                src="adminAssets/img/avatars/avatar5.jpeg"
-                              />
-                              Brenden Wagner
-                            </td>
-                            <td>Host</td>
-                            <td>0</td>
-                            <td style={{ textAlign: "center" }}>
-                              <button
-                                className="btn btn-primary"
-                                type="button"
-                                style={{
-                                  paddingLeft: 10,
-                                  margin: "auto",
-                                  /*borderLeft: 10, */ textAlign: "center",
-                                }}
-                              >
-                                View
-                              </button>
-                            </td>
-                            <td>
-                              2022/06/07
-                              <br />
-                            </td>
-                            <td style={{ textAlign: "center" }}>
-                              <button
-                                className="btn btn-primary"
-                                type="button"
-                                style={{
-                                  paddingLeft: 10,
-                                  margin: "auto",
-                                  /*borderLeft: 10, */ textAlign: "center",
-                                }}
-                              >
-                                View Profile
-                              </button>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <img
-                                className="rounded-circle me-2"
-                                width={30}
-                                height={30}
-                                src="adminAssets/img/avatars/avatar1.jpeg"
-                              />
-                              Brielle Williamson
-                            </td>
-                            <td>User</td>
-                            <td>4</td>
-                            <td style={{ textAlign: "center" }}>
-                              <button
-                                className="btn btn-primary"
-                                type="button"
-                                style={{
-                                  paddingLeft: 10,
-                                  margin: "auto",
-                                  /*borderLeft: 10, */ textAlign: "center",
-                                }}
-                              >
-                                View
-                              </button>
-                            </td>
-                            <td>
-                              2022/12/02
-                              <br />
-                            </td>
-                            <td style={{ textAlign: "center" }}>
-                              <button
-                                className="btn btn-primary"
-                                type="button"
-                                style={{
-                                  paddingLeft: 10,
-                                  margin: "auto",
-                                  /*borderLeft: 10, */ textAlign: "center",
-                                }}
-                              >
-                                View Profile
-                              </button>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <img
-                                className="rounded-circle me-2"
-                                width={30}
-                                height={30}
-                                src="assets/img/avatars/avatar2.jpeg"
-                              />
-                              Bruno Nash
-                              <br />
-                            </td>
-                            <td>Host</td>
-                            <td>22</td>
-                            <td style={{ textAlign: "center" }}>
-                              <button
-                                className="btn btn-primary"
-                                type="button"
-                                style={{
-                                  paddingLeft: 10,
-                                  margin: "auto",
-                                  /*borderLeft: 10, */ textAlign: "center",
-                                }}
-                              >
-                                View
-                              </button>
-                            </td>
-                            <td>
-                              2022/05/03
-                              <br />
-                            </td>
-                            <td style={{ textAlign: "center" }}>
-                              <button
-                                className="btn btn-primary"
-                                type="button"
-                                style={{
-                                  paddingLeft: 10,
-                                  margin: "auto",
-                                  /*borderLeft: 10, */ textAlign: "center",
-                                }}
-                              >
-                                View Profile
-                              </button>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <img
-                                className="rounded-circle me-2"
-                                width={30}
-                                height={30}
-                                src="assets/img/avatars/avatar3.jpeg"
-                              />
-                              Caesar Vance
-                            </td>
-                            <td>Host</td>
-                            <td>0</td>
-                            <td style={{ textAlign: "center" }}>
-                              <button
-                                className="btn btn-primary"
-                                type="button"
-                                style={{
-                                  paddingLeft: 10,
-                                  margin: "auto",
-                                  /*borderLeft: 10, */ textAlign: "center",
-                                }}
-                              >
-                                View
-                              </button>
-                            </td>
-                            <td>
-                              2022/12/12
-                              <br />
-                            </td>
-                            <td style={{ textAlign: "center" }}>
-                              <button
-                                className="btn btn-primary"
-                                type="button"
-                                style={{
-                                  paddingLeft: 10,
-                                  margin: "auto",
-                                  /*borderLeft: 10, */ textAlign: "center",
-                                }}
-                              >
-                                View Profile
-                              </button>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <img
-                                className="rounded-circle me-2"
-                                width={30}
-                                height={30}
-                                src="assets/img/avatars/avatar4.jpeg"
-                              />
-                              Cara Stevens
-                            </td>
-                            <td>User</td>
-                            <td>0</td>
-                            <td style={{ textAlign: "center" }}>
-                              <button
-                                className="btn btn-primary"
-                                type="button"
-                                style={{
-                                  paddingLeft: 10,
-                                  margin: "auto",
-                                  /*borderLeft: 10, */ textAlign: "center",
-                                }}
-                              >
-                                View
-                              </button>
-                            </td>
-                            <td>
-                              2022/12/06
-                              <br />
-                            </td>
-                            <td style={{ textAlign: "center" }}>
-                              <button
-                                className="btn btn-primary"
-                                type="button"
-                                style={{
-                                  paddingLeft: 10,
-                                  margin: "auto",
-                                  /*borderLeft: 10, */ textAlign: "center",
-                                }}
-                              >
-                                View Profile
-                              </button>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <img
-                                className="rounded-circle me-2"
-                                width={30}
-                                height={30}
-                                src="assets/img/avatars/avatar5.jpeg"
-                              />
-                              Cedric Kelly
-                            </td>
-                            <td>Host</td>
-                            <td>0</td>
-                            <td style={{ textAlign: "center" }}>
-                              <button
-                                className="btn btn-primary"
-                                type="button"
-                                style={{
-                                  paddingLeft: 10,
-                                  margin: "auto",
-                                  /*borderLeft: 10, */ textAlign: "center",
-                                }}
-                              >
-                                View
-                              </button>
-                            </td>
-                            <td>
-                              2022/03/29
-                              <br />
-                            </td>
-                            <td style={{ textAlign: "center" }}>
-                              <button
-                                className="btn btn-primary"
-                                type="button"
-                                style={{
-                                  paddingLeft: 10,
-                                  margin: "auto",
-                                  /*borderLeft: 10, */ textAlign: "center",
-                                }}
-                              >
-                                View Profile
-                              </button>
-                            </td>
-                          </tr>
                         </tbody>
                         <tfoot>
                           <tr>
@@ -725,7 +351,6 @@ export const AdminManageUsers = () => {
                 </div>
               </div>
             </div>
-            
           </div>
         </section>
       </main>
