@@ -26,6 +26,24 @@ const MainPage = () => {
     }
   };
 
+  const [cities, setCities] = useState([]);
+
+   const fetchCities = async () => {
+      try {
+        const response = await axios.get('http://localhost:8080/locations/cities');
+        return response.data;
+      } catch (error) {
+        console.error('Failed to fetch cities:', error);
+        return [];
+      }
+    };
+
+    useEffect(() => {
+      fetchCities().then((data) =>
+      {
+        setCities(data);
+      });
+    }, []);
 
 function toggleHeart(rentalId) {
   setPlaceValues((prevPlaceValues) => {
@@ -233,16 +251,20 @@ function toggleHeart(rentalId) {
                       <div className="filter-item">
                         <h3>City</h3>
                         <div className="form-check">
-                          <input
-                            className="form-check-input"
-                            type="checkbox"
-                            id="formCheck-5"
-                            value="countryside"
-                            onChange={handleFilterChange}
-                          />
-                          <label className="form-check-label" htmlFor="formCheck-5">
-                            Ankara
-                          </label>
+                          {cities.map((city, index) => (
+                              <div>
+                                <input
+                                  className="form-check-input"
+                                  type="checkbox"
+                                  id="formCheck-5"
+                                  value="countryside"
+                                  onChange={handleFilterChange}
+                                />
+                                <label className="form-check-label" htmlFor="formCheck-5">
+                                  {item['cityName']}
+                                </label>
+                              </div>
+                          ))}
                         </div>
                         <div className="form-check">
                           <input
