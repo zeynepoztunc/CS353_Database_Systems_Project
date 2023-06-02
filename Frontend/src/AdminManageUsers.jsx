@@ -1,9 +1,7 @@
-import React, {useEffect, useState} from "react";
+import React, { useState } from "react";
 import "./adminAssets/bootstrap/css/bootstrap.min.css";
 import "./adminAssets/css/vanilla-zoom.min.css";
 import { Navbar } from "./Navbar.jsx";
-import axios from 'axios';
-import {  useNavigate } from 'react-router-dom';
 
 export const AdminManageUsers = () => {
   const [mostRented, setMostRented] = useState(false);
@@ -13,7 +11,6 @@ export const AdminManageUsers = () => {
   const [highestRating, setHighestRating] = useState(false);
   const [lowestRating, setLowestRating] = useState(false);
   const [search, setSearch] = useState("");
-  const [usersDyn, setUsersDyn] = useState([]);
   const users = [
     {
       name: "Airi Satou",
@@ -30,22 +27,6 @@ export const AdminManageUsers = () => {
       photo: "assets/img/avatars/avatar1.jpeg",
     },
   ];
-  const navigate = useNavigate();
-
-  const fetchUsers = async () => {
-    try {
-      const response = await axios.get('http://localhost:8080/listAllUsers');
-      console.log(response.data);
-      setUsersDyn(response.data);
-    } catch (error) {
-      console.error('Failed to fetch cities:', error);
-      setUsersDyn([]);
-    }
-  };
-
-  useEffect(() => {
-    fetchUsers().then(r => console.log('fetched data'));
-  }, []);
 
   function handleSearch() {
     if (document.getElementById("formCheck-1").checked) {
@@ -103,7 +84,10 @@ export const AdminManageUsers = () => {
           <div className="d-flex flex-column" id="content-wrapper">
             <div id="content">
               <div className="container-fluid">
-                <h3 className="text-dark mb-4">Manage Users</h3>
+                <div className="block-heading">
+                  <h2 className="text-info">Manage Users</h2>
+                  <p>All users and basic statistics about them.</p>
+                </div>
                 <div className="card shadow">
                   <div className="card-header py-3">
                     <p className="text-primary m-0 fw-bold">User Info</p>
@@ -254,17 +238,43 @@ export const AdminManageUsers = () => {
                             <th>Name</th>
                             <th>User Type</th>
                             <th>Complaint Count</th>
-                            <th>See Complaints</th>
                             <th>Join Date</th>
                             <th>Manage</th>
                           </tr>
                         </thead>
 
                         <tbody>
+                          <tr>
+                            <td>
+                              <img
+                                className="rounded-circle me-2"
+                                width={30}
+                                height={30}
+                                src="adminAssets/img/avatars/avatar1.jpeg"
+                              />
+                              Airi Satou
+                            </td>
+                            <td>Host</td>
+                            <td>0</td>
 
+                            <td>2022/11/28</td>
+                            <td style={{ textAlign: "center" }}>
+                              <button
+                                className="btn btn-primary"
+                                type="button"
+                                style={{
+                                  paddingLeft: 10,
+                                  margin: "auto",
+                                  /*borderLeft: 10, */ textAlign: "center",
+                                }}
+                              >
+                                View Profile
+                              </button>
+                            </td>
+                          </tr>
 
-                          {usersDyn.map((item, index) => (
-                            <tr key={index}>
+                          {users.map((item) => (
+                            <tr>
                               <td>
                                 <img
                                   className="rounded-circle me-2"
@@ -276,19 +286,7 @@ export const AdminManageUsers = () => {
                               </td>
                               <td>{item.userType}</td>
                               <td>{item.complaintCount}</td>
-                              <td style={{ textAlign: "center" }}>
-                                <button
-                                  className="btn btn-primary"
-                                  type="button"
-                                  style={{
-                                    paddingLeft: 10,
-                                    margin: "auto",
-                                    /*borderLeft: 10, */ textAlign: "center",
-                                  }}
-                                >
-                                  View
-                                </button>
-                              </td>
+
                               <td>
                                 {item.joinDate}
                                 <br />
@@ -314,7 +312,6 @@ export const AdminManageUsers = () => {
                               </td>
                             </tr>
                           ))}
-
                         </tbody>
                         <tfoot>
                           <tr>
@@ -354,7 +351,6 @@ export const AdminManageUsers = () => {
                 </div>
               </div>
             </div>
-            
           </div>
         </section>
       </main>
