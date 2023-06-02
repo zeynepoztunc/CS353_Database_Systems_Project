@@ -203,7 +203,7 @@ public class RentalDTO
         this.description = description;
     }
 
-    public boolean isEarthquakeSupport() {
+    public boolean getEarthquakeSupport() {
         return earthquakeSupport;
     }
 

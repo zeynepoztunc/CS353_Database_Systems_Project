@@ -9,6 +9,7 @@ import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import NavBar from './NavBar';
 import Modal from 'react-modal';
 import axios from 'axios';
+import { FaMountain } from 'react-icons/fa';
 
 
 const  RentalPage= () => {
@@ -45,6 +46,8 @@ const  RentalPage= () => {
 
   const [dailyPrice, setPrice] = useState(0);
   const [earthquakeSupport, setEarthquakeSupport] = useState(false);
+  const [guestNo, setGuestNo] = useState(0);
+
 
 
   const navigate = useNavigate();
@@ -56,7 +59,8 @@ const  RentalPage= () => {
   const fetchRentalDetails = async (rentalIdString) => {
     try {
       const response = await axios.get(`http://localhost:8080/Rentals/getRentalsRentalId?rentalId=${rentalIdString}`);
-      console.log(response);
+      console.log(response.data);
+      console.log( "earthquake: " + response.data.earthquakeSupport);
       return response.data;
     } catch(error) {
       console.error('Error fetching rental details:', error);
@@ -82,9 +86,11 @@ const  RentalPage= () => {
           console.log(rental.hostId);
           console.log(rental.dailyPrice);
           console.log(rental.earthquakeSupport);
+          console.log(rental.guestNo);
           setRentalName(rental.rentalName);
           setPrice(rental.dailyPrice);
           setEarthquakeSupport(rental.earthquakeSupport);
+          setGuestNo(rental.guestNo);
 
           return fetchHostDetails(rentalIdString);
         })
@@ -303,7 +309,7 @@ const  RentalPage= () => {
                 <p style={{ marginTop: "-13px" }}>
                   <strong>
                     <span style={{ color: "rgb(34, 34, 34)" }}>
-                      Can accommodate {maxAccomodation} people&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                      Can accommodate {guestNo} people&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                       &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                       &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
                     </span>
@@ -378,19 +384,19 @@ const  RentalPage= () => {
                     </div>
                     <h3 />
                     <p
-                      className="fs-6 text-success"
-                      style={{
-                        marginBottom: "-4px",
-                        paddingRight: 0,
-                        paddingTop: 0,
-                        paddingBottom: 0,
-                        marginRight: 113
-                      }}
+                        className="fs-6"
+                        style={{
+                          marginBottom: "-4px",
+                          paddingRight: 0,
+                          paddingTop: 0,
+                          paddingBottom: 0,
+                          marginRight: 113
+                        }}
                     >
-                      <i className="fas fa-unlock text-success" />
-                      <span style={{ color: "rgb(0, 0, 0)" }}>
-                        &nbsp;free for earthquake victims
-                      </span>
+                        <span style={{ color: earthquakeSupport ? "green" : "red" }}>
+    <FaMountain style={{ marginRight: "10px" }} />
+                          {earthquakeSupport ? "Earthquake support" : "No earthquake support"}
+  </span>
                     </p>
                   </div>
                   <div className="price">

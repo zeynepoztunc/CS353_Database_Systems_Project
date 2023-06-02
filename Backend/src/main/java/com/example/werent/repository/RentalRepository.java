@@ -69,7 +69,7 @@ public class RentalRepository {
     public RentalDTO getRental(Integer rentalId)
     {
         String sql = "SELECT * FROM \"Rental\" WHERE \"rental-id\" = ?";
-        return jdbcTemplate.queryForObject(sql, new Object[]{rentalId}, new RowMapper<RentalDTO>() {
+        return jdbcTemplate.queryForObject(sql, new Object[]{rentalId}, new  RowMapper<RentalDTO>() {
             @Override
             public RentalDTO mapRow(ResultSet rs, int rowNum) throws SQLException {
                 RentalDTO rental = new RentalDTO();
@@ -94,6 +94,8 @@ public class RentalRepository {
                 rental.setLongitude((float) rs.getDouble("longitude"));
                 rental.setCity(rs.getString("city"));
                 rental.setProvince(rs.getString("province"));
+                rental.setEarthquakeSupport(rs.getBoolean("earthquake-support"));
+                rental.setGuestNo(rs.getInt("guest-no"));
                 return rental;
             }
         });
