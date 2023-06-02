@@ -8,6 +8,7 @@ import HostRentingFlatDetails from './HostRentingFlatDetails';
 import HostRentingFlatLocation from './HostRentingFlatLocation';
 import HostRentingFlatPricing from './HostRentingFlatPricing';
 import HostRentingMainPage from './HostRentingMainPage';
+import HostRentingCurrentRents from './HostRentingCurrentRents';
 
 import Register from './Register';
 import GeneralLogin from './GeneralLogin';
@@ -78,6 +79,8 @@ function App() {
         <Route exact path='/ShoppingCart' element={<ShoppingCart/>} />
         <Route exact path='/UserLogin' element={<UserLogin/>} />
         <Route exact path='/LeaveRating' element={<LeaveRating/>} />
+        <Route exact path='/HostRentingCurrentRents' element={<HostRentingCurrentRents/>} />
+
 
         
 

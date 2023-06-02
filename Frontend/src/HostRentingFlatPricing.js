@@ -48,7 +48,7 @@ const HostRentingFlatPricing = () => {
 
   const urlParams = new URLSearchParams(window.location.search);
   const rentalId = urlParams.get("rentalId");
-  const hostId = urlParams.get("hostId");
+  const userid = urlParams.get("userid");
   const handleSubmit = async (event) => {
     event.preventDefault();
     console.log(rentalId);

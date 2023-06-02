@@ -44,7 +44,7 @@ const  HostRentingRoomDetails= () => {
   const [earthquakeSupport, setEarthquakeSupport] = useState(false);
   const [couchsurfing, setCouchsurfing] = useState(false);
   const urlParams = new URLSearchParams(window.location.search);
-  const hostId = urlParams.get('hostId');
+  const userid = urlParams.get('userid');
   const rentalId = urlParams.get('rentalId');
 
   const handleRoomDescriptionChange = event => setDescription(event.target.value);
@@ -87,7 +87,7 @@ const  HostRentingRoomDetails= () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     console.log('rentalid', rentalId);
-    console.log('hostId', hostId);
+    console.log('hostId', userid);
     console.log('rentalName', roomName);
     console.log('areaInM2', roomSize);
     console.log('guestNo', guestCount);
@@ -102,7 +102,7 @@ const  HostRentingRoomDetails= () => {
 
     const formData = {
       rentalId: rentalId,
-      hostId: hostId,
+      hostId: userid,
       rentalName: roomName,
       areaInM2: roomSize,
       guestNo: guestCount,
@@ -131,7 +131,7 @@ const  HostRentingRoomDetails= () => {
       const response = await axios.post('http://localhost:8080/updateRoomDetails', formData);
       console.log(response.data);
       console.log(amenitiesResponse.data);
-      navigate('/HostRentingRoomLocation?hostId=' + hostId + '&rentalId=' + rentalId);
+      navigate('/HostRentingRoomLocation?userid=' + userid + '&rentalId=' + rentalId);
     } catch (error) {
       console.error('Failed to submit form: ', error);
     }

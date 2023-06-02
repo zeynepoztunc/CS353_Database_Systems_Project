@@ -11,8 +11,8 @@ const  HostRentingRoomPricing= () => {
   const [endDate, setEndDate] = useState(date);
 
 
-  const [earliestCheckIn, setEarliestCheckIn] = useState('00:00:00');
-  const [latestCheckOut, setLatestCheckOut] = useState('00:00:00');
+  const [earliestCheckIn, setEarliestCheckIn] = useState("00:00:00");
+  const [latestCheckOut, setLatestCheckOut] = useState("00:00:00");
   const [cancellationHourLimit, setCancellationHourLimit] = useState(0);
 
   const [price, setPrice] = useState(0);
@@ -22,6 +22,9 @@ const  HostRentingRoomPricing= () => {
   const [autoApprove, setAutoApprove] = useState(false);
   const [isAdminApproved, setisAdminApproved] = useState(true);
   const [customRefundEnabled, setCustomRefundEnabled] = useState(false);
+
+
+
 
   const navigate = useNavigate();
 
@@ -51,7 +54,7 @@ const  HostRentingRoomPricing= () => {
 
   const urlParams = new URLSearchParams(window.location.search);
   const rentalId = urlParams.get('rentalId');
-  const hostId = urlParams.get('hostId');
+  const userid = urlParams.get("userid");
   const handleSubmit = async (event) =>
   {
     event.preventDefault();
@@ -81,12 +84,11 @@ const  HostRentingRoomPricing= () => {
       const isoEndDate = endDate.toISOString();
 
       const updateRentalDatesResponse = await axios.put(`http://localhost:8080/Rentals/updateRentalDates?rentalId=${rentalId}&hostSelectedStartDate=${isoStartDate}&hostSelectedEndDate=${isoEndDate}`);
-
       console.log(updateRentalDatesResponse.data);
-      // console.log(updateRentalInfoResponse.data); // undefined variable
+      console.log(updateRentalInfoResponse.data); // undefined variable
 
       // If successful, navigate to the next page
-      navigate('/HostRentingMainPage', { replace: true });
+      navigate(`/HostRentingCurrentRents?userid=${userid}`);
     } catch (error) {
       console.error(error);
     }
@@ -423,7 +425,7 @@ const  HostRentingRoomPricing= () => {
             </label>
             <input
                 className="form-control"
-                type="time"
+                type="datetime"
                 value={earliestCheckIn}
                 onChange={event => setEarliestCheckIn(event.target.value)}
             />
@@ -437,7 +439,7 @@ const  HostRentingRoomPricing= () => {
             </label>
             <input
                 className="form-control"
-                type="time"
+                type="datetime"
                 value={latestCheckOut}
                 onChange={event => setLatestCheckOut(event.target.value)}
             />

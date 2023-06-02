@@ -1,14 +1,17 @@
-import {  useNavigate } from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 const  HostRentingMainPage= () => {
     const navigate = useNavigate();
+    const urlParams = new URLSearchParams(window.location.search);
+    const userid = urlParams.get('userid');
     const handleSubmit = (event) => {
         event.preventDefault();
-        navigate('/HostRentingProperty');
+        navigate('/HostRentingProperty?userid='+userid);
       };
-    return (
+  //let userId = urlParams.get('userid');
+  return (
         <>
   <meta charSet="utf-8" />
   <meta
@@ -61,20 +64,24 @@ const  HostRentingMainPage= () => {
           WeRent
         </a>
         <div>
-          <a
-            className="bs4_modal_trigger"
-            href="#"
-            data-modal-id="bs4_sldr_cmrce"
-            data-bs-toggle="modal"
-            style={{
-              fontSize: 16,
-              background: "var(--bs-blue)",
-              color: "var(--bs-white)",
-              fontFamily: "Montserrat, sans-serif"
-            }}
+          <Link
+              className="bs4_modal_trigger"
+              to={`/MainPage`}
+              data-modal-id="bs4_sldr_cmrce"
+              data-bs-toggle="modal"
+              style={{
+                fontSize: 16,
+                background: "var(--bs-blue)",
+                color: "var(--bs-white)",
+                fontFamily: "Montserrat, sans-serif",
+                display: 'inline-block',
+                padding: '10px 20px', // adjust as needed
+                textDecoration: 'none',
+                border: 'none'
+              }}
           >
-           SWITCH TO CUSTOMER MODE
-          </a>
+            SWITCH TO CUSTOMER MODE
+          </Link>
           <div
             id="bs4_sldr_cmrce"
             className="modal fade bs4_modal bs4_blue bs4_bg_white bs4_bd_black bs4_bd_semi_trnsp bs4_none_radius bs4_shadow_none bs4_center bs4_animate bs4FadeInDown bs4_duration_md bs4_easeOutQuint bs4_size_sldr_cmrce"
@@ -88,7 +95,7 @@ const  HostRentingMainPage= () => {
               <div className="modal-content">
                 <a
                   className="bs4_btn_x_out_shtr bs4_sldr_cmrce_close"
-                  href="#"
+                  href=""
                   data-bs-dismiss="modal"
                 >
                   close
