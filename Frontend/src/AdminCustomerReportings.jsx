@@ -11,6 +11,8 @@ export const AdminCustomerReportings = () => {
   const [highestRating, setHighestRating] = useState(false);
   const [lowestRating, setLowestRating] = useState(false);
   const [search, setSearch] = useState("");
+  const [customerReportings, setReportings] = useState([]);
+
   const users = [
     {
       name: "Airi Satou",
@@ -32,25 +34,25 @@ export const AdminCustomerReportings = () => {
     try {
       const response = await axios.get('http://localhost:8080/customerReportings');
       console.log(response.data);
-      return response.data;
+      /*for (let i = 0; i < response.data.length; i++){
+        console.log("flatname: ", response.data[i]['rental-name'], " email: ", response.data[i]['e-mail']);
+        customerReportings[i].flatName = response.data[i]['rental-name'];
+        customerReportings[i].reportType = "Customer Post Reporting";
+        customerReportings[i].date = response.data[i]['report-date'];
+        customerReportings[i].userName = response.data[i]['name'];
+        customerReportings[i].email = response.data[i]['e-mail'];
+        customerReportings[i].content = response.data[i]['description'];
+      }*/
+      setReportings(response.data);
+      //return customerReportings;
     } catch (error) {
       console.error('Failed to fetch cities:', error);
-      return [];
+      setReportings([]);
     }
   };
 
   useEffect(() => {
-    fetchReportings().then((data) =>
-    {
-      for (let i = 0; i < data.length; i++){
-        customerReportings[i].flatName = data[i]['rental-name'];
-        customerReportings[i].reportType = "Post Reporting";
-        customerReportings[i].date = data[i]['report-date'];
-        customerReportings[i].userName = data[i].name;
-        customerReportings[i].email = data[i]['e-mail'];
-        customerReportings[i].content = data[i].description;
-      }
-    });
+    fetchReportings().then(r => console.log('fetched data'));
   }, []);
 
   function handleSearch() {
@@ -85,7 +87,7 @@ export const AdminCustomerReportings = () => {
     }
   }
 
-  const customerReportings = [
+  /*const customerReportings = [
     {
       flatName: "Stylish flat in Muratpaşa",
       reportType: "Post Reporting",
@@ -107,8 +109,8 @@ export const AdminCustomerReportings = () => {
         "The pictures looked nothing like the actual house. The house also had heating problems and the host ignored our calls.",
       pictureLink:
         "adminAssets/img/scenery/3222a878-4e0e-46b8-92d2-90fee6a9caa4.webp",
-    },*/
-  ];
+    },
+  ];*/
 
   return (
     <>
@@ -254,41 +256,6 @@ export const AdminCustomerReportings = () => {
                         </div>
                       </div>
             <div className="block-content">
-              <div className="clean-blog-post">
-                <div className="row">
-                  <div className="col-lg-5">
-                    <h1>
-                      <span style={{ backgroundColor: "rgb(246, 246, 246)" }}>
-                        Stylish flat in Muratpaşa
-                      </span>
-                    </h1>
-                    <img
-                      className="rounded img-fluid"
-                      src="adminAssets/img/scenery/3222a878-4e0e-46b8-92d2-90fee6a9caa4.webp"
-                    />
-                  </div>
-                  <div className="col-lg-7">
-                    <h3>Post Reporting</h3>
-                    <div className="info">
-                      <span className="text-muted">
-                        Jan 16, 2022 by&nbsp;
-                        <a href="#">John Smith johnsmith@gmail.com</a>
-                      </span>
-                    </div>
-                    <p>
-                      The pictures looked nothing like the actual house. The
-                      house also had heating problems and the host ignored our
-                      calls.
-                    </p>
-                    <button
-                      className="btn btn-outline-primary btn-sm"
-                      type="button"
-                    >
-                      View Details
-                    </button>
-                  </div>
-                </div>
-              </div>
               
               {customerReportings.map((item, index) => (
                 <div className="clean-blog-post" key={index}>
@@ -296,7 +263,7 @@ export const AdminCustomerReportings = () => {
                   <div className="col-lg-5">
                     <h1>
                       <span style={{ backgroundColor: "rgb(246, 246, 246)" }}>
-                        {item.flatName}
+                        {item['rental-name']}
                       </span>
                     </h1>
                     <img
@@ -306,16 +273,16 @@ export const AdminCustomerReportings = () => {
                   </div>
                   <div className="col-lg-7">
                     <h3>
-                      <strong>{item.reportType}</strong>
+                      <strong>{"Customer Post Reporting"}</strong>
                     </h3>
                     <div className="info">
                       <span className="text-muted">
-                        {item.date}
-                        <a href="#">{item.userName} {item.date}</a>
+                        {item['report-date'] + "    "}
+                        <a href="#">{item['name'] + " " + item['surname'] + " - " + item['e-mail']} </a>
                       </span>
                     </div>
                     <p>
-                      {item.content}
+                      {item['description']}
                     </p>
                     <button
                       className="btn btn-outline-primary btn-sm"
@@ -338,42 +305,7 @@ export const AdminCustomerReportings = () => {
                 
               ))}
               
-              
-              
-              
-              <div className="clean-blog-post">
-                <div className="row">
-                  <div className="col-lg-5">
-                    <h1>
-                      <span style={{ backgroundColor: "rgb(246, 246, 246)" }}>
-                        Luxury condo in Efes
-                      </span>
-                    </h1>
-                    <img
-                      className="rounded img-fluid"
-                      src="adminAssets/img/scenery/bcf9680c-1812-4f29-83ee-0ba8e22afb2c.webp"
-                    />
-                  </div>
-                  <div className="col-lg-7">
-                    <h3>Post Reporting</h3>
-                    <div className="info">
-                      <span className="text-muted">
-                        April 16, 2023 by&nbsp;<a href="#">Mustafa Ayna</a>
-                      </span>
-                    </div>
-                    <p>
-                      There was a missing bed and the wardrobes were broken.
-                      Majority of amenities were missing.
-                    </p>
-                    <button
-                      className="btn btn-outline-primary btn-sm"
-                      type="button"
-                    >
-                      View Details
-                    </button>
-                  </div>
-                </div>
-              </div>
+
             </div>
           </div>
         </section>
