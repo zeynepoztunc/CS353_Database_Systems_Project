@@ -5,7 +5,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import {useState} from 'react'; 
 import { addDays, subDays } from "date-fns";
 import DropdownMenu from './DropdownMenu';
-import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+import {Circle, GoogleMap, LoadScript, Marker} from '@react-google-maps/api';
 import NavBar from './NavBar';
 import Modal from 'react-modal';
 import axios from 'axios';
@@ -35,7 +35,6 @@ const  RentalPage= () => {
   const bathroomNum=useState(3);
   const [rentalName, setRentalName] = useState('');
   const [hostFullName, setHostFullName] = useState('');
-  const description=useState(" In Kalkan, with its excellent sea view and location surrounded by nature, awaits you. Our rental villa with the capacity of 6 people has 3 bedrooms. In the rental villa ,it has all the kitchen utensils you may need. It has aspacious lounge with open american kitchen where you can bemodern, convenient and comfortable.");
   const [isFavorited, setIsFavorited] = useState(false);
   const [cleanlinessRating, setCleanlinessRating] = useState(0);
   const [communicationRating, setCommunicationRating] = useState(0);
@@ -47,13 +46,20 @@ const  RentalPage= () => {
   const [dailyPrice, setPrice] = useState(0);
   const [earthquakeSupport, setEarthquakeSupport] = useState(false);
   const [guestNo, setGuestNo] = useState(0);
+  const [areaInM2, setAreaInM2] = useState(0);
+  const [description, setDescription] = useState('');
+  const [numOfBeds, setNumOfBeds] = useState(0);
+  const [latitude, setLatitude] = useState(0.0);
+  const [longitude, setLongitude] = useState(0.0);
+  const [location, setLocation] = useState({lat: 0.0, lng: 0.0});
+
 
 
 
   const navigate = useNavigate();
   const urlParams = new URLSearchParams(window.location.search);
   const userIdString = urlParams.get('userid');
-  const rentalIdString = urlParams.get('rentalid');
+  const rentalIdString = urlParams.get('rentalId');
 
 
   const fetchRentalDetails = async (rentalIdString) => {
@@ -78,6 +84,8 @@ const  RentalPage= () => {
   }
 
 
+
+
   useEffect(() => {
     fetchRentalDetails(rentalIdString)
         .then(rental => {
@@ -87,10 +95,21 @@ const  RentalPage= () => {
           console.log(rental.dailyPrice);
           console.log(rental.earthquakeSupport);
           console.log(rental.guestNo);
+          console.log(rental.areaInM2);
+          console.log(rental.description);
+          console.log(rental.numOfBeds);
+          console.log(rental.latitude);
+          console.log(rental.longitude);
           setRentalName(rental.rentalName);
           setPrice(rental.dailyPrice);
           setEarthquakeSupport(rental.earthquakeSupport);
           setGuestNo(rental.guestNo);
+          setAreaInM2(rental.areaInM2);
+          setDescription(rental.description);
+          setNumOfBeds(rental.numOfBeds);
+          setLatitude(rental.latitude);
+          setLongitude(rental.longitude);
+          setLocation({lat: rental.latitude, lng: rental.longitude});
 
           return fetchHostDetails(rentalIdString);
         })
@@ -103,6 +122,7 @@ const  RentalPage= () => {
         .catch(error => {
           console.error('Error:', error);
         });
+
   }, [rentalIdString]);  // Include dependencies your effect uses
 
 
@@ -203,15 +223,12 @@ const  RentalPage= () => {
     setIsModal2Open(true);
   };
   const containerStyle = {
-    width: '720px',
-    height: '322px',
+    width: '600px',
+    height: '360px',
     marginLeft:'240px'
   };
 
-  const defaultCenter = {
-    lat: 39.8813,
-    lng: 32.6984
-  };
+
   const handleMapClick = (event) => {
     setSelectedLocation({
       lat: event.latLng.lat(),
@@ -299,8 +316,10 @@ const  RentalPage= () => {
                     </div>
                   </div>
                 </div>
-                <p style={{ marginTop: "-5px" }}>
+                <p style={{ marginTop: "20px" }}>
                   <span style={{ color: "rgb(34, 34, 34)" }}>
+                   <strong>Property Description:</strong>
+                    <br />
                     {description}
                   </span>
                   <br />
@@ -309,30 +328,28 @@ const  RentalPage= () => {
                 <p style={{ marginTop: "-13px" }}>
                   <strong>
                     <span style={{ color: "rgb(34, 34, 34)" }}>
-                      Can accommodate {guestNo} people&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                      Can accommodate up to {guestNo} people&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                       &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                       &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
                     </span>
                   </strong>
                 </p>
+                <div style={{ display: 'flex', justifyContent: 'space-between', color: 'rgb(34, 34, 34)', fontSize: 16 }}>
+                  <div>
+                    <i className="fas fa-bed" />
+                    <strong> {numOfBeds} beds </strong>
+                  </div>
+                  <div>
+                    <i className="fas fa-shower" />
+                    <strong> {bathroomNum} bathrooms </strong>
+                  </div>
+                  <div>
+                    <i className="fas fa-border-all" />
+                    <strong> Total Area: {areaInM2} m2 </strong>
+                  </div>
+                </div>
                 <p>
-                  <i className="fas fa-bed" />
-                  <strong>
-                    <span style={{ color: "rgb(34, 34, 34)" }}>
-                      &nbsp;{bedroomNum} bedrooms&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                      &nbsp; &nbsp; &nbsp;
-                    </span>
-                  </strong>
-                  <i className="fas fa-shower" style={{ fontSize: 22 }} />
-                  <strong>
-                    <span style={{ color: "rgb(34, 34, 34)" }}>
-                      &nbsp; {bathroomNum} bathrooms
-                    </span>
-                  </strong>
-                </p>
-                <p>
-                  <i className="fas fa-exclamation" style={{ fontSize: 21 }} />
+                  <i className="fas fa-exclamation" style={{ fontSize: 16 }} />
                   <strong>
                     <span style={{ color: "rgb(34, 34, 34)" }}>
                       &nbsp; No pets are allowed
@@ -710,11 +727,10 @@ const  RentalPage= () => {
                       <figure className="figure" />
                     </div>
                     <div className="col-md-7 col-lg-12 right">
-                      <h4 className="text-truncate text-start">
-                        House Location&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                      <h4 className="text-truncate text-center">
+                        Property Location
                       </h4>
+
                       {/* <img
                         width={720}
                         height={322}
@@ -726,17 +742,17 @@ const  RentalPage= () => {
 
                 <LoadScript googleMapsApiKey="AIzaSyAdc1phOB8xRTsyJwEa3wBuAGPIg9ZFnJ4">
                   <GoogleMap
-                    mapContainerStyle={containerStyle}
-                    center={defaultCenter}
-                    zoom={10}
-                    onClick={handleMapClick}
+                      mapContainerStyle={containerStyle}
+                      center={location}
+                      zoom={14}
                   >
-                  {selectedLocation && (
-                    <Marker position={selectedLocation} />
-                  )}
+                    <Circle
+                        center={location}
+                        radius={300}
+                        options={{ fillColor: 'red', fillOpacity: 0.3, strokeColor: 'red' }}
+                    />
                   </GoogleMap>
                 </LoadScript>
-              
                 {/* <div
                   className="tab-pane fade show active description"
                   role="tabpanel"

@@ -113,9 +113,9 @@ function toggleHeart(rentalId) {
 
   const navigate = useNavigate();
 
-  const goToRentalPage = (event) => {
-    event.preventDefault();
-    navigate('/RentalPage?');
+  const goToRentalPage = (id) => {
+    //event.preventDefault();
+    navigate('/RentalPage?rentalId='  + id + '&userid=' + userId);
   }
 
   return (
@@ -323,9 +323,9 @@ function toggleHeart(rentalId) {
                               </a>
                             </div>
                             <div className="product-name">
-                              <a href="#">
+                              <a href="">
                                 <br />
-                                <strong onClick={goToRentalPage}>
+                                <strong onClick={() => goToRentalPage(item['rental-id'])}>
                                   <span style={{ color: "rgb(34, 34, 34)" }}>{item['rental-name']}</span>
                                 </strong>
                                 <br />

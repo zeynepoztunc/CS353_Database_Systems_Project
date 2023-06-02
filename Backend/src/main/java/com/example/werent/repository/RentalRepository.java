@@ -96,6 +96,9 @@ public class RentalRepository {
                 rental.setProvince(rs.getString("province"));
                 rental.setEarthquakeSupport(rs.getBoolean("earthquake-support"));
                 rental.setGuestNo(rs.getInt("guest-no"));
+                rental.setAreaInM2(rs.getInt("area-in-m2"));
+                rental.setDescription(rs.getString("description"));
+                rental.setNumOfBeds(rs.getInt("num-of-beds"));
                 return rental;
             }
         });
