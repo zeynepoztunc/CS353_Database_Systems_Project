@@ -27,20 +27,31 @@ const MainPage = () => {
   };
 
 
-  function toggleHeart(id) {
-    setPlaceValues((prevPlaceValues) => {
-      const updatedPlaceValues = prevPlaceValues.map((item) => {
-        if (item.ID === id) {
-          return {
-            ...item,
-            isFavorited: !item.isFavorited,
-          };
-        }
-        return item;
-      });
-      return updatedPlaceValues;
+function toggleHeart(rentalId) {
+  setPlaceValues((prevPlaceValues) => {
+    const updatedPlaceValues = prevPlaceValues.map((item) => {
+      if (item['rental-id'] === rentalId) {
+        return {
+          ...item,
+          isFavorited: !item.isFavorited,
+        };
+      }
+      return item;
     });
-  }
+    return updatedPlaceValues;
+  });
+}
+
+  const HeartIcon = ({ id, isFavorited, onToggleHeart }) => {
+    return (
+      <i
+        className={isFavorited ? "fas fa-heart" : "far fa-heart"}
+        style={{ fontSize: 22, marginBottom: 10, cursor: "pointer" }}
+        onClick={() => onToggleHeart(id)}
+      ></i>
+    );
+  };
+
 
   const [selectedFilters, setSelectedFilters] = useState([]);
   const [showFavoritesOnly, setShowFavoritesOnly] = useState(false);
@@ -299,7 +310,7 @@ const MainPage = () => {
                             <i
                               className={item.isFavorited ? "fas fa-heart" : "far fa-heart"}
                               style={{ fontSize: 22, marginBottom: 10, cursor: "pointer" }}
-                              onClick={() => toggleHeart(item.ID)}
+                              onClick={() => toggleHeart(item['rental-id'])}
                             ></i>
                             <div className="image">
                               <a href="#">
