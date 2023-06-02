@@ -17,7 +17,7 @@ const MainPage = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(`http://localhost:8080/main/listRentalsForCustomer?userId=${userId}`);
+      const response = await axios.get(`http://localhost:8080/Customers/main/listRentalsForCustomer?userId=${userId}`);
       console.log(response.data);
       setPlaceValues(response.data);
     } catch (error) {

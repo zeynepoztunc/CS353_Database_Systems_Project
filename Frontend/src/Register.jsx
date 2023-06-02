@@ -38,7 +38,7 @@ export const Register = (props) => {
       const response = await axios.post('http://localhost:8080/register', registerData);
       console.log(response.data);
       if(response.data.creationSuccesful == true){
-        navigate('/UserLogin');
+        navigate('/');
       }
       else{
         alert("Email already registered!");

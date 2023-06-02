@@ -1,5 +1,8 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
+
+//Host Pages
+import HostLogin from './HostLogin';
 import HostRentingProperty from './HostRentingProperty';
 import HostRentingRoomDetails from './HostRentingRoomDetails';
 import HostRentingRoomLocation from './HostRentingRoomLocation';
@@ -80,6 +83,7 @@ function App() {
         <Route exact path='/UserLogin' element={<UserLogin/>} />
         <Route exact path='/LeaveRating' element={<LeaveRating/>} />
         <Route exact path='/HostRentingCurrentRents' element={<HostRentingCurrentRents/>} />
+        <Route exact path='/HostLogin' element={<HostLogin/>} />
 
 
         

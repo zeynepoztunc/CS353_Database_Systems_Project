@@ -4,11 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e555480-ab5a-407e-a171-4062daf29606" name="Changes" comment="changes on customer side x2">
+    <list default="true" id="5e555480-ab5a-407e-a171-4062daf29606" name="Changes" comment="changes on customer side x3">
+      <change afterPath="$PROJECT_DIR$/Frontend/src/HostLogin.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/background.gif" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/entity/RentalDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/entity/RentalDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/repository/RentalRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/repository/RentalRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/RentalPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/RentalPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/GeneralLogin.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/GeneralLogin.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/MainPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/MainPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/Register.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/Register.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/UserLogin.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/UserLogin.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,7 +178,8 @@
       <workItem from="1685636858038" duration="12656000" />
       <workItem from="1685654075708" duration="4889000" />
       <workItem from="1685692222326" duration="6858000" />
-      <workItem from="1685704736598" duration="4423000" />
+      <workItem from="1685704736598" duration="4664000" />
+      <workItem from="1685714769700" duration="1957000" />
     </task>
     <task id="LOCAL-00001" summary="new upload">
       <created>1684410800015</created>
@@ -323,7 +328,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685707076485</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="changes on customer side x3">
+      <created>1685709351589</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1685709351589</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -360,7 +372,8 @@
     <MESSAGE value="wishlist and images..." />
     <MESSAGE value="changes on customer side" />
     <MESSAGE value="changes on customer side x2" />
-    <option name="LAST_COMMIT_MESSAGE" value="changes on customer side x2" />
+    <MESSAGE value="changes on customer side x3" />
+    <option name="LAST_COMMIT_MESSAGE" value="changes on customer side x3" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

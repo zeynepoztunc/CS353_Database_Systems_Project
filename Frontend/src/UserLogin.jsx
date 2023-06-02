@@ -78,7 +78,7 @@ export const UserLogin = () => {
         content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
       />
       <title>Login - Brand</title>
-      <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
+      <link rel="stylesheet" href="./adminAssets/bootstrap/css/bootstrap.min.css" />
       <link
         rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i&display=swap"
@@ -87,13 +87,13 @@ export const UserLogin = () => {
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.css"
       />
-      <link rel="stylesheet" href="assets/css/vanilla-zoom.min.css" />
+      <link rel="stylesheet" href="./adminAssets/css/vanilla-zoom.min.css" />
       <Navbar />
       <main className="page login-page">
         <section className="clean-block clean-form dark">
           <div className="container">
             <div className="block-heading">
-              <h2 className="text-info">User/Host Log In</h2>
+              <h2 className="text-info">Customer Log In</h2>
               <p>Welcome to WeRent!</p>
             </div>
             <form onSubmit={handleSubmit}>
