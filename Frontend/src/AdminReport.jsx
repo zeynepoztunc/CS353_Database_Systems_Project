@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import "./adminAssets/bootstrap/css/bootstrap.min.css";
 import "./adminAssets/css/vanilla-zoom.min.css";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import axios from 'axios';
+import {  useNavigate } from 'react-router-dom';
 import { Navbar } from "./Navbar.jsx";
 
 
@@ -15,8 +16,9 @@ export const AdminReport = () => {
   const [highestHostCount, setHighestHostCount] = useState(false);
   const [highestPostingsCount, setHighestPostingsCount] = useState(false);
   const [date, setDate] = useState("");
-  
-  
+  const [values, setValues] = useState([]);
+
+  const navigate = useNavigate();
   
   function handleSearch() {
     if (document.getElementById("formCheck-1").checked) {
@@ -76,6 +78,22 @@ export const AdminReport = () => {
       postReportingCount: 23,
     },
   ];
+
+  const fetchValues = async () => {
+    try {
+      const response = await axios.get('http://localhost:8080/listAnalytics');
+      console.log(response.data);
+      setValues(response.data);
+    } catch (error) {
+      console.error('Failed:', error);
+      setValues([]);
+    }
+  };
+
+  useEffect(() => {
+    fetchValues().then(r => console.log('fetched data'));
+  }, []);
+
   return (
     <>
       <meta charSet="utf-8" />
@@ -170,57 +188,57 @@ export const AdminReport = () => {
             </div>
 
             <div className="block-content">
-              {reportValues.map((item, index) => (
+              {values.map((item, index) => (
                 <div className="faq-item">
                   <h6 className="question" style={{ fontSize: 20 }}>
                     Update Date
                   </h6>
                   <div className="answer">
-                    <p>{item.date}</p>
+                    <p>{item['date']}</p>
                   </div>
                   <h1 className="question" style={{ fontSize: 20 }}>
                     Report ID
                   </h1>
                   <div className="answer">
-                    <p>{item.reportID}</p>
+                    <p>{item['report-id']}</p>
                   </div>
                   <h4 className="question">User Count</h4>
                   <div className="answer">
-                    <p>{item.userCount}</p>
+                    <p>{item['user-cnt']}</p>
                   </div>
                   <h4 className="question">Host Count</h4>
                   <div className="answer">
-                    <p>{item.hostCount}</p>
+                    <p>{item['host-cnt']}</p>
                   </div>
                   <h4 className="question">Postings Count</h4>
                   <div className="answer">
-                    <p>{item.postingCount}</p>
+                    <p>{item['postings-cnt']}</p>
                   </div>
                   <h4 className="question">Booking Count</h4>
                   <div className="answer">
-                    <p>{item.bookingCount}</p>
+                    <p>{item['booking-cnt']}</p>
                   </div>
                   <h4 className="question">Earthquake Victim Count - Host</h4>
                   <div className="answer">
-                    <p>{item.victimCountHost}</p>
+                    <p>{item['host-earthquake-victim-cnt']}</p>
                   </div>
                   <h4 className="question">
                     <strong>Earthquake Victim Count - User</strong>
                   </h4>
                   <div className="answer">
-                    <p>{item.victimCountUser}</p>
+                    <p>{item['user-earthquake-victim-cnt']}</p>
                   </div>
                   <h4 className="question">Superhost Count</h4>
                   <div className="answer">
-                    <p>{item.superhostCount}</p>
+                    <p>{item['superhost-cnt']}</p>
                   </div>
                   <h4 className="question">Total User Reporting</h4>
                   <div className="answer">
-                    <p>{item.userReportingCount}</p>
+                    <p>{item['user-reporting-cnt']}</p>
                   </div>
                   <h4 className="question">Total Post Reporting</h4>
                   <div className="answer">
-                    <p>{item.postReportingCount}</p>
+                    <p>{item['post-reporting-cnt']}</p>
                   </div>
                 </div>
               ))}
