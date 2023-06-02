@@ -52,7 +52,10 @@ const  RentalPage= () => {
   const [latitude, setLatitude] = useState(0.0);
   const [longitude, setLongitude] = useState(0.0);
   const [location, setLocation] = useState({lat: 0.0, lng: 0.0});
-
+  const [amenities, setAmenities] = useState([]);
+  const [city, setCity] = useState('');
+  const [province, setProvince] = useState('');
+  const [refundFee, setRefundFee] = useState(0);
 
 
 
@@ -83,6 +86,18 @@ const  RentalPage= () => {
     }
   }
 
+  const fetchAmenities = async () => {
+    try
+    {
+      const response = await axios.get('http://localhost:8080/amenities');
+      return response.data;
+    } catch (error)
+    {
+      console.error('Failed to fetch amenities:', error);
+      return [];
+    }
+  };
+
 
 
 
@@ -100,6 +115,9 @@ const  RentalPage= () => {
           console.log(rental.numOfBeds);
           console.log(rental.latitude);
           console.log(rental.longitude);
+          console.log(rental.city);
+          console.log(rental.province);
+          console.log(rental.cancellationRefundFee);
           setRentalName(rental.rentalName);
           setPrice(rental.dailyPrice);
           setEarthquakeSupport(rental.earthquakeSupport);
@@ -110,20 +128,29 @@ const  RentalPage= () => {
           setLatitude(rental.latitude);
           setLongitude(rental.longitude);
           setLocation({lat: rental.latitude, lng: rental.longitude});
+          setCity(rental.city);
+          setProvince(rental.province);
+          setRefundFee(rental.cancellationRefundFee);
 
-          return fetchHostDetails(rentalIdString);
+          return fetchHostDetails(rental.hostId);
         })
         .then(host => {
           console.log('fetched host data');
           console.log(host.name);
           console.log(host.surname);
           setHostFullName(host.name + ' ' + host.surname);
+
+          return fetchAmenities();
+        })
+        .then(amenities => {
+          console.log(amenities);
+          setAmenities(amenities);
         })
         .catch(error => {
           console.error('Error:', error);
         });
-
-  }, [rentalIdString]);  // Include dependencies your effect uses
+  }, [rentalIdString]);
+  // Include dependencies your effect uses
 
 
 
@@ -160,15 +187,7 @@ const  RentalPage= () => {
     { id: 4, author: 'Nate', comment: 'This place was amazing!', image: "customerAssets/img/dark-haired-man-in-brown-leather-jacket.jpg" }
 
   ]);
-  const [amenities] =useState( [
-    { id: 1, name: 'Wifi ',  image: 'fas fa-wifi' },
-    { id: 2, name: 'Free Parking ',  image: 'fas fa-parking' },
-    { id: 3, name: 'First-aid kit',  image: 'fas fa-medkit' },
-    { id: 4, name: 'Fire Extinguisher',  image: 'fas fa-fire-extinguisher' },
-    { id: 5, name: 'Beach Accesss', image: 'fas fa-umbrella-beach' },
-    { id: 4, name: 'Transportation Access',  image: 'fas fa-bus' }
 
-  ]);
   const reviewList = reviews.map((review) => (
     <div className="row">
                 
@@ -396,6 +415,16 @@ const  RentalPage= () => {
                         {numOfReview} reviews
                       </span>
                     </p>
+                    <p>
+                      <span
+                          style={{
+                            textDecoration: "italic",
+                            color: "rgb(0, 0, 0)"
+                          }}
+                      >
+                        city: <strong>{city}</strong> , district: <strong>{province}</strong>
+                      </span>
+                    </p>
                     <div className="col">
                       <div />
                     </div>
@@ -562,183 +591,28 @@ const  RentalPage= () => {
               <p className="fs-4">
                     <strong>What this place offers</strong>
                 </p>
-              {amenities.map((amenities) => (
-              <div className="row">
-
-                <div className="col-md-7">
-                <div className="row">
-                  <div className="col-lg-1">
-                    <i
-                      className={amenities.image}
-                      style={{ fontSize: 26 }}
-                    />
-                  </div>
-                  <div className="col">
-                    <p className="fs-5">
-                      <strong>{amenities.name}</strong>
-                    </p>
-                  </div>
-                
-                </div>
-              </div>
-              </div>
-
-                
-              ))}
-              </div>
-            
-              <div className="tab-content" id="myTabContent">
-                <div
-                  className="tab-pane fade show active description"
-                  role="tabpanel"
-                  id="description"
-                >
-                  <p className="fs-4">
-                    <strong>What this place offers</strong>
-                  </p>
+                <div className="container my-5">
                   <div className="row">
-                    <div className="col-md-7">
-                      <div className="row">
-                        <div className="col-lg-1">
-                          <i
-                            className="fas fa-wifi text-dark"
-                            style={{ fontSize: 29 }}
-                          />
-                        </div>
-                        <div className="col-lg-6">
-                          <p className="fs-5" style={{ marginLeft: 4 }}>
-                            <strong>Wifi</strong>
-                          </p>
-                        </div>
-                      </div>
-                      <div className="row">
-                        <div className="col">
-                          <div className="row">
-                            <div className="col-lg-1">
-                              <i
-                                className="fas fa-parking text-dark"
-                                style={{ fontSize: 29 }}
-                              />
-                            </div>
-                            <div className="col-lg-6">
-                              <p className="fs-5">
-                                <strong>Free-parking</strong>
+                    {amenities.map((amenity, index) => (
+                        <div className="col-md-3 mb-4" key={index}>
+                          <div className="card h-100 shadow-sm">
+                            <div className="card-body">
+                              <p className="fs-7 text-center">
+                                <strong>{amenities[index]}</strong>
                               </p>
                             </div>
                           </div>
                         </div>
-                      </div>
-                      <div className="row">
-                        <div className="col-lg-1">
-                          <i
-                            className="fas fa-first-aid"
-                            style={{ fontSize: 26 }}
-                          />
-                        </div>
-                        <div className="col">
-                          <p className="fs-5">
-                            <strong>First-aid kit</strong>
-                          </p>
-                        </div>
-                      </div>
-                      <div className="row">
-                        <div className="col-lg-1">
-                          <i
-                            className="fas fa-fire-extinguisher"
-                            style={{ fontSize: 26 }}
-                          />
-                        </div>
-                        <div className="col">
-                          <p className="fs-5">
-                            <strong>Fire extinguisher</strong>
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col">
-                      <div className="row">
-                        <div className="col-lg-2">
-                          <i
-                            className="fas fa-umbrella-beach"
-                            style={{ fontSize: 26 }}
-                          />
-                        </div>
-                        <div className="col">
-                          <p className="fs-5">
-                            <strong>Beach Access</strong>
-                          </p>
-                        </div>
-                      </div>
-                      <div className="row">
-                        <div className="col-lg-2">
-                          <i
-                            className="fas fa-car text-dark"
-                            style={{ fontSize: 29 }}
-                          />
-                        </div>
-                        <div className="col">
-                          <p className="fs-5">
-                            <strong>Transportation Access</strong>
-                          </p>
-                        </div>
-                      </div>
-                      <div className="row">
-                        <div className="col-lg-2">
-                          <i
-                            className="fas fa-thermometer-half text-dark"
-                            style={{ fontSize: 29 }}
-                          />
-                        </div>
-                        <div className="col">
-                          <p className="fs-5">
-                            <strong>Heating</strong>
-                          </p>
-                        </div>
-                      </div>
-                      <div className="row">
-                        <div className="col">
-                          <button className="btn btn-danger" type="button"  onClick={handleShowAllAmenities}>
-                            Show All Amenties
-                          </button>
-                          <Modal
-                            isOpen={isModalOpen}
-                            onRequestClose={() => setIsModal2Open(false)}
-                            contentLabel="All Ammenities"
-                            style={{
-                              content: {
-                                height: '700px', 
-                              },
-                            }}
-                          >
-                            <h4 className="fs-2" style={{ paddingBottom: 0, marginBottom: 28 }}>
-                            <strong> </strong>
-                            </h4>
-                            <h2>All Ammenities</h2>
-                            <ul>{reviewList}</ul>
-                          </Modal>
-                          
-                          
-                        </div>
-                      </div>
-                    </div>
+                    ))}
                   </div>
-                  <div className="row">
-                    <div className="col-md-5">
-                      <figure className="figure" />
-                    </div>
-                    <div className="col-md-7 col-lg-12 right">
-                      <h4 className="text-truncate text-center">
-                        Property Location
-                      </h4>
+              </div>
+              </div>
 
-                      {/* <img
-                        width={720}
-                        height={322}
-                        src="customerAssets/img/Ekran%20Görüntüsü%20(486).png"
-                      /> */}
-                    </div>
-                  </div>
-                </div>
+              <div className="tab-content" id="myTabContent">
+
+                <p className="fs-4 text-center text-uppercase">
+                  <strong>Rental Location</strong>
+                </p>
 
                 <LoadScript googleMapsApiKey="AIzaSyAdc1phOB8xRTsyJwEa3wBuAGPIg9ZFnJ4">
                   <GoogleMap
@@ -933,99 +807,8 @@ const  RentalPage= () => {
                   </div>
                 </div> */}
 
-  <div className="tab-pane fade show active description" role="tabpanel" id="description">
-  <p className="fs-5"><strong>&nbsp;<span style={{color: 'rgb(0, 0, 0)'}}>What this place offers&nbsp;</span></strong></p>
-  {amenities.map((amenities) => (
 
-  <div key={amenities.id} className="row">
-    <div className="col-md-7">
-      <div className="row">
-        <div className="col-lg-6 offset-lg-0" style={{marginTop: '-1px', marginBottom: '0px'}}>
-          <p className="fs-5"><strong>{amenities.name}</strong></p>
-        </div>
-        <div className="col">
-          <p className="fs-5"><i className="fas fa-star text-warning" /><span style={{color: 'rgb(0, 0, 0)'}}>&nbsp; &nbsp;{avgCleanlinessRating}&nbsp;</span></p>
-        </div>
-      </div>
-     
-    </div>
-    <div className="col">
-      <div className="row">
-        <div className="col">
-          <p className="fs-5"><strong>{amenities.name}</strong></p>
-        </div>
-        <div className="col">
-          <p className="fs-5"><i className="fas fa-star text-warning" /><span style={{color: 'rgb(0, 0, 0)'}}>&nbsp; &nbsp;{avgCheckinRating}&nbsp;</span></p>
-        </div>
-      </div>
-    
-    </div>
-    </div>
-    ))}
 
-  </div>
-
-<div className="tab-pane fade show active description" role="tabpanel" id="description">
-        <p className="fs-5"><i className="fas fa-star text-warning" /><strong>&nbsp;<span style={{color: 'rgb(0, 0, 0)'}}>4,5&nbsp;</span><span style={{color: 'rgb(34, 34, 34)'}}>·&nbsp;</span><span style={{color: 'rgb(0, 0, 0)'}}>&nbsp;</span><span style={{textDecoration: 'underline', color: 'rgb(0, 0, 0)'}}>{numOfReview} reviews</span></strong></p>
-        <div className="row">
-          <div className="col-md-7">
-            <div className="row">
-              <div className="col-lg-6 offset-lg-0" style={{marginTop: '-1px', marginBottom: '0px'}}>
-                <p className="fs-5"><strong>Beach-access</strong></p>
-              </div>
-              <div className="col">
-                <p className="fs-5"><i className="fas fa-star text-warning" /><span style={{color: 'rgb(0, 0, 0)'}}>&nbsp; &nbsp;{avgCleanlinessRating}&nbsp;</span></p>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col">
-                <div className="row">
-                  <div className="col-lg-6">
-                    <p className="fs-5"><strong>Transportation</strong></p>
-                  </div>
-                  <div className="col">
-                    <p className="fs-5"><i className="fas fa-star text-warning" /><span style={{color: 'rgb(0, 0, 0)'}}>&nbsp; &nbsp;{avgCommunicationRating}&nbsp;</span></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col" style={{paddingBottom: '0px', marginLeft: '0px', paddingTop: '0px'}}>
-                <p className="fs-5"><strong>Wifi</strong></p>
-              </div>
-              <div className="col">
-                <p className="fs-5"><i className="fas fa-star text-warning" /><span style={{color: 'rgb(0, 0, 0)'}}>&nbsp; &nbsp;{avgAccuracyRating}&nbsp;</span></p>
-              </div>
-            </div>
-          </div>
-          <div className="col">
-            <div className="row">
-              <div className="col">
-                <p className="fs-5"><strong>Free Parking</strong></p>
-              </div>
-              <div className="col">
-                <p className="fs-5"><i className="fas fa-star text-warning" /><span style={{color: 'rgb(0, 0, 0)'}}>&nbsp; &nbsp;{avgCheckinRating}&nbsp;</span></p>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col">
-                <p className="fs-5"><strong>Value</strong></p>
-              </div>
-              <div className="col">
-                <p className="fs-5"><i className="fas fa-star text-warning" /><span style={{color: 'rgb(0, 0, 0)'}}>&nbsp; &nbsp;{avgValueRating}&nbsp;</span></p>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col">
-                <p className="fs-5"><strong>Location</strong></p>
-              </div>
-              <div className="col">
-                <p className="fs-5"><i className="fas fa-star text-warning" /><span style={{color: 'rgb(0, 0, 0)'}}>&nbsp; &nbsp;{avgLocationRating}&nbsp;</span></p>
-              </div>
-            </div>
-          </div>
-        </div>
-</div>
 
       <div className="tab-pane fade show active description" role="tabpanel" id="description">
         <p className="fs-5"><i className="fas fa-star text-warning" /><strong>&nbsp;<span style={{color: 'rgb(0, 0, 0)'}}>4,5&nbsp;</span><span style={{color: 'rgb(34, 34, 34)'}}>·&nbsp;</span><span style={{color: 'rgb(0, 0, 0)'}}>&nbsp;</span><span style={{textDecoration: 'underline', color: 'rgb(0, 0, 0)'}}>{numOfReview} reviews</span></strong></p>

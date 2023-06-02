@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e555480-ab5a-407e-a171-4062daf29606" name="Changes" comment="login pages are designed again">
+    <list default="true" id="5e555480-ab5a-407e-a171-4062daf29606" name="Changes" comment="changes in customer side">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/repository/RentalRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/repository/RentalRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/MainPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/MainPage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Frontend/src/RentalPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/RentalPage.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -176,7 +174,8 @@
       <workItem from="1685692222326" duration="6858000" />
       <workItem from="1685704736598" duration="4664000" />
       <workItem from="1685714769700" duration="2374000" />
-      <workItem from="1685718359811" duration="4250000" />
+      <workItem from="1685718359811" duration="4326000" />
+      <workItem from="1685726599832" duration="3437000" />
     </task>
     <task id="LOCAL-00001" summary="new upload">
       <created>1684410800015</created>
@@ -339,7 +338,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685716796856</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="changes in customer side">
+      <created>1685722657737</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1685722657737</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -378,7 +384,8 @@
     <MESSAGE value="changes on customer side x2" />
     <MESSAGE value="changes on customer side x3" />
     <MESSAGE value="login pages are designed again" />
-    <option name="LAST_COMMIT_MESSAGE" value="login pages are designed again" />
+    <MESSAGE value="changes in customer side" />
+    <option name="LAST_COMMIT_MESSAGE" value="changes in customer side" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

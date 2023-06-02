@@ -99,6 +99,7 @@ public class RentalRepository {
                 rental.setAreaInM2(rs.getInt("area-in-m2"));
                 rental.setDescription(rs.getString("description"));
                 rental.setNumOfBeds(rs.getInt("num-of-beds"));
+                rental.setCancellationRefund(rs.getInt("cancellation-refund"));
                 return rental;
             }
         });
