@@ -115,7 +115,7 @@ function toggleHeart(rentalId) {
 
   const goToRentalPage = (event) => {
     event.preventDefault();
-    navigate('/RentalPage');
+    navigate('/RentalPage?');
   }
 
   return (

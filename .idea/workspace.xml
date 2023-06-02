@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e555480-ab5a-407e-a171-4062daf29606" name="Changes" comment="wishlist and images...">
+    <list default="true" id="5e555480-ab5a-407e-a171-4062daf29606" name="Changes" comment="changes on customer side">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/controller/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/controller/CustomerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/controller/RentalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/controller/RentalController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/entity/RentalDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/entity/RentalDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/repository/CustomerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/repository/CustomerRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/repository/RentalRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/repository/RentalRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/MainPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/MainPage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Frontend/src/RentalPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/RentalPage.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -176,7 +174,8 @@
       <workItem from="1685617865400" duration="6587000" />
       <workItem from="1685636858038" duration="12656000" />
       <workItem from="1685654075708" duration="4889000" />
-      <workItem from="1685692222326" duration="6612000" />
+      <workItem from="1685692222326" duration="6858000" />
+      <workItem from="1685704736598" duration="2044000" />
     </task>
     <task id="LOCAL-00001" summary="new upload">
       <created>1684410800015</created>
@@ -311,7 +310,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685661605443</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="changes on customer side">
+      <created>1685699473507</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1685699473507</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -346,7 +352,8 @@
     <MESSAGE value="reached main page in customer" />
     <MESSAGE value="small changes in host" />
     <MESSAGE value="wishlist and images..." />
-    <option name="LAST_COMMIT_MESSAGE" value="wishlist and images..." />
+    <MESSAGE value="changes on customer side" />
+    <option name="LAST_COMMIT_MESSAGE" value="changes on customer side" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

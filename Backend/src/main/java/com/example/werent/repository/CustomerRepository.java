@@ -5,6 +5,7 @@ import org.apache.catalina.Host;
 import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
@@ -177,25 +178,20 @@ public class CustomerRepository {
         }
     }
 
-    public UserDTO getHostInfo(int rentalId) {
-        String sqlHostInfo = "SELECT U.\"name\", U.\"surname\" FROM  \"User\" U  INNER JOIN \"Rental\" R ON U.\"user-id\" = R.\"host-id\" WHERE R.\"rental-id\" = ?";
-        jdbcTemplate.execute(sqlHostInfo);
-        RowMapper<UserDTO> rowMapper = (rs, rowNum) -> {
-            UserDTO host = new UserDTO();
-            host.setName(rs.getString("name"));
-            host.setSurname(rs.getString("surname")); // make sure to add this field to your HostDTO clas
-            return host;
-        };
-
-        try{
-            UserDTO hostToRetrieve = jdbcTemplate.queryForObject(sqlHostInfo, new Object[]{rentalId}, rowMapper);
+    public UserDTO getHostInfo(Integer rentalId) {
+        String sqlHostInfo = "SELECT U.\"name\" AS name, U.\"surname\"  AS surname FROM  \"User\" U  INNER JOIN \"Rental\" R ON U.\"user-id\" = R.\"host-id\" WHERE R.\"rental-id\" = ?";
+        System.out.println("Retrieving host information for the rental (with id = " + rentalId + ")...");
+        System.out.println(sqlHostInfo);
+        try {
+            UserDTO hostToRetrieve = jdbcTemplate.queryForObject(sqlHostInfo, new Object[]{rentalId}, new BeanPropertyRowMapper<>(UserDTO.class));
             return hostToRetrieve;
         }
-        catch (EmptyResultDataAccessException e){
+        catch (EmptyResultDataAccessException e) {
             System.out.println("Host information retrieval for the rental failed!");
             return null;
         }
     }
+
 
 
     public void addReservation(ReservationDTO reservationInfo, int rentalId){

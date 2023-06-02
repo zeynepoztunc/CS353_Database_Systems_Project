@@ -50,7 +50,7 @@ const  RentalPage= () => {
   const navigate = useNavigate();
   const urlParams = new URLSearchParams(window.location.search);
   const userIdString = urlParams.get('userid');
-  const rentalIdString = urlParams.get('rentalId');
+  const rentalIdString = urlParams.get('rentalid');
 
 
   const fetchRentalDetails = async (rentalIdString) => {
@@ -63,9 +63,9 @@ const  RentalPage= () => {
     }
   };
 
-  const fetchHostDetails = async (hostId) => {
+  const fetchHostDetails = async (rentalIdString) => {
     try {
-      const response = await axios.get(`http://localhost:8080/Customers/hostinfo?rentalid=${rentalIdString}`);
+      const response = await axios.get(`http://localhost:8080/Customers/hostInfo?rentalid=${rentalIdString}`);
       console.log(response.data);
       return response.data;
     } catch(error) {
@@ -75,28 +75,30 @@ const  RentalPage= () => {
 
 
   useEffect(() => {
-    fetchRentalDetails(rentalIdString).then(rental => {
-      console.log('fetched data');
-      console.log(rental.rentalName);
-      console.log(rental.hostId);
-      console.log(rental.dailyPrice);
-      console.log(rental.earthquakeSupport);
-      setRentalName(rental.rentalName);
-      setPrice(rental.dailyPrice);
-      setEarthquakeSupport(rental.earthquakeSupport);
-        fetchHostDetails(rental.hostId).then(host => {
-            console.log('fetched host data');
-            console.log(host.name);
-            console.log(host.surname);
-            setHostFullName(host.name + ' ' + host.surname);
-        }, error => {
-            console.error('Error fetching host details:', error);
+    fetchRentalDetails(rentalIdString)
+        .then(rental => {
+          console.log('fetched data');
+          console.log(rental.rentalName);
+          console.log(rental.hostId);
+          console.log(rental.dailyPrice);
+          console.log(rental.earthquakeSupport);
+          setRentalName(rental.rentalName);
+          setPrice(rental.dailyPrice);
+          setEarthquakeSupport(rental.earthquakeSupport);
+
+          return fetchHostDetails(rentalIdString);
+        })
+        .then(host => {
+          console.log('fetched host data');
+          console.log(host.name);
+          console.log(host.surname);
+          setHostFullName(host.name + ' ' + host.surname);
+        })
+        .catch(error => {
+          console.error('Error:', error);
         });
+  }, [rentalIdString]);  // Include dependencies your effect uses
 
-
-
-    });
-  }, []);
 
 
 
