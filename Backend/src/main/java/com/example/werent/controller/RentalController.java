@@ -37,6 +37,11 @@ public class RentalController {
         return userRepository.getRentalsByHostId(userid);
     }
 
+    @GetMapping("/getRentalsRentalId")
+    public RentalDTO getRentalsByRentalId(@RequestParam Integer rentalId) {
+        return rentalRepository.getRental(rentalId);
+    }
+
     @PutMapping("/updateLocation")
     public void updateLocation(@RequestBody LocationDTO rentalLocation) {
         System.out.println(rentalLocation.getRentalId());

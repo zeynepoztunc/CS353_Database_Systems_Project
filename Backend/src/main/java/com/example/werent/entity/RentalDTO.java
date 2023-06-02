@@ -3,6 +3,7 @@ package com.example.werent.entity;
 import java.sql.Date;
 
 import java.sql.Time;
+import java.sql.Timestamp;
 
 public class RentalDTO
 {
@@ -19,8 +20,8 @@ public class RentalDTO
     private float longitude;
     private Date rentingAvailableStartDate;
     private Date rentingAvailableEndDate;
-    private Date hostSelectedRentalStartDate;
-    private Date hostSelectedRentalEndDate;
+    private Timestamp hostSelectedRentalStartDate;
+    private Timestamp hostSelectedRentalEndDate;
     private String guestPolicy;
     private String rentalType;
     private float areaInM2;
@@ -146,19 +147,19 @@ public class RentalDTO
         this.rentingAvailableEndDate = rentingAvailableEndDate;
     }
 
-    public Date getHostSelectedRentalStartDate() {
+    public Timestamp getHostSelectedRentalStartDate() {
         return hostSelectedRentalStartDate;
     }
 
-    public void setHostSelectedRentalStartDate(Date hostSelectedRentalStartDate) {
+    public void setHostSelectedRentalStartDate(Timestamp hostSelectedRentalStartDate) {
         this.hostSelectedRentalStartDate = hostSelectedRentalStartDate;
     }
 
-    public Date getHostSelectedRentalEndDate() {
+    public Timestamp getHostSelectedRentalEndDate() {
         return hostSelectedRentalEndDate;
     }
 
-    public void setHostSelectedRentalEndDate(Date hostSelectedRentalEndDate) {
+    public void setHostSelectedRentalEndDate(Timestamp hostSelectedRentalEndDate) {
         this.hostSelectedRentalEndDate = hostSelectedRentalEndDate;
     }
 

@@ -10,7 +10,7 @@ import java.util.Map;
 
 @CrossOrigin
 @RestController
-@RequestMapping("")
+@RequestMapping("Customers")
 public class CustomerController {
     private CustomerRepository customerRepository;
 
@@ -86,10 +86,11 @@ public class CustomerController {
         return customerRepository.getRatingAvg(rentalId);
     }
 
-    @RequestMapping(value = "/main/{rentalId}/hostInfo", method = RequestMethod.GET)
-    public HostDTO getHostInfo(@PathVariable int rentalId){
+    @GetMapping ( "/hostInfo")
+    public UserDTO getHostInfo(@RequestParam int rentalId){
         return customerRepository.getHostInfo(rentalId);
     }
+
 
     //NEED TESTING! (false query)
     @RequestMapping(value = "/main/{rentalId}/reserve", method = RequestMethod.POST)

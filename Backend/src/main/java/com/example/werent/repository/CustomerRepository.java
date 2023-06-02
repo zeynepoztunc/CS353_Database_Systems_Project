@@ -1,6 +1,8 @@
 package com.example.werent.repository;
 
 import com.example.werent.entity.*;
+import org.apache.catalina.Host;
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -175,25 +177,26 @@ public class CustomerRepository {
         }
     }
 
-    public HostDTO getHostInfo(int rentalId){
-        String sqlHostInfo = "SELECT name, \"is-superhost\" FROM \"Host\" WHERE \"user-id\" = ?";
-
-        RowMapper<HostDTO> rowMapper = (rs, rowNum) -> {
-            HostDTO host = new HostDTO();
+    public UserDTO getHostInfo(int rentalId) {
+        String sqlHostInfo = "SELECT U.\"name\", U.\"surname\" FROM  \"User\" U  INNER JOIN \"Rental\" R ON U.\"user-id\" = R.\"host-id\" WHERE R.\"rental-id\" = ?";
+        jdbcTemplate.execute(sqlHostInfo);
+        RowMapper<UserDTO> rowMapper = (rs, rowNum) -> {
+            UserDTO host = new UserDTO();
             host.setName(rs.getString("name"));
-            host.setSuperhost(rs.getBoolean("is-superhost"));
+            host.setSurname(rs.getString("surname")); // make sure to add this field to your HostDTO clas
             return host;
         };
 
         try{
-            HostDTO hostDTO = jdbcTemplate.queryForObject(sqlHostInfo, new Object[]{rentalId}, rowMapper);
-            return hostDTO;
+            UserDTO hostToRetrieve = jdbcTemplate.queryForObject(sqlHostInfo, new Object[]{rentalId}, rowMapper);
+            return hostToRetrieve;
         }
         catch (EmptyResultDataAccessException e){
             System.out.println("Host information retrieval for the rental failed!");
             return null;
         }
     }
+
 
     public void addReservation(ReservationDTO reservationInfo, int rentalId){
         System.out.println(rentalId + " " + reservationInfo.getReservationStartDate()+ " " +reservationInfo.getReservationEndDate()+ " " +reservationInfo.getStayOfDuration());
@@ -202,7 +205,7 @@ public class CustomerRepository {
     }
 
     public RentalDTO getLocation(int rentalId){
-        String sqlGetLocation = "SELECT latitude, longitude FROM \"Rental\" WHERE r\"rental-id\" = ?";
+        String sqlGetLocation = "SELECT latitude, longitude FROM \"Rental\" WHERE \"rental-id\" = ?";
 
         RowMapper<RentalDTO> rowMapper = (rs, rowNum) -> {
             RentalDTO rental = new RentalDTO();

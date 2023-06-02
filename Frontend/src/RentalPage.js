@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {  useNavigate } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -19,7 +19,6 @@ const  RentalPage= () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isModal2Open, setIsModal2Open] = useState(false);
   const avgRating=useState(4.5);
-  const dailyPrice=useState(200);
   const avgCleanlinessRating=useState(4.5);
   const avgCommunicationRating=useState(4.25);
   const avgAccuracyRating=useState(4);
@@ -33,8 +32,8 @@ const  RentalPage= () => {
   const maxAccomodation=useState(6);
   const bedroomNum=useState(3);
   const bathroomNum=useState(3);
-  const name=useState("Antalya, Kalkan Beach House");
-  const hostName=useState("Ali");
+  const [rentalName, setRentalName] = useState('');
+  const [hostFullName, setHostFullName] = useState('');
   const description=useState(" In Kalkan, with its excellent sea view and location surrounded by nature, awaits you. Our rental villa with the capacity of 6 people has 3 bedrooms. In the rental villa ,it has all the kitchen utensils you may need. It has aspacious lounge with open american kitchen where you can bemodern, convenient and comfortable.");
   const [isFavorited, setIsFavorited] = useState(false);
   const [cleanlinessRating, setCleanlinessRating] = useState(0);
@@ -43,6 +42,63 @@ const  RentalPage= () => {
   const [checkinRating, setCheckinRating] = useState(0);
   const [valueRating, setValueRating] = useState(0);
   const [locationRating, setLocationRating] = useState(0);
+
+  const [dailyPrice, setPrice] = useState(0);
+  const [earthquakeSupport, setEarthquakeSupport] = useState(false);
+
+
+  const navigate = useNavigate();
+  const urlParams = new URLSearchParams(window.location.search);
+  const userIdString = urlParams.get('userid');
+  const rentalIdString = urlParams.get('rentalId');
+
+
+  const fetchRentalDetails = async (rentalIdString) => {
+    try {
+      const response = await axios.get(`http://localhost:8080/Rentals/getRentalsRentalId?rentalId=${rentalIdString}`);
+      console.log(response);
+      return response.data;
+    } catch(error) {
+      console.error('Error fetching rental details:', error);
+    }
+  };
+
+  const fetchHostDetails = async (hostId) => {
+    try {
+      const response = await axios.get(`http://localhost:8080/Customers/hostinfo?rentalid=${rentalIdString}`);
+      console.log(response.data);
+      return response.data;
+    } catch(error) {
+      console.error('Error fetching host details:', error);
+    }
+  }
+
+
+  useEffect(() => {
+    fetchRentalDetails(rentalIdString).then(rental => {
+      console.log('fetched data');
+      console.log(rental.rentalName);
+      console.log(rental.hostId);
+      console.log(rental.dailyPrice);
+      console.log(rental.earthquakeSupport);
+      setRentalName(rental.rentalName);
+      setPrice(rental.dailyPrice);
+      setEarthquakeSupport(rental.earthquakeSupport);
+        fetchHostDetails(rental.hostId).then(host => {
+            console.log('fetched host data');
+            console.log(host.name);
+            console.log(host.surname);
+            setHostFullName(host.name + ' ' + host.surname);
+        }, error => {
+            console.error('Error fetching host details:', error);
+        });
+
+
+
+    });
+  }, []);
+
+
 
   const handleStarClick = (rating) => {
     setCleanlinessRating(rating);
@@ -178,15 +234,15 @@ const  RentalPage= () => {
     content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
   />
   <title>Product - Brand</title>
-  <link rel="stylesheet" href="customerAssets/bootstrap/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="./customerAssets/bootstrap/css/bootstrap.min.css" />
   <link
     rel="stylesheet"
     href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i&display=swap"
   />
-  <link rel="stylesheet" href="customerAssets/fonts/fontawesome-all.min.css" />
-  <link rel="stylesheet" href="customerAssets/css/baguetteBox.min.css" />
-  <link rel="stylesheet" href="customerAssets/css/Banner-Heading-Image-images.css" />
-  <link rel="stylesheet" href="customerAssets/css/vanilla-zoom.min.css" />
+  <link rel="stylesheet" href="./customerAssets/fonts/fontawesome-all.min.css" />
+  <link rel="stylesheet" href="./customerAssets/css/baguetteBox.min.css" />
+  <link rel="stylesheet" href="./customerAssets/css/Banner-Heading-Image-images.css" />
+  <link rel="stylesheet" href="./customerAssets/css/vanilla-zoom.min.css" />
   <NavBar></NavBar>
   <h4 className="fs-2" style={{ paddingBottom: 0, marginBottom: 28 }}>
       <strong>Spacer </strong>
@@ -204,33 +260,33 @@ const  RentalPage= () => {
                       <img
                         width={405}
                         height={299}
-                        src="customerAssets/img/e447ece9-eb6d-41b2-a90a-008c82f607da.webp"
+                        src="./customerAssets/img/e447ece9-eb6d-41b2-a90a-008c82f607da.webp"
                       />
                     </div>
                     <div className="sidebar">
                       <img
                         className="img-fluid d-block small-preview"
-                        src="customerAssets/img/tech/9f3826b0-98e6-469b-bb92-30d517fc5d50.webp"
+                        src="./customerAssets/img/tech/9f3826b0-98e6-469b-bb92-30d517fc5d50.webp"
                       />
                       <img
                         className="img-fluid d-block small-preview"
-                        src="customerAssets/img/tech/c4ac305f-878c-43a5-8638-3007c262d529.webp"
+                        src="./customerAssets/img/tech/c4ac305f-878c-43a5-8638-3007c262d529.webp"
                       />
                       <img
                         className="img-fluid d-block small-preview"
-                        src="customerAssets/img/tech/37fe2a4e-d234-4443-92b2-19b65e1bb356.webp"
+                        src="./customerAssets/img/tech/37fe2a4e-d234-4443-92b2-19b65e1bb356.webp"
                       />
                       <img
                         className="img-fluid d-block small-preview"
-                        src="customerAssets/img/tech/0892a134-a933-42e0-bb48-fd91b6c915ca.webp"
+                        src="./customerAssets/img/tech/0892a134-a933-42e0-bb48-fd91b6c915ca.webp"
                       />
                       <img
                         className="img-fluid d-block small-preview"
-                        src="customerAssets/img/tech/2383b7af-246a-48e0-8c83-b6ac69856d46.webp"
+                        src="./customerAssets/img/tech/2383b7af-246a-48e0-8c83-b6ac69856d46.webp"
                       />
                       <img
                         className="img-fluid d-block small-preview"
-                        src="customerAssets/img/tech/0f8870df-97d8-4de6-a8ec-203c64785273.webp"
+                        src="./customerAssets/img/tech/0f8870df-97d8-4de6-a8ec-203c64785273.webp"
                       />
                     </div>
                   </div>
@@ -280,7 +336,7 @@ const  RentalPage= () => {
                 <div className="info">
                   <h4>
                     <strong>
-                      {name}&nbsp; &nbsp;&nbsp;
+                      {rentalName}&nbsp; &nbsp;&nbsp;
                     </strong>
                     <i
                        className={`far fa-heart ${isFavorited ? 'fas' : ''} text-end text-danger justify-content-end`}
@@ -298,11 +354,11 @@ const  RentalPage= () => {
                         marginRight: 113
                       }}
                     >
-                      <img src="customerAssets/img/star.svg" />
-                      <img src="customerAssets/img/star.svg" />
-                      <img src="customerAssets/img/star.svg" />
-                      <img src="customerAssets/img/star.svg" width={18} height={19} />
-                      <img src="customerAssets/img/star-half-empty.svg" />
+                      <img src="./customerAssets/img/star.svg" />
+                      <img src="./customerAssets/img/star.svg" />
+                      <img src="./customerAssets/img/star.svg" />
+                      <img src="./customerAssets/img/star.svg" width={18} height={19} />
+                      <img src="./customerAssets/img/star-half-empty.svg" />
                       <span style={{ color: "rgb(0, 0, 0)" }}>&nbsp;{avgRating}</span>
                     </p>
                     <p>
@@ -421,7 +477,7 @@ const  RentalPage= () => {
                 <div />
                 <h6>
                   <strong>
-                    Hosted by {hostName}&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    Hosted by {hostFullName}&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                     &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                     &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
                   </strong>
@@ -429,7 +485,7 @@ const  RentalPage= () => {
                     className="rounded-circle"
                     width={93}
                     height={74}
-                    src="customerAssets/img/stock-photo-headshot-portrait-of-happy-millennial-man-in-casual-clothes-isolated-on-grey-studio-background-250nw-1548802709.webp"
+                    src="./customerAssets/img/stock-photo-headshot-portrait-of-happy-millennial-man-in-casual-clothes-isolated-on-grey-studio-background-250nw-1548802709.webp"
                   />
                   <strong>&nbsp;</strong>
                 </h6>
