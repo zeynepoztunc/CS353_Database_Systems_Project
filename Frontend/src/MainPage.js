@@ -79,7 +79,7 @@ function toggleHeart(rentalId) {
 
     if (selectedFilters.length > 0) {
       filteredRentals = filteredRentals.filter((item) => {
-        const rentalName = item.rentalName.toLowerCase();
+        const rentalName = item['rental-name'].toLowerCase();
         return selectedFilters.some((filter) => rentalName.includes(filter));
       });
     }
