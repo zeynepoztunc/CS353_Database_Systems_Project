@@ -81,6 +81,10 @@ export const AdminLandmarkSuggestions = () => {
     fetchLandmarkForms().then(r => console.log('fetched data'));
   }, []);
 
+  const handleView = (landmarkId) => {
+    navigate('/AdminLandmarkDetailed?landmarkId=' + landmarkId);
+  };
+
   return (
     <>
       <meta charSet="utf-8" />
@@ -226,6 +230,7 @@ export const AdminLandmarkSuggestions = () => {
                           color: "rgb(13, 110, 253)",
                           backgroundColor: "rgb(255, 255, 255)",
                         }}
+                        onClick={() => handleView(item['landmark-id'])}
                       >
                         View
                       </span>
@@ -235,35 +240,6 @@ export const AdminLandmarkSuggestions = () => {
               </div>
               ))}
 
-              <div className="col-md-6 col-lg-4">
-                <div className="card">
-                  <img
-                    className="card-img-top w-100 d-block"
-                    src="adminAssets/img/scenery/Famous-Lycian-Tombs-of-ancient-Caunos-city-Dalyan-Turkey_Depositphotos_467017994_s-2019.jpeg.webp"
-                  />
-                  <div className="card-body">
-                    <h4 className="card-title">
-                      Dalyan Lycian Rock Tombs, Muğla
-                    </h4>
-                    <p className="card-text" />
-                  </div>
-                  <div>
-                    <button
-                      className="btn btn-outline-primary btn-sm"
-                      type="button"
-                    >
-                      <span
-                        style={{
-                          color: "rgb(13, 110, 253)",
-                          backgroundColor: "rgb(255, 255, 255)",
-                        }}
-                      >
-                        View
-                      </span>
-                    </button>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </section>

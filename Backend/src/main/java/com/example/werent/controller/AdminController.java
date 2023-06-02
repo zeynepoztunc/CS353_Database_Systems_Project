@@ -34,13 +34,12 @@ public class AdminController {
     }
 
     @RequestMapping(value = "/postReportDetails", method = RequestMethod.GET)
-    public List<Map<String, Object>> postReportDetails(@RequestParam int userId){
+    public List<Map<String, Object>> postReportDetails(@RequestParam String userId){
         return adminRepository.postReportDetails(userId);
     }
 
-    //NEREDE KULLANICAM???
     @RequestMapping(value = "/userReportDetails", method = RequestMethod.GET)
-    public List<Map<String, Object>> userReportDetails(@RequestParam int userId){
+    public List<Map<String, Object>> userReportDetails(@RequestParam String userId){
         return adminRepository.userReportDetails(userId);
     }
 
@@ -93,13 +92,18 @@ public class AdminController {
         return adminRepository.allLandmarkForms();
     }
 
+    @RequestMapping(value = "/singleLandmarkForm", method = RequestMethod.GET)
+    public List<Map<String, Object>> singleLandmarkForm(@RequestParam String landmarkId) {
+        return adminRepository.singleLandmarkForm(landmarkId);
+    }
+
     @RequestMapping(value = "/addLandmarkSugg", method = RequestMethod.PUT)
-    public int addLandmarkSugg(@RequestParam int landmarkId){
+    public int addLandmarkSugg(@RequestParam String landmarkId){
         return adminRepository.addLandmarkSugg(landmarkId);
     }
 
     @RequestMapping(value = "/deleteLandmarkSugg", method = RequestMethod.DELETE)
-    public int deleteLandmarkSugg(@RequestParam int landmarkId){
+    public int deleteLandmarkSugg(@RequestParam String landmarkId){
         return adminRepository.deleteLandmarkSugg(landmarkId);
     }
 

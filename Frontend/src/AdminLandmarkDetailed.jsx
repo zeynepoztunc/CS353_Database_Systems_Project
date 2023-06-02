@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import './adminAssets/bootstrap/css/bootstrap.min.css';
 import './adminAssets/css/vanilla-zoom.min.css';
 import { Navbar } from './Navbar.jsx';
@@ -10,16 +10,32 @@ export const AdminLandmarkDetailed = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [name, setName] = useState('');
-  const [landmarkId, setLandmarkId] = useState(0);
+  //const [landmarkId, setLandmarkId] = useState(0);
+  const [landmark, setLandmark] = useState([]);
 
   const navigate = useNavigate();
+  const urlParams = new URLSearchParams(window.location.search);
+  const landmarkId = urlParams.get('landmarkId');
 
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(email);
     }
 
-    //TODO: useEffect yazılacak (landmark-id lazım)
+  const fetchLandmark = async () => {
+    try {
+      const response = await axios.get('http://localhost:8080/singleLandmarkForm?landmarkId=' + landmarkId);
+      console.log(response.data);
+      setLandmark(response.data);
+    } catch (error) {
+      console.error('Failed:', error);
+      setLandmark([]);
+    }
+  };
+
+  useEffect(() => {
+    fetchLandmark().then(r => console.log('fetched data'));
+  }, []);
 
   const deleteLandmarkSugg = async (e) => {
     e.preventDefault();
@@ -83,7 +99,8 @@ export const AdminLandmarkDetailed = () => {
           <p>Landmark Suggestion Form submitted by users.</p>
         </div>
         <div className="block-content">
-          <div className="product-info">
+          {landmark.map((item, index) => (
+          <div key={index} className="product-info">
             <div className="row">
               <div className="col-md-6">
                 <div className="gallery">
@@ -100,27 +117,26 @@ export const AdminLandmarkDetailed = () => {
               </div>
               <div className="col-md-6 col-xl-6">
                 <div className="info">
-                  <h3>Alanya Castle, Alanya</h3>
+                  <h3>{item['landmark-name']}</h3>
                   <div className="price">
-                    <h3>Submitted: austinkasap@gmail.com</h3>
+                    <h3>Submitted: {item['name']} {item['surname']}</h3>
                   </div>
                   <div className="summary">
                     <h3>Message</h3>
                     <p>
-                      You should definitely add this place to the landmarks
-                      page!!
+                      {item['description']}
                     </p>
                     <h3>Location</h3>
                     <p style={{ fontSize: "20.4px" }}>
                       Latitude:&nbsp;
                       <span style={{ color: "rgb(32, 33, 36)" }}>
-                        39.8746° N
+                        {item['latitude']} N
                       </span>
                     </p>
                     <p style={{ fontSize: "20.4px" }}>
                       Longitude:&nbsp;
                       <span style={{ color: "rgb(32, 33, 36)" }}>
-                        32.7476° E
+                        {item['longitude']} E
                       </span>
                     </p>
                     <div>
@@ -146,6 +162,7 @@ export const AdminLandmarkDetailed = () => {
               </div>
             </div>
           </div>
+          ))}
           <div className="product-info">
             <div>
               <ul className="nav nav-tabs" role="tablist" id="myTab">

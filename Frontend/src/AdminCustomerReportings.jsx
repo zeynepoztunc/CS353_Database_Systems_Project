@@ -3,6 +3,7 @@ import "./adminAssets/bootstrap/css/bootstrap.min.css";
 import "./adminAssets/css/vanilla-zoom.min.css";
 import { Navbar } from "./Navbar.jsx";
 import axios from "axios";
+import {  useNavigate } from 'react-router-dom';
 export const AdminCustomerReportings = () => {
   const [mostRented, setMostRented] = useState(false);
   const [leastRented, setLeastRented] = useState(false);
@@ -12,6 +13,7 @@ export const AdminCustomerReportings = () => {
   const [lowestRating, setLowestRating] = useState(false);
   const [search, setSearch] = useState("");
   const [customerReportings, setReportings] = useState([]);
+  const [userId, setUserId] = useState(0);
 
   const users = [
     {
@@ -29,6 +31,8 @@ export const AdminCustomerReportings = () => {
       photo: "assets/img/avatars/avatar1.jpeg",
     },
   ];
+
+  const navigate = useNavigate();
 
   const fetchReportings = async () => {
     try {
@@ -111,6 +115,10 @@ export const AdminCustomerReportings = () => {
         "adminAssets/img/scenery/3222a878-4e0e-46b8-92d2-90fee6a9caa4.webp",
     },
   ];*/
+
+  const handleViewDetails = (userId) => {
+    navigate('/AdminViewReporting?userId=' + userId);
+  };
 
   return (
     <>
@@ -287,6 +295,7 @@ export const AdminCustomerReportings = () => {
                     <button
                       className="btn btn-outline-primary btn-sm"
                       type="button"
+                      onClick={() => handleViewDetails(item['user-id'])}
                     >
                       <span
                         style={{

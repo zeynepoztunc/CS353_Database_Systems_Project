@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import "./adminAssets/bootstrap/css/bootstrap.min.css";
 import "./adminAssets/css/vanilla-zoom.min.css";
 import { Navbar } from "./Navbar.jsx";
+import axios from "axios";
+import {  useNavigate } from 'react-router-dom';
 
 export const AdminManageUsers = () => {
   const [mostRented, setMostRented] = useState(false);
@@ -11,7 +13,9 @@ export const AdminManageUsers = () => {
   const [highestRating, setHighestRating] = useState(false);
   const [lowestRating, setLowestRating] = useState(false);
   const [search, setSearch] = useState("");
-  const users = [
+  const [users, setUsers] = useState([]);
+
+  /*const users = [
     {
       name: "Airi Satou",
       userType: "Host",
@@ -26,7 +30,9 @@ export const AdminManageUsers = () => {
       joinDate: "2022/11/28",
       photo: "assets/img/avatars/avatar1.jpeg",
     },
-  ];
+  ];*/
+
+  const navigate = useNavigate();
 
   function handleSearch() {
     if (document.getElementById("formCheck-1").checked) {
@@ -59,6 +65,25 @@ export const AdminManageUsers = () => {
       console.log(search);
     }
   }
+
+  const fetchUsers = async () => {
+    try {
+      const response = await axios.get('http://localhost:8080/listAllUsers');
+      console.log(response.data);
+      setUsers(response.data);
+    } catch (error) {
+      console.error('Failed to fetch cities:', error);
+      setUsers([]);
+    }
+  };
+
+  useEffect(() => {
+    fetchUsers().then(r => console.log('fetched data'));
+  }, []);
+
+  const handleViewProfile = (userId) => {
+    navigate('/AdminViewUser?userId=' + userId);
+  };
 
   return (
     <>
@@ -244,37 +269,8 @@ export const AdminManageUsers = () => {
                         </thead>
 
                         <tbody>
-                          <tr>
-                            <td>
-                              <img
-                                className="rounded-circle me-2"
-                                width={30}
-                                height={30}
-                                src="adminAssets/img/avatars/avatar1.jpeg"
-                              />
-                              Airi Satou
-                            </td>
-                            <td>Host</td>
-                            <td>0</td>
-
-                            <td>2022/11/28</td>
-                            <td style={{ textAlign: "center" }}>
-                              <button
-                                className="btn btn-primary"
-                                type="button"
-                                style={{
-                                  paddingLeft: 10,
-                                  margin: "auto",
-                                  /*borderLeft: 10, */ textAlign: "center",
-                                }}
-                              >
-                                View Profile
-                              </button>
-                            </td>
-                          </tr>
-
-                          {users.map((item) => (
-                            <tr>
+                          {users.map((item, index) => (
+                            <tr key={index}>
                               <td>
                                 <img
                                   className="rounded-circle me-2"
@@ -300,6 +296,7 @@ export const AdminManageUsers = () => {
                                     margin: "auto",
                                     /*borderLeft: 10, */ textAlign: "center",
                                   }}
+                                  onClick={() => handleViewProfile(item['user-id'])}
                                 >
                                   <span
                                     style={{

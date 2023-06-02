@@ -75,10 +75,11 @@ public class AdminRepository {
         }
     }
 
-    public List<Map<String, Object>> postReportDetails(int userId){
+    public List<Map<String, Object>> postReportDetails(String userId){
         String sqlPostRepDet = "SELECT * FROM \"Reports\" r, \"Rental\" re, \"RegisteredUser\" u, \"User\" us WHERE r.\"rental-id\" = re.\"rental-id\" AND u.\"user-id\" = r.\"user-id\" AND u.\"user-id\" = ? AND u.\"user-id\" = us.\"user-id\"";
 
-        List<Map<String, Object>> rows = jdbcTemplate.queryForList(sqlPostRepDet, userId);
+        int userIdInt = Integer.parseInt(userId);
+        List<Map<String, Object>> rows = jdbcTemplate.queryForList(sqlPostRepDet, userIdInt);
         if (rows.isEmpty()){
             return null;
         }
@@ -87,10 +88,11 @@ public class AdminRepository {
         }
     }
 
-    public List<Map<String, Object>> userReportDetails(int userId){
-        String sqlDet = "SELECT * FROM \"RegisteredUser\" r, \"Complaints\" c, \"User\" us WHERE c.\"user-id1\" = r.\"user-id\" AND r.\"user-id\" = ? AND u.\"user-id\" = us.\"user-id\"";
+    public List<Map<String, Object>> userReportDetails(String userId){
+        String sqlDet = "SELECT * FROM \"RegisteredUser\" r, \"Complaints\" c, \"User\" us WHERE c.\"user-id1\" = r.\"user-id\" AND r.\"user-id\" = ? AND r.\"user-id\" = us.\"user-id\"";
 
-        List<Map<String, Object>> rows = jdbcTemplate.queryForList(sqlDet, userId);
+        int userIdInt = Integer.parseInt(userId);
+        List<Map<String, Object>> rows = jdbcTemplate.queryForList(sqlDet, userIdInt);
         if (rows.isEmpty()){
             return null;
         }
@@ -126,7 +128,7 @@ public class AdminRepository {
     }
 
     public List<Map<String, Object>> listAllUsers(){
-       String sqlListAll = "SELECT name, surname, \"user-type\", count(*) as \"complaint-cnt\", \"join-date\" FROM \"RegisteredUser\" u, \"Complaints\" c, \"User\" us WHERE u.\"user-id\" = c.\"user-id2\" GROUP BY u.\"user-id\"";
+       String sqlListAll = "SELECT us.\"user-id\", us.name, us.surname, u.\"user-type\", count(*) as \"complaint-cnt\", u.\"join-date\" FROM \"RegisteredUser\" u, \"Complaints\" c, \"User\" us WHERE u.\"user-id\" = c.\"user-id2\" AND u.\"user-id\" = us.\"user-id\" GROUP BY us.\"user-id\", us.name, us.surname, u.\"user-type\", u.\"join-date\"";
 
         List<Map<String, Object>> rows = jdbcTemplate.queryForList(sqlListAll);
         if (rows.isEmpty()){
@@ -174,7 +176,7 @@ public class AdminRepository {
     }
 
     public List<Map<String, Object>> allLandmarkForms(){
-        String sqlListAll = "SELECT \"landmark-name\" FROM \"Landmarks\"";
+        String sqlListAll = "SELECT \"landmark-id\", \"landmark-name\" FROM \"Landmarks\"";
 
         List<Map<String, Object>> rows = jdbcTemplate.queryForList(sqlListAll);
         if (rows.isEmpty()){
@@ -185,17 +187,32 @@ public class AdminRepository {
         }
     }
 
-    public int addLandmarkSugg(int landmarkId){
+    public List<Map<String, Object>> singleLandmarkForm(@RequestParam String landmarkId) {
+        String sqlLandmark = "SELECT u.\"user-id\", u.name, u.surname, l.\"landmark-id\", l.\"landmark-name\", l.description, l.latitude, l.longitude, l.city, l.province FROM \"Landmarks\" l, \"User\" u WHERE \"landmark-id\" = ? AND u.\"user-id\" = l.\"user-id\"";
+
+        int landmarkIdInt = Integer.parseInt(landmarkId);
+        List<Map<String, Object>> rows = jdbcTemplate.queryForList(sqlLandmark, landmarkIdInt);
+        if (rows.isEmpty()){
+            return null;
+        }
+        else{
+            return rows;
+        }
+    }
+
+    public int addLandmarkSugg(String landmarkId){
         String sqlAddLandmarkSugg = "UPDATE \"Landmarks\" SET \"accepted\" = ? WHERE \"landmark-id\" = ?";
 
-        int res = jdbcTemplate.update(sqlAddLandmarkSugg, true, landmarkId);
+        int landmarkIdInt = Integer.parseInt(landmarkId);
+        int res = jdbcTemplate.update(sqlAddLandmarkSugg, true, landmarkIdInt);
         return res;
     }
 
-    public int deleteLandmarkSugg(int landmarkId){
+    public int deleteLandmarkSugg(String landmarkId){
         String sqlDelLandmarkSugg = "DELETE FROM \"Landmarks\" WHERE \"landmark-id\" = ?";
 
-        int res = jdbcTemplate.update(sqlDelLandmarkSugg, landmarkId);
+        int landmarkIdInt = Integer.parseInt(landmarkId);
+        int res = jdbcTemplate.update(sqlDelLandmarkSugg, landmarkIdInt);
         return res;
     }
 
