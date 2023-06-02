@@ -128,7 +128,6 @@ function toggleHeart(rentalId) {
     return stars;
   }
 
-
   const navigate = useNavigate();
 
   const goToRentalPage = (id) => {
@@ -167,46 +166,6 @@ function toggleHeart(rentalId) {
 
                   <div className="d-none d-md-block">
                     <div className="filters">
-
-                      <div className="filter-item">
-                        <h3>Location</h3>
-                        <div className="form-check">
-                          <input
-                            className="form-check-input"
-                            type="checkbox"
-                            id="formCheck-5"
-                            value="countryside"
-                            onChange={handleFilterChange}
-                          />
-                          <label className="form-check-label" htmlFor="formCheck-5">
-                            Countryside
-                          </label>
-                        </div>
-                        <div className="form-check">
-                          <input
-                            className="form-check-input"
-                            type="checkbox"
-                            id="formCheck-6"
-                            value="sea"
-                            onChange={handleFilterChange}
-                          />
-                          <label className="form-check-label" htmlFor="formCheck-6">
-                            Sea
-                          </label>
-                        </div>
-                        <div className="form-check">
-                          <input
-                            className="form-check-input"
-                            type="checkbox"
-                            id="formCheck-7"
-                            value="historical"
-                            onChange={handleFilterChange}
-                          />
-                          <label className="form-check-label" htmlFor="formCheck-7">
-                            Historical
-                          </label>
-                        </div>
-                      </div>
 
                       <div className="filter-item">
                         <h3>Volunteer Services</h3>
@@ -251,7 +210,7 @@ function toggleHeart(rentalId) {
                       <div className="filter-item">
                         <h3>City</h3>
                         <div className="form-check">
-                          {cities.map((city, index) => (
+                          {cities.map((item, index) => (
                               <div>
                                 <input
                                   className="form-check-input"
@@ -261,34 +220,10 @@ function toggleHeart(rentalId) {
                                   onChange={handleFilterChange}
                                 />
                                 <label className="form-check-label" htmlFor="formCheck-5">
-                                  {item['cityName']}
+                                  {item['name']}
                                 </label>
                               </div>
                           ))}
-                        </div>
-                        <div className="form-check">
-                          <input
-                            className="form-check-input"
-                            type="checkbox"
-                            id="formCheck-5"
-                            value="countryside"
-                            onChange={handleFilterChange}
-                          />
-                          <label className="form-check-label" htmlFor="formCheck-5">
-                            İstanbul
-                          </label>
-                        </div>
-                        <div className="form-check">
-                          <input
-                            className="form-check-input"
-                            type="checkbox"
-                            id="formCheck-5"
-                            value="countryside"
-                            onChange={handleFilterChange}
-                          />
-                          <label className="form-check-label" htmlFor="formCheck-5">
-                            İzmir
-                          </label>
                         </div>
                       </div>
 
