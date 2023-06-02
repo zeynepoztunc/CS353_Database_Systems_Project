@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e555480-ab5a-407e-a171-4062daf29606" name="Changes" comment="changes in customer side">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/RentalPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/RentalPage.js" afterDir="false" />
-    </list>
+    <list default="true" id="5e555480-ab5a-407e-a171-4062daf29606" name="Changes" comment="login pages are designed again" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -106,7 +103,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.WeRentApplication">
+  <component name="RunManager">
     <configuration name="All in generated-requests" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http">
       <method v="2" />
     </configuration>
@@ -120,12 +117,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="HTTP Request.generated-requests | #2" />
-        <item itemvalue="HTTP Request.All in generated-requests" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -174,8 +165,7 @@
       <workItem from="1685692222326" duration="6858000" />
       <workItem from="1685704736598" duration="4664000" />
       <workItem from="1685714769700" duration="2374000" />
-      <workItem from="1685718359811" duration="4326000" />
-      <workItem from="1685726599832" duration="3437000" />
+      <workItem from="1685718359811" duration="4250000" />
     </task>
     <task id="LOCAL-00001" summary="new upload">
       <created>1684410800015</created>
@@ -338,14 +328,7 @@
       <option name="project" value="LOCAL" />
       <updated>1685716796856</updated>
     </task>
-    <task id="LOCAL-00024" summary="changes in customer side">
-      <created>1685722657737</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1685722657737</updated>
-    </task>
-    <option name="localTasksCounter" value="25" />
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -384,8 +367,7 @@
     <MESSAGE value="changes on customer side x2" />
     <MESSAGE value="changes on customer side x3" />
     <MESSAGE value="login pages are designed again" />
-    <MESSAGE value="changes in customer side" />
-    <option name="LAST_COMMIT_MESSAGE" value="changes in customer side" />
+    <option name="LAST_COMMIT_MESSAGE" value="login pages are designed again" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
