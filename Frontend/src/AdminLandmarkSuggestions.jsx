@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import "./adminAssets/bootstrap/css/bootstrap.min.css";
 import "./adminAssets/css/vanilla-zoom.min.css";
 import { Link } from "react-router-dom";
 import { Navbar } from "./Navbar.jsx";
+import axios from 'axios';
+import {  useNavigate } from 'react-router-dom';
 
 export const AdminLandmarkSuggestions = () => {
   const [mostRented, setMostRented] = useState(false);
@@ -12,6 +14,7 @@ export const AdminLandmarkSuggestions = () => {
   const [highestRating, setHighestRating] = useState(false);
   const [lowestRating, setLowestRating] = useState(false);
   const [search, setSearch] = useState("");
+  const [forms, setForms] = useState([]);
   const users = [
     {
       name: "Airi Satou",
@@ -28,6 +31,8 @@ export const AdminLandmarkSuggestions = () => {
       photo: "assets/img/avatars/avatar1.jpeg",
     },
   ];
+
+  const navigate = useNavigate();
 
   function handleSearch() {
     if (document.getElementById("formCheck-1").checked) {
@@ -60,6 +65,21 @@ export const AdminLandmarkSuggestions = () => {
       console.log(search);
     }
   }
+
+  const fetchLandmarkForms = async () => {
+    try {
+      const response = await axios.get('http://localhost:8080/allLandmarkForms');
+      console.log(response.data);
+      setForms(response.data);
+    } catch (error) {
+      console.error('Failed:', error);
+      setForms([]);
+    }
+  };
+
+  useEffect(() => {
+    fetchLandmarkForms().then(r => console.log('fetched data'));
+  }, []);
 
   return (
     <>
@@ -185,14 +205,15 @@ export const AdminLandmarkSuggestions = () => {
             </div>
 
             <div className="row">
-              <div className="col-md-6 col-lg-4">
+              {forms.map((item, index) => (
+              <div key={index} className="col-md-6 col-lg-4">
                 <div className="card">
                   <img
                     className="card-img-top w-100 d-block"
                     src="adminAssets/img/scenery/turkey-alanya-top-things-to-do-explore-alanya-castle.jpg"
                   />
                   <div className="card-body">
-                    <h4 className="card-title">Alanya Castle, Antalya</h4>
+                    <h4 className="card-title">{item['landmark-name']}</h4>
                     <p className="card-text" />
                   </div>
                   <div>
@@ -212,110 +233,8 @@ export const AdminLandmarkSuggestions = () => {
                   </div>
                 </div>
               </div>
+              ))}
 
-              <div className="col-md-6 col-lg-4">
-                <div className="card">
-                  <img
-                    className="card-img-top w-100 d-block"
-                    src="adminAssets/img/scenery/Alanya-excursions-3.webp"
-                  />
-                  <div className="card-body">
-                    <h4 className="card-title">Aspendos, Antalya</h4>
-                    <p className="card-text" />
-                  </div>
-                  <div>
-                    <button
-                      className="btn btn-outline-primary btn-sm"
-                      type="button"
-                    >
-                      <span
-                        style={{
-                          color: "rgb(13, 110, 253)",
-                          backgroundColor: "rgb(255, 255, 255)",
-                        }}
-                      >
-                        View
-                      </span>
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-6 col-lg-4">
-                <div className="card">
-                  <img
-                    className="card-img-top w-100 d-block"
-                    src="adminAssets/img/scenery/3d.jpg"
-                  />
-                  <div className="card-body">
-                    <h4 className="card-title">
-                      Green Canyon Boat Tour, Antalya
-                    </h4>
-                    <p className="card-text" />
-                  </div>
-                  <div>
-                    <button
-                      className="btn btn-outline-primary btn-sm"
-                      type="button"
-                    >
-                      <span
-                        style={{
-                          color: "rgb(13, 110, 253)",
-                          backgroundColor: "rgb(255, 255, 255)",
-                        }}
-                      >
-                        View
-                      </span>
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-6 col-lg-4">
-                <div className="card">
-                  <img
-                    className="card-img-top w-100 d-block"
-                    src="adminAssets/img/scenery/Stone-head-statues-at-Nemrut-Mountain-in-Turkey_Depositphotos_74526735_s-2019.jpeg.webp"
-                  />
-                  <div className="card-body">
-                    <h4 className="card-title">Mount Nemrut, Adıyaman</h4>
-                    <p className="card-text" />
-                  </div>
-                  <div>
-                    <button
-                      className="btn btn-outline-primary btn-sm"
-                      type="button"
-                    >
-                      View
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-6 col-lg-4">
-                <div className="card">
-                  <img
-                    className="card-img-top w-100 d-block"
-                    src="adminAssets/img/scenery/Waterfall-Duden-at-Antalya-Turkey_Depositphotos_8524062_s-2019.jpeg.webp"
-                  />
-                  <div className="card-body">
-                    <h4 className="card-title">Duden Waterfalls, Antalya</h4>
-                    <p className="card-text" />
-                  </div>
-                  <div>
-                    <button
-                      className="btn btn-outline-primary btn-sm"
-                      type="button"
-                    >
-                      <span
-                        style={{
-                          color: "rgb(13, 110, 253)",
-                          backgroundColor: "rgb(255, 255, 255)",
-                        }}
-                      >
-                        View
-                      </span>
-                    </button>
-                  </div>
-                </div>
-              </div>
               <div className="col-md-6 col-lg-4">
                 <div className="card">
                   <img

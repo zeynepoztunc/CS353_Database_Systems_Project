@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import './adminAssets/bootstrap/css/bootstrap.min.css';
 import './adminAssets/css/vanilla-zoom.min.css';
 import { Navbar } from './Navbar.jsx';
+import axios from "axios";
+import {  useNavigate } from 'react-router-dom';
 
 export const AdminReviews = () => {
   const [highestCleanliness, setHighestCleanliness] = useState(false);
@@ -14,6 +16,7 @@ export const AdminReviews = () => {
   const [leastReviewed, setLeastReviewed] = useState(false);
   const [mostReviewed, setMostReviewed] = useState(false);
   const [search, setSearch] = useState("");
+  const [evals, setEvals] = useState([]);
   
   const reviews = [
     {
@@ -31,6 +34,8 @@ export const AdminReviews = () => {
       photo: "assets/img/avatars/avatar1.jpeg",
     },
   ];
+
+  const navigate = useNavigate();
 
   function handleSearch() {
     if (document.getElementById("formCheck-1").checked) {
@@ -76,7 +81,21 @@ export const AdminReviews = () => {
     }
   }
 
-    
+  const fetchEvaluations = async () => {
+    try {
+      const response = await axios.get('http://localhost:8080/listEvaluations');
+      console.log(response.data);
+      setEvals(response.data);
+    } catch (error) {
+      console.error('Failed:', error);
+      setEvals([]);
+    }
+  };
+
+  useEffect(() => {
+    fetchEvaluations().then(r => console.log('fetched data'));
+  }, []);
+
     return (
         <>
   <meta charSet="utf-8" />
@@ -261,11 +280,12 @@ export const AdminReviews = () => {
         <div className="block-content">
           <div className="faq-item">
             <h4 className="question">Host Evaluation</h4>
-            <div className="answer">
-              <p>Jan 26, 2023 by John Smith johnsmith@gmail.com</p>
+            {evals.map((item, index) => (
+            <div key={index} className="answer">
+              <p>{item['date']} by {item['name']} {item['e-mail']}</p>
               <p>
                 <span style={{ color: "rgb(0, 0, 0)" }}>
-                  The host was very friendly.
+                  {item['review']}
                 </span>
               </p>
               <div>
@@ -275,7 +295,7 @@ export const AdminReviews = () => {
                       <span style={{ color: "rgb(0, 0, 0)" }}>Cleanliness</span>
                     </h4>
                     <p>
-                      <span style={{ color: "rgb(0, 0, 0)" }}>Rating: 3</span>
+                      <span style={{ color: "rgb(0, 0, 0)" }}>Rating: {item['cleanliness-rating']}</span>
                     </p>
                   </div>
                   <div className="col">
@@ -283,7 +303,7 @@ export const AdminReviews = () => {
                       <span style={{ color: "rgb(0, 0, 0)" }}>Check-in</span>
                     </h4>
                     <p>
-                      <span style={{ color: "rgb(0, 0, 0)" }}>Rating: 3.5</span>
+                      <span style={{ color: "rgb(0, 0, 0)" }}>Rating: {item['check-in-rating']}</span>
                     </p>
                   </div>
                   <div className="col">
@@ -294,7 +314,7 @@ export const AdminReviews = () => {
                       </span>
                     </h4>
                     <p>
-                      <span style={{ color: "rgb(0, 0, 0)" }}>Rating: 5</span>
+                      <span style={{ color: "rgb(0, 0, 0)" }}>Rating: {item['communication-rating']}</span>
                     </p>
                   </div>
                   <div className="col">
@@ -303,7 +323,7 @@ export const AdminReviews = () => {
                       <span style={{ color: "rgb(0, 0, 0)" }}>Accuracy</span>
                     </h4>
                     <p>
-                      <span style={{ color: "rgb(0, 0, 0)" }}>Rating: 3</span>
+                      <span style={{ color: "rgb(0, 0, 0)" }}>Rating: {item['accuracy-rating']}</span>
                     </p>
                   </div>
                   <div className="col">
@@ -312,7 +332,7 @@ export const AdminReviews = () => {
                       <span style={{ color: "rgb(0, 0, 0)" }}>Safety</span>
                     </h4>
                     <p>
-                      <span style={{ color: "rgb(0, 0, 0)" }}>Rating: 5</span>
+                      <span style={{ color: "rgb(0, 0, 0)" }}>Rating: {item['safety-rating']}</span>
                     </p>
                   </div>
                   <div className="col">
@@ -321,7 +341,7 @@ export const AdminReviews = () => {
                       <span style={{ color: "rgb(0, 0, 0)" }}>Location</span>
                     </h4>
                     <p>
-                      <span style={{ color: "rgb(0, 0, 0)" }}>Rating: 5</span>
+                      <span style={{ color: "rgb(0, 0, 0)" }}>Rating: {item['location-rating']}</span>
                     </p>
                   </div>
                   <div className="col">
@@ -330,12 +350,14 @@ export const AdminReviews = () => {
                       <span style={{ color: "rgb(0, 0, 0)" }}>Value</span>
                     </h4>
                     <p>
-                      <span style={{ color: "rgb(0, 0, 0)" }}>Rating: 5</span>
+                      <span style={{ color: "rgb(0, 0, 0)" }}>Rating: {item['value-rating']}</span>
                     </p>
                   </div>
                 </div>
               </div>
             </div>
+            ))}
+
           </div>
           <div className="faq-item">
             <h4 className="question">Guest Evaluation</h4>

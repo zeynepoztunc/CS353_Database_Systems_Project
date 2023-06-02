@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import './adminAssets/bootstrap/css/bootstrap.min.css';
 import './adminAssets/css/vanilla-zoom.min.css';
 import { Navbar } from './Navbar.jsx';
+import axios from 'axios';
+import {  useNavigate } from 'react-router-dom';
 
 export const AdminManagePosts = () => {
     const [mostRented, setMostRented] = useState(false);
@@ -11,6 +13,9 @@ export const AdminManagePosts = () => {
     const [highestRating, setHighestRating] = useState(false);
     const [lowestRating, setLowestRating] = useState(false);
     const [search, setSearch] = useState("");
+  const [posts, setPosts] = useState([]);
+
+  const navigate = useNavigate();
     
     function handleSearch(){
       if ( document.getElementById("formCheck-1").checked ){
@@ -42,6 +47,21 @@ export const AdminManagePosts = () => {
       setSearch(searchInput);
       console.log(search);
     }
+
+  const fetchPosts = async () => {
+    try {
+      const response = await axios.get('http://localhost:8080/listAllPosts');
+      console.log(response.data);
+      setPosts(response.data);
+    } catch (error) {
+      console.error('Failed:', error);
+      setPosts([]);
+    }
+  };
+
+  useEffect(() => {
+    fetchPosts().then(r => console.log('fetched data'));
+  }, []);
 
     
     return (
@@ -146,195 +166,9 @@ export const AdminManagePosts = () => {
           </button>
         </div>
               <div className="row">
-                <div className="col-md-6 col-lg-4 item">
-                  <a className="lightbox" href="assets/img/scenery/image1.jpg">
-                    <img
-                      className="img-thumbnail img-fluid image"
-                      src="adminAssets/img/scenery/d8db92b5-4852-4647-9169-ebb514b66cbd.webp"
-                      width={356}
-                      height={241}
-                    />
-                  </a>
-                  <h4>Cozy Guesthouse in Alanya</h4>
-                  <div style={{ textAlign: "center" }}>
-                    <button
-                      className="btn btn-primary"
-                      type="button"
-                      style={{
-                        paddingLeft: 10,
-                        margin: "auto",
-                        /*borderLeft: 10, */ textAlign: "center"
-                      }}
-                    >
-                      View
-                    </button>
-                  </div>
-                </div>
-                <div className="col-md-6 col-lg-4 item">
-                  <a className="lightbox" href="assets/img/scenery/image4.jpg">
-                    <img
-                      className="img-thumbnail img-fluid image"
-                      src="adminAssets/img/scenery/image2.jpg"
-                      width={356}
-                      height={240}
-                    />
-                  </a>
-                  <h4>Cosy 3+1 bedroom with private pool in Fethiye</h4>
-                  <div style={{ textAlign: "center" }}>
-                    <button
-                      className="btn btn-primary"
-                      type="button"
-                      style={{
-                        paddingLeft: 10,
-                        margin: "auto",
-                        /*borderLeft: 10, */ textAlign: "center"
-                      }}
-                    >
-                      View
-                    </button>
-                  </div>
-                </div>
-                <div className="col-md-6 col-lg-4 item">
-                  <a className="lightbox" href="assets/img/scenery/image6.jpg">
-                    <img
-                      className="img-thumbnail img-fluid image"
-                      src="adminAssets/img/scenery/a9deb25f-9830-4d2a-9520-f9de76d17ac9.jpg"
-                      width={356}
-                      height={217}
-                    />
-                  </a>
-                  <h4>Villa in Dalaman</h4>
-                  <div style={{ textAlign: "center" }}>
-                    <button
-                      className="btn btn-primary"
-                      type="button"
-                      style={{
-                        paddingLeft: 10,
-                        margin: "auto",
-                        /*borderLeft: 10, */ textAlign: "center"
-                      }}
-                    >
-                      View
-                    </button>
-                  </div>
-                </div>
-                <div className="col-md-6 col-lg-4 item">
-                  <a className="lightbox" href="assets/img/scenery/image5.jpg">
-                    <img
-                      className="img-thumbnail img-fluid image"
-                      src="adminAssets/img/scenery/bcf9680c-1812-4f29-83ee-0ba8e22afb2c.webp"
-                    />
-                  </a>
-                  <h4>Luxury condo in Efes</h4>
-                  <div style={{ textAlign: "center" }}>
-                    <button
-                      className="btn btn-primary"
-                      type="button"
-                      style={{
-                        paddingLeft: 10,
-                        margin: "auto",
-                        /*borderLeft: 10, */ textAlign: "center"
-                      }}
-                    >
-                      View
-                    </button>
-                  </div>
-                </div>
-                <div className="col-md-6 col-lg-4 item">
-                  <a className="lightbox" href="assets/img/scenery/image1.jpg">
-                    <img
-                      className="img-thumbnail img-fluid image"
-                      src="adminAssets/img/scenery/60a2e0f6-3c10-41c5-acce-1e4951e0dd41.jpeg"
-                      width={356}
-                      height={205}
-                    />
-                  </a>
-                  <h4>Townhouse in Bodrum</h4>
-                  <div style={{ textAlign: "center" }}>
-                    <button
-                      className="btn btn-primary"
-                      type="button"
-                      style={{
-                        paddingLeft: 10,
-                        margin: "auto",
-                        /*borderLeft: 10, */ textAlign: "center"
-                      }}
-                    >
-                      View
-                    </button>
-                  </div>
-                </div>
-                <div className="col-md-6 col-lg-4 item">
-                  <a className="lightbox" href="assets/img/scenery/image4.jpg">
-                    <img
-                      className="img-thumbnail img-fluid image"
-                      src="adminAssets/img/scenery/airbnb-beach-dominican-6939168.webp"
-                      width={356}
-                      height={241}
-                    />
-                  </a>
-                  <h4>Luxury beach villa 3+1 in Bodrum</h4>
-                  <div style={{ textAlign: "center" }}>
-                    <button
-                      className="btn btn-primary"
-                      type="button"
-                      style={{
-                        paddingLeft: 10,
-                        margin: "auto",
-                        /*borderLeft: 10, */ textAlign: "center"
-                      }}
-                    >
-                      View
-                    </button>
-                  </div>
-                </div>
-                <div className="col-md-6 col-lg-4 item">
-                  <a className="lightbox" href="assets/img/scenery/image6.jpg">
-                    <img
-                      className="img-thumbnail img-fluid image"
-                      src="adminAssets/img/scenery/3222a878-4e0e-46b8-92d2-90fee6a9caa4.webp"
-                      width={356}
-                      height={241}
-                    />
-                  </a>
-                  <h4>Stylish flat in Muratpaşa</h4>
-                  <div style={{ textAlign: "center" }}>
-                    <button
-                      className="btn btn-primary"
-                      type="button"
-                      style={{
-                        paddingLeft: 10,
-                        margin: "auto",
-                        /*borderLeft: 10, */ textAlign: "center"
-                      }}
-                    >
-                      View
-                    </button>
-                  </div>
-                </div>
-                <div className="col-md-6 col-lg-4 item">
-                  <a className="lightbox" href="assets/img/scenery/image5.jpg">
-                    <img
-                      className="img-thumbnail img-fluid image"
-                      src="adminAssets/img/scenery/f91f480a-f1f6-4ad7-b24a-40d8a0d346e4.webp"
-                    />
-                  </a>
-                  <h4>Villa in Turgutreis</h4>
-                  <div style={{ textAlign: "center" }}>
-                    <button
-                      className="btn btn-primary"
-                      type="button"
-                      style={{
-                        paddingLeft: 10,
-                        margin: "auto",
-                        /*borderLeft: 10, */ textAlign: "center"
-                      }}
-                    >
-                      View
-                    </button>
-                  </div>
-                </div>
-                <div className="col-md-6 col-lg-4 item">
+
+              {posts.map((item, index) => (
+                <div key={index} className="col-md-6 col-lg-4 item">
                   <a className="lightbox" href="assets/img/scenery/image1.jpg">
                     <img
                       className="img-thumbnail img-fluid image"
@@ -343,7 +177,7 @@ export const AdminManagePosts = () => {
                       height={270}
                     />
                   </a>
-                  <h4>Vacation home in Kemer</h4>
+                  <h4>{item['rental-name']}</h4>
                   <div style={{ textAlign: "center" }}>
                     <button
                       className="btn btn-primary"
@@ -358,6 +192,7 @@ export const AdminManagePosts = () => {
                     </button>
                   </div>
                 </div>
+              ))}
               </div>
             </div>
           </section>

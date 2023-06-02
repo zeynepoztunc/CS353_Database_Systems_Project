@@ -1,17 +1,66 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import './adminAssets/bootstrap/css/bootstrap.min.css';
 import './adminAssets/css/vanilla-zoom.min.css';
 import { Navbar } from './Navbar.jsx';
+import axios from 'axios';
+import {  useNavigate } from 'react-router-dom';
+
 export const AdminViewReporting = () => {
     const [email, setEmail] = useState('');
+  const [details, setDetails] = useState([]);
+  const [userId, setUserId] = useState(0);
+  const [rentalId, setRentalId] = useState(0);
 
-    const deleteUser = (e) => {
-        e.preventDefault();
-        console.log(email);
+  const navigate = useNavigate();
+
+  const fetchDetails = async () => {
+    try {
+      const response = await axios.get('http://localhost:8080/postReportDetails?userId=10');  //TODO
+      console.log(response.data);
+      setDetails(response.data);
+      setUserId(response.data[0]['user-id']);
+      setRentalId(response.data[0]['rental-id']);
+    } catch (error) {
+      console.error('Failed to fetch cities:', error);
+      setDetails([]);
     }
-    const removePost = (e) => {
+  };
+
+  useEffect(() => {
+    fetchDetails().then(r => console.log('fetched data'));
+  }, []);
+
+    const deleteUser = async (e) => {
+        e.preventDefault();
+      try {
+        const response = await axios.delete('http://localhost:8080/deleteReportedUser?userId=' + userId);
+        console.log(response.data);
+        if(response.data == 0){
+          alert("Error Deleting User");
+        }
+        else if (response.data == 1){
+          navigate('/AdminHome');
+          alert("User deleted successfully!");
+        }
+      } catch (error) {
+        console.error('Failed:', error);
+      }
+    }
+    const removePost = async (e) => {
       e.preventDefault();
-      console.log(email);
+      try {
+        const response = await axios.delete('http://localhost:8080/deletePost?rentalId=' + rentalId);
+        console.log(response.data);
+        if(response.data == 0){
+          alert("Error Deleting Post");
+        }
+        else if (response.data == 1){
+          navigate('/AdminHome');
+          alert("Post deleted successfully!");
+        }
+      } catch (error) {
+        console.error('Failed:', error);
+      }
   }
     
     return (
@@ -40,14 +89,15 @@ export const AdminViewReporting = () => {
                 <h2 className="text-info">Reporting</h2>
                 <p>Reporting made by a user.</p>
               </div>
-              <div className="block-content">
+              {details.map((item, index) => (
+              <div className="block-content" key={index}>
                 <div className="product-info">
                   <div className="row">
                     <div className="col-md-6">
                       <div className="gallery">
                         <h1>
                           <span style={{ backgroundColor: "rgb(246, 246, 246)" }}>
-                            Stylish flat in Muratpaşa
+                            {item['rental-name']}
                           </span>
                         </h1>
                         <div id="product-preview" className="vanilla-zoom">
@@ -81,13 +131,11 @@ export const AdminViewReporting = () => {
                           <div className="info">
                             <span className="text-muted">
                               Jan 16, 2022 by&nbsp;
-                              <a href="#">John Smith johnsmith@gmail.com</a>
+                              <a href="#">{item['name']} {item['surname']}   {item['e-mail']}</a>
                             </span>
                           </div>
                           <p>
-                            The pictures looked nothing like the actual house. The
-                            house also had heating problems and the host ignored our
-                            calls.
+                            {item['description']}
                           </p>
                           <button
                             className="btn btn-outline-primary btn-sm"
@@ -258,6 +306,7 @@ export const AdminViewReporting = () => {
                   </div>
                 </div>
               </div>
+              ))}
             </div>
           </section>
         </main>

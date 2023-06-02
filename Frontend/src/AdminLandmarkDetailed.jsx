@@ -3,16 +3,57 @@ import './adminAssets/bootstrap/css/bootstrap.min.css';
 import './adminAssets/css/vanilla-zoom.min.css';
 import { Navbar } from './Navbar.jsx';
 import { Link } from "react-router-dom";
+import axios from "axios";
+import {  useNavigate } from 'react-router-dom';
 
 export const AdminLandmarkDetailed = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [name, setName] = useState('');
-    
+  const [landmarkId, setLandmarkId] = useState(0);
+
+  const navigate = useNavigate();
+
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(email);
     }
+
+    //TODO: useEffect yazılacak (landmark-id lazım)
+
+  const deleteLandmarkSugg = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.delete('http://localhost:8080/deleteLandmarkSugg?landmarkId=' + landmarkId);
+      console.log(response.data);
+      if(response.data == 0){
+        alert("Error Deleting Landmark Suggestion Form");
+      }
+      else if (response.data == 1){
+        navigate('/AdminLandmarkSuggestions');
+        alert("Landmark suggestion deleted successfully!");
+      }
+    } catch (error) {
+      console.error('Failed:', error);
+    }
+  }
+
+  const addLandmarkSugg = async (e) => {
+      e.preventDefault();
+    try {
+      const response = await axios.delete('http://localhost:8080/addLandmarkSugg?landmarkId=' + landmarkId);
+      console.log(response.data);
+      if(response.data == 0){
+        alert("Error Adding Landmark suggestion as official");
+      }
+      else if (response.data == 1){
+        navigate('/AdminLandmarkSuggestions');
+        alert("Landmark suggestion added successfully!");
+      }
+    } catch (error) {
+      console.error('Failed:', error);
+    }
+  }
     
     return (
 
@@ -87,6 +128,7 @@ export const AdminLandmarkDetailed = () => {
                         className="btn btn-primary"
                         type="button"
                         style={{ marginLeft: 10, background: "green" }}
+                        onClick={addLandmarkSugg}
                       >
                         Add
                       </button>
@@ -94,6 +136,7 @@ export const AdminLandmarkDetailed = () => {
                         className="btn btn-primary"
                         type="button"
                         style={{ marginLeft: 20, background: "red" }}
+                        onClick={deleteLandmarkSugg}
                       >
                         Delete
                       </button>
