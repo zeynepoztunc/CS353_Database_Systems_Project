@@ -721,136 +721,14 @@ export const AdminManageUsers = () => {
                         </tfoot>
                       </table>
                     </div>
-                    <div className="row">
-                      <div className="col-md-6 align-self-center">
-                        <p
-                          id="dataTable_info"
-                          className="dataTables_info"
-                          role="status"
-                          aria-live="polite"
-                        >
-                          Showing 1 to 10 of 27
-                        </p>
-                      </div>
-                      <div className="col-md-6">
-                        <nav className="d-lg-flex justify-content-lg-end dataTables_paginate paging_simple_numbers">
-                          <ul className="pagination">
-                            <li className="page-item disabled">
-                              <a
-                                className="page-link"
-                                aria-label="Previous"
-                                href="#"
-                              >
-                                <span aria-hidden="true">«</span>
-                              </a>
-                            </li>
-                            <li className="page-item active">
-                              <a className="page-link" href="#">
-                                1
-                              </a>
-                            </li>
-                            <li className="page-item">
-                              <a className="page-link" href="#">
-                                2
-                              </a>
-                            </li>
-                            <li className="page-item">
-                              <a className="page-link" href="#">
-                                3
-                              </a>
-                            </li>
-                            <li className="page-item">
-                              <a
-                                className="page-link"
-                                aria-label="Next"
-                                href="#"
-                              >
-                                <span aria-hidden="true">»</span>
-                              </a>
-                            </li>
-                          </ul>
-                        </nav>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>
             </div>
-            <footer className="bg-white sticky-footer">
-              <div className="container my-auto">
-                <div className="text-center my-auto copyright">
-                  <span />
-                </div>
-              </div>
-            </footer>
+            
           </div>
         </section>
       </main>
-      <footer className="page-footer dark">
-        <div className="container">
-          <div className="row">
-            <div className="col-sm-3">
-              <h5>Get started</h5>
-              <ul>
-                <li>
-                  <a href="#">Home</a>
-                </li>
-                <li>
-                  <a href="#">Sign up</a>
-                </li>
-                <li>
-                  <a href="#">Downloads</a>
-                </li>
-              </ul>
-            </div>
-            <div className="col-sm-3">
-              <h5>About us</h5>
-              <ul>
-                <li>
-                  <a href="#">Company Information</a>
-                </li>
-                <li>
-                  <a href="#">Contact us</a>
-                </li>
-                <li>
-                  <a href="#">Reviews</a>
-                </li>
-              </ul>
-            </div>
-            <div className="col-sm-3">
-              <h5>Support</h5>
-              <ul>
-                <li>
-                  <a href="#">FAQ</a>
-                </li>
-                <li>
-                  <a href="#">Help desk</a>
-                </li>
-                <li>
-                  <a href="#">Forums</a>
-                </li>
-              </ul>
-            </div>
-            <div className="col-sm-3">
-              <h5>Legal</h5>
-              <ul>
-                <li>
-                  <a href="#">Terms of Service</a>
-                </li>
-                <li>
-                  <a href="#">Terms of Use</a>
-                </li>
-                <li>
-                  <a href="#">Privacy Policy</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div className="footer-copyright">
-          <p />
-        </div>
-      </footer>
     </>
   );
 };
