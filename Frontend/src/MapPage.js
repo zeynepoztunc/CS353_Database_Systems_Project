@@ -68,7 +68,7 @@ function MapPage() {
   const containerStyle = {
     width: '720px',
     height: '322px',
-    marginLeft: '200px'
+    margin: '0 auto'
   };
 
   const defaultCenter = {
@@ -243,7 +243,7 @@ function MapPage() {
                             {item.rentalName}
                           </label>
                           <i
-                            className="fas fa-heart"
+                            className={item['is-favorited'] ? "fas fa-heart" : "far fa-heart"}
                             style={{
                               position: "absolute",
                               right: 0,

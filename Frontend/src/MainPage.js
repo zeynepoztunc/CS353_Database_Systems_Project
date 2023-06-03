@@ -266,7 +266,7 @@ function toggleHeart(rentalId) {
                         <div className="col-12 col-md-6 col-lg-4" key={index}>
                           <div className="clean-product-item" style={{ display: "flex", flexDirection: "column" }}>
                             <i
-                              className={item.isFavorited ? "fas fa-heart" : "far fa-heart"}
+                              className={item['is-favorited'] ? "fas fa-heart" : "far fa-heart"}
                               style={{ fontSize: 22, marginBottom: 10, cursor: "pointer" }}
                               onClick={() => toggleHeart(item['rental-id'])}
                             ></i>
