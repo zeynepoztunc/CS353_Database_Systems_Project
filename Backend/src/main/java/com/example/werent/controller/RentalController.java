@@ -10,19 +10,18 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Map;
 
 @CrossOrigin
 @RestController
 @RequestMapping("/Rentals")
 public class RentalController {
     private final RentalRepository rentalRepository;
-    private UserRepository userRepository;
 
     @Autowired
-    public RentalController(RentalRepository rentalRepository, UserRepository userRepository) {
+    public RentalController(RentalRepository rentalRepository) {
 
         this.rentalRepository = rentalRepository;
-        this.userRepository = userRepository;
 
     }
 
@@ -33,10 +32,10 @@ public class RentalController {
     }
 
     @GetMapping("/getRentalsByUserId")
-    public List<RentalDTO> getAllRentals(@RequestParam Integer userid) {
-        return userRepository.getRentalsByHostId(userid);
-    }
+    public List<Map<String, Object>> getAllRentals(@RequestParam Integer userid) {
 
+        return rentalRepository.getAllRentals(userid);
+    }
     @GetMapping("/getRentalsRentalId")
     public RentalDTO getRentalsByRentalId(@RequestParam Integer rentalId) {
         return rentalRepository.getRental(rentalId);
