@@ -4,15 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e555480-ab5a-407e-a171-4062daf29606" name="Changes" comment="hostAssets changes. photo uploading tries goes">
+    <list default="true" id="5e555480-ab5a-407e-a171-4062daf29606" name="Changes" comment="important changes in rental page">
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/controller/ReservationController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/repository/ReservationRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/controller/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/controller/CustomerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/repository/CustomerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/repository/CustomerRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/HostRentingFlatDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/HostRentingFlatDetails.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/HostRentingFlatPricing.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/HostRentingFlatPricing.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/HostRentingRoomPricing.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/HostRentingRoomPricing.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/entity/ReservationDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/entity/ReservationDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Frontend/src/RentalPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/RentalPage.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -195,7 +191,9 @@
       <workItem from="1685714769700" duration="2374000" />
       <workItem from="1685718359811" duration="4250000" />
       <workItem from="1685734150683" duration="5664000" />
-      <workItem from="1685790986353" duration="9161000" />
+      <workItem from="1685790986353" duration="9480000" />
+      <workItem from="1685807174484" duration="163000" />
+      <workItem from="1685807355475" duration="5908000" />
     </task>
     <task id="LOCAL-00001" summary="new upload">
       <created>1684410800015</created>
@@ -365,7 +363,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685793236544</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="important changes in rental page">
+      <created>1685800280100</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1685800280101</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -405,7 +410,8 @@
     <MESSAGE value="changes on customer side x3" />
     <MESSAGE value="login pages are designed again" />
     <MESSAGE value="hostAssets changes. photo uploading tries goes" />
-    <option name="LAST_COMMIT_MESSAGE" value="hostAssets changes. photo uploading tries goes" />
+    <MESSAGE value="important changes in rental page" />
+    <option name="LAST_COMMIT_MESSAGE" value="important changes in rental page" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

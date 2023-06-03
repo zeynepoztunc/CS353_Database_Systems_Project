@@ -49,6 +49,8 @@ const  RentalPage= () => {
   const [latestcheckout, setLatestCheckout] = useState("00:00:00");
   const [startDate, setStartDate] = useState(date);
   const [endDate, setEndDate] = useState(date);
+  const [selectedNumber, setSelectedNumber] = useState(1);
+  let price = 0;
 
 
 
@@ -58,6 +60,24 @@ const  RentalPage= () => {
   const rentalIdString = urlParams.get('rentalId');
 
 
+
+  const calculatePrice = () => {
+    const start = startDate;
+    const end = endDate;
+    const diffTime = Math.abs(end - start);
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    price = dailyPrice * diffDays;
+    console.log(price);
+    return price;
+  }
+
+  const calculateDays = () => {
+    const start = startDate;
+    const end = endDate;
+    const diffTime = Math.abs(end - start);
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    return diffDays;
+  }
   const goToShoppingCartPage = ( event) => {
     event.preventDefault();
     navigate( '/ShoppingCart?userid='  + userIdString);
@@ -162,7 +182,29 @@ const  RentalPage= () => {
   }, [rentalIdString]);
   // Include dependencies your effect uses
 
+    const handleReservation = async (event) => {
+    event.preventDefault();
+    price = calculatePrice();
+    const reservation = {
+        rentalId: rentalIdString,
+        customerId: userIdString,
+        reservationStartDate: startDate,
+        reservationEndDate: endDate,
+        price: price,
+        numberOfGuests: guestNo,
+        stayOfDuration: calculateDays()
+    };
 
+    try {
+        const response = await axios.post('http://localhost:8080/Reservations/addReservation', reservation);
+        console.log(response.data);
+        navigate('/ShoppingCart?userid=' + userIdString);
+    }
+    catch (error) {
+        console.error('Error:', error);
+    }
+    console.log(reservation);
+    }
   const handleFavoriteClick = () => {
     setIsFavorited(!isFavorited);
   };
@@ -239,6 +281,7 @@ const  RentalPage= () => {
     });
   };
   const [selectedLocation, setSelectedLocation] = useState(null);
+
   const handleDropdownItemClick = (dropdownId, value) => {
     setSelectedCounts({ ...selectedCounts, [dropdownId]: value });
   };
@@ -505,6 +548,8 @@ const  RentalPage= () => {
                                       setStartDate(update[0]);
                                       setEndDate(update[1]);
                                   }}
+                                  startDate={startDate}
+                                  endDate={endDate}
                                   minDate={new Date(hostSelectedStartDate)} // convert the timestamp to milliseconds
                                   maxDate={new Date(hostSelectedEndDate)} // convert the timestamp to milliseconds
                                   selectsRange
@@ -519,16 +564,22 @@ const  RentalPage= () => {
                                     <h5 className="card-title">Guest number</h5>
                                 </div>
                             </div>
-                            <div className="dropdown">
-                                <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Select number
+                            <div className="dropdown fancy-dropdown">
+                                <button className="btn btn-secondary dropdown-toggle fancy-button" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="true">
+                                    <strong>Guests: {selectedNumber}</strong>
                                 </button>
-                                <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    {[...Array(guestNo)].map((_, index) =>
-                                        <li key={index}>
-                                            <a className="dropdown-item" href="#">{index + 1}</a>
+                                <ul className="dropdown-menu fancy-menu" aria-labelledby="dropdownMenuButton">
+                                    {[...Array(guestNo)].map((_, index) => (
+                                        <li key={index} className="fancy-item">
+                                            <a
+                                                className="dropdown-item fancy-link"
+                                                href="#nogo"
+                                                onClick={() => setSelectedNumber(index + 1)} // Set the selected number on click
+                                            >
+                                                {index + 1}
+                                            </a>
                                         </li>
-                                    )}
+                                    ))}
                                 </ul>
                             </div>
                         </div>
@@ -545,7 +596,7 @@ const  RentalPage= () => {
                         <button
                           className="btn btn-danger text-start"
                           type="button"
-                          onClick={goToShoppingCartPage}
+                          onClick={handleReservation}
                           style={{
                             marginTop: 28,
                             paddingBottom: 10,

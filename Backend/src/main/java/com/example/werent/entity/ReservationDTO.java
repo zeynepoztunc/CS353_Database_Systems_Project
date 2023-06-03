@@ -4,12 +4,17 @@ import java.sql.Date;
 
 public class ReservationDTO {
     private int reservationId;
+
+    private Integer customerId;
+
+    private Integer rentalId;
+
     private Date reservationStartDate;
     private Date reservationEndDate;
-    private int stayOfDuration;
+    private Integer stayOfDuration;
+    private Integer price;
     private boolean isPaidFor;
-    private boolean isApprovedByHost;
-    private int numberOfGuests;
+    private Integer numberOfGuests;
 
     public int getReservationId() {
         return reservationId;
@@ -17,6 +22,23 @@ public class ReservationDTO {
 
     public void setReservationId(int reservationId) {
         this.reservationId = reservationId;
+    }
+
+    public int getCustomerId()
+    {
+        return customerId;
+    }
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
+    }
+
+
+    public int getRentalId() {
+        return rentalId;
+    }
+
+    public void setRentalId(int rentalId) {
+        this.rentalId = rentalId;
     }
 
     public Date getReservationStartDate() {
@@ -51,12 +73,12 @@ public class ReservationDTO {
         isPaidFor = paidFor;
     }
 
-    public boolean isApprovedByHost() {
-        return isApprovedByHost;
+    public Integer getPrice() {
+        return price;
     }
 
-    public void setApprovedByHost(boolean approvedByHost) {
-        isApprovedByHost = approvedByHost;
+    public void setPrice(Integer price) {
+        this.price = price;
     }
 
     public int getNumberOfGuests() {
