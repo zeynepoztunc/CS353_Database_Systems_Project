@@ -8,9 +8,8 @@ import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 function CustomerAddLandmark() {
 
   const containerStyle = {
-    width: '720px',
-    height: '322px',
-    marginLeft: '200px'
+    width: '435px',
+    height: '400px',
   };
 
   const defaultCenter = {
