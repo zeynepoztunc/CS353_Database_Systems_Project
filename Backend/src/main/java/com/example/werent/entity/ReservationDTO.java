@@ -3,7 +3,7 @@ package com.example.werent.entity;
 import java.sql.Date;
 
 public class ReservationDTO {
-    private int reservationId;
+    private Integer reservationId;
 
     private Integer customerId;
 
@@ -15,6 +15,22 @@ public class ReservationDTO {
     private Integer price;
     private boolean isPaidFor;
     private Integer numberOfGuests;
+
+    private String rentalName;
+
+    public ReservationDTO(int reservationId, int customerId, int rentalId, java.sql.Date reservationStartDate, java.sql.Date reservationEndDate, int stayOfDuration, int price, boolean isPaidFor, int numberOfGuests, String rentalName)
+    {
+        this.reservationId = reservationId;
+        this.customerId = customerId;
+        this.rentalId = rentalId;
+        this.reservationStartDate = reservationStartDate;
+        this.reservationEndDate = reservationEndDate;
+        this.stayOfDuration = stayOfDuration;
+        this.price = price;
+        this.isPaidFor = isPaidFor;
+        this.numberOfGuests = numberOfGuests;
+        this.rentalName = rentalName;
+    }
 
     public int getReservationId() {
         return reservationId;
@@ -87,5 +103,14 @@ public class ReservationDTO {
 
     public void setNumberOfGuests(int numberOfGuests) {
         this.numberOfGuests = numberOfGuests;
+
+    }
+
+    public String getRentalName() {
+        return rentalName;
+    }
+
+    public void setRentalName(String rentalName) {
+        this.rentalName = rentalName;
     }
 }

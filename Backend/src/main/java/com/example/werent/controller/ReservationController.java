@@ -2,10 +2,10 @@ package com.example.werent.controller;
 
 import com.example.werent.entity.ReservationDTO;
 import com.example.werent.repository.ReservationRepository;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Map;
 
 @CrossOrigin
 @RestController
@@ -22,6 +22,12 @@ public class ReservationController {
     public ReservationDTO addReservation(@RequestBody ReservationDTO reservation)
     {
         return reservationRepository.addReservation(reservation);
+    }
+
+    @GetMapping("/getReservationByUserId")
+    public List<ReservationDTO> getReservationByUserId(@RequestParam Integer userId)
+    {
+        return reservationRepository.getReservationByUserId(userId);
     }
 
 }
