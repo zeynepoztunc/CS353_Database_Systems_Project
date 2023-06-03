@@ -68,7 +68,7 @@ const  RentalPage= () => {
 
   const goToShoppingCartPage = ( event) => {
     event.preventDefault();
-    navigate( '/ShoppingCart?userid='  + userId);
+    navigate( '/ShoppingCart?userid='  + userIdString);
   };
   const fetchRentalDetails = async (rentalIdString) => {
     try {
