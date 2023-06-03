@@ -160,7 +160,7 @@ function ProfilePage() {
                             className="form-control"
                             type="file"
                             name="files"
-                            accept=".jpg"
+                            accept=".jpg, .jpeg, .png"
                             id="fileInput"
                             onChange={handleFileChange}
                           />
