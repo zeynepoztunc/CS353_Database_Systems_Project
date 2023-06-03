@@ -28,9 +28,9 @@ public class AdminController {
         return adminRepository.listAllCustomerReportings();
     }
 
-    @RequestMapping(value = "/customerReportings/filter", method = RequestMethod.GET)
-    public List<Map<String, Object>> listFilteredReportings(@RequestParam String title, @RequestParam boolean host_checked, @RequestParam boolean customer_checked, @RequestParam boolean evaluated, @RequestParam int recent_to_latest, @RequestParam int latest_to_recent){
-        return adminRepository.listFilteredReportings(title, host_checked, customer_checked, evaluated, recent_to_latest, latest_to_recent);
+    @RequestMapping(value = "/filterCustomerReportings", method = RequestMethod.GET)
+    public List<Map<String, Object>> listFilteredReportings(@RequestParam String title, @RequestParam String check3, @RequestParam String check4, @RequestParam String check5, @RequestParam String check6){
+        return adminRepository.listFilteredReportings(title, check3, check4, check5, check6);
     }
 
     @RequestMapping(value = "/postReportDetails", method = RequestMethod.GET)
