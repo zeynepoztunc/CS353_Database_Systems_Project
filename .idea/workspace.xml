@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e555480-ab5a-407e-a171-4062daf29606" name="Changes" comment="shopping cart done.">
+    <list default="true" id="5e555480-ab5a-407e-a171-4062daf29606" name="Changes" comment="small fixes">
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_31_05_2023_07_52_[Changes]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_31_05_2023_07_52__Changes_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_06_2023_13_41_[Changes]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_06_2023_13_41__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/UserLogin.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/UserLogin.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/PaymentPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/PaymentPage.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,7 +196,7 @@
       <workItem from="1685807174484" duration="163000" />
       <workItem from="1685807355475" duration="5952000" />
       <workItem from="1685815082241" duration="3577000" />
-      <workItem from="1685821091581" duration="627000" />
+      <workItem from="1685821091581" duration="2009000" />
     </task>
     <task id="LOCAL-00001" summary="new upload">
       <created>1684410800015</created>
@@ -383,7 +387,21 @@
       <option name="project" value="LOCAL" />
       <updated>1685818629271</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="small fixes">
+      <created>1685821866961</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1685821866961</updated>
+    </task>
+    <task id="LOCAL-00029" summary="small fixes">
+      <created>1685821879145</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1685821879145</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -426,7 +444,8 @@
     <MESSAGE value="important changes in rental page" />
     <MESSAGE value="reservation process done" />
     <MESSAGE value="shopping cart done." />
-    <option name="LAST_COMMIT_MESSAGE" value="shopping cart done." />
+    <MESSAGE value="small fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="small fixes" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
