@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import NavBar from './NavBar.js';
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from "axios";
 
 const MainPage = () => {
@@ -28,37 +28,36 @@ const MainPage = () => {
 
   const [cities, setCities] = useState([]);
 
-   const fetchCities = async () => {
-      try {
-        const response = await axios.get('http://localhost:8080/locations/cities');
-        return response.data;
-      } catch (error) {
-        console.error('Failed to fetch cities:', error);
-        return [];
-      }
-    };
+  const fetchCities = async () => {
+    try {
+      const response = await axios.get('http://localhost:8080/locations/cities');
+      return response.data;
+    } catch (error) {
+      console.error('Failed to fetch cities:', error);
+      return [];
+    }
+  };
 
-    useEffect(() => {
-      fetchCities().then((data) =>
-      {
-        setCities(data);
-      });
-    }, []);
-
-function toggleHeart(rentalId) {
-  setPlaceValues((prevPlaceValues) => {
-    const updatedPlaceValues = prevPlaceValues.map((item) => {
-      if (item['rental-id'] === rentalId) {
-        return {
-          ...item,
-          isFavorited: !item.isFavorited,
-        };
-      }
-      return item;
+  useEffect(() => {
+    fetchCities().then((data) => {
+      setCities(data);
     });
-    return updatedPlaceValues;
-  });
-}
+  }, []);
+
+  function toggleHeart(rentalId) {
+    setPlaceValues((prevPlaceValues) => {
+      const updatedPlaceValues = prevPlaceValues.map((item) => {
+        if (item['rental-id'] === rentalId) {
+          return {
+            ...item,
+            ['is-favorited']: !item['is-favorited'],
+          };
+        }
+        return item;
+      });
+      return updatedPlaceValues;
+    });
+  }
 
   const HeartIcon = ({ id, isFavorited, onToggleHeart }) => {
     return (
@@ -70,38 +69,63 @@ function toggleHeart(rentalId) {
     );
   };
 
-
   const [selectedFilters, setSelectedFilters] = useState([]);
   const [showFavoritesOnly, setShowFavoritesOnly] = useState(false);
 
-  const applyFilters = () => {
-    let filteredRentals = placeValues;
+  const [selectedCityFilters, setSelectedCityFilters] = useState([]);
+  const [earthquakeFilter, setEarthquakeFilter] = useState(false);
+  const [couchsurfingFilter, setCouchsurfingFilter] = useState(false);
 
-    if (selectedFilters.length > 0) {
-      filteredRentals = filteredRentals.filter((item) => {
-        const city = item['city'].toLowerCase();
-        console.log(city);
-        return selectedFilters.some((filter) => city.includes(filter));
-      });
-    }
-
-    if (showFavoritesOnly) {
-      filteredRentals = filteredRentals.filter((item) => item.isFavorited);
-    }
-
-    return filteredRentals;
-  };
 
   const handleFilterChange = (event) => {
     const filterValue = event.target.value.toLowerCase();
-    setSelectedFilters((prevFilters) => {
+  
+    setSelectedCityFilters((prevFilters) => {
       if (prevFilters.includes(filterValue)) {
         return prevFilters.filter((filter) => filter !== filterValue);
       } else {
         return [...prevFilters, filterValue];
       }
     });
+  
+    setSelectedFilters((prevFilters) => {
+      if (event.target.checked) {
+        return [...prevFilters, filterValue];
+      } else {
+        return prevFilters.filter((filter) => filter !== filterValue);
+      }
+    });
+  };   
+
+  const applyFilters = () => {
+    let filteredRentals = placeValues;
+  
+    // Apply city filters
+    if (selectedCityFilters.length > 0) {
+      filteredRentals = filteredRentals.filter((item) => {
+        const city = item['city'].toLowerCase();
+        return selectedCityFilters.some((filter) => city.includes(filter));
+      });
+    }
+  
+    // Apply favorites filter
+    if (showFavoritesOnly) {
+      filteredRentals = filteredRentals.filter((item) => item['is-favorited']);
+    }
+  
+    // Apply earthquake filter
+    if (earthquakeFilter) {
+      filteredRentals = filteredRentals.filter((item) => item['earthquake-support']);
+    }
+  
+    // Apply couchsurfing filter
+    if (couchsurfingFilter) {
+      filteredRentals = filteredRentals.filter((item) => item['couchsurfing']);
+    }
+  
+    return filteredRentals;
   };
+  
 
   const toggleFavoritesOnly = () => {
     setShowFavoritesOnly((prevShowFavoritesOnly) => !prevShowFavoritesOnly);
@@ -133,7 +157,7 @@ function toggleHeart(rentalId) {
 
   const goToRentalPage = (id) => {
     //event.preventDefault();
-    navigate('/RentalPage?rentalId='  + id + '&userid=' + userId);
+    navigate('/RentalPage?rentalId=' + id + '&userid=' + userId);
   }
 
   return (
@@ -176,7 +200,8 @@ function toggleHeart(rentalId) {
                             type="checkbox"
                             id="formCheck-5"
                             value="countryside"
-                            onChange={handleFilterChange}
+                            onChange={() => setEarthquakeFilter(!earthquakeFilter)}
+                            checked={earthquakeFilter}
                           />
                           <label className="form-check-label" htmlFor="formCheck-5">
                             Earthquake
@@ -188,7 +213,8 @@ function toggleHeart(rentalId) {
                             type="checkbox"
                             id="formCheck-5"
                             value="countryside"
-                            onChange={handleFilterChange}
+                            onChange={() => setCouchsurfingFilter(!couchsurfingFilter)}
+                            checked={couchsurfingFilter}
                           />
                           <label className="form-check-label" htmlFor="formCheck-5">
                             Couchsurfing
@@ -212,18 +238,19 @@ function toggleHeart(rentalId) {
                         <h3>City</h3>
                         <div className="form-check">
                           {cities.map((item, index) => (
-                              <div>
-                                <input
-                                  className="form-check-input"
-                                  type="checkbox"
-                                  id="formCheck-5"
-                                  value="countryside"
-                                  onChange={handleFilterChange}
-                                />
-                                <label className="form-check-label" htmlFor="formCheck-5">
-                                  {item['name']}
-                                </label>
-                              </div>
+                            <div>
+                              <input
+                                className="form-check-input"
+                                type="checkbox"
+                                id={`cityFilter-${index}`}
+                                value={item['name'].toLowerCase()}
+                                onChange={handleFilterChange}
+                                checked={selectedCityFilters.includes(item['name'].toLowerCase())}
+                              />
+                              <label className="form-check-label" htmlFor="formCheck-5">
+                                {item['name']}
+                              </label>
+                            </div>
                           ))}
                         </div>
                       </div>
