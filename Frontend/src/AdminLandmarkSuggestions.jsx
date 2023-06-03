@@ -13,8 +13,26 @@ export const AdminLandmarkSuggestions = () => {
   const [oldestAdded, setOldestAdded] = useState(false);
   const [highestRating, setHighestRating] = useState(false);
   const [lowestRating, setLowestRating] = useState(false);
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState('');
   const [forms, setForms] = useState([]);
+  const [itemExist, setItemExis] = useState(false);
+  const [isCheckedLatest, setIsCheckedLatest] = useState(false);
+  const [isCheckedOldest, setIsCheckedOldest] = useState(false);
+
+  const handleChangeLatest = () => {
+    setIsCheckedLatest(!isCheckedLatest);
+    if (isCheckedOldest) {
+      setIsCheckedOldest(!isCheckedOldest);
+    }
+  }
+
+  const handleChangeOldest = () => {
+    setIsCheckedOldest(!isCheckedOldest);
+    if (isCheckedLatest) {
+      setIsCheckedLatest(!isCheckedLatest);
+    }
+  }
+
   const users = [
     {
       name: "Airi Satou",
@@ -34,38 +52,39 @@ export const AdminLandmarkSuggestions = () => {
 
   const navigate = useNavigate();
 
-  function handleSearch(){
-    if (document.getElementById("formCheck-1").checked) {
-      console.log("is checked 1");
-      setMostRented(true);
-    }
-    if (document.getElementById("formCheck-2").checked) {
-      console.log("is checked 2");
-      setLeastRented(true);
-    }
+  const handleChange = (event) => {
+    setSearch(event.target.value);
+  }
+
+  const handleSearch = async (e) => {
+    e.preventDefault();
+    console.log(`Searching for ${search}...`);
+    let latest = "0";
+    let oldest = "0";
+
+
     if (document.getElementById("formCheck-3").checked) {
       console.log("is checked 3");
+      latest = "1";
       setLatestAdded(true);
     }
     if (document.getElementById("formCheck-4").checked) {
       console.log("is checked 4");
+      oldest = "1";
       setOldestAdded(true);
     }
-    if (document.getElementById("formCheck-5").checked) {
-      console.log("is checked 5");
-      setHighestRating(true);
-    }
-    if (document.getElementById("formCheck-6").checked) {
-      console.log("is checked 6");
-      setLowestRating(true);
-    }
-    var searchInput = document.getElementById("searchInput");
-    if (searchInput) {
-      setSearch(searchInput.value);
-      console.log(search);
-    }
 
-    //executeSearch();
+    var searchInput = search;
+
+    try {
+      console.log("BURAK: ", search);
+      const response = await axios.get('http://localhost:8080/searchLandmarks?title=' + searchInput + '&latest=' + latest + '&oldest=' + oldest);
+      console.log(response.data);
+      setForms(response.data);
+    } catch (error) {
+      console.error('Failed:', error);
+      setForms([]);
+    }
   }
 
   /*const executeSearch = async () => {
@@ -84,7 +103,15 @@ export const AdminLandmarkSuggestions = () => {
     try {
       const response = await axios.get('http://localhost:8080/allLandmarkForms');
       console.log(response.data);
-      setForms(response.data);
+      if(response.data.length > 0){
+          setItemExis(true);
+        setForms(response.data);
+      }
+      else{
+        setItemExis(false);
+        setForms([{}]);
+      }
+
     } catch (error) {
       console.error('Failed:', error);
       setForms([]);
@@ -135,27 +162,9 @@ export const AdminLandmarkSuggestions = () => {
                   <input
                     className="form-check-input"
                     type="checkbox"
-                    id="formCheck-1"
-                  />
-                  <label className="form-check-label" htmlFor="formCheck-1">
-                    Most rented
-                  </label>
-                </div>
-                <div className="form-check">
-                  <input
-                    className="form-check-input"
-                    type="checkbox"
-                    id="formCheck-2"
-                  />
-                  <label className="form-check-label" htmlFor="formCheck-2">
-                    Least rented
-                  </label>
-                </div>
-                <div className="form-check">
-                  <input
-                    className="form-check-input"
-                    type="checkbox"
                     id="formCheck-3"
+                    checked={isCheckedLatest}
+                    onChange={handleChangeLatest}
                   />
                   <label className="form-check-label" htmlFor="formCheck-3">
                     Latest Added
@@ -166,29 +175,11 @@ export const AdminLandmarkSuggestions = () => {
                     className="form-check-input"
                     type="checkbox"
                     id="formCheck-4"
+                    checked={isCheckedOldest}
+                    onChange={handleChangeOldest}
                   />
                   <label className="form-check-label" htmlFor="formCheck-4">
                     Oldest Added
-                  </label>
-                </div>
-                <div className="form-check">
-                  <input
-                    className="form-check-input"
-                    type="checkbox"
-                    id="formCheck-5"
-                  />
-                  <label className="form-check-label" htmlFor="formCheck-5">
-                    Highest Rating
-                  </label>
-                </div>
-                <div className="form-check">
-                  <input
-                    className="form-check-input"
-                    type="checkbox"
-                    id="formCheck-6"
-                  />
-                  <label className="form-check-label" htmlFor="formCheck-6">
-                    Lowest Rating
                   </label>
                 </div>
               </div>
@@ -200,15 +191,17 @@ export const AdminLandmarkSuggestions = () => {
                 id="dataTable_filter"
               >
                 <input
-                  type="search"
+                  type="text"
                   id="searchInput"
                   className="form-control form-control-sm"
                   aria-controls="dataTable"
                   placeholder="Search"
+                  value={search}
+                  onChange={handleChange}
                 />
                 <button
                   className="btn btn-primary"
-                  type="button"
+                  type="submit"
                   onClick={handleSearch}
                   style={{
                     paddingLeft: 10,
@@ -223,7 +216,7 @@ export const AdminLandmarkSuggestions = () => {
             </div>
 
             <div className="row">
-              {forms.map((item, index) => (
+              {itemExist && forms.map((item, index) => (
               <div key={index} className="col-md-6 col-lg-4">
                 <div className="card">
                   <img
@@ -231,7 +224,8 @@ export const AdminLandmarkSuggestions = () => {
                     src="adminAssets/img/scenery/turkey-alanya-top-things-to-do-explore-alanya-castle.jpg"
                   />
                   <div className="card-body">
-                    <h4 className="card-title">{item['landmark-name']}</h4>
+                    <h3 className="card-title">{item['landmark-name']}</h3>
+                    <h6>{item['province']}, {item['city']}</h6>
                     <p className="card-text" />
                   </div>
                   <div>
@@ -253,6 +247,10 @@ export const AdminLandmarkSuggestions = () => {
                 </div>
               </div>
               ))}
+              {!itemExist && (
+                  <h1>
+                  </h1>
+              )}
 
             </div>
           </div>

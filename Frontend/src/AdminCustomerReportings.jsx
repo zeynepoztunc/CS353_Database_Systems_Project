@@ -311,7 +311,6 @@ export const AdminCustomerReportings = () => {
               ))}
               {!itemExist && (
                   <h1>
-                    NO REPORTING EXISTS!
                   </h1>
               )}
               
