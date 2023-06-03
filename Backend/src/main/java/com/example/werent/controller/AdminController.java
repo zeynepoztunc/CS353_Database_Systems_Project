@@ -98,8 +98,8 @@ public class AdminController {
     }
 
     @RequestMapping(value = "/searchPosts", method = RequestMethod.GET)
-    public List<Map<String, Object>> searchPosts(@RequestParam String title,@RequestParam String check1,@RequestParam String check2,@RequestParam String check3,@RequestParam String check4,@RequestParam String check5,@RequestParam String check6){
-        return adminRepository.searchPosts(title, check1, check2, check3, check4, check5, check6);
+    public List<Map<String, Object>> searchPosts(@RequestParam String title,@RequestParam String check3,@RequestParam String check4,@RequestParam String check5,@RequestParam String check6){
+        return adminRepository.searchPosts(title, check3, check4, check5, check6);
 
     }
 
