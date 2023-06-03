@@ -6,6 +6,11 @@ import React, {useEffect, useState} from 'react';
 const HostRentingCurrentRents = () => {
     const navigate = useNavigate();
     const [bookings, setBookings] = useState([]);
+    const [rentals, setRentals] = useState([]);
+    const [rentalName, setRentalName] = useState("");
+    const [city, setCity] = useState("");
+    const [province, setProvince] = useState("");
+    const [dailyPrice, setDailyPrice] = useState("");
 
     const { search } = useLocation();
     const urlParams = new URLSearchParams(search);
@@ -13,15 +18,22 @@ const HostRentingCurrentRents = () => {
     console.log("userid: " + userid);
 
     useEffect(() => {
-        const fetchBookings = async () => {
+        const fetchRentals = async () => {
             try {
                 const response = await axios.get(`http://localhost:8080/Rentals/getRentalsByUserId?userid=${userid}`); // replace with your API endpoint
-                setBookings(response.data);
+                console.log(response.data);
+                setRentals(response.data)
+                setRentalName(response.data.rentalName);
+                setCity(response.data.city);
+                setProvince(response.data.province);
+                setDailyPrice(response.data.dailyPrice);
+                return response;
             } catch (error) {
                 console.error('Failed to fetch bookings:', error);
             }
         };
-        fetchBookings();
+       fetchRentals().then(r => console.log("fetched bookings")
+       );
     }, [userid]);
 
 
@@ -94,36 +106,35 @@ const HostRentingCurrentRents = () => {
                                     <table className="table">
                                         <thead>
                                         <tr>
-                                            <th className="text-danger">Start Date</th>
-                                            <th className="text-danger">End Date</th>
                                             <th className="text-danger">Rental Name</th>
                                             <th className="text-danger">City</th>
                                             <th className="text-danger">Province</th>
+                                            <th className="text-danger text-center">Daily Price</th>
+                                            <th className="text-center">Actions</th> {/* This is a new column header for the Delete button */}
                                         </tr>
                                         </thead>
-                                        {bookings.map((booking) => (
-                                            <tbody key={booking.id}>
-                                            <tr>
-                                                <td>{booking.hostSelectedStartDate}</td>
-                                                <td>{booking.edate}</td>
-                                                <td>{booking.name}</td>
-                                                <td>{booking.city}</td>
-                                                <td>{booking.province}</td>
-                                                <td className="text-center">3</td>
-                                                <td>
+                                        <tbody>
+                                        {rentals.map((rental) => (
+                                            <tr key={rental["rental-id"]}>
+                                                <td>{rental["rental-name"]}</td>
+                                                <td>{rental["city"]}</td>
+                                                <td>{rental["province"]}</td>
+                                                <td className="text-center">{rental["daily-price"] + '$'}</td>
+                                                <td className="text-center"> {/* Centering the button like the other cells in the column */}
                                                     <button
-                                                        className="btn btn-danger text-center btn-custom-class"
+                                                        className="btn btn-danger btn-custom-class"
                                                         type="button"
                                                         style={{ marginLeft: 36 }}
                                                     >
-                                                        Add
+                                                        Delete Rental
                                                     </button>
                                                 </td>
                                             </tr>
-                                            </tbody>
                                         ))}
+                                        </tbody>
                                     </table>
                                 </div>
+
                             </div>
                             <button
                                 className="btn btn-primary btn btn-custom-class"
