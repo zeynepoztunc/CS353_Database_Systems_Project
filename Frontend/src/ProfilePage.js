@@ -160,7 +160,7 @@ function ProfilePage() {
                             className="form-control"
                             type="file"
                             name="files"
-                            accept=".jpg"
+                            accept=".jpg, .jpeg, .png"
                             id="fileInput"
                             onChange={handleFileChange}
                           />
@@ -264,7 +264,7 @@ function ProfilePage() {
                     <p />
                   </div>
                 </div>
-                <div className="card">
+                {/* <div className="card">
                   <div
                     className="card-body"
                     style={{
@@ -295,7 +295,7 @@ function ProfilePage() {
                     <h6 className="text-muted card-subtitle mb-2" />
                     <p />
                   </div>
-                </div>
+                </div> */}
                 <div
                   className="card"
                   style={{

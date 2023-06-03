@@ -63,7 +63,7 @@ const  RentalPage= () => {
   const urlParams = new URLSearchParams(window.location.search);
   const userIdString = urlParams.get('userid');
   const rentalIdString = urlParams.get('rentalId');
-
+  const userId = parseInt(userIdString, 10);
 
 
   const goToShoppingCartPage = ( event) => {
