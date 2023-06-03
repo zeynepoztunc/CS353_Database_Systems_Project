@@ -179,11 +179,12 @@ public class CustomerRepository {
     }
 
     public UserDTO getHostInfo(Integer rentalId) {
-        String sqlHostInfo = "SELECT U.\"name\" AS name, U.\"surname\"  AS surname FROM  \"User\" U  INNER JOIN \"Rental\" R ON U.\"user-id\" = R.\"host-id\" WHERE R.\"rental-id\" = ?";
+        String sqlHostInfo = "SELECT U.\"name\" AS name, U.\"surname\"  AS surname FROM  \"User\" U  INNER JOIN \"Rental\" R ON U.\"user-id\" = R.\"host-id\"  AND  R.\"rental-id\" = ?";
         System.out.println("Retrieving host information for the rental (with id = " + rentalId + ")...");
         System.out.println(sqlHostInfo);
         try {
-            UserDTO hostToRetrieve = jdbcTemplate.queryForObject(sqlHostInfo, new Object[]{rentalId}, new BeanPropertyRowMapper<>(UserDTO.class));
+            UserDTO hostToRetrieve = new UserDTO();
+            hostToRetrieve = jdbcTemplate.queryForObject(sqlHostInfo, new Object[]{rentalId}, new BeanPropertyRowMapper<>(UserDTO.class));
             return hostToRetrieve;
         }
         catch (EmptyResultDataAccessException e) {

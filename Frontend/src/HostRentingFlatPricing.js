@@ -69,7 +69,7 @@ const HostRentingFlatPricing = () => {
         latestCheckOutHour: latestCheckOut,
         cancellationHourLimit: cancellationHourLimit,
         dailyPrice: price,
-        refundFee: refundFee,
+        cancellationRefund: refundFee,
         autoApprove: autoApprove,
         isAdminApproved: isAdminApproved,
       }
@@ -86,7 +86,7 @@ const HostRentingFlatPricing = () => {
       // console.log(updateRentalInfoResponse.data); // undefined variable
 
       // If successful, navigate to the next page
-      navigate("/HostRentingMainPage", { replace: true });
+      navigate("/HostRentingCurrentRents?userid=" + userid);
     } catch (error) {
       console.error(error);
     }
@@ -462,7 +462,7 @@ const HostRentingFlatPricing = () => {
                 </label>
                 <input
                   className="form-control"
-                  type="time"
+                  type="datetime"
                   value={earliestCheckIn}
                   onChange={(event) => setEarliestCheckIn(event.target.value)}
                 />
@@ -476,7 +476,7 @@ const HostRentingFlatPricing = () => {
                 </label>
                 <input
                   className="form-control"
-                  type="time"
+                  type="datetime"
                   value={latestCheckOut}
                   onChange={(event) => setLatestCheckOut(event.target.value)}
                 />

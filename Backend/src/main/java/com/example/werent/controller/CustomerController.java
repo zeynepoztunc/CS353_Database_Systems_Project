@@ -87,8 +87,8 @@ public class CustomerController {
     }
 
     @GetMapping ( "/hostInfo")
-    public UserDTO getHostInfo(@RequestParam Integer rentalid){
-        return customerRepository.getHostInfo(rentalid);
+    public UserDTO getHostInfo(@RequestParam Integer rentalId){
+        return customerRepository.getHostInfo(rentalId);
     }
 
 
