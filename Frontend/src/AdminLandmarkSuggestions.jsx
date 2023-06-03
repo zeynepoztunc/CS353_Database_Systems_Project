@@ -34,7 +34,7 @@ export const AdminLandmarkSuggestions = () => {
 
   const navigate = useNavigate();
 
-  function handleSearch() {
+  function handleSearch(){
     if (document.getElementById("formCheck-1").checked) {
       console.log("is checked 1");
       setMostRented(true);
@@ -64,7 +64,21 @@ export const AdminLandmarkSuggestions = () => {
       setSearch(searchInput.value);
       console.log(search);
     }
+
+    //executeSearch();
   }
+
+  /*const executeSearch = async () => {
+    try {
+      console.log("BURAK: ", search);
+      const response = await axios.get('http://localhost:8080/searchLandmarks?title=' + search);
+      console.log(response.data);
+      setForms(response.data);
+    } catch (error) {
+      console.error('Failed:', error);
+      setForms([]);
+    }
+  } */
 
   const fetchLandmarkForms = async () => {
     try {

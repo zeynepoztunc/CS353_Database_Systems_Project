@@ -17,6 +17,7 @@ export const AdminReviews = () => {
   const [mostReviewed, setMostReviewed] = useState(false);
   const [search, setSearch] = useState("");
   const [evals, setEvals] = useState([]);
+  const [itemExist, setItemExist] = useState(false);
   
   const reviews = [
     {
@@ -85,7 +86,15 @@ export const AdminReviews = () => {
     try {
       const response = await axios.get('http://localhost:8080/listEvaluations');
       console.log(response.data);
-      setEvals(response.data);
+      if(response.data.length > 0){
+        setEvals(response.data);
+        setItemExist(true);
+      }
+      else{
+        setEvals([{}]);
+        setItemExist(false);
+      }
+
     } catch (error) {
       console.error('Failed:', error);
       setEvals([]);
@@ -280,7 +289,7 @@ export const AdminReviews = () => {
         <div className="block-content">
           <div className="faq-item">
             <h4 className="question">Host Evaluation</h4>
-            {evals.map((item, index) => (
+            {itemExist && evals.map((item, index) => (
             <div key={index} className="answer">
               <p>{item['date']} by {item['name']} {item['e-mail']}</p>
               <p>
@@ -357,6 +366,11 @@ export const AdminReviews = () => {
               </div>
             </div>
             ))}
+            {!itemExist && (
+                <h1>
+                  NO REVIEW EXISTS!
+                </h1>
+            )}
 
           </div>
           <div className="faq-item">

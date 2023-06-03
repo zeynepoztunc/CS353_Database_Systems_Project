@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {  useNavigate } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -8,7 +8,7 @@ import DropdownMenu from './DropdownMenu';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import NavBar from './NavBar';
 import Modal from 'react-modal';
-import axios from 'axios';
+import axios from "axios";
 
 
 const  AdminViewPost= () => {
@@ -43,10 +43,31 @@ const  AdminViewPost= () => {
   const [checkinRating, setCheckinRating] = useState(0);
   const [valueRating, setValueRating] = useState(0);
   const [locationRating, setLocationRating] = useState(0);
+  const [post, setPost] = useState([]);
+
+  const navigate = useNavigate();
+  const urlParams = new URLSearchParams(window.location.search);
+  const rentalId = urlParams.get('rentalId');
 
   const handleStarClick = (rating) => {
     setCleanlinessRating(rating);
   };
+
+  const fetchPost = async () => {
+    try {
+      const response = await axios.get('http://localhost:8080/singlePost?rentalId=' + rentalId);
+      console.log(response.data);
+      setPost(response.data);
+    } catch (error) {
+      console.error('Failed:', error);
+      setPost([]);
+    }
+  };
+
+  useEffect(() => {
+    fetchPost().then(r => console.log('fetched data'));
+  }, []);
+
   const handleCommunication= (rating) => {
     setCommunicationRating(rating);
   };
@@ -194,6 +215,7 @@ const  AdminViewPost= () => {
   <main className="page product-page">
     <section className="clean-block clean-product dark">
       <div className="container">
+        {post.map((item, index) => (
         <div className="block-content">
           <div className="product-info">
             <div className="row">
@@ -237,7 +259,7 @@ const  AdminViewPost= () => {
                 </div>
                 <p style={{ marginTop: "-5px" }}>
                   <span style={{ color: "rgb(34, 34, 34)" }}>
-                    {description}
+                    {item['description']}
                   </span>
                   <br />
                   <br />
@@ -245,7 +267,7 @@ const  AdminViewPost= () => {
                 <p style={{ marginTop: "-13px" }}>
                   <strong>
                     <span style={{ color: "rgb(34, 34, 34)" }}>
-                      Can accommodate {maxAccomodation} people&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                      Can accommodate {item['guest-no']} people&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                       &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                       &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
                     </span>
@@ -255,7 +277,7 @@ const  AdminViewPost= () => {
                   <i className="fas fa-bed" />
                   <strong>
                     <span style={{ color: "rgb(34, 34, 34)" }}>
-                      &nbsp;{bedroomNum} bedrooms&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                      &nbsp;{item['num-of-beds']} bedrooms&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                       &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                       &nbsp; &nbsp; &nbsp;
                     </span>
@@ -280,13 +302,9 @@ const  AdminViewPost= () => {
                 <div className="info">
                   <h4>
                     <strong>
-                      {name}&nbsp; &nbsp;&nbsp;
+                      {item['rental-name']}&nbsp; &nbsp;&nbsp;
                     </strong>
-                    <i
-                       className={`far fa-heart ${isFavorited ? 'fas' : ''} text-end text-danger justify-content-end`}
-                       style={{ fontSize: 27 }}
-                       onClick={handleFavoriteClick}
-                    />
+
                   </h4>
                   <div className="text-start rating">
                     <p
@@ -303,7 +321,7 @@ const  AdminViewPost= () => {
                       <img src="customerAssets/img/star.svg" />
                       <img src="customerAssets/img/star.svg" width={18} height={19} />
                       <img src="customerAssets/img/star-half-empty.svg" />
-                      <span style={{ color: "rgb(0, 0, 0)" }}>&nbsp;{avgRating}</span>
+                      <span style={{ color: "rgb(0, 0, 0)" }}>&nbsp;{item['rating']}</span>
                     </p>
                     <p>
                       <span
@@ -336,7 +354,7 @@ const  AdminViewPost= () => {
                     </p>
                   </div>
                   <div className="price">
-                    <h3>${dailyPrice} /night</h3>
+                    <h3>${item['daily-price']} /night</h3>
                     <div className="row">
                       <div className="col-lg-6">
                         <div className="card">
@@ -1143,6 +1161,7 @@ const  AdminViewPost= () => {
             <div className="items" />
           </div>
         </div>
+        ))}
       </div>
     </section>
   </main>

@@ -14,6 +14,7 @@ export const AdminManagePosts = () => {
     const [lowestRating, setLowestRating] = useState(false);
     const [search, setSearch] = useState("");
   const [posts, setPosts] = useState([]);
+  const [itemExist, setItemExist] = useState(false);
 
   const navigate = useNavigate();
     
@@ -53,6 +54,12 @@ export const AdminManagePosts = () => {
       const response = await axios.get('http://localhost:8080/listAllPosts');
       console.log(response.data);
       setPosts(response.data);
+      if(response.data.length > 0){
+        setItemExist(true);
+      }
+      else{
+        setItemExist(false);
+      }
     } catch (error) {
       console.error('Failed:', error);
       setPosts([]);
@@ -63,6 +70,9 @@ export const AdminManagePosts = () => {
     fetchPosts().then(r => console.log('fetched data'));
   }, []);
 
+  const handleView = (rentalId) => {
+    navigate('/AdminViewPost?rentalId=' + rentalId);
+  };
     
     return (
         <>
@@ -167,7 +177,7 @@ export const AdminManagePosts = () => {
         </div>
               <div className="row">
 
-              {posts.map((item, index) => (
+              {itemExist && posts.map((item, index) => (
                 <div key={index} className="col-md-6 col-lg-4 item">
                   <a className="lightbox" href="assets/img/scenery/image1.jpg">
                     <img
@@ -187,12 +197,18 @@ export const AdminManagePosts = () => {
                         margin: "auto",
                         /*borderLeft: 10, */ textAlign: "center"
                       }}
+                      onClick={() => handleView(item['rental-id'])}
                     >
                       View
                     </button>
                   </div>
                 </div>
               ))}
+                {!itemExist && (
+                    <h1>
+                      NO RENTAL POST EXISTS!
+                    </h1>
+                )}
               </div>
             </div>
           </section>
