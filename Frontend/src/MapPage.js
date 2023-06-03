@@ -80,7 +80,7 @@ function MapPage() {
       lat: event.latLng.lat(),
       lng: event.latLng.lng()
     });
-  };  
+  };
 
   const [selectedLocation, setSelectedLocation] = useState(null);
 
@@ -132,11 +132,11 @@ function MapPage() {
               </LoadScript>
 
               {selectedLocation && (
-    <div>
-      <p>Latitude: {selectedLocation.lat}</p>
-      <p>Longitude: {selectedLocation.lng}</p>
-    </div>
-  )}
+                <div>
+                  <p>Latitude: {selectedLocation.lat}</p>
+                  <p>Longitude: {selectedLocation.lng}</p>
+                </div>
+              )}
             </div>
             <div style={{ marginLeft: 72 }}>
               <h3

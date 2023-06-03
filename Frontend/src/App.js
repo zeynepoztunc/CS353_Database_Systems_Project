@@ -42,6 +42,7 @@ import ProfilePage from "./ProfilePage";
 import RentalPage from "./RentalPage";
 import ShoppingCart from "./ShoppingCart";
 import UserLogin from "./UserLogin";
+import CustomerAddLandmark from "./CustomerAddLandmark";
 
 
 function App() {
@@ -84,6 +85,7 @@ function App() {
         <Route exact path='/LeaveRating' element={<LeaveRating/>} />
         <Route exact path='/HostRentingCurrentRents' element={<HostRentingCurrentRents/>} />
         <Route exact path='/HostLogin' element={<HostLogin/>} />
+        <Route exact path='/AddLandmark' element={<CustomerAddLandmark/>} />
 
 
         
