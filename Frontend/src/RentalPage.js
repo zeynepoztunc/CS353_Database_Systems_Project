@@ -56,7 +56,8 @@ const  RentalPage= () => {
   const [amenities, setAmenities] = useState([]);
   const [city, setCity] = useState('');
   const [province, setProvince] = useState('');
-  const [refundFee, setRefundFee] = useState(0);
+  const [cancellationRefund, setcancellationRefund] = useState(0);
+  const [numOfBathroom, setNumOfBathroom] = useState(0);
 
 
 
@@ -123,7 +124,8 @@ const  RentalPage= () => {
           console.log(rental.longitude);
           console.log(rental.city);
           console.log(rental.province);
-          console.log(rental.cancellationRefundFee);
+          console.log(rental.cancellationRefund);
+          console.log(rental.numOfBathrooms);
           setRentalName(rental.rentalName);
           setPrice(rental.dailyPrice);
           setEarthquakeSupport(rental.earthquakeSupport);
@@ -136,7 +138,8 @@ const  RentalPage= () => {
           setLocation({lat: rental.latitude, lng: rental.longitude});
           setCity(rental.city);
           setProvince(rental.province);
-          setRefundFee(rental.cancellationRefundFee);
+          setcancellationRefund(rental.cancellationRefund);
+          setNumOfBathroom(rental.numOfBathrooms);
 
           return fetchHostDetails(rental.hostId);
         })
@@ -341,45 +344,71 @@ const  RentalPage= () => {
                     </div>
                   </div>
                 </div>
-                <p style={{ marginTop: "20px" }}>
-                  <span style={{ color: "rgb(34, 34, 34)" }}>
-                   <strong>Property Description:</strong>
-                    <br />
-                    {description}
-                  </span>
-                  <br />
-                  <br />
-                </p>
-                <p style={{ marginTop: "-13px" }}>
-                  <strong>
-                    <span style={{ color: "rgb(34, 34, 34)" }}>
-                      Can accommodate up to {guestNo} people&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                      &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
-                    </span>
-                  </strong>
-                </p>
-                <div style={{ display: 'flex', justifyContent: 'space-between', color: 'rgb(34, 34, 34)', fontSize: 16 }}>
-                  <div>
-                    <i className="fas fa-bed" />
-                    <strong> {numOfBeds} beds </strong>
+                  <div style={{
+                      padding: '10px',
+                      margin: '10px 0',
+                      borderRadius: '5px',
+                      backgroundColor: '#f8f9fa',
+                      boxShadow: '0 2px 5px rgba(0, 0, 0, 0.15)',
+                      color: 'rgb(34, 34, 34)',
+                      fontSize: 16
+                  }}>
+                      <strong>Property Description:</strong>
+                      <p style={{ marginTop: '10px' }}>{description}</p>
                   </div>
-                  <div>
-                    <i className="fas fa-shower" />
-                    <strong> {bathroomNum} bathrooms </strong>
+
+                  <div style={{
+                      display: 'flex',
+                      padding: '10px',
+                      margin: '10px 0',
+                      borderRadius: '5px',
+                      backgroundColor: '#f8f9fa',
+                      boxShadow: '0 2px 5px rgba(0, 0, 0, 0.15)',
+                      color: 'rgb(34, 34, 34)',
+                      fontSize: 16
+                  }}>
+                      <strong>Can accommodate up to {guestNo} people</strong>
                   </div>
-                  <div>
-                    <i className="fas fa-border-all" />
-                    <strong> Total Area: {areaInM2} m2 </strong>
+
+                  <div style={{
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      color: 'rgb(34, 34, 34)',
+                      fontSize: 16,
+                      padding: '10px',
+                      borderRadius: '5px',
+                      backgroundColor: '#f8f9fa',
+                      boxShadow: '0 2px 5px rgba(0, 0, 0, 0.15)',
+                      margin: '10px 0'
+                  }}>
+                      <div style={{ display: 'flex', alignItems: 'center'}}>
+                          <i className="fas fa-bed" style={{ marginRight: '5px', color: '#007bff' }} />
+                          <strong> {numOfBeds} beds </strong>
+                      </div>
+                      <div style={{ display: 'flex', alignItems: 'center'}}>
+                          <i className="fas fa-border-all" style={{ marginRight: '5px', color: '#007bff' }} />
+                          <strong> Total Area: {areaInM2} m2 </strong>
+                      </div>
                   </div>
-                </div>
-                <p>
-                  <i className="fas fa-exclamation" style={{ fontSize: 16 }} />
-                  <strong>
-                    <span style={{ color: "rgb(34, 34, 34)" }}>
-                      &nbsp; No pets are allowed
-                    </span>
-                  </strong>
+
+                  <p>
+                    <div style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        padding: '10px',
+                        margin: '10px 0',
+                        borderRadius: '5px',
+                        backgroundColor: '#f8f9fa',
+                        boxShadow: '0 2px 5px rgba(0, 0, 0, 0.15)'
+                    }}>
+                        <i className="fas fa-exclamation" style={{ fontSize: 16, color: '#dc3545', marginRight: '10px' }} />
+                        <strong>
+    <span style={{ color: "rgb(34, 34, 34)" }}>
+      Cancellation Refund Fee: {cancellationRefund} $
+    </span>
+                        </strong>
+                    </div>
+
                 </p>
               </div>
               <div className="col-auto col-md-6 col-lg-6 text-start">

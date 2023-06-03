@@ -133,13 +133,25 @@ const  HostRentingRoomDetails= () => {
       }),
     };
 
+    const photographsData = new FormData();
+    photographsData.append("rentalId", rentalId);
+
+    fileNames.forEach((file, index) => {
+      photographsData.append("photographs", file);
+    });
+
+// Now, photographsData is ready to be sent in a fetch or axios request.
+
+
     try {
       console.log(amenitiesData);
       console.log(formData);
       const amenitiesResponse = await axios.post('http://localhost:8080/updateRoomDetails/amenities', amenitiesData);
       const response = await axios.post('http://localhost:8080/UpdateFlatDetails', formData);
+      const photographsResponse = await axios.post('http://localhost:8080/photographs/upload', photographsData);
       console.log(response.data);
       console.log(amenitiesResponse.data);
+      console.log(photographsResponse.data);
       navigate('/HostRentingFlatLocation?hostId=' + hostId + '&rentalId=' + rentalId);
     }
     catch (error)
@@ -690,7 +702,7 @@ const  HostRentingRoomDetails= () => {
             <span style={{ color: "rgba(33,37,41,0.01)" }}>Text</span>
             <div>
               <label className="form-label" style={{ fontWeight: "bold" }}>
-                Upload at least 3 photographs about your room
+                Upload at least 1 photograph about your room
               </label>
               <div className="files color form-group mb-3">
                 <input
@@ -703,7 +715,7 @@ const  HostRentingRoomDetails= () => {
               </div>
               {!isValid && (
         <div style={{ textAlign: "left", color: "red" }}>
-          Please upload at least 3 photographs.
+          Please upload at least 1 photograph.
         </div>
       )}
        <div style={{ textAlign: "left" }}>

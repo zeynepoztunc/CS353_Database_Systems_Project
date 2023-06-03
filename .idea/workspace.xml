@@ -4,7 +4,186 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e555480-ab5a-407e-a171-4062daf29606" name="Changes" comment="changes in customer side" />
+    <list default="true" id="5e555480-ab5a-407e-a171-4062daf29606" name="Changes" comment="changes in customer side + host side">
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/controller/ImagesController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/bootstrap/css/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/bootstrap/js/bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/css/Bootstrap-4-Calendar-No-Custom-Code.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/css/Button-modal-ecommerce-bs4_modal.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/css/Button-modal-ecommerce-styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/css/Drag--Drop-Upload-Form.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/css/Drag-Drop-File-Input-Upload.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/css/Font Awesome 5 Brands.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/css/Font Awesome 5 Free.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/css/Hover-Button-1.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/css/baguetteBox.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/css/bootstrap/css/bootstrap.min-1.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/css/bootstrap/css/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/css/css/Banner-Heading-Image-images.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/css/css/baguetteBox.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/css/fonts/fontawesome-all.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/css/pop-up-boxes.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/css/styles.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/css/vanilla-zoom.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/fonts/FontAwesome.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/fonts/Simple-Line-Icons.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/fonts/Simple-Line-Icons.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/fonts/Simple-Line-Icons.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/fonts/Simple-Line-Icons.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/fonts/Simple-Line-Icons.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/fonts/fa-brands-400.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/fonts/fa-brands-400.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/fonts/fa-brands-400.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/fonts/fa-brands-400.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/fonts/fa-brands-400.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/fonts/fa-regular-400.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/fonts/fa-regular-400.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/fonts/fa-regular-400.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/fonts/fa-regular-400.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/fonts/fa-regular-400.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/fonts/fa-solid-900.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/fonts/fa-solid-900.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/fonts/fa-solid-900.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/fonts/fa-solid-900.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/fonts/fa-solid-900.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/fonts/font-awesome.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/fonts/fontawesome-all.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/fonts/fontawesome-webfont.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/fonts/fontawesome-webfont.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/fonts/fontawesome-webfont.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/fonts/fontawesome-webfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/fonts/fontawesome-webfont.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/fonts/fontawesome5-overrides.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/fonts/simple-line-icons.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/img/360_F_367464887_f0w1JrL8PddfuH3P2jSPlIGjKU2BI0rn.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/img/6676508.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/img/Başlıksız.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/img/CODERED_B1_portrait_photography-P4a_438x447.jpg.img.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/img/Cityhomes_Villa_032-400x300.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/img/IMG-20210205-WA0007.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/img/Stock-Airbnb-Home-AdobeStock-298309756 - Copy-2.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/img/bs4_slider_commerce_01.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/img/bs4_slider_commerce_02.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/img/bs4_slider_commerce_03.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/img/bs4_slider_commerce_04.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/img/c0.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/img/earthquake-icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/img/happy-young-woman-sitting-on-260nw-2018571389.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/img/icons8-room-80.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/img/images.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/img/images2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/img/istockphoto-1160217929-612x612.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/img/istockphoto-1200677760-612x612.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/img/istockphoto-1225524274-612x612.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/img/photo-1603775020644-eb8decd79994.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/img/pp.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/img/smile-young-man-close-gorgeous-260nw-186076112.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/img/star-empty.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/img/star-half-empty.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/img/star.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/img/thumbnail.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/img/thumbnail2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/img/zpwegh2jmdqgqvxiwqyn.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/js/Button-modal-ecommerce-bs4_modal.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/js/baguetteBox.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/js/bootstrap/js/bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/js/js/bs-init.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/js/script.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/js/theme.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/public/hostAssets/js/vanilla-zoom.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/repository/ImagesRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/repository/ImagesRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/repository/RentalRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/repository/RentalRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/bootstrap/css/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/bootstrap/js/bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/css/Bootstrap-4-Calendar-No-Custom-Code.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/css/Button-modal-ecommerce-bs4_modal.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/css/Button-modal-ecommerce-styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/css/Drag--Drop-Upload-Form.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/css/Drag-Drop-File-Input-Upload.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/css/Font Awesome 5 Brands.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/css/Font Awesome 5 Free.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/css/Hover-Button-1.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/css/baguetteBox.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/css/bootstrap/css/bootstrap.min-1.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/css/bootstrap/css/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/css/css/Banner-Heading-Image-images.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/css/css/baguetteBox.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/css/fonts/fontawesome-all.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/css/pop-up-boxes.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/css/styles.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/css/vanilla-zoom.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/fonts/FontAwesome.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/fonts/Simple-Line-Icons.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/fonts/Simple-Line-Icons.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/fonts/Simple-Line-Icons.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/fonts/Simple-Line-Icons.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/fonts/Simple-Line-Icons.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/fonts/fa-brands-400.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/fonts/fa-brands-400.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/fonts/fa-brands-400.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/fonts/fa-brands-400.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/fonts/fa-brands-400.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/fonts/fa-regular-400.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/fonts/fa-regular-400.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/fonts/fa-regular-400.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/fonts/fa-regular-400.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/fonts/fa-regular-400.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/fonts/fa-solid-900.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/fonts/fa-solid-900.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/fonts/fa-solid-900.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/fonts/fa-solid-900.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/fonts/fa-solid-900.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/fonts/font-awesome.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/fonts/fontawesome-all.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/fonts/fontawesome-webfont.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/fonts/fontawesome-webfont.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/fonts/fontawesome-webfont.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/fonts/fontawesome-webfont.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/fonts/fontawesome-webfont.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/fonts/fontawesome5-overrides.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/fonts/simple-line-icons.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/img/360_F_367464887_f0w1JrL8PddfuH3P2jSPlIGjKU2BI0rn.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/img/6676508.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/img/Başlıksız.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/img/CODERED_B1_portrait_photography-P4a_438x447.jpg.img.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/img/Cityhomes_Villa_032-400x300.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/img/IMG-20210205-WA0007.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/img/Stock-Airbnb-Home-AdobeStock-298309756 - Copy-2.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/img/bs4_slider_commerce_01.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/img/bs4_slider_commerce_02.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/img/bs4_slider_commerce_03.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/img/bs4_slider_commerce_04.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/img/c0.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/img/earthquake-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/img/happy-young-woman-sitting-on-260nw-2018571389.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/img/icons8-room-80.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/img/images.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/img/images2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/img/istockphoto-1160217929-612x612.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/img/istockphoto-1200677760-612x612.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/img/istockphoto-1225524274-612x612.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/img/photo-1603775020644-eb8decd79994.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/img/pp.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/img/smile-young-man-close-gorgeous-260nw-186076112.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/img/star-empty.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/img/star-half-empty.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/img/star.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/img/thumbnail.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/img/thumbnail2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/img/zpwegh2jmdqgqvxiwqyn.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/js/Button-modal-ecommerce-bs4_modal.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/js/baguetteBox.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/js/bootstrap/js/bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/js/js/bs-init.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/js/script.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/js/theme.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/public/assets/js/vanilla-zoom.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/HostRentingFlatDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/HostRentingFlatDetails.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/HostRentingMainPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/HostRentingMainPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/RentalPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/RentalPage.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -103,7 +282,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Application.WeRentApplication">
+  <component name="RunManager" selected="Spring Boot.WeRentApplication">
     <configuration name="WeRentApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.werent.WeRentApplication" />
       <module name="WeRent" />
@@ -185,6 +364,7 @@
       <workItem from="1685714769700" duration="2374000" />
       <workItem from="1685718359811" duration="4250000" />
       <workItem from="1685734150683" duration="5664000" />
+      <workItem from="1685790986353" duration="2065000" />
     </task>
     <task id="LOCAL-00001" summary="new upload">
       <created>1684410800015</created>
