@@ -12,7 +12,7 @@ function PaymentPage() {
     {
       ID: "123345",
       rentalName: "Luxury Villa",
-      price: "$200",
+      price: "200",
       description: "Luxury Villa with a Jacuzzi, Antalya Kalkan",
       startDate: "18/08/2023",
       endDate: "25/08/2023",
@@ -21,7 +21,7 @@ function PaymentPage() {
     {
       ID: "123345",
       rentalName: "House With Garden",
-      price: "$120",
+      price: "120",
       description: "A House With a Garden by the Sea Apart2",
       startDate: "17/10/2024",
       endDate: "27/10/2024",
@@ -39,8 +39,7 @@ function PaymentPage() {
   const calculateTotalPrice = () => {
     let totalPrice = 0;
     for (const rental of ApprovedRentalValues) {
-      // Remove the '$' symbol from the price and parse it as a number
-      const rentalPrice = parseInt(rental.price.replace("$", ""));
+      const rentalPrice = parseInt(rental.price.replace("", ""));
       totalPrice += rentalPrice;
     }
     return totalPrice;
@@ -77,7 +76,7 @@ function PaymentPage() {
                 <h3 className="title">Checkout</h3>
                 {ApprovedRentalValues.map((item, index) => (
                   <div className="item">
-                    <span className="price">{item.price}</span>
+                    <span className="price">${item.price}</span>
                     <p className="item-name" />
                     <p className="item-description">
                       {item.rentalName}

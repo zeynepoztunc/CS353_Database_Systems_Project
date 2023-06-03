@@ -10,18 +10,18 @@ function ShoppingCart() {
 
   const ApprovedRentalValues = [
     {
-      ID: "123345",
+      ID: "123",
       rentalName: "Luxury Villa",
-      price: "$200",
+      price: "200",
       description: "Luxury Villa with a Jacuzzi, Antalya Kalkan",
       startDate: "18/08/2023",
       endDate: "25/08/2023",
       img: "customerAssets/img/Ekran%20Görüntüsü%20(1188).png",
     },
     {
-      ID: "123345",
+      ID: "1233",
       rentalName: "House With Garden",
-      price: "$120",
+      price: "120",
       description: "A House With a Garden by the Sea Apart2",
       startDate: "17/10/2024",
       endDate: "27/10/2024",
@@ -31,9 +31,9 @@ function ShoppingCart() {
 
   const WaitingRentalValues = [
     {
-      ID: "123345",
+      ID: "12334",
       rentalName: "Boutique House",
-      price: "$160",
+      price: "160",
       description: "Small House inside a forest",
       startDate: "17/10/2024",
       endDate: "27/10/2024",
@@ -50,8 +50,7 @@ function ShoppingCart() {
   {
     let totalPrice = 0;
     for (const rental of ApprovedRentalValues) {
-      // Remove the '$' symbol from the price and parse it as a number
-      const rentalPrice = parseInt(rental.price.replace("$", ""));
+      const rentalPrice = parseInt(rental.price.replace("", ""));
       totalPrice += rentalPrice;
     }
     return totalPrice;
@@ -61,8 +60,7 @@ function ShoppingCart() {
   {
     let totalPrice = 0;
     for (const rental of WaitingRentalValues) {
-      // Remove the '$' symbol from the price and parse it as a number
-      const rentalPrice = parseInt(rental.price.replace("$", ""));
+      const rentalPrice = parseInt(rental.price.replace("", ""));
       totalPrice += rentalPrice;
     }
     return totalPrice;
@@ -70,9 +68,9 @@ function ShoppingCart() {
 
   const navigate = useNavigate();
 
-  const goToRentalPage = (event) => {
-    event.preventDefault();
-    navigate('/RentalPage');
+  const goToRentalPage = (id) => {
+    //event.preventDefault();
+    navigate('/RentalPage?rentalId='  + id + '&userid=' + userId);
   }
 
   return (
@@ -120,7 +118,7 @@ function ShoppingCart() {
                           </div>
 
                           <div className="col-md-5 product-info">
-                            <a className="product-name" onClick={goToRentalPage}>
+                            <a className="product-name" onClick={() => goToRentalPage(item['rental-id'])}>
                               {item.rentalName}
                             </a>
                             <div className="product-specs">
@@ -148,7 +146,7 @@ function ShoppingCart() {
                             </div>
                           </div>
                           <div className="col-6 col-md-2 price">
-                            <span>{item.price}</span>
+                            <span>${item.price}</span>
                           </div>
                         </div>
                       ))}
@@ -178,7 +176,7 @@ function ShoppingCart() {
                             </div>
 
                             <div className="col-md-5 product-info">
-                              <a className="product-name" onClick={goToRentalPage}>
+                              <a className="product-name" onClick={() => goToRentalPage(item['rental-id'])}>
                                 {item.rentalName}
                               </a>
                               <div className="product-specs">
@@ -206,7 +204,7 @@ function ShoppingCart() {
                               </div>
                             </div>
                             <div className="col-6 col-md-2 price">
-                              <span>{item.price}</span>
+                              <span>${item.price}</span>
                             </div>
                           </div>
                         ))}
