@@ -80,7 +80,14 @@ export const AdminLandmarkSuggestions = () => {
       console.log("BURAK: ", search);
       const response = await axios.get('http://localhost:8080/searchLandmarks?title=' + searchInput + '&latest=' + latest + '&oldest=' + oldest);
       console.log(response.data);
-      setForms(response.data);
+      if(response.data.length > 0){
+        setItemExis(true);
+        setForms(response.data);
+      }
+      else{
+        setItemExis(false);
+        setForms([{}]);
+      }
     } catch (error) {
       console.error('Failed:', error);
       setForms([]);

@@ -15,14 +15,14 @@ export const AdminManagePosts = () => {
     const [search, setSearch] = useState("");
   const [posts, setPosts] = useState([]);
   const [itemExist, setItemExist] = useState(false);
-  const [isCheckedMost, setIsCheckedMost] = useState(false);
-  const [isCheckedLeast, setIsCheckedLeast] = useState(false);
+  //const [isCheckedMost, setIsCheckedMost] = useState(false);
+  //const [isCheckedLeast, setIsCheckedLeast] = useState(false);
   const [isCheckedLatest, setIsCheckedLatest] = useState(false);
   const [isCheckedOldest, setIsCheckedOldest] = useState(false);
   const [isCheckedHighest, setIsCheckedHighest] = useState(false);
   const [isCheckedLowest, setIsCheckedLowest] = useState(false);
 
-  const handleChangeLeast = () => {
+  /*const handleChangeLeast = () => {
     setIsCheckedLeast(!isCheckedLeast);
     if (isCheckedOldest) {
       setIsCheckedOldest(!isCheckedOldest);
@@ -59,18 +59,19 @@ export const AdminManagePosts = () => {
       setIsCheckedLowest(!isCheckedLowest);
     }
   }
+  */
 
   const handleChangeLatest = () => {
     setIsCheckedLatest(!isCheckedLatest);
     if (isCheckedOldest) {
       setIsCheckedOldest(!isCheckedOldest);
     }
-    if (isCheckedMost) {
+    /*if (isCheckedMost) {
       setIsCheckedMost(!isCheckedMost);
     }
     if (isCheckedLeast) {
       setIsCheckedLeast(!isCheckedLeast);
-    }
+    }*/
     if (isCheckedHighest) {
       setIsCheckedHighest(!isCheckedHighest);
     }
@@ -84,12 +85,12 @@ export const AdminManagePosts = () => {
     if (isCheckedLatest) {
       setIsCheckedLatest(!isCheckedLatest);
     }
-    if (isCheckedMost) {
+    /*if (isCheckedMost) {
       setIsCheckedMost(!isCheckedMost);
     }
     if (isCheckedLeast) {
       setIsCheckedLeast(!isCheckedLeast);
-    }
+    }*/
     if (isCheckedHighest) {
       setIsCheckedHighest(!isCheckedHighest);
     }
@@ -103,12 +104,12 @@ export const AdminManagePosts = () => {
     if (isCheckedLatest) {
       setIsCheckedLatest(!isCheckedLatest);
     }
-    if (isCheckedMost) {
+    /*if (isCheckedMost) {
       setIsCheckedMost(!isCheckedMost);
     }
     if (isCheckedLeast) {
       setIsCheckedLeast(!isCheckedLeast);
-    }
+    }*/
     if (isCheckedOldest) {
       setIsCheckedOldest(!isCheckedOldest);
     }
@@ -122,12 +123,12 @@ export const AdminManagePosts = () => {
     if (isCheckedLatest) {
       setIsCheckedLatest(!isCheckedLatest);
     }
-    if (isCheckedMost) {
+    /*if (isCheckedMost) {
       setIsCheckedMost(!isCheckedMost);
     }
     if (isCheckedLeast) {
       setIsCheckedLeast(!isCheckedLeast);
-    }
+    }*/
     if (isCheckedHighest) {
       setIsCheckedHighest(!isCheckedHighest);
     }
@@ -144,14 +145,14 @@ export const AdminManagePosts = () => {
     
     const handleSearch = async (e) => {
       e.preventDefault();
-      let most = "0";
-      let least = "0";
+      /*let most = "0";
+      let least = "0";*/
       let latest = "0";
       let oldest = "0";
       let highest = "0";
       let lowest = "0";
 
-      if ( document.getElementById("formCheck-1").checked ){
+      /*if ( document.getElementById("formCheck-1").checked ){
         console.log("is checked 1");
         most = "1";
         setMostRented(true);
@@ -160,7 +161,7 @@ export const AdminManagePosts = () => {
         console.log("is checked 2");
         least = "1";
         setLeastRented(true);
-      }
+      }*/
       if (document.getElementById("formCheck-3").checked ){
         console.log("is checked 3");
         latest = "1";
@@ -186,9 +187,16 @@ export const AdminManagePosts = () => {
 
     try {
       console.log("BURAK: ", search);
-      const response = await axios.get('http://localhost:8080/searchPosts?title=' + searchInput + '&check1=' + most + '&check2=' + least + '&check3=' + latest + '&check4=' + oldest + '&check5=' + highest + '&check6=' + lowest);
+      const response = await axios.get('http://localhost:8080/searchPosts?title=' + searchInput + '&check3=' + latest + '&check4=' + oldest + '&check5=' + highest + '&check6=' + lowest);
       console.log(response.data);
-      setPosts(response.data);
+      if(response.data.length > 0){
+          setItemExist(true);
+        setPosts(response.data);
+      }
+      else{
+        setItemExist(false);
+        setPosts([{}]);
+      }
     } catch (error) {
       console.error('Failed:', error);
       setPosts([]);
@@ -249,30 +257,6 @@ export const AdminManagePosts = () => {
               <p>Select search inputs</p>
         <div>
           <div>
-            <div className="form-check">
-              <input
-                className="form-check-input"
-                type="checkbox"
-                id="formCheck-1"
-                checked={isCheckedMost}
-                onChange={handleChangeMost}
-              />
-              <label className="form-check-label" htmlFor="formCheck-1">
-                Most rented
-              </label>
-            </div>
-            <div className="form-check">
-              <input
-                className="form-check-input"
-                type="checkbox"
-                id="formCheck-2"
-                checked={isCheckedLeast}
-                onChange={handleChangeLeast}
-              />
-              <label className="form-check-label" htmlFor="formCheck-2">
-                Least rented
-              </label>
-            </div>
             <div className="form-check">
               <input
                 className="form-check-input"

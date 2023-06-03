@@ -208,41 +208,30 @@ public class AdminRepository {
         }
     }
 
-    public List<Map<String, Object>> searchPosts(String title, String check1, String check2, String check3, String check4, String check5, String check6){
+    public List<Map<String, Object>> searchPosts(String title, String check3, String check4, String check5, String check6){
         System.out.println("tile bu: "+ title);
-        System.out.println("1 bu: "+ check1);
-        System.out.println("2 bu: "+ check2);
         System.out.println("3 bu: "+ check3);
         System.out.println("4 bu: "+ check4);
         System.out.println("5 bu: "+ check5);
         System.out.println("6 bu: "+ check6);
 
         //String sqlListFiltered = new StringBuilder().append("SELECT * FROM \"Rental\" r, \"RegisteredUser\" ru WHERE ru.\"user-id\" LIKE ‘%").append(title).append("%' AND r.\"rental-id\" =  HAVING COUNT(*) = (SELECT MAX(reservation-cnt) FROM (SELECT res.\"rental-id\", COUNT(*) AS \"reservation-cnt\" FROM \"Reservation\" res, GROUP BY \"rental-id\")) ORDER BY CASE WHEN ? = 1 THEN \"reservation-cnt\" END DESC, CASE WHEN ? = 1 THEN \"reservation-cnt\" END ASC, CASE WHEN ? = 1 THEN r.\"date-added\" END DESC, CASE WHEN ? = 1 THEN r.\"date-added\" END ASC, CASE WHEN ? = 1 THEN r.rating END DESC, CASE WHEN ? = 1 THEN r.rating END ASC").toString();
-        String sqlListFiltered = "SELECT *\n" +
-                "FROM \"Rental\" r, \"RegisteredUser\" ru\n" +
-                "WHERE r.\"rental-name\" LIKE '%" + title + "%'\n" +
-                "  AND r.\"rental-id\" =\n" +
-                "      (SELECT MAX(\"reservation-cnt\")\n" +
-                "       FROM\n" +
-                "         (SELECT m.\"rental-id\", COUNT(*) AS \"reservation-cnt\"\n" +
-                "          FROM \"Reservation\" res, \"Makes\" m WHERE res.\"reservation-id\" = m.\"reservation-id\" \n" +
-                "          GROUP BY m.\"rental-id\") AS subquery_alias \n" +
-                "      )\n" +
+        String sqlListFiltered = "SELECT * FROM \"Rental\" WHERE \"rental-name\" LIKE '%" + title + "%'\n" +
                 "ORDER BY\n" +
-                "  CASE WHEN ? = 1 THEN \"reservation-cnt\" END DESC,\n" +
-                "  CASE WHEN ? = 1 THEN \"reservation-cnt\" END ASC,\n" +
-                "  CASE WHEN ? = 1 THEN r.\"date-added\" END DESC,\n" +
-                "  CASE WHEN ? = 1 THEN r.\"date-added\" END ASC,\n" +
-                "  CASE WHEN ? = 1 THEN r.rating END DESC,\n" +
-                "  CASE WHEN ? = 1 THEN r.rating END ASC";
+                "  CASE WHEN ? = 1 THEN \"date-added\" END DESC,\n" +
+                "  CASE WHEN ? = 1 THEN \"date-added\" END ASC,\n" +
+                "  CASE WHEN ? = 1 THEN rating END DESC,\n" +
+                "  CASE WHEN ? = 1 THEN rating END ASC";
 
-        int check1Int = Integer.parseInt(check1);
-        int check2Int = Integer.parseInt(check2);
+               // "         SELECT m.\"rental-id\", COUNT(*) AS \"reservation-cnt\"\n" +
+               // "          FROM \"Rental\" r, \"Reservation\" res, \"Makes\" m WHERE res.\"reservation-id\" = m.\"reservation-id\" \n" +
+               // "          GROUP BY m.\"rental-id\"";
+
         int check3Int = Integer.parseInt(check3);
         int check4Int = Integer.parseInt(check4);
         int check5Int = Integer.parseInt(check5);
         int check6Int = Integer.parseInt(check6);
-        List<Map<String, Object>> rows = jdbcTemplate.queryForList(sqlListFiltered, check1Int, check2Int, check3Int, check4Int, check5Int, check6Int);
+        List<Map<String, Object>> rows = jdbcTemplate.queryForList(sqlListFiltered, check3Int, check4Int, check5Int, check6Int);
         if (rows.isEmpty()){
             return null;
         }
