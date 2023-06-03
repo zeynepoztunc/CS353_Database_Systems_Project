@@ -148,10 +148,10 @@ const  HostRentingRoomDetails= () => {
       console.log(formData);
       const amenitiesResponse = await axios.post('http://localhost:8080/updateRoomDetails/amenities', amenitiesData);
       const response = await axios.post('http://localhost:8080/UpdateFlatDetails', formData);
-      const photographsResponse = await axios.post('http://localhost:8080/photographs/upload', photographsData);
+      //const photographsResponse = await axios.post('http://localhost:8080/photographs/upload', photographsData);
       console.log(response.data);
       console.log(amenitiesResponse.data);
-      console.log(photographsResponse.data);
+      //console.log(photographsResponse.data);
       navigate('/HostRentingFlatLocation?hostId=' + hostId + '&rentalId=' + rentalId);
     }
     catch (error)
