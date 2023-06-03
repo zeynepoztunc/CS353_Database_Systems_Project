@@ -7,26 +7,31 @@ import { addDays, subDays } from "date-fns";
 import DropdownMenu from './DropdownMenu';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 
-const  NavBar= () => {
+  const urlParams = new URLSearchParams(window.location.search);
+  const userIdString = urlParams.get('userid');
+  const userId = parseInt(userIdString, 10);
+
+  const  NavBar= () => {
     const navigate = useNavigate();
     
     const goToMainPage = ( event) => {
       event.preventDefault();
-      navigate( '/MainPage');
+      //navigate( '/MainPage');
+      navigate('/MainPage?userid='  + userId);
     };
 
     const goToShoppingCartPage = ( event) => {
       event.preventDefault();
-      navigate( '/ShoppingCart');
+      navigate( '/ShoppingCart?userid='  + userId);
     };
 
     const goToMapPage = ( event) => {
       event.preventDefault();
-      navigate( '/MapPage');
+      navigate( '/MapPage?userid='  + userId);
     };
     const goToProfile = ( event) => {
         event.preventDefault();
-        navigate( '/ProfilePage');
+        navigate( '/ProfilePage?userid='  + userId);
     };
 
 

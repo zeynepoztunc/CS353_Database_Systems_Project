@@ -4,6 +4,10 @@ import NavBar from './NavBar.js';
 
 function ShoppingCart() {
 
+  const urlParams = new URLSearchParams(window.location.search);
+  const userIdString = urlParams.get('userid');
+  const userId = parseInt(userIdString, 10);
+
   const ApprovedRentalValues = [
     {
       ID: "123345",
@@ -39,7 +43,7 @@ function ShoppingCart() {
 
   const goToPaymentPage = (event) => {
     event.preventDefault();
-    navigate('/PaymentPage');
+    navigate('/PaymentPage?userid='  + userId);
   };
 
   const calculateTotalPrice = () => 

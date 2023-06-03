@@ -88,6 +88,7 @@ function toggleHeart(rentalId) {
       filteredRentals = filteredRentals.filter((item) => item.isFavorited);
     }
 
+
     return filteredRentals;
   };
 
