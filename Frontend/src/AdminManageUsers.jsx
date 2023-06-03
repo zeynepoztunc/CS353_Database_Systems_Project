@@ -1,9 +1,9 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import "./adminAssets/bootstrap/css/bootstrap.min.css";
 import "./adminAssets/css/vanilla-zoom.min.css";
 import { Navbar } from "./Navbar.jsx";
 import axios from "axios";
-import {  useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 export const AdminManageUsers = () => {
   const [mostRented, setMostRented] = useState(false);
@@ -68,21 +68,21 @@ export const AdminManageUsers = () => {
 
   const fetchUsers = async () => {
     try {
-      const response = await axios.get('http://localhost:8080/listAllUsers');
+      const response = await axios.get("http://localhost:8080/listAllUsers");
       console.log(response.data);
       setUsers(response.data);
     } catch (error) {
-      console.error('Failed to fetch cities:', error);
+      console.error("Failed to fetch cities:", error);
       setUsers([]);
     }
   };
 
   useEffect(() => {
-    fetchUsers().then(r => console.log('fetched data'));
+    fetchUsers().then((r) => console.log("fetched data"));
   }, []);
 
   const handleViewProfile = (userId) => {
-    navigate('/AdminViewUser?userId=' + userId);
+    navigate("/AdminViewUser?userId=" + userId);
   };
 
   return (
@@ -124,20 +124,7 @@ export const AdminManageUsers = () => {
                           id="dataTable_length"
                           className="dataTables_length"
                           aria-controls="dataTable"
-                        >
-                          <label className="form-label">
-                            Show&nbsp;
-                            <select className="d-inline-block form-select form-select-sm">
-                              <option value={10} selected="">
-                                10
-                              </option>
-                              <option value={25}>25</option>
-                              <option value={50}>50</option>
-                              <option value={100}>100</option>
-                            </select>
-                            &nbsp;
-                          </label>
-                        </div>
+                        ></div>
                       </div>
                       <p>Select search inputs</p>
                       <div>
@@ -278,13 +265,13 @@ export const AdminManageUsers = () => {
                                   height={30}
                                   src={item.photo}
                                 />
-                                {item.name}
+                                {item["name"]}
                               </td>
-                              <td>{item.userType}</td>
-                              <td>{item.complaintCount}</td>
+                              <td>{item["user-type"]}</td>
+                              <td>{item["complaint-cnt"]}</td>
 
                               <td>
-                                {item.joinDate}
+                                {item["join-date"]}
                                 <br />
                               </td>
                               <td style={{ textAlign: "center" }}>
@@ -296,7 +283,9 @@ export const AdminManageUsers = () => {
                                     margin: "auto",
                                     /*borderLeft: 10, */ textAlign: "center",
                                   }}
-                                  onClick={() => handleViewProfile(item['user-id'])}
+                                  onClick={() =>
+                                    handleViewProfile(item["user-id"])
+                                  }
                                 >
                                   <span
                                     style={{

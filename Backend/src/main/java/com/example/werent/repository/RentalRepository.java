@@ -1,6 +1,7 @@
 package com.example.werent.repository;
 
 import com.example.werent.entity.RentalDTO;
+import jakarta.persistence.criteria.CriteriaBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -10,6 +11,8 @@ import java.sql.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Map;
 
 @Repository
 public class RentalRepository {
@@ -60,6 +63,11 @@ public class RentalRepository {
         jdbcTemplate.update(sql, startDateTimestamp, endDateTimestamp, id);
     }
 
+    public List<Map<String, Object>> getAllRentals(Integer id) {
+        String sql = "SELECT * FROM \"Rental\" WHERE \"host-id\" = ?";
+        return jdbcTemplate.queryForList(sql, id);
+    }
+
 
     public void updateLocation(int id, String city, String province, String address, double latitude, double longitude) {
         String sql = "UPDATE \"Rental\" SET city = ?, province = ?, address = ?, latitude = ?, longitude = ? WHERE \"rental-id\" = ?";
@@ -99,6 +107,7 @@ public class RentalRepository {
                 rental.setAreaInM2(rs.getInt("area-in-m2"));
                 rental.setDescription(rs.getString("description"));
                 rental.setNumOfBeds(rs.getInt("num-of-beds"));
+                rental.setCancellationRefund(rs.getInt("cancellation-refund"));
                 return rental;
             }
         });

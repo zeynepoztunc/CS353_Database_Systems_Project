@@ -87,9 +87,25 @@ public class AdminController {
         return adminRepository.listAllPosts();
     }
 
+    @RequestMapping(value = "/singlePost", method = RequestMethod.GET)
+    public List<Map<String, Object>> singlePost(@RequestParam String rentalId) {
+        return adminRepository.singlePost(rentalId);
+    }
+
     @RequestMapping(value = "/allLandmarkForms", method = RequestMethod.GET)
     public List<Map<String, Object>> allLandmarkForms(){
         return adminRepository.allLandmarkForms();
+    }
+
+    @RequestMapping(value = "/searchPosts", method = RequestMethod.GET)
+    public List<Map<String, Object>> searchPosts(@RequestParam String title,@RequestParam String check1,@RequestParam String check2,@RequestParam String check3,@RequestParam String check4,@RequestParam String check5,@RequestParam String check6){
+        return adminRepository.searchPosts(title, check1, check2, check3, check4, check5, check6);
+
+    }
+
+    @RequestMapping(value = "/searchLandmarks", method = RequestMethod.GET)
+    public List<Map<String, Object>> searchLandmarks(@RequestParam String title, @RequestParam String latest, @RequestParam String oldest){
+        return adminRepository.searchLandmarks(title, latest, oldest);
     }
 
     @RequestMapping(value = "/singleLandmarkForm", method = RequestMethod.GET)
