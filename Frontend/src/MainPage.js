@@ -220,18 +220,6 @@ const MainPage = () => {
                             Couchsurfing
                           </label>
                         </div>
-                        <div className="form-check">
-                          <input
-                            className="form-check-input"
-                            type="checkbox"
-                            id="formCheck-5"
-                            value="countryside"
-                            onChange={handleFilterChange}
-                          />
-                          <label className="form-check-label" htmlFor="formCheck-5">
-                            Pet-Allowed
-                          </label>
-                        </div>
                       </div>
 
                       <div className="filter-item">

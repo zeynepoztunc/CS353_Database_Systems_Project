@@ -150,66 +150,7 @@ function ShoppingCart() {
                           </div>
                         </div>
                       ))}
-                    </div>
-
-
-                    <div className="product" style={{ marginTop: 18 }}>
-                      <label
-                        className="form-label text-secondary"
-                        style={{ marginLeft: 74 }}
-                      >
-                        Waiting for Host Approval
-                      </label>
-
-                      <div className="product">
-                        {WaitingRentalValues.map((item, index) => (
-                          <div className="row justify-content-center align-items-center" style={{ marginTop: 30 }}>
-                            <div className="col-md-3">
-                              <div className="product-image">
-                                <img
-                                  className="img-fluid d-block mx-auto image"
-                                  src={item.img}
-                                  width={146}
-                                  height={146}
-                                />
-                              </div>
-                            </div>
-
-                            <div className="col-md-5 product-info">
-                              <a className="product-name" onClick={() => goToRentalPage(item['rental-id'])}>
-                                {item.rentalName}
-                              </a>
-                              <div className="product-specs">
-                                <div>
-                                  <span>
-                                    <br />
-                                    <span
-                                      style={{
-                                        fontWeight: "normal !important",
-                                        backgroundColor: "rgb(247, 251, 255)"
-                                      }}
-                                    >
-                                      {item.description}
-                                    </span>
-                                    <br />
-                                    <br />
-                                  </span>
-                                  <div />
-                                  <span>{item.startDate}-{item.endDate}</span>
-                                </div>
-                                <div>
-                                  <span className="value" />
-                                </div>
-                                <div />
-                              </div>
-                            </div>
-                            <div className="col-6 col-md-2 price">
-                              <span>${item.price}</span>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
+                    </div>                
                   </div>
                 </div>
                 <div className="col-md-12 col-lg-4">
