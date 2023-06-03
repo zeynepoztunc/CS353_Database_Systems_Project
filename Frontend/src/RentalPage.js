@@ -65,6 +65,11 @@ const  RentalPage= () => {
   const rentalIdString = urlParams.get('rentalId');
 
 
+
+  const goToShoppingCartPage = ( event) => {
+    event.preventDefault();
+    navigate( '/ShoppingCart?userid='  + userId);
+  };
   const fetchRentalDetails = async (rentalIdString) => {
     try {
       const response = await axios.get(`http://localhost:8080/Rentals/getRentalsRentalId?rentalId=${rentalIdString}`);
@@ -515,6 +520,7 @@ const  RentalPage= () => {
                         <button
                           className="btn btn-danger text-start"
                           type="button"
+                          onClick={goToShoppingCartPage}
                           style={{
                             marginTop: 28,
                             paddingBottom: 10,
