@@ -6,6 +6,11 @@ import axios from 'axios';
 
 
 function ProfilePage() {
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const userIdString = urlParams.get('userid');
+  const userId = parseInt(userIdString, 10);
+
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const averageRating = useState(4.5);
@@ -65,7 +70,7 @@ function ProfilePage() {
   };
   const handlePastBookings = (event) => {
     event.preventDefault();
-    navigate('/PastBookingsPage');
+    navigate('/PastBookingsPage?userid='  + userId);
   };
   const [selectedFile, setSelectedFile] = useState(null);
 
@@ -102,7 +107,7 @@ function ProfilePage() {
 
   const handlePastTransactions = (event) => {
     event.preventDefault();
-    navigate('/PastTransactionsPage');
+    navigate('/PastTransactionsPage?userid='  + userId);
   };
 
   return (

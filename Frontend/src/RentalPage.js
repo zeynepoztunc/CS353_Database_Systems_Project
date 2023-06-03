@@ -13,6 +13,7 @@ import { FaMountain } from 'react-icons/fa';
 
 
 const  RentalPage= () => {
+
   const [dateRange, setDateRange] = useState([null, null]);
   const [startDate, endDate] = dateRange;
   const [selectedCounts, setSelectedCounts] = useState({});

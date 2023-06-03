@@ -4,6 +4,10 @@ import axios from 'axios';
 import React, { useState } from 'react';
 
 function PastBookingsPage() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const userIdString = urlParams.get('userid');
+  const userId = parseInt(userIdString, 10);
+
   const navigate = useNavigate();
   const [booking] = useState([
     { id:1, sdate: "24/03/2023", edate: "27/03/2023", name: 'Kaş Luxury Villa ',  city:"Antalya",host: 'Timur',guestNum:2},
@@ -14,7 +18,12 @@ function PastBookingsPage() {
 
   const goBackToProfile = (event) => {
     event.preventDefault();
-    navigate('/ProfilePage');
+    navigate('/ProfilePage?userid='  + userId);
+  };
+
+  const addLandmrak = (event) => {
+    event.preventDefault();
+    navigate('/AddLandmark?userid='  + userId);
   };
 
     return (
@@ -103,6 +112,7 @@ function PastBookingsPage() {
                         className="btn btn-danger text-center btn-custom-class"
                         type="button"
                         style={{ marginLeft: 36 }}
+                        onClick={addLandmrak}
                       >
                         Add
                       </button>
