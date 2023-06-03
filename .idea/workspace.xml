@@ -108,7 +108,20 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.WeRentApplication">
+  <component name="RunManager" selected="Application.WeRentApplication">
+    <configuration name="WeRentApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.werent.WeRentApplication" />
+      <module name="WeRent" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.werent.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="All in generated-requests" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http">
       <method v="2" />
     </configuration>
@@ -124,8 +137,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="HTTP Request.generated-requests | #2" />
-        <item itemvalue="HTTP Request.All in generated-requests" />
+        <item itemvalue="Application.WeRentApplication" />
       </list>
     </recent_temporary>
   </component>
