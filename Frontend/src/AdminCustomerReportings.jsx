@@ -4,6 +4,7 @@ import "./adminAssets/css/vanilla-zoom.min.css";
 import { Navbar } from "./Navbar.jsx";
 import axios from "axios";
 import {  useNavigate } from 'react-router-dom';
+import {te} from "date-fns/locale";
 export const AdminCustomerReportings = () => {
   const [mostRented, setMostRented] = useState(false);
   const [leastRented, setLeastRented] = useState(false);
@@ -14,6 +15,7 @@ export const AdminCustomerReportings = () => {
   const [search, setSearch] = useState("");
   const [customerReportings, setReportings] = useState([]);
   const [userId, setUserId] = useState(0);
+  const [itemExist, setItemExist] = useState(false);
 
   const users = [
     {
@@ -38,17 +40,14 @@ export const AdminCustomerReportings = () => {
     try {
       const response = await axios.get('http://localhost:8080/customerReportings');
       console.log(response.data);
-      /*for (let i = 0; i < response.data.length; i++){
-        console.log("flatname: ", response.data[i]['rental-name'], " email: ", response.data[i]['e-mail']);
-        customerReportings[i].flatName = response.data[i]['rental-name'];
-        customerReportings[i].reportType = "Customer Post Reporting";
-        customerReportings[i].date = response.data[i]['report-date'];
-        customerReportings[i].userName = response.data[i]['name'];
-        customerReportings[i].email = response.data[i]['e-mail'];
-        customerReportings[i].content = response.data[i]['description'];
-      }*/
-      setReportings(response.data);
-      //return customerReportings;
+      if (response.data.length > 0){
+        setItemExist(true);
+        setReportings(response.data);
+      }
+      else{
+        setItemExist(false);
+        setReportings([{}]);
+      }
     } catch (error) {
       console.error('Failed to fetch cities:', error);
       setReportings([]);
@@ -264,8 +263,8 @@ export const AdminCustomerReportings = () => {
                         </div>
                       </div>
             <div className="block-content">
-              
-              {customerReportings.map((item, index) => (
+
+              {itemExist && customerReportings.map((item, index) => (
                 <div className="clean-blog-post" key={index}>
                 <div className="row">
                   <div className="col-lg-5">
@@ -309,10 +308,12 @@ export const AdminCustomerReportings = () => {
                   </div>
                 </div>
               </div>
-                
-                
-                
               ))}
+              {!itemExist && (
+                  <h1>
+                    NO REPORTING EXISTS!
+                  </h1>
+              )}
               
 
             </div>

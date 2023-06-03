@@ -40,8 +40,9 @@ export const AdminViewReporting = () => {
     fetchPostDetails().then(r => console.log('fetched data'));
   }, []);
 
-  const deleteUser = async (e) => {
+  /*const deleteUser = async (e) => {
     e.preventDefault();
+    console.log("BURADAAYIMMMMMUSER");
     try {
       const response = await axios.delete('http://localhost:8080/deleteReportedUser?userId=' + userid);
       console.log(response.data);
@@ -56,8 +57,11 @@ export const AdminViewReporting = () => {
       console.error('Failed:', error);
     }
   }
-  const removePost = async (e) => {
+   */
+
+  /*const removePost = async (e) => {
     e.preventDefault();
+    console.log("BURADAAYIMMMMM");
     try {
       const response = await axios.delete('http://localhost:8080/deletePost?rentalId=' + rentalId);
       console.log(response.data);
@@ -72,6 +76,7 @@ export const AdminViewReporting = () => {
       console.error('Failed:', error);
     }
   }
+  */
 
   const handleDeleteUser = () => {
     setIsModalOpen(true);
@@ -83,15 +88,40 @@ export const AdminViewReporting = () => {
     console.log("Deleted the post button clicked-modal opened");
   };
   
-  const handleDeleteUserModal = () => {
-    deleteUser();
+  const handleDeleteUserModal = async () => {
+    try {
+      const response = await axios.delete('http://localhost:8080/deleteReportedUser?userId=' + userid);
+      console.log(response.data);
+      if(response.data == 0){
+        alert("Error Deleting User");
+      }
+      else if (response.data == 1){
+        navigate('/AdminHome');
+        alert("User deleted successfully!");
+      }
+    } catch (error) {
+      console.error('Failed:', error);
+    }
+
     console.log("Deleted the user from the modal");
     setIsModalOpen(false);
     alert("You have successfully deleted the user");
   };
   
-  const handleDeletePostModal = () => {
-    removePost();
+  const handleDeletePostModal = async () => {
+    try{
+      const response = await axios.delete('http://localhost:8080/deletePost?rentalId=' + rentalId);
+      console.log(response.data);
+      if(response.data == 0){
+        alert("Error Deleting Post");
+      }
+      else if (response.data == 1){
+        navigate('/AdminHome');
+        alert("Post deleted successfully!");
+      }
+    } catch (error) {
+      console.error('Failed:', error);
+    }
     console.log("Deleted the post from the modal");
     setIsModal2Open(false);
     try {
@@ -101,8 +131,8 @@ export const AdminViewReporting = () => {
     }
     
   };
-  
-  
+
+
 
   return (
     <>
@@ -283,7 +313,7 @@ export const AdminViewReporting = () => {
                                 className="btn btn-outline-primary btn-sm"
                                 type="button"
                                 style={{ marginLeft: 10 }}
-                                onClick={() => setIsModalOpen(true)}
+                                onClick={() => handleDeleteUser}
                             >
                               Delete User
                             </button>
@@ -316,7 +346,7 @@ export const AdminViewReporting = () => {
                                 <Modal.Title>Confirmation</Modal.Title>
                               </Modal.Header>
                               <Modal.Body>
-                                Are you sure you want to delete the user?
+                                Are you sure you want to delete the post?
                               </Modal.Body>
                               <Modal.Footer>
                                 <Button variant="secondary" onClick={() => setIsModal2Open(false)}>

@@ -278,13 +278,13 @@ export const AdminManageUsers = () => {
                                   height={30}
                                   src={item.photo}
                                 />
-                                {item.name}
+                                {item['name']}
                               </td>
-                              <td>{item.userType}</td>
-                              <td>{item.complaintCount}</td>
+                              <td>{item['user-type']}</td>
+                              <td>{item['complaint-cnt']}</td>
 
                               <td>
-                                {item.joinDate}
+                                {item['join-date']}
                                 <br />
                               </td>
                               <td style={{ textAlign: "center" }}>

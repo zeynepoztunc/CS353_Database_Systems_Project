@@ -128,7 +128,8 @@ public class AdminRepository {
     }
 
     public List<Map<String, Object>> listAllUsers(){
-       String sqlListAll = "SELECT us.\"user-id\", us.name, us.surname, u.\"user-type\", count(*) as \"complaint-cnt\", u.\"join-date\" FROM \"RegisteredUser\" u, \"Complaints\" c, \"User\" us WHERE u.\"user-id\" = c.\"user-id2\" AND u.\"user-id\" = us.\"user-id\" GROUP BY us.\"user-id\", us.name, us.surname, u.\"user-type\", u.\"join-date\"";
+       //String sqlListAll = "SELECT DISTINCT us.\"user-id\", us.name, us.surname, u.\"user-type\", count(*) as \"complaint-cnt\", u.\"join-date\" FROM \"RegisteredUser\" u, \"Complaints\" c, \"User\" us WHERE u.\"user-id\" = c.\"user-id2\" OR u.\"user-id\" = us.\"user-id\" GROUP BY us.\"user-id\", us.name, us.surname, u.\"user-type\", u.\"join-date\"";
+        String sqlListAll = "SELECT us.\"user-id\", us.name, us.surname, u.\"user-type\", COALESCE(c.\"complaint-cnt\", 0) AS \"complaint-cnt\", u.\"join-date\" FROM \"RegisteredUser\" u JOIN \"User\" us ON u.\"user-id\" = us.\"user-id\" LEFT JOIN (SELECT \"user-id2\", COUNT(*) AS \"complaint-cnt\" FROM \"Complaints\" GROUP BY \"user-id2\") c ON u.\"user-id\" = c.\"user-id2\"";
 
         List<Map<String, Object>> rows = jdbcTemplate.queryForList(sqlListAll);
         if (rows.isEmpty()){
@@ -164,9 +165,22 @@ public class AdminRepository {
     }
 
     public List<Map<String, Object>> listAllPosts(){
-        String sqlListAll = "SELECT \"rental-name\" FROM \"Posts\" p, \"Rental\" r WHERE p.\"rental-id\" = r.\"rental-id\"";
+        String sqlListAll = "SELECT \"rental-name\", \"rental-id\" FROM \"Rental\"";
 
         List<Map<String, Object>> rows = jdbcTemplate.queryForList(sqlListAll);
+        if (rows.isEmpty()){
+            return null;
+        }
+        else{
+            return rows;
+        }
+    }
+
+    public List<Map<String, Object>> singlePost(String rentalId){
+        String sqlPost = "SELECT * FROM \"Rental\" r, \"RegisteredUser\" ru, \"User\" u WHERE r.\"rental-id\" = ? AND r.\"host-id\" = ru.\"user-id\" AND ru.\"user-id\" = u.\"user-id\"";
+
+        int rentalIdInt = Integer.parseInt(rentalId);
+        List<Map<String, Object>> rows = jdbcTemplate.queryForList(sqlPost, rentalIdInt);
         if (rows.isEmpty()){
             return null;
         }
@@ -187,7 +201,39 @@ public class AdminRepository {
         }
     }
 
-    public List<Map<String, Object>> singleLandmarkForm(@RequestParam String landmarkId) {
+    public List<Map<String, Object>> searchPosts(String title, String check1, String check2, String check3, String check4, String check5, String check6){
+        String sqlListFiltered = "SELECT * FROM \"Posts\" p, \"Rental\" r, \"RegisteredUser\" ru ";
+
+        int check1Int = Integer.parseInt(check1);
+        int check2Int = Integer.parseInt(check2);
+        int check3Int = Integer.parseInt(check3);
+        int check4Int = Integer.parseInt(check4);
+        int check5Int = Integer.parseInt(check5);
+        int check6Int = Integer.parseInt(check6);
+        List<Map<String, Object>> rows = jdbcTemplate.queryForList(sqlListFiltered, check1Int, check2Int, check3Int, check4Int, check5Int, check6Int);
+        if (rows.isEmpty()){
+            return null;
+        }
+        else{
+            return rows;
+        }
+    }
+
+    public List<Map<String, Object>> searchLandmarks(String title, String latest, String oldest){
+        String sqlListAll = "SELECT * FROM \"Landmarks\" WHERE \"landmark-name\" LIKE '%" + title + "%' ORDER BY CASE WHEN ? = 1 THEN latitude END DESC, CASE WHEN ? = 1 THEN latitude END ASC";
+
+        int latestInt = Integer.parseInt(latest);
+        int oldestInt = Integer.parseInt(oldest);
+        List<Map<String, Object>> rows = jdbcTemplate.queryForList(sqlListAll, latestInt, oldestInt);
+        if (rows.isEmpty()){
+            return null;
+        }
+        else{
+            return rows;
+        }
+    }
+
+    public List<Map<String, Object>> singleLandmarkForm(String landmarkId) {
         String sqlLandmark = "SELECT u.\"user-id\", u.name, u.surname, l.\"landmark-id\", l.\"landmark-name\", l.description, l.latitude, l.longitude, l.city, l.province FROM \"Landmarks\" l, \"User\" u WHERE \"landmark-id\" = ? AND u.\"user-id\" = l.\"user-id\"";
 
         int landmarkIdInt = Integer.parseInt(landmarkId);

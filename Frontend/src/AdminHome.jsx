@@ -38,74 +38,81 @@ export const AdminHome = () => {
     try {
       const reportResponse = await axios.get('http://localhost:8080/adminHome');
       console.log(reportResponse.data);
-      reportValues[0].date = reportResponse.data.date;
-      reportValues[0].reportID = reportResponse.data.reportId;
-      reportValues[0].userCount = reportResponse.data.userCnt;
-      reportValues[0].hostCount = reportResponse.data.hostCnt;
-      reportValues[0].postingCount = reportResponse.data.postingsCnt;
-      reportValues[0].bookingCount = reportResponse.data.bookingCnt;
-      reportValues[0].victimCountUser = reportResponse.data.userEarthquakeVictimCnt;
-      reportValues[0].victimCountHost = reportResponse.data.hostEarthquakeVictimCnt;
-      reportValues[0].superhostCount = reportResponse.data.superhostCnt;
-      reportValues[0].userReportingCount = reportResponse.data.userReportingCnt;
-      reportValues[0].postReportingCount = reportResponse.data.postReportingCnt;
+      console.log(reportResponse.data.length);
+      if (reportResponse.data.length > 0) {
+        reportValues[0].date = reportResponse.data.date;
+        reportValues[0].reportID = reportResponse.data.reportId;
+        reportValues[0].userCount = reportResponse.data.userCnt;
+        reportValues[0].hostCount = reportResponse.data.hostCnt;
+        reportValues[0].postingCount = reportResponse.data.postingsCnt;
+        reportValues[0].bookingCount = reportResponse.data.bookingCnt;
+        reportValues[0].victimCountUser = reportResponse.data.userEarthquakeVictimCnt;
+        reportValues[0].victimCountHost = reportResponse.data.hostEarthquakeVictimCnt;
+        reportValues[0].superhostCount = reportResponse.data.superhostCnt;
+        reportValues[0].userReportingCount = reportResponse.data.userReportingCnt;
+        reportValues[0].postReportingCount = reportResponse.data.postReportingCnt;
 
-      const pdfDoc = await PDFDocument.create();
-      const page = pdfDoc.addPage();
+        const pdfDoc = await PDFDocument.create();
+        const page = pdfDoc.addPage();
 
-      const fontSize = 12;
-      const textColor = rgb(0, 0, 0);
+        const fontSize = 12;
+        const textColor = rgb(0, 0, 0);
 
-      const drawText = (text, x, y) => {
-        page.drawText(text, {
-          x,
-          y,
-          size: fontSize,
-          color: textColor,
-        });
-      };
+        const drawText = (text, x, y) => {
+          page.drawText(text, {
+            x,
+            y,
+            size: fontSize,
+            color: textColor,
+          });
+        };
 
-      let x = 50;
-      let y = page.getHeight() - 50;
+        let x = 50;
+        let y = page.getHeight() - 50;
 
-      drawText("Date: " + reportValues[0].date, x, y);
-      y -= 20;
-      drawText("Report ID: " + reportValues[0].reportID, x, y);
-      y -= 20;
-      drawText("User Count: " + reportValues[0].userCount, x, y);
-      y -= 20;
-      drawText("Host Count: " + reportValues[0].hostCount, x, y);
-      y -= 20;
-      drawText("Posting Count: " + reportValues[0].postingCount, x, y);
-      y -= 20;
-      drawText("Booking Count: " + reportValues[0].bookingCount, x, y);
-      y -= 20;
-      drawText("Earthquake Victim Count (Host): " + reportValues[0].victimCountHost, x, y);
-      y -= 20;
-      drawText("Earthquake Victim Count (User): " + reportValues[0].victimCountUser, x, y);
-      y -= 20;
-      drawText("Superhost Count: " + reportValues[0].superhostCount, x, y);
-      y -= 20;
-      drawText(
-        "User Reporting Count: " + reportValues[0].userReportingCount,
-        x,
-        y
-      );
-      y -= 20;
-      drawText(
-        "Post Reporting Count: " + reportValues[0].postReportingCount,
-        x,
-        y
-      );
+        drawText("Date: " + reportValues[0].date, x, y);
+        y -= 20;
+        drawText("Report ID: " + reportValues[0].reportID, x, y);
+        y -= 20;
+        drawText("User Count: " + reportValues[0].userCount, x, y);
+        y -= 20;
+        drawText("Host Count: " + reportValues[0].hostCount, x, y);
+        y -= 20;
+        drawText("Posting Count: " + reportValues[0].postingCount, x, y);
+        y -= 20;
+        drawText("Booking Count: " + reportValues[0].bookingCount, x, y);
+        y -= 20;
+        drawText("Earthquake Victim Count (Host): " + reportValues[0].victimCountHost, x, y);
+        y -= 20;
+        drawText("Earthquake Victim Count (User): " + reportValues[0].victimCountUser, x, y);
+        y -= 20;
+        drawText("Superhost Count: " + reportValues[0].superhostCount, x, y);
+        y -= 20;
+        drawText(
+            "User Reporting Count: " + reportValues[0].userReportingCount,
+            x,
+            y
+        );
+        y -= 20;
+        drawText(
+            "Post Reporting Count: " + reportValues[0].postReportingCount,
+            x,
+            y
+        );
 
-      const pdfBytes = await pdfDoc.save();
-      const blob = new Blob([pdfBytes], { type: "application/pdf" });
+        const pdfBytes = await pdfDoc.save();
+        const blob = new Blob([pdfBytes], { type: "application/pdf" });
 
-      // Download the PDF
-      const link = document.createElement("a");
-      link.href = window.URL.createObjectURL(blob);
-      link.download = "report.pdf";
-      link.click();
+        // Download the PDF
+        const link = document.createElement("a");
+        link.href = window.URL.createObjectURL(blob);
+        link.download = "report.pdf";
+        link.click();
+      }
+      else{
+        alert("The report is not up to date!");
+      }
+
     } catch (error) {
       console.error("Error generating PDF:", error);
     }
