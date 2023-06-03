@@ -79,15 +79,15 @@ function toggleHeart(rentalId) {
 
     if (selectedFilters.length > 0) {
       filteredRentals = filteredRentals.filter((item) => {
-        const rentalName = item['rental-name'].toLowerCase();
-        return selectedFilters.some((filter) => rentalName.includes(filter));
+        const city = item['city'].toLowerCase();
+        console.log(city);
+        return selectedFilters.some((filter) => city.includes(filter));
       });
     }
 
     if (showFavoritesOnly) {
       filteredRentals = filteredRentals.filter((item) => item.isFavorited);
     }
-
 
     return filteredRentals;
   };

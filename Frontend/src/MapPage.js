@@ -8,7 +8,7 @@ function MapPage() {
 
   const [placeValues, setPlaceValues] = useState([
     {
-      ID: "123345",
+      ID: "1233",
       rentalName: "2+1 Villa",
       description: "Luxury Villa With Jakuzzi",
       isFavorited: "true",
@@ -16,7 +16,7 @@ function MapPage() {
       img: "customerAssets/img/Ekran%20Görüntüsü%20(1189).png"
     },
     {
-      ID: "123345",
+      ID: "123",
       rentalName: "Seaside Villa",
       description: "Luxury Villa With Sea View",
       isFavorited: "false",
@@ -61,8 +61,6 @@ function MapPage() {
   };
 
   const handleApiLoaded = (map, maps) => {
-    // Handle the map and maps objects after they are loaded
-    // You can perform additional operations or add markers, etc.
     console.log(map);
     console.log(maps);
   };
