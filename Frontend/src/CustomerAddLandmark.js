@@ -33,7 +33,7 @@ function CustomerAddLandmark() {
 
     try {
       if ( name === "" || city === "" || province === "" || lat === "" || longit === "" ){
-        alert("You have to enter all fields!");
+        alert("You have to enter all required fields!");
         setIsModalOpen(false);
         return;
       }
