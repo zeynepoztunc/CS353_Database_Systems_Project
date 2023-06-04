@@ -69,8 +69,6 @@ function CustomerAddLandmark() {
     setSelectedDistrict(districtName);
   };
 
-
-
   const modalAddLandmark = async (event) => {
     event.preventDefault();
 
@@ -90,10 +88,10 @@ function CustomerAddLandmark() {
       );
       console.log(response.data);
       if (response.data == 0) {
-        alert("Error Adding LANDMARK");
+        alert("Error Adding Landmark");
       } else if (response.data == 1) {
-        navigate("/PastBookingsPage?userId=" + userId);
-        alert("User deleted successfully!");
+        navigate("/ProfilePage?userId=" + userId);
+        alert("Landmark Added Succesfully!");
       }
     } catch (error) {
       console.error("Failed:", error);
