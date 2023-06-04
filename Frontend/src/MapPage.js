@@ -202,51 +202,17 @@ function MapPage() {
             </div>
           </div>
           <div className="container">
-            <div className="row" style={{ borderStyle: "none" }}>
+            <div className="row" style={{ borderStyle: "none", marginLeft: -20 }}>
               <div
-                className="col-md-6 col-xl-2 col-xxl-1"
+                
                 style={{
                   borderStyle: "none",
                   borderRightStyle: "none",
-                  marginLeft: 178
+                  marginLeft: 0
                 }}
               >
 
-                <div style={{ marginRight: 540 }}>
-                  <div className="form-check">
-                    <input
-                      className="form-check-input"
-                      type="checkbox"
-                      id="formCheck-1"
-                      onChange={handleFilterChange}
-                    />
-                    <label className="form-check-label" htmlFor="formCheck-1">
-                      Rentals
-                    </label>
-                  </div>
-                  <div className="form-check">
-                    <input
-                      className="form-check-input"
-                      type="checkbox"
-                      id="formCheck-2"
-                      onChange={handleFilterChange}
-                    />
-                    <label className="form-check-label" htmlFor="formCheck-2">
-                      Landmarks
-                    </label>
-                  </div>
-                  <div className="form-check">
-                    <input
-                      className="form-check-input"
-                      type="checkbox"
-                      id="formCheck-3"
-                      onChange={handleFilterChange}
-                    />
-                    <label className="form-check-label" htmlFor="formCheck-3">
-                      Favorited
-                    </label>
-                  </div>
-                </div>
+               
               </div>
               <div
                   className="col-md-6 col-xl-5 col-xxl-9 mx-auto"
@@ -254,7 +220,7 @@ function MapPage() {
                 <div>
                   {nearbyRentals.map((item,index) => (
                       <div key={index} className="row">
-                      <div className="col-xl-6">
+                      <div className="col-xl-3">
 
                       </div>
                         <div className="col-xl-6 mt-3">

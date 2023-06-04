@@ -636,11 +636,12 @@ useEffect(() => {
             className="col-lg-10 offset-lg-0"
             style={{ marginTop: "-1px", marginBottom: 0, marginLeft: 82 }}
           >
-            <h2 style={{ paddingTop: 64 }}>
-              <strong>Reviews</strong>
-            </h2>
+            
           </div>
           <div className="container">
+          <h2 style={{ paddingTop: 64 }}>
+              <strong>Reviews</strong>
+            </h2>
             <div className="row">
 
               {reviews.map((review) => (
@@ -720,18 +721,7 @@ useEffect(() => {
                 className="col-md-6 col-lg-12"
                 style={{ paddingTop: 8, marginLeft: 36 }}
               >
-                <button
-                  className="btn btn-danger"
-                  type="button"
-                  style={{
-                    paddingTop: 7,
-                    marginTop: 14,
-                    paddingLeft: 9,
-                    marginLeft: 500
-                  }}
-                >
-                  Switch to Host Mode
-                </button>
+               
               </div>
             </div>
           </div>
