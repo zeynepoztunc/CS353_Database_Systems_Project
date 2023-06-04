@@ -24,6 +24,10 @@ function PastBookingsPage() {
     { id:3, sdate: "20/11/2022", edate: "14/11/2022",name: 'İzmir Beach House ',  city:"İzmir", host: 'Melih',guestNum:5 },
     { id:4, sdate: "2/02/2021", edate: "30/01/2021",name: 'Villa Suites', city:"Muğla", host:'Jenna',guestNum:3 },
   ]);
+  const goToLeaveRatingPage = ( event) => {
+    event.preventDefault();
+    navigate( '/LeaveRating?userid='  + userId);
+  };
 
   const fetchPast = async () => {
     try {
@@ -207,7 +211,7 @@ function PastBookingsPage() {
                       <button
                       className="btn btn-primary btn btn-custom-class"
                       type="button"
-                      onClick={goBackToProfile}
+                      onClick={goToLeaveRatingPage}
                       style={{
                         paddingLeft: 25,
                         paddingRight: 32,
