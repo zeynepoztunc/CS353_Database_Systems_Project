@@ -6,6 +6,7 @@ import {useState} from 'react';
 import { addDays, subDays } from "date-fns";
 import DropdownMenu from './DropdownMenu';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+import {NavLink} from "react-bootstrap";
 
   const urlParams = new URLSearchParams(window.location.search);
   const userIdString = urlParams.get('userid');
@@ -33,6 +34,12 @@ import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
         event.preventDefault();
         navigate( '/ProfilePage?userid='  + userId);
     };
+
+    const gotoGeneralLogin
+        = (event) => {
+      event.preventDefault();
+      navigate('/');
+    }
 
 
   return (
@@ -92,9 +99,9 @@ import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#">
-              LOG OUT
-            </a>
+            <NavLink onClick={gotoGeneralLogin} className="nav-link">
+              LOGOUT
+            </NavLink>
           </li>
         </ul>
       </div>

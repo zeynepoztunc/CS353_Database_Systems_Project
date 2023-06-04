@@ -12,10 +12,9 @@ function CustomerAddLandmark() {
   const [desc, setDesc] = useState("");
   const [city, setCity] = useState("");
   const [province, setProvince] = useState("");
-  const [lat, setLat] = useState();
-  const [longit, setLongit] = useState();
+  const [lat, setLat] = useState("");
+  const [longit, setLongit] = useState("");
   const [files, setFiles] = useState([]);
-  const [formIsValid, setIsFormValid] = useState(false);
   const navigate = useNavigate();
 
   const urlParams = new URLSearchParams(window.location.search);
@@ -25,14 +24,62 @@ function CustomerAddLandmark() {
   const dropdownProvinces = [];
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const [cities, setCities] = useState([]);
+  const [districts, setDistricts] = useState([]);
+  const [selectedCity, setSelectedCity] = useState("");
+  const [selectedDistrict, setSelectedDistrict] = useState("");
+
   const handleAddLandmark = () => {
     setIsModalOpen(true);
   };
+
+  const fetchCities =  async () => {
+    try {
+      const response =  await axios.get("http://localhost:8080/locations/cities");
+      return response.data;
+    } catch (error) {
+      console.error("Failed to fetch cities:", error);
+      return [];
+    }
+  };
+
+  const fetchDistricts =  async () => {
+    try {
+      console.log(selectedCity);
+      const response =  await axios.get("http://localhost:8080/locations/districts?city=" + selectedCity);
+      return response.data;
+    } catch (error) {
+      console.error("Failed to fetch districts:", error);
+      return [];
+    }
+  };
+
+  const handleCitySelection = (cityName) => {
+    setSelectedCity(cityName);
+    fetchDistricts(cityName)
+        .then((data) => {
+          setDistricts(data);
+        })
+        .catch((error) => {
+          console.error("Failed to fetch districts:", error);
+          setDistricts([]);
+        });
+  };
+  const handleDistrictSelection = (districtName) => {
+    setSelectedDistrict(districtName);
+  };
+
+
 
   const modalAddLandmark = async (event) => {
     event.preventDefault();
 
     try {
+      if ( name === "" || city === "" || province === "" || lat === "" || longit === "" ){
+        alert("You have to enter all required fields!");
+        setIsModalOpen(false);
+        return;
+      }
       console.log("the name" + name);
       console.log("the city"+city);
       console.log("the province"+province);
@@ -73,6 +120,12 @@ function CustomerAddLandmark() {
   };
 
   const [selectedLocation, setSelectedLocation] = useState(null);
+
+  useEffect(() => {
+    fetchCities().then((data) => {
+      setCities(data);
+    });
+  }, []);
 
   return (
     <>
@@ -176,7 +229,7 @@ function CustomerAddLandmark() {
                   Name
                 </label>
                 <div>
-                  <input type="text" value={name} onChange={(input)=>{setName(input)}}/>
+                  <input type="text" value={name} onChange={(input)=>{setName(input.value)}} required/>
                 </div>
                 <div>
                   <span className="text-white-50">Text</span>
@@ -193,16 +246,17 @@ function CustomerAddLandmark() {
                     data-bs-toggle="dropdown"
                     type="button"
                   >
-                    Select your city
+                    {selectedCity ? selectedCity : "Select your city"}
                   </button>
                   <div className="dropdown-menu">
-                    {dropdownCities.map((item) => (
+                    {cities.map((city,index) => (
                       <a
                         className="dropdown-item"
-                        key={item.value}
-                        onClick={() => setCity(item.label)}
+                        key={index}
+                        href="#nogo"
+                        onClick={() => handleCitySelection(city.name)}
                       >
-                        {item.label}
+                        {city.name}
                       </a>
                     ))}
                   </div>
@@ -223,16 +277,17 @@ function CustomerAddLandmark() {
                     data-bs-toggle="dropdown"
                     type="button"
                   >
-                    Select your province
+                    {selectedDistrict ? selectedDistrict : "Select your city"}
                   </button>
                   <div className="dropdown-menu">
-                    {dropdownProvinces.map((item) => (
+                    {districts.map((district,index) => (
                       <a
                         className="dropdown-item"
-                        key={item.value}
-                        onClick={() => setProvince(item.label)}
+                        key={index}
+                        href="#nogo"
+                        onClick={() => handleDistrictSelection(district.name)}
                       >
-                        {item.label}
+                        {district.name}
                       </a>
                     ))}
                   </div>
@@ -248,7 +303,7 @@ function CustomerAddLandmark() {
                 <textarea
                   className="form-control"
                   value={desc} // Bind the textarea value to the landmark info state
-                  onChange={(desc)=>{setDesc(desc)}}
+                  onChange={(desc)=>{setDesc(desc.value)}}
                 />
               </div>
               <div>
@@ -264,7 +319,7 @@ function CustomerAddLandmark() {
                     type="file"
                     multiple=""
                     value={files}
-                    onChange={(event)=>{setFiles(event)}}
+                    onChange={(event)=>{setFiles(event.value)}} required
                   />
                 </div>
                 <div style={{ textAlign: "left" }} />
