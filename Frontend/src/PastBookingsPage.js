@@ -146,12 +146,12 @@ function PastBookingsPage() {
                         </Button>
                       </Modal.Footer>
                     </Modal>
-                    <td className="text-center">3</td>
+                    <td className="text-left" ><p style={{
+                    marginLeft: "50px",}}>{booking.guestNum}</p></td>
                    
                   </tr>
                
-                 
-              
+                
                 </tbody>
                 ))}
 
