@@ -14,6 +14,8 @@ public class RentalDTO
     private float dailyPrice;
     private Float rating;
     private String city;
+    private String path;
+
     private String province;
     private String address;
     private float latitude;
@@ -98,6 +100,14 @@ public class RentalDTO
     public void setCity(String city) {
         this.city = city;
     }
+    public void setImagePath(String path) {
+        this.path = path;
+    }
+
+    public String getImagePath() {
+        return path;
+    }
+
 
     public String getProvince() {
         return province;
