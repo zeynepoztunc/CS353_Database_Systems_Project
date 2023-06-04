@@ -26,7 +26,7 @@ public class CustomerRepository {
     public List<Map<String, Object>> listRentalsForCustomer(int userId){
         //int customerId = searcher.getUserId();
         System.out.println("Listing all rentals for the customer (with id = " + userId + ")...");
-        String sqlListRentalsForCustomer = "SELECT rental.\"rental-id\", rental.\"rental-name\", rental.\"daily-price\", rental.rating, rental.city, rental.\"earthquake-support\", rental.couchsurfing, CASE WHEN  wishlists.\"rental-id\" IS NULL THEN 0 ELSE 1 END AS \"is-favorited\" FROM \"Rental\" rental LEFT JOIN ( SELECT \"rental-id\" FROM \"Wishlists\" wishlists WHERE \"user-id\" = ? ) AS wishlists ON rental.\"rental-id\" = wishlists.\"rental-id\"";
+        String sqlListRentalsForCustomer = "SELECT rental.\"rental-id\", rental.\"image-path\",rental.\"rental-name\", rental.\"daily-price\", rental.rating, rental.city, rental.\"earthquake-support\", rental.couchsurfing, CASE WHEN  wishlists.\"rental-id\" IS NULL THEN 0 ELSE 1 END AS \"is-favorited\" FROM \"Rental\" rental LEFT JOIN ( SELECT \"rental-id\" FROM \"Wishlists\" wishlists WHERE \"user-id\" = ? ) AS wishlists ON rental.\"rental-id\" = wishlists.\"rental-id\"";
 
         List<Map<String, Object>> rows = jdbcTemplate.queryForList(sqlListRentalsForCustomer, userId);
         if (rows.isEmpty()){
