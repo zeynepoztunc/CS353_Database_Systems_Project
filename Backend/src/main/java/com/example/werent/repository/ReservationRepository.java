@@ -33,6 +33,10 @@ public class ReservationRepository
                 false,
                 reservation.getNumberOfGuests());
 
+        //int reservationId = jdbcTemplate.queryForObject("SELECT lastval()", Integer.class);
+        //String sqlFollowUp = "INSERT INTO \"Makes\" (\"reservation-id\", \"rental-id\", \"user-id\") VALUES (?, ?, ?)";
+        //jdbcTemplate.update(sqlFollowUp, reservationId, reservation.getRentalId(), reservation.getCustomerId());
+
         return reservation;
     }
 

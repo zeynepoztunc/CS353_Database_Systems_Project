@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import { useNavigate } from "react-router-dom";
 import { Navbar } from "./Navbar.jsx";
 import axios from "axios";
@@ -7,13 +7,16 @@ import Button from "react-bootstrap/Button";
 
 function AdminViewUser() {
   const urlParams = new URLSearchParams(window.location.search);
-  const userIdString = urlParams.get("userid");
+  const userIdString = urlParams.get("userId");
   const userId = parseInt(userIdString, 10);
 
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const averageRating = useState(4.5);
   const [isModalOpen2, setIsModalOpen2] = useState(false);
+  const [user, setUser] = useState([]);
+  const [itemExist, setItemExist] = useState(false);
+  const [name, setName] = useState("");
 
   const [reviews] = useState([
     {
@@ -44,6 +47,30 @@ function AdminViewUser() {
         "./customerAssets/img/smile-young-man-close-gorgeous-260nw-186076112.webp",
     },
   ]);
+
+  const fetchUser = async () => {
+    try {
+      const response = await axios.get('http://localhost:8080/viewUser?userId=' + userIdString);
+      console.log(response.data);
+      if(response.data.length > 0){
+        //console.log(user['name']);
+        setName(response.data['name']);
+        console.log(response.data.name);
+        setUser(response.data);
+      }
+      else{
+        setItemExist(false);
+        setUser([{}]);
+      }
+    } catch (error) {
+      console.error('Failed:', error);
+      setUser([]);
+    }
+  };
+
+  useEffect(() => {
+    fetchUser().then(r => console.log(user['name']));
+  }, []);
 
   const handleDeleteUserModal = async () => {
     try {
@@ -234,7 +261,7 @@ function AdminViewUser() {
                       />
                       &nbsp; &nbsp;&nbsp;
                       <span style={{ backgroundColor: "rgb(248, 249, 250)" }}>
-                        {averageRating} rating average
+                        {user['user-rating']} rating average
                       </span>
                       <br />
                       <br />
@@ -330,7 +357,7 @@ function AdminViewUser() {
                           style={{ marginRight: 0 }}
                         >
                           <span style={{ color: "rgb(5, 6, 7)" }}>
-                            {profileName}
+                            {name} {user['surname']}
                           </span>
                         </h6>
                       </div>
@@ -346,7 +373,7 @@ function AdminViewUser() {
                           className="text-muted card-subtitle mb-2"
                           style={{ marginRight: 0 }}
                         >
-                          <span style={{ color: "rgb(5, 6, 7)" }}>{email}</span>
+                          <span style={{ color: "rgb(5, 6, 7)" }}>{user['e-mail']}</span>
                         </h6>
                       </div>
                     </div>
@@ -385,7 +412,7 @@ function AdminViewUser() {
                           style={{ marginRight: 0 }}
                         >
                           <span style={{ color: "rgb(5, 6, 7)" }}>
-                            {description}
+                            {user['description']}
                           </span>
                         </h6>
                       </div>

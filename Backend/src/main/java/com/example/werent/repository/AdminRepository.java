@@ -167,10 +167,11 @@ public class AdminRepository {
         }
     }
 
-    public List<Map<String, Object>> viewUser(int userId){
+    public List<Map<String, Object>> viewUser(String userId){
         String sqlViewUser = "SELECT * FROM \"RegisteredUser\" r, \"User\" u WHERE r.\"user-id\" = ? AND r.\"user-id\" = u.\"user-id\"";
 
-        List<Map<String, Object>> rows = jdbcTemplate.queryForList(sqlViewUser, userId);
+        int userIdInt = Integer.parseInt(userId);
+        List<Map<String, Object>> rows = jdbcTemplate.queryForList(sqlViewUser, userIdInt);
         if (rows.isEmpty()){
             return null;
         }
@@ -344,5 +345,27 @@ public class AdminRepository {
         int rentalIdInt = Integer.parseInt(rentalId);
         int res = jdbcTemplate.update(sqlAddLandmarkSugg,userIdInt, rentalIdInt, "", false, false);
         return res;
+    }
+
+    public int reportStayedHost(String userId, String userId2){
+        String sqlAddLandmarkSugg = "INSERT INTO \"Complaints\" VALUES (?, ?, CURRENT_DATE, ?, ?, ?)";
+
+        int userIdInt = Integer.parseInt(userId);
+        int userId2Int = Integer.parseInt(userId2);
+        int res = jdbcTemplate.update(sqlAddLandmarkSugg,userIdInt, userId2Int, "", false, false);
+        return res;
+    }
+
+    public List<Map<String, Object>> listPastBookings(String userId) {
+        //String sqlListAll = "SELECT \"Rental\".\"rental-id\", \"Reservation\".\"reservation-start-date\", \"Reservation\".\"reservation-end-date\", \"Rental\".city, \"Rental\".\"rental-name\", \"Reservation\".\"number-of-guests\" FROM \"Makes\" JOIN \"Rental\" ON \"Makes\".\"rental-id\" = \"Rental\".\"rental-id\" JOIN \"Host\" ON \"Rental\".\"host-id\" = \"Host\".\"user-id\" JOIN \"Reservation\" ON \"Makes\".\"reservation-id\" = \"Reservation\".\"reservation-id\" WHERE \"Makes\".\"user-id\" = ? ORDER BY \"Reservation\".\"reservation-end-date\" DESC";
+        String sqlListAll = "SELECT * FROM \"Reservation\" r, \"Rental\" ren, \"User\" u WHERE ren.\"host-id\" = u.\"user-id\" AND ren.\"rental-id\" = r.\"rental-id\" AND r.\"customer-id\" = ?";
+
+        int userIdInt = Integer.parseInt(userId);
+        List<Map<String, Object>> rows = jdbcTemplate.queryForList(sqlListAll, userIdInt);
+        if (rows.isEmpty()) {
+            return null;
+        } else {
+            return rows;
+        }
     }
 }
