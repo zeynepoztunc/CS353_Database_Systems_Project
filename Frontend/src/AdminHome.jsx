@@ -6,10 +6,10 @@ import { Link } from "react-router-dom";
 import { Navbar } from "./Navbar.jsx";
 import AdminReport from "./AdminReport";
 import { PDFDocument, rgb } from "pdf-lib";
-import axios from 'axios';
+import axios from "axios";
 
 export const AdminHome = () => {
-    //get the latest version of the report
+  //get the latest version of the report
   const reportValues = [
     {
       date: "15.05.2023",
@@ -36,7 +36,7 @@ export const AdminHome = () => {
 
   const GeneratePDFButton = async () => {
     try {
-      const reportResponse = await axios.get('http://localhost:8080/adminHome');
+      const reportResponse = await axios.get("http://localhost:8080/adminHome");
       console.log(reportResponse.data);
       console.log(reportResponse.data.length);
       if (reportResponse.data.length > 0) {
@@ -46,11 +46,15 @@ export const AdminHome = () => {
         reportValues[0].hostCount = reportResponse.data.hostCnt;
         reportValues[0].postingCount = reportResponse.data.postingsCnt;
         reportValues[0].bookingCount = reportResponse.data.bookingCnt;
-        reportValues[0].victimCountUser = reportResponse.data.userEarthquakeVictimCnt;
-        reportValues[0].victimCountHost = reportResponse.data.hostEarthquakeVictimCnt;
+        reportValues[0].victimCountUser =
+          reportResponse.data.userEarthquakeVictimCnt;
+        reportValues[0].victimCountHost =
+          reportResponse.data.hostEarthquakeVictimCnt;
         reportValues[0].superhostCount = reportResponse.data.superhostCnt;
-        reportValues[0].userReportingCount = reportResponse.data.userReportingCnt;
-        reportValues[0].postReportingCount = reportResponse.data.postReportingCnt;
+        reportValues[0].userReportingCount =
+          reportResponse.data.userReportingCnt;
+        reportValues[0].postReportingCount =
+          reportResponse.data.postReportingCnt;
 
         const pdfDoc = await PDFDocument.create();
         const page = pdfDoc.addPage();
@@ -82,22 +86,30 @@ export const AdminHome = () => {
         y -= 20;
         drawText("Booking Count: " + reportValues[0].bookingCount, x, y);
         y -= 20;
-        drawText("Earthquake Victim Count (Host): " + reportValues[0].victimCountHost, x, y);
+        drawText(
+          "Earthquake Victim Count (Host): " + reportValues[0].victimCountHost,
+          x,
+          y
+        );
         y -= 20;
-        drawText("Earthquake Victim Count (User): " + reportValues[0].victimCountUser, x, y);
+        drawText(
+          "Earthquake Victim Count (User): " + reportValues[0].victimCountUser,
+          x,
+          y
+        );
         y -= 20;
         drawText("Superhost Count: " + reportValues[0].superhostCount, x, y);
         y -= 20;
         drawText(
-            "User Reporting Count: " + reportValues[0].userReportingCount,
-            x,
-            y
+          "User Reporting Count: " + reportValues[0].userReportingCount,
+          x,
+          y
         );
         y -= 20;
         drawText(
-            "Post Reporting Count: " + reportValues[0].postReportingCount,
-            x,
-            y
+          "Post Reporting Count: " + reportValues[0].postReportingCount,
+          x,
+          y
         );
 
         const pdfBytes = await pdfDoc.save();
@@ -108,11 +120,9 @@ export const AdminHome = () => {
         link.href = window.URL.createObjectURL(blob);
         link.download = "report.pdf";
         link.click();
-      }
-      else{
+      } else {
         alert("The report is not up to date!");
       }
-
     } catch (error) {
       console.error("Error generating PDF:", error);
     }
@@ -172,7 +182,10 @@ export const AdminHome = () => {
                   <div className="col">
                     <div className="row">
                       <div className="col-lg-6 mb-4">
-                        <Link to="/AdminCustomerReportings" style={{ textDecoration: 'none', color: 'inherit' }}>
+                        <Link
+                          to="/AdminCustomerReportings"
+                          style={{ textDecoration: "none", color: "inherit" }}
+                        >
                           <div className="card text-white bg-primary shadow">
                             <div className="card-body">
                               <p className="m-0">Customer Reporting</p>
@@ -181,7 +194,10 @@ export const AdminHome = () => {
                         </Link>
                       </div>
                       <div className="col-lg-6 mb-4">
-                        <Link to="/AdminManageUsers" style={{ textDecoration: 'none', color: 'inherit' }}>
+                        <Link
+                          to="/AdminManageUsers"
+                          style={{ textDecoration: "none", color: "inherit" }}
+                        >
                           <div className="card text-white bg-success shadow">
                             <div className="card-body">
                               <p className="m-0">Manage Users</p>
@@ -190,7 +206,10 @@ export const AdminHome = () => {
                         </Link>
                       </div>
                       <div className="col-lg-6 mb-4">
-                        <Link to="/AdminManagePosts" style={{ textDecoration: 'none', color: 'inherit' }}>
+                        <Link
+                          to="/AdminManagePosts"
+                          style={{ textDecoration: "none", color: "inherit" }}
+                        >
                           <div className="card text-white bg-info shadow">
                             <div className="card-body">
                               <p className="m-0">Manage Posts</p>
@@ -199,7 +218,10 @@ export const AdminHome = () => {
                         </Link>
                       </div>
                       <div className="col-lg-6 mb-4">
-                        <Link to="/AdminLandmarkSuggestions" style={{ textDecoration: 'none', color: 'inherit' }}>
+                        <Link
+                          to="/AdminLandmarkSuggestions"
+                          style={{ textDecoration: "none", color: "inherit" }}
+                        >
                           <div className="card text-white bg-warning shadow">
                             <div className="card-body">
                               <p className="m-0">Landmark Postings</p>
@@ -208,7 +230,10 @@ export const AdminHome = () => {
                         </Link>
                       </div>
                       <div className="col-lg-6 mb-4">
-                        <Link to="/AdminReviews" style={{ textDecoration: 'none', color: 'inherit' }}>
+                        <Link
+                          to="/AdminReviews"
+                          style={{ textDecoration: "none", color: "inherit" }}
+                        >
                           <div className="card text-white bg-danger shadow">
                             <div className="card-body">
                               <p className="m-0">Reviews</p>
@@ -217,7 +242,10 @@ export const AdminHome = () => {
                         </Link>
                       </div>
                       <div className="col-lg-6 mb-4">
-                        <Link to="/AdminMaintenanceForm" style={{ textDecoration: 'none', color: 'inherit' }}>
+                        <Link
+                          to="/AdminMaintenanceForm"
+                          style={{ textDecoration: "none", color: "inherit" }}
+                        >
                           <div className="card text-white bg-secondary shadow">
                             <div className="card-body">
                               <p className="m-0">Maintenance Mode</p>
