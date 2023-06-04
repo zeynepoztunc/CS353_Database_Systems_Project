@@ -314,11 +314,7 @@ export const AdminManageUsers = () => {
                                 <strong>Complaint Count</strong>
                               </strong>
                             </td>
-                            <td>
-                              <strong>
-                                <strong>See Complaints</strong>
-                              </strong>
-                            </td>
+
                             <td>
                               <strong>
                                 <strong>Join Date</strong>
