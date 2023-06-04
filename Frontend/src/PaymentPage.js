@@ -26,7 +26,7 @@ function PaymentPage() {
       endDate: reservation.reservationEndDate,
       duration: reservation.stayOfDuration,
       price: reservation.price,
-      isPaidFor: reservation.isPaidFor,
+      isPaidFor: false,
       numberOfGuests: reservation.numberOfGuests,
       rentalName: reservation.rentalName // assuming reservation includes rentalName
     }));
@@ -34,6 +34,12 @@ function PaymentPage() {
     console.log(reservations);
     setReservationList(reservations);
     return reservations;
+  }
+
+  const proceedPayment = async (reservationId) => {
+    const response = await axios.put(`http://localhost:8080/Reservations/proceedPayment?reservationId=${reservationId}`);
+    console.log(response);
+    setModalIsOpen(true);
   }
 
 
@@ -47,6 +53,9 @@ function PaymentPage() {
 
   const goToMainPage = (event) => {
     event.preventDefault();
+    for (const reservation of reservationList) {
+      proceedPayment(reservation.reservationId).then(r => console.log(r));
+    }
     navigate('/MainPage?userid='  + userId);
   };
 

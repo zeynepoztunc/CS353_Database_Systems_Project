@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e555480-ab5a-407e-a171-4062daf29606" name="Changes" comment="small fixes">
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_31_05_2023_07_52_[Changes]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_31_05_2023_07_52__Changes_.xml" afterDir="false" />
+    <list default="true" id="5e555480-ab5a-407e-a171-4062daf29606" name="Changes" comment="customer done">
       <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_06_2023_13_41_[Changes]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_06_2023_13_41__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/controller/ReservationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/controller/ReservationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/repository/ReservationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/repository/ReservationRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Frontend/src/PaymentPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/PaymentPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/RentalPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/RentalPage.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -196,7 +196,8 @@
       <workItem from="1685807174484" duration="163000" />
       <workItem from="1685807355475" duration="5952000" />
       <workItem from="1685815082241" duration="3577000" />
-      <workItem from="1685821091581" duration="2009000" />
+      <workItem from="1685821091581" duration="2766000" />
+      <workItem from="1685871590658" duration="1156000" />
     </task>
     <task id="LOCAL-00001" summary="new upload">
       <created>1684410800015</created>
@@ -401,7 +402,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685821879145</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="customer done">
+      <created>1685823304131</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1685823304131</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -420,7 +428,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="new upload" />
     <MESSAGE value="entity classes are uploaded" />
     <MESSAGE value="together" />
     <MESSAGE value="Room controller started" />
@@ -445,7 +452,8 @@
     <MESSAGE value="reservation process done" />
     <MESSAGE value="shopping cart done." />
     <MESSAGE value="small fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="small fixes" />
+    <MESSAGE value="customer done" />
+    <option name="LAST_COMMIT_MESSAGE" value="customer done" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

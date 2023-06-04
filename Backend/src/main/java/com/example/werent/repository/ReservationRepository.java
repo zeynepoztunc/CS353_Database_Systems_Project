@@ -55,6 +55,14 @@ public class ReservationRepository
         });
     }
 
+    public void processPayment(ReservationDTO reservation)
+    {
+        String sql = "UPDATE \"Reservation\" SET \"is-paid-for\" = true WHERE \"reservation-id\" = ?";
+        jdbcTemplate.update(sql, reservation.getReservationId());
+        String sql2 = "DELETE  FROM \"Rental\"  WHERE \"rental-id\" = ?";
+        jdbcTemplate.update(sql2, reservation.getRentalId());
+    }
+
 
 
 

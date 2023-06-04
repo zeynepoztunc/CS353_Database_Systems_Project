@@ -67,6 +67,9 @@ const  RentalPage= () => {
     const diffTime = Math.abs(end - start);
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
     price = dailyPrice * diffDays;
+    if (earthquakeSupport === true) {
+      price = 0;
+    }
     console.log(price);
     return price;
   }

@@ -30,4 +30,10 @@ public class ReservationController {
         return reservationRepository.getReservationByUserId(userId);
     }
 
+    @PostMapping("/proceedPayment")
+    public void processPayment(@RequestBody ReservationDTO reservation)
+    {
+        reservationRepository.processPayment(reservation);
+    }
+
 }

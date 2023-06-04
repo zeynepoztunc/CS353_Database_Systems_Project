@@ -61,17 +61,7 @@ function ShoppingCart() {
     },
   ];
 
-  const WaitingRentalValues = [
-    {
-      ID: "12334",
-      rentalName: "Boutique House",
-      price: "160",
-      description: "Small House inside a forest",
-      startDate: "17/10/2024",
-      endDate: "27/10/2024",
-      img: "customerAssets/img/Ekran%20Görüntüsü%20(1191).png",
-    },
-  ];
+
 
   const goToPaymentPage = (event) => {
     event.preventDefault();
@@ -87,15 +77,6 @@ function ShoppingCart() {
   };
 
 
-  const calculateUnattendedTotalPrice = () => 
-  {
-    let totalPrice = 0;
-    for (const rental of WaitingRentalValues) {
-      const rentalPrice = parseInt(rental.price.replace("", ""));
-      totalPrice += rentalPrice;
-    }
-    return totalPrice;
-  };
 
   const navigate = useNavigate();
 
@@ -163,10 +144,6 @@ function ShoppingCart() {
                 <div className="col-md-12 col-lg-4">
                   <div className="summary">
                     <h3>Summary</h3>
-                    <h4>
-                      <span className="text">Subtotal</span>
-                      <span className="price">${calculateUnattendedTotalPrice() + calculateTotalPrice()}</span>
-                    </h4>
                     <h4>
                       <span className="text">Total</span>
                       <span className="price">${calculateTotalPrice()}</span>
