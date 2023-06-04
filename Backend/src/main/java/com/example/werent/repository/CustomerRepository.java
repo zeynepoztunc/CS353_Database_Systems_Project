@@ -11,6 +11,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import java.sql.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -386,5 +387,27 @@ public class CustomerRepository {
     public void removeFromWishlist(RentalDTO rentalInfo, int userId){
         String sqlRemoveRentalFromWishlist = "DELETE FROM \"Wishlists\" WHERE \"user-id\" = ? AND \"rental-id\" = ?";
         jdbcTemplate.update(sqlRemoveRentalFromWishlist, userId, rentalInfo.getRentalId());
+    }
+    public Map<String, Object> getCustomerDetails(Integer customerid) {
+        String sql = "SELECT H.*, U.name AS name, U.surname AS surname, U.password  AS password, R.\"e-mail\" AS email, R.\"date-of-birth\" AS birthdate,R.\"description\" AS description, R.\"telephone-no\" AS telephoneNo, R.\"gender\" AS gender FROM \"Host\" H LEFT JOIN \"User\" U ON H.\"user-id\" = U.\"user-id\" LEFT JOIN \"RegisteredUser\" R ON H.\"user-id\" = R.\"user-id\" WHERE H.\"user-id\" = ?";
+        return jdbcTemplate.queryForObject(sql, new Object[]{customerid}, (resultSet, i) -> {
+            UserDTO userDTO = new UserDTO();
+            RegisteredUserDTO registeredUserDTO = new RegisteredUserDTO();
+
+
+            userDTO.setName(resultSet.getString("name"));
+            userDTO.setSurname(resultSet.getString("surname"));
+            userDTO.setPassword(resultSet.getString("password"));
+
+            registeredUserDTO.setEmail(resultSet.getString("email"));
+            registeredUserDTO.setTelephoneNo(resultSet.getString("telephoneNo"));
+            registeredUserDTO.setDescription(resultSet.getString("description"));
+
+            Map<String, Object> result = new HashMap<>();
+            result.put("user", userDTO);
+            result.put("registeredUser", registeredUserDTO);
+
+            return result;
+        });
     }
 }

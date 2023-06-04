@@ -22,6 +22,11 @@ public class CustomerController {
     public List<Map<String, Object>> listRentalsForCustomer(@RequestParam Integer userId){
         return customerRepository.listRentalsForCustomer(userId);
     }
+    @GetMapping("/getCustomerDetails")
+    public Map<String, Object> getCustomerDetails(@RequestParam Integer customerid)
+    {
+        return customerRepository.getCustomerDetails(customerid);
+    }
 
     @RequestMapping(value = "/main", method = RequestMethod.POST)
     public void favorARental(@RequestBody  WishlistsDTO wishlistInfo){
