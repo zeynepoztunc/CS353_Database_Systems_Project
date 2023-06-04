@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import { Navbar } from "./Navbar.jsx";
 import axios from 'axios';
 import {  useNavigate } from 'react-router-dom';
+import {NavLink} from "react-bootstrap";
+import bgImage from "./hostlogin.gif";
 
 export const HostLogin = () => {
     const [email, setEmail] = useState("");
@@ -63,6 +65,12 @@ export const HostLogin = () => {
         }
     };
 
+    const gotoGeneralLogin
+        = (event) => {
+        event.preventDefault();
+        navigate('/');
+    }
+
     return (
         <>
             <meta charSet="utf-8"/>
@@ -81,15 +89,42 @@ export const HostLogin = () => {
                 href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.css"
             />
             <link rel="stylesheet" href="./adminAssets/css/vanilla-zoom.min.css"/>
-            <Navbar/>
+            <nav className="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
+                <div className="container">
+                    <button
+                        data-bs-toggle="collapse"
+                        className="navbar-toggler"
+                        data-bs-target="#navcol-1"
+                    >
+                        <span className="visually-hidden">Toggle navigation</span>
+                        <span className="navbar-toggler-icon" />
+                    </button>
+                    <div className="collapse navbar-collapse" id="navcol-1">
+                        <a
+                            className="navbar-brand logo"
+                            style={{ paddingRight: 0, marginBottom: 0, fontSize: 32 }}
+                        >
+                            WeRent
+                        </a>
+                        <ul className="navbar-nav ms-auto" />
+                        <ul className="navbar-nav">
+                            <li className="nav-item">
+                                <NavLink onClick={gotoGeneralLogin} className="nav-link">
+                                    GO BACK
+                                </NavLink>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
             <main className="page login-page">
-                <section className="clean-block clean-form dark">
-                    <div className="container">
-                        <div className="block-heading">
+                <section className="clean-block clean-form dark" style={{ backgroundImage: `url(${bgImage})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover', position: 'relative' }}>
+                    <div className="container" >
+                        <div className="block-heading" style={{ backgroundColor: 'rgba(255, 255, 255, 0.8)', padding: '40px', borderRadius: '10px' }}>
                             <h2 className="text-info">Host Log In</h2>
                             <p>Welcome to WeRent!</p>
                         </div>
-                        <form onSubmit={handleSubmit}>
+                        <form onSubmit={handleSubmit} style={{ backgroundColor: 'rgba(255, 255, 255, 0.8)', padding: '40px', borderRadius: '10px' }}>
                             <div className="mb-3">
                                 <label className="form-label" htmlFor="email">
                                     Email

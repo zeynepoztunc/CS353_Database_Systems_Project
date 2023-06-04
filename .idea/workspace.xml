@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e555480-ab5a-407e-a171-4062daf29606" name="Changes" comment="host profile page done" />
+    <list default="true" id="5e555480-ab5a-407e-a171-4062daf29606" name="Changes" comment="auto approve deleted">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/AdminLogin.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/AdminLogin.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/HostLogin.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/HostLogin.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/NavBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/NavBar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/UserLogin.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/UserLogin.jsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -195,6 +201,8 @@
       <workItem from="1685875625725" duration="3817000" />
       <workItem from="1685880282116" duration="124000" />
       <workItem from="1685880947164" duration="5443000" />
+      <workItem from="1685886916197" duration="194000" />
+      <workItem from="1685891024925" duration="1905000" />
     </task>
     <task id="LOCAL-00001" summary="new upload">
       <created>1684410800015</created>
@@ -427,7 +435,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685886361356</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="auto approve deleted">
+      <created>1685887072640</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1685887072640</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -446,7 +461,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="queries executed for room, data passing" />
     <MESSAGE value="up to price selection is done" />
     <MESSAGE value="flat selection pages processing" />
     <MESSAGE value="flat details done" />
@@ -471,7 +485,8 @@
     <MESSAGE value="some fixes in the customer side" />
     <MESSAGE value="some fixes in the host side" />
     <MESSAGE value="host profile page done" />
-    <option name="LAST_COMMIT_MESSAGE" value="host profile page done" />
+    <MESSAGE value="auto approve deleted" />
+    <option name="LAST_COMMIT_MESSAGE" value="auto approve deleted" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
