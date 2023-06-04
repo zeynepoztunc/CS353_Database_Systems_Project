@@ -4,6 +4,8 @@ import java.sql.Date;
 
 public class ReviewDTO {
     private int userId;
+    private int userId2;
+    private int reservationId;
     private int reviewId;
     private String review;
     private Date date;
@@ -36,6 +38,22 @@ public class ReviewDTO {
 
     public void setUserId(int userId) {
         this.userId = userId;
+    }
+
+    public int getUserId2() {
+        return userId2;
+    }
+
+    public void setUserId2(int userId2) {
+        this.userId2 = userId2;
+    }
+
+    public int getReservationId() {
+        return reservationId;
+    }
+
+    public void setReservationId(int reservationId) {
+        this.reservationId = reservationId;
     }
 
     public void setReview(String review) {

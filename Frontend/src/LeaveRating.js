@@ -21,6 +21,12 @@ function LeaveRating()
   const userIdString = urlParams.get('userid');
   const userId = parseInt(userIdString, 10);
 
+  const userId2String = urlParams.get('userid2');
+  const userId2 = parseInt(userId2String, 10);
+
+  const reservationIdString = urlParams.get('reservationId');
+  const reservationId = parseInt(reservationIdString, 10);
+
   const [cleanlinessValue, setCleanlinessValue] = useState(0);
   const [communicationValue, setCommunicationValue] = useState(0);
   const [checkInValue, setCheckInValue] = useState(0);
@@ -28,8 +34,13 @@ function LeaveRating()
   const [locationValue, setLocationValue] = useState(0);
   const [valueValue, setValueValue] = useState(0);
   const [hoverValue, setHoverValue] = useState({});
+  const [comment, setComment] = useState("");
 
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleChange = (event) => {
+    setComment(event.target.value);
+  }
 
   const handleLeaveRating = (event) => {
     event.preventDefault(); // Prevent default form submission
@@ -50,15 +61,19 @@ function LeaveRating()
       // console.log("the city"+city);
       // console.log("the province"+province);
       // console.log("the desc"+desc);
+      var commentInput = comment;
+
       const reviewData = {
-        review: reviewData, //TODO: bunu emin değilim variable bu mu??
-        userId: userId,
+        review: comment,
         cleanlinessRating: cleanlinessValue,
-            communicationRating: communicationValue,
-                checkInRating: checkInValue,
-                    accuracyRating: accuracyValue,
-                        locationRating: locationValue,
-                            valueRating: valueValue
+        communicationRating: communicationValue,
+        checkInRating: checkInValue,
+        accuracyRating: accuracyValue,
+        locationRating: locationValue,
+        valueRating: valueValue,
+        userId: userId,
+        userId2: userId2,
+        reservationId: reservationId
       }
 
       //const response = await axios.post(`http://localhost:8080/leaveRatingCust?userId=${userId}&cleanVal=${cleanlinessValue}&comVal=${communicationValue}&checkVal=${checkInValue}&accuracyVal=${accuracyValue}&locVal=${locationValue}&valVal=${valueValue}`);
@@ -67,7 +82,7 @@ function LeaveRating()
       if (response.data == 0) {
         alert("Error Adding Rating");
       } else if (response.data == 1) {
-        navigate("/ProfilePage?userId=" + userId);
+        navigate("/ProfilePage?userid=" + userId);
         alert("Added Rating successfully!");
       }
     } catch (error) {
@@ -232,6 +247,8 @@ function LeaveRating()
                   id="message"
                   name="message"
                   defaultValue={""}
+                  value={comment}
+                  onChange={handleChange}
                 />
               </div>
               <div className="mb-3">

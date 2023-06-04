@@ -277,6 +277,7 @@ public class AdminRepository {
 
     public List<Map<String, Object>> singleLandmarkForm(String landmarkId) {
         String sqlLandmark = "SELECT u.\"user-id\", u.name, u.surname, l.\"landmark-id\", l.\"landmark-name\", l.description, l.latitude, l.longitude, l.city, l.province FROM \"Landmarks\" l, \"User\" u WHERE \"landmark-id\" = ? AND u.\"user-id\" = l.\"user-id\"";
+        String sqlDene = "SELECT * FROM single_landmark WHERE \"landmark-id\" = 4";
 
         int landmarkIdInt = Integer.parseInt(landmarkId);
         List<Map<String, Object>> rows = jdbcTemplate.queryForList(sqlLandmark, landmarkIdInt);
@@ -363,6 +364,18 @@ public class AdminRepository {
         int rentalIdInt = Integer.parseInt(rentalId);
         int res = jdbcTemplate.update(sqlAddLandmarkSugg,userIdInt, rentalIdInt);
         return res;
+    }
+
+    public int leaveRating(ReviewDTO review){
+        String sqlLeaveRating = "INSERT INTO \"Review\" (review, \"cleanliness-rating\", \"communication-rating\", \"check-in-rating\", \"accuracy-rating\", \"location-rating\", \"value-rating\") VALUES (?, ?, ?, ?, ?, ?, ?)";
+        int res = jdbcTemplate.update(sqlLeaveRating, review.getReview(), review.getCleanlinessRating(), review.getCommunicationRating(), review.getCheckInRating(), review.getAccuracyRating(), review.getLocationRating(), review.getValueRating());
+
+        int reviewId = jdbcTemplate.queryForObject("SELECT lastval()", Integer.class);
+        review.setReviewId(reviewId);
+        String sqlFollowUp = "INSERT INTO \"Leaves\" VALUES (?, ?, ?, ?)";
+        int res2 = jdbcTemplate.update(sqlFollowUp, review.getReservationId(), review.getUserId(), review.getUserId2(), review.getReviewId());
+
+        return res2;
     }
 
     public int unheartRental(@RequestParam String userId, @RequestParam String rentalId){

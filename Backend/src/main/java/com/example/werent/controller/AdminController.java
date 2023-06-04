@@ -155,6 +155,11 @@ public class AdminController {
         return adminRepository.reportStayedHost(userId, userId2);
     }
 
+    @RequestMapping(value = "/leaveRating", method = RequestMethod.POST)
+    public int leaveRating(@RequestBody ReviewDTO review){
+        return adminRepository.leaveRating(review);
+    }
+
     @RequestMapping(value = "/heartRental", method = RequestMethod.POST)
     public int heartRental(@RequestParam String userId, @RequestParam String rentalId){
         return adminRepository.heartRental(userId, rentalId);
