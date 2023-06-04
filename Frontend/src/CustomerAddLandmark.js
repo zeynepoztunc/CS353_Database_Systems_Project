@@ -24,9 +24,52 @@ function CustomerAddLandmark() {
   const dropdownProvinces = [];
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const [cities, setCities] = useState([]);
+  const [districts, setDistricts] = useState([]);
+  const [selectedCity, setSelectedCity] = useState("");
+  const [selectedDistrict, setSelectedDistrict] = useState("");
+
   const handleAddLandmark = () => {
     setIsModalOpen(true);
   };
+
+  const fetchCities =  async () => {
+    try {
+      const response =  await axios.get("http://localhost:8080/locations/cities");
+      return response.data;
+    } catch (error) {
+      console.error("Failed to fetch cities:", error);
+      return [];
+    }
+  };
+
+  const fetchDistricts =  async () => {
+    try {
+      console.log(selectedCity);
+      const response =  await axios.get("http://localhost:8080/locations/districts?city=" + selectedCity);
+      return response.data;
+    } catch (error) {
+      console.error("Failed to fetch districts:", error);
+      return [];
+    }
+  };
+
+  const handleCitySelection = (cityName) => {
+    setSelectedCity(cityName);
+    fetchDistricts(cityName)
+        .then((data) => {
+          setDistricts(data);
+        })
+        .catch((error) => {
+          console.error("Failed to fetch districts:", error);
+          setDistricts([]);
+        });
+  };
+  const handleDistrictSelection = (districtName) => {
+    setSelectedDistrict(districtName);
+  };
+
+
 
   const modalAddLandmark = async (event) => {
     event.preventDefault();
@@ -77,6 +120,12 @@ function CustomerAddLandmark() {
   };
 
   const [selectedLocation, setSelectedLocation] = useState(null);
+
+  useEffect(() => {
+    fetchCities().then((data) => {
+      setCities(data);
+    });
+  }, []);
 
   return (
     <>
@@ -197,16 +246,17 @@ function CustomerAddLandmark() {
                     data-bs-toggle="dropdown"
                     type="button"
                   >
-                    Select your city
+                    {selectedCity ? selectedCity : "Select your city"}
                   </button>
                   <div className="dropdown-menu">
-                    {dropdownCities.map((item) => (
+                    {cities.map((city,index) => (
                       <a
                         className="dropdown-item"
-                        key={item.value}
-                        onClick={() => setCity(item.label)}
+                        key={index}
+                        href="#nogo"
+                        onClick={() => handleCitySelection(city.name)}
                       >
-                        {item.label}
+                        {city.name}
                       </a>
                     ))}
                   </div>
@@ -227,16 +277,17 @@ function CustomerAddLandmark() {
                     data-bs-toggle="dropdown"
                     type="button"
                   >
-                    Select your province
+                    {selectedDistrict ? selectedDistrict : "Select your city"}
                   </button>
                   <div className="dropdown-menu">
-                    {dropdownProvinces.map((item) => (
+                    {districts.map((district,index) => (
                       <a
                         className="dropdown-item"
-                        key={item.value}
-                        onClick={() => setProvince(item.label)}
+                        key={index}
+                        href="#nogo"
+                        onClick={() => handleDistrictSelection(district.name)}
                       >
-                        {item.label}
+                        {district.name}
                       </a>
                     ))}
                   </div>

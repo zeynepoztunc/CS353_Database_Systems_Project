@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e555480-ab5a-407e-a171-4062daf29606" name="Changes" comment="auto approve deleted">
+    <list default="true" id="5e555480-ab5a-407e-a171-4062daf29606" name="Changes" comment="small fixes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/AdminLogin.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/AdminLogin.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/HostLogin.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/HostLogin.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/NavBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/NavBar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/UserLogin.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/UserLogin.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/CustomerAddLandmark.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/CustomerAddLandmark.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -202,7 +199,7 @@
       <workItem from="1685880282116" duration="124000" />
       <workItem from="1685880947164" duration="5443000" />
       <workItem from="1685886916197" duration="194000" />
-      <workItem from="1685891024925" duration="1905000" />
+      <workItem from="1685891024925" duration="3654000" />
     </task>
     <task id="LOCAL-00001" summary="new upload">
       <created>1684410800015</created>
@@ -442,7 +439,21 @@
       <option name="project" value="LOCAL" />
       <updated>1685887072640</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="small fixes">
+      <created>1685893515183</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1685893515183</updated>
+    </task>
+    <task id="LOCAL-00036" summary="small fixes">
+      <created>1685893521383</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1685893521383</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -480,13 +491,13 @@
     <MESSAGE value="important changes in rental page" />
     <MESSAGE value="reservation process done" />
     <MESSAGE value="shopping cart done." />
-    <MESSAGE value="small fixes" />
     <MESSAGE value="customer done" />
     <MESSAGE value="some fixes in the customer side" />
     <MESSAGE value="some fixes in the host side" />
     <MESSAGE value="host profile page done" />
     <MESSAGE value="auto approve deleted" />
-    <option name="LAST_COMMIT_MESSAGE" value="auto approve deleted" />
+    <MESSAGE value="small fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="small fixes" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
