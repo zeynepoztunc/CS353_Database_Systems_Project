@@ -125,6 +125,7 @@ export const AdminHome = () => {
       }
     } catch (error) {
       console.error("Error generating PDF:", error);
+      alert("Could not generate PDF");
     }
   };
 
