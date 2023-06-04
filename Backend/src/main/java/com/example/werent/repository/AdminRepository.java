@@ -356,7 +356,26 @@ public class AdminRepository {
         return res;
     }
 
+    public int heartRental(@RequestParam String userId, @RequestParam String rentalId){
+        String sqlAddLandmarkSugg = "INSERT INTO \"FavoritedLocations\"(\"user-id\", \"rental-id\") VALUES (?, ?)";
+
+        int userIdInt = Integer.parseInt(userId);
+        int rentalIdInt = Integer.parseInt(rentalId);
+        int res = jdbcTemplate.update(sqlAddLandmarkSugg,userIdInt, rentalIdInt);
+        return res;
+    }
+
+    public int unheartRental(@RequestParam String userId, @RequestParam String rentalId){
+        String sqlDelLandmarkSugg = "DELETE FROM \"FavoritedLocations\" WHERE \"user-id\" = ? AND \"rental-id\" = ?";
+
+        int userIdInt = Integer.parseInt(userId);
+        int rentalIdInt = Integer.parseInt(rentalId);
+        int res = jdbcTemplate.update(sqlDelLandmarkSugg, userIdInt, rentalIdInt);
+        return res;
+    }
+
     public List<Map<String, Object>> listPastBookings(String userId) {
+        System.out.println("burakkk" + userId);
         //String sqlListAll = "SELECT \"Rental\".\"rental-id\", \"Reservation\".\"reservation-start-date\", \"Reservation\".\"reservation-end-date\", \"Rental\".city, \"Rental\".\"rental-name\", \"Reservation\".\"number-of-guests\" FROM \"Makes\" JOIN \"Rental\" ON \"Makes\".\"rental-id\" = \"Rental\".\"rental-id\" JOIN \"Host\" ON \"Rental\".\"host-id\" = \"Host\".\"user-id\" JOIN \"Reservation\" ON \"Makes\".\"reservation-id\" = \"Reservation\".\"reservation-id\" WHERE \"Makes\".\"user-id\" = ? ORDER BY \"Reservation\".\"reservation-end-date\" DESC";
         String sqlListAll = "SELECT * FROM \"Reservation\" r, \"Rental\" ren, \"User\" u WHERE ren.\"host-id\" = u.\"user-id\" AND ren.\"rental-id\" = r.\"rental-id\" AND r.\"customer-id\" = ?";
 
