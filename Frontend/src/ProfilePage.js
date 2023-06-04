@@ -27,8 +27,9 @@ function ProfilePage() {
     const[password, setPassword] = React.useState("");
     const [email, setEmail] = React.useState("");
     const [fullName, setFullName] = React.useState("");
-  
     const [description, setDescription] = useState('');
+    const [userRating, setUserRating] = useState('');
+
 
 
   const fetchCustomer = async () => {
@@ -37,11 +38,13 @@ function ProfilePage() {
         console.log(response.data);
 
         setName(response.data.user.name);
+        setDescription(response.data.registeredUser.description);
         setSurname(response.data.user.surname);
         setPassword(response.data.user.password);
         setFullName(response.data.user.name + " " + response.data.user.surname);
         setEmail(response.data.registeredUser.email);
-        console.log("IM HERE");
+        setUserRating(response.data.registeredUser.userRating);
+        console.log("DESCRIPTION IS: "+ response.data.user.description);
 
 
         return response;
@@ -229,7 +232,7 @@ useEffect(() => {
                       />
                       &nbsp; &nbsp;&nbsp;
                       <span style={{ backgroundColor: "rgb(248, 249, 250)" }}>
-                        {averageRating} rating average
+                        {userRating} rating average
                       </span>
                       <br />
                       <br />
