@@ -2,11 +2,17 @@ import {  useNavigate } from 'react-router-dom';
 import NavBar from './NavBar';
 import axios from 'axios';
 import React, { useState } from 'react';
+import {Button} from 'react-bootstrap';
+import Modal from 'react-bootstrap/Modal';
+
+
 
 function PastBookingsPage() {
   const urlParams = new URLSearchParams(window.location.search);
   const userIdString = urlParams.get('userid');
   const userId = parseInt(userIdString, 10);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModal2Open, setIsModal2Open] = useState(false);
 
   const navigate = useNavigate();
   const [booking] = useState([
@@ -15,6 +21,12 @@ function PastBookingsPage() {
     { id:3, sdate: "20/11/2022", edate: "14/11/2022",name: 'İzmir Beach House ',  city:"İzmir", host: 'Melih',guestNum:5 },
     { id:4, sdate: "2/02/2021", edate: "30/01/2021",name: 'Villa Suites', city:"Muğla", host:'Jenna',guestNum:3 },
   ]);
+  const handleDeleteUserModal = () => {
+    setIsModalOpen(false);
+  };
+  const handleDeleteUserModal2 = () => {
+    setIsModal2Open(false);
+  };
 
   const goBackToProfile = (event) => {
     event.preventDefault();
@@ -104,8 +116,37 @@ function PastBookingsPage() {
                     <td>{booking.sdate}</td>
                     <td>{booking.edate}</td>
                     <td>{booking.city}</td>
-                    <td>{booking.name}</td>
-                    <td>{booking.host}</td>
+                    <td>{booking.name}<i className="fas fa-flag" onClick={() => setIsModalOpen(true)}></i> 
+                      <Modal show={isModalOpen} onHide={() => setIsModalOpen(false)}>
+                      <Modal.Header closeButton>
+                        <Modal.Title>Confirmation</Modal.Title>
+                      </Modal.Header>
+                      <Modal.Body>Are you sure you want to report the rental?</Modal.Body>
+                      <Modal.Footer>
+                        <Button variant="secondary" onClick={() => setIsModalOpen(false)}>
+                          Cancel
+                        </Button>
+                        <Button variant="danger" onClick={handleDeleteUserModal}>
+                          Report
+                        </Button>
+                      </Modal.Footer>
+                    </Modal>
+                          </td>
+                    <td>{booking.host} <i className="fas fa-flag" onClick={() => setIsModal2Open(true)}></i></td>
+                    <Modal show={isModal2Open} onHide={() => setIsModal2Open(false)}>
+                      <Modal.Header closeButton>
+                        <Modal.Title>Confirmation</Modal.Title>
+                      </Modal.Header>
+                      <Modal.Body>Are you sure you want to report the host?</Modal.Body>
+                      <Modal.Footer>
+                        <Button variant="secondary" onClick={() => setIsModal2Open(false)}>
+                          Cancel
+                        </Button>
+                        <Button variant="danger" onClick={handleDeleteUserModal2}>
+                          Report
+                        </Button>
+                      </Modal.Footer>
+                    </Modal>
                     <td className="text-center">3</td>
                     <td>
                       <button

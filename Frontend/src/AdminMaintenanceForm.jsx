@@ -2,17 +2,16 @@ import React, { useState } from "react";
 import './adminAssets/bootstrap/css/bootstrap.min.css';
 import './adminAssets/css/vanilla-zoom.min.css';
 import { Navbar } from './Navbar.jsx';
+import DatePicker from 'react-datepicker';
 
 export const AdminMaintenanceForm = () => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [name, setName] = useState('');
+  const [dateRange, setDateRange] = useState([null, null]);
+  const [startDate, endDate] = dateRange;
     
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(email);
+        
     }
-    
     return (
 <>
   <meta charSet="utf-8" />
@@ -76,8 +75,20 @@ export const AdminMaintenanceForm = () => {
                   <h1>Date:</h1>
                 </div>
                 <div className="col">
-                  <input type="date" />
-                </div>
+                <DatePicker
+                            className="text card-subtitle mb-2"
+                              selected={startDate}
+                              onChange={(update) => {
+                                setDateRange(update);
+                              }}
+                              startDate={startDate}
+                              endDate={endDate}
+                              selectsRange
+                              dateFormat="yyyy/MM/dd"
+                              minDate={new Date()} // disable past dates
+                              
+                            />
+                            </div>
               </div>
               <div className="row">
                 <div className="col">
