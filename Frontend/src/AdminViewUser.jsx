@@ -54,9 +54,10 @@ function AdminViewUser() {
       console.log(response.data);
       if(response.data.length > 0){
         //console.log(user['name']);
-        setName(response.data['name']);
+        //setName(response.data['name']);
         console.log(response.data.name);
         setUser(response.data);
+        setItemExist(true);
       }
       else{
         setItemExist(false);
@@ -69,14 +70,14 @@ function AdminViewUser() {
   };
 
   useEffect(() => {
-    fetchUser().then(r => console.log(user['name']));
+    fetchUser().then(r => console.log("done"));
   }, []);
 
-  const handleDeleteUserModal = async () => {
+  const handleDeleteUserModal = async (userId) => {
     try {
       var userid = "df";
       const response = await axios.delete(
-        "http://localhost:8080/deleteReportedUser?userId=" + userid
+        "http://localhost:8080/deleteReportedUser?userId=" + userId
       );
       console.log(response.data);
       if (response.data == 0) {
@@ -218,7 +219,8 @@ function AdminViewUser() {
       <main className="page">
         <section className="clean-block about-us">
           <div className="container">
-            <div className="row text-bg-light">
+            {user.map((item, index) => (
+            <div key={index} className="row text-bg-light">
               <div
                 className="col-md-6 col-lg-4 text-center"
                 style={{
@@ -261,7 +263,7 @@ function AdminViewUser() {
                       />
                       &nbsp; &nbsp;&nbsp;
                       <span style={{ backgroundColor: "rgb(248, 249, 250)" }}>
-                        {user['user-rating']} rating average
+                        {item['user-rating']} rating average
                       </span>
                       <br />
                       <br />
@@ -338,7 +340,7 @@ function AdminViewUser() {
                       >
                         Cancel
                       </Button>
-                      <Button variant="danger" onClick={handleDeleteUserModal}>
+                      <Button variant="danger" onClick={() => handleDeleteUserModal(item['user-id'])}>
                         Delete
                       </Button>
                     </Modal.Footer>
@@ -357,7 +359,7 @@ function AdminViewUser() {
                           style={{ marginRight: 0 }}
                         >
                           <span style={{ color: "rgb(5, 6, 7)" }}>
-                            {name} {user['surname']}
+                            {item['name']} {item['surname']}
                           </span>
                         </h6>
                       </div>
@@ -373,7 +375,7 @@ function AdminViewUser() {
                           className="text-muted card-subtitle mb-2"
                           style={{ marginRight: 0 }}
                         >
-                          <span style={{ color: "rgb(5, 6, 7)" }}>{user['e-mail']}</span>
+                          <span style={{ color: "rgb(5, 6, 7)" }}>{item['e-mail']}</span>
                         </h6>
                       </div>
                     </div>
@@ -412,7 +414,7 @@ function AdminViewUser() {
                           style={{ marginRight: 0 }}
                         >
                           <span style={{ color: "rgb(5, 6, 7)" }}>
-                            {user['description']}
+                            {item['description']}
                           </span>
                         </h6>
                       </div>
@@ -421,6 +423,7 @@ function AdminViewUser() {
                 </div>
               </div>
             </div>
+            ))}
           </div>
 
           <div className="container">
