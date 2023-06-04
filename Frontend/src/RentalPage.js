@@ -30,6 +30,8 @@ const  RentalPage= () => {
   const [rentalName, setRentalName] = useState('');
   const [hostFullName, setHostFullName] = useState('');
   const [isFavorited, setIsFavorited] = useState(false);
+  const [imagePath,setImagePath] = useState("");
+
 
   const [dailyPrice, setPrice] = useState(0);
   const [earthquakeSupport, setEarthquakeSupport] = useState(false);
@@ -142,6 +144,8 @@ const  RentalPage= () => {
           console.log(rental.couchsurfing);
           console.log(rental.earliestCheckInHour);
           console.log(rental.latestCheckOutHour);
+          console.log(rental.imagePath);
+          setImagePath(rental.imagePath);
           setRentalName(rental.rentalName);
           setPrice(rental.dailyPrice);
           setEarthquakeSupport(rental.earthquakeSupport);
@@ -334,7 +338,7 @@ const  RentalPage= () => {
                       <img
                         width={405}
                         height={299}
-                        src="./customerAssets/img/e447ece9-eb6d-41b2-a90a-008c82f607da.webp"
+                        src={imagePath}
                       />
                     </div>
                     <div className="sidebar">
