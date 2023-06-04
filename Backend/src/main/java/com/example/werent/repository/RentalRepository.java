@@ -115,4 +115,9 @@ public class RentalRepository {
 
 
     }
+
+    public void deleteRental(int id) {
+        String sql = "DELETE FROM \"Rental\" WHERE \"rental-id\" = ?";
+        jdbcTemplate.update(sql, id);
+    }
 }

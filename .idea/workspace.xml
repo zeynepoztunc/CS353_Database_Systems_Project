@@ -4,13 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e555480-ab5a-407e-a171-4062daf29606" name="Changes" comment="customer done">
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_06_2023_13_41_[Changes]/shelved.patch" afterDir="false" />
+    <list default="true" id="5e555480-ab5a-407e-a171-4062daf29606" name="Changes" comment="some fixes in the customer side">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/controller/ReservationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/controller/ReservationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/repository/ReservationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/repository/ReservationRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/PaymentPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/PaymentPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/RentalPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/RentalPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/controller/RentalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/controller/RentalController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/repository/RentalRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/repository/RentalRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/GeneralLogin.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/GeneralLogin.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/HostRentingCurrentRents.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/HostRentingCurrentRents.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/HostRentingFlatDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/HostRentingFlatDetails.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/HostRentingFlatLocation.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/HostRentingFlatLocation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/HostRentingFlatPricing.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/HostRentingFlatPricing.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/HostRentingMainPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/HostRentingMainPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/HostRentingProperty.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/HostRentingProperty.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/HostRentingRoomDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/HostRentingRoomDetails.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/HostRentingRoomLocation.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/HostRentingRoomLocation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/HostRentingRoomPricing.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/HostRentingRoomPricing.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -197,7 +204,9 @@
       <workItem from="1685807355475" duration="5952000" />
       <workItem from="1685815082241" duration="3577000" />
       <workItem from="1685821091581" duration="2766000" />
-      <workItem from="1685871590658" duration="1156000" />
+      <workItem from="1685871590658" duration="1550000" />
+      <workItem from="1685875496233" duration="110000" />
+      <workItem from="1685875625725" duration="3171000" />
     </task>
     <task id="LOCAL-00001" summary="new upload">
       <created>1684410800015</created>
@@ -409,7 +418,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685823304131</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="some fixes in the customer side">
+      <created>1685873053113</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1685873053113</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -428,7 +444,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="entity classes are uploaded" />
     <MESSAGE value="together" />
     <MESSAGE value="Room controller started" />
     <MESSAGE value="queries executed for room, data passing" />
@@ -453,7 +468,8 @@
     <MESSAGE value="shopping cart done." />
     <MESSAGE value="small fixes" />
     <MESSAGE value="customer done" />
-    <option name="LAST_COMMIT_MESSAGE" value="customer done" />
+    <MESSAGE value="some fixes in the customer side" />
+    <option name="LAST_COMMIT_MESSAGE" value="some fixes in the customer side" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

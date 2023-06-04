@@ -2,6 +2,7 @@ import {useLocation, useNavigate} from 'react-router-dom';
 import NavBar from './NavBar';
 import axios from 'axios';
 import React, {useEffect, useState} from 'react';
+import {NavLink} from "react-bootstrap";
 
 const HostRentingCurrentRents = () => {
     const navigate = useNavigate();
@@ -38,10 +39,27 @@ const HostRentingCurrentRents = () => {
 
 
 
-    const goBackToProfile = (event) => {
+
+    const gotoMainPage = (event) => {
         event.preventDefault();
-        navigate('/ProfilePage');
-    };
+        navigate('/HostRentingMainPage?userid=' + userid);
+    }
+
+    const gotoGeneralLogin
+        = (event) => {
+        event.preventDefault();
+        navigate('/');
+    }
+
+    const deleteSpecificRental = async (rentalId) => {
+        try {
+            const response = await axios.delete(`http://localhost:8080/Rentals/deleteRental?rentalId=${rentalId}`);
+            console.log(response.data);
+            return response;
+        } catch (error) {
+            console.error('Failed to delete rental:', error);
+        }
+    }
 
     return (
         <>
@@ -60,8 +78,46 @@ const HostRentingCurrentRents = () => {
             <link rel="stylesheet" href="./customerAssets/css/baguetteBox.min.css" />
             <link rel="stylesheet" href="./customerAssets/css/Banner-Heading-Image-images.css" />
             <link rel="stylesheet" href="./customerAssets/css/vanilla-zoom.min.css" />
-            <NavBar></NavBar>
-            <h4 className="fs-2" style={{ paddingBottom: 0, marginBottom: 28 }}>
+            <nav className="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
+                <div className="container">
+                    <button
+                        data-bs-toggle="collapse"
+                        className="navbar-toggler"
+                        data-bs-target="#navcol-1"
+                    >
+                        <span className="visually-hidden">Toggle navigation</span>
+                        <span className="navbar-toggler-icon" />
+                    </button>
+                    <div className="collapse navbar-collapse" id="navcol-1">
+                        <a
+                            className="navbar-brand logo"
+                            style={{ paddingRight: 0, marginBottom: 0, fontSize: 32 }}
+                        >
+                            WeRent
+                        </a>
+                        <ul className="navbar-nav ms-auto" />
+                        <ul className="navbar-nav">
+                            <li className="nav-item">
+                                <NavLink onClick={gotoMainPage} className="nav-link">
+                                    RENT YOUR HOME
+                                </NavLink>
+                            </li>
+
+                            <li className="nav-item">
+                                <a className="nav-link" href="#">
+                                    <i className="fas fa-user" style={{ fontSize: 24 }} />
+                                </a>
+                            </li>
+                            <li className="nav-item">
+                                <NavLink onClick={gotoGeneralLogin} className="nav-link">
+                                   LOGOUT
+                                </NavLink>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <h4 className="fs-2" style={{ paddingBottom: 40, marginBottom: 40 }}>
                 <strong>Spacer </strong>
             </h4>
             <main className="page blog-post-list">
@@ -125,6 +181,7 @@ const HostRentingCurrentRents = () => {
                                                         className="btn btn-danger btn-custom-class"
                                                         type="button"
                                                         style={{ marginLeft: 36 }}
+                                                        onClick={() => deleteSpecificRental(rental["rental-id"])}
                                                     >
                                                         Delete Rental
                                                     </button>
@@ -136,21 +193,6 @@ const HostRentingCurrentRents = () => {
                                 </div>
 
                             </div>
-                            <button
-                                className="btn btn-primary btn btn-custom-class"
-                                type="button"
-                                onClick={goBackToProfile}
-                                style={{
-                                    paddingLeft: 25,
-                                    paddingRight: 32,
-                                    paddingTop: 0,
-                                    marginRight: "-8px",
-                                    marginBottom: "-7px",
-                                    marginTop: "-25px"
-                                }}
-                            >
-                                Back
-                            </button>
                         </div>
                     </div>
                 </section>

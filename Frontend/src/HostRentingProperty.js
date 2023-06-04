@@ -1,7 +1,8 @@
 import React, {useState} from 'react'; 
 import {Link, useNavigate} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import axios from 'axios'; 
+import axios from 'axios';
+import {NavLink} from "react-bootstrap";
 
 
 const  HostRentingProperty= () => {
@@ -63,7 +64,17 @@ const  HostRentingProperty= () => {
       console.error(err);
     }
   };
-  let userId = urlParams.get('userid');
+  const gotoGeneralLogin
+      = (event) => {
+    event.preventDefault();
+    navigate('/');
+  }
+
+  const gotoHostRentingCurrentRents
+      = (event) => {
+    event.preventDefault();
+    navigate('/HostRentingCurrentRents?userid=' + hostId);
+  }
   return (
     <>
   <meta charSet="utf-8" />
@@ -97,173 +108,45 @@ const  HostRentingProperty= () => {
   <link rel="stylesheet" href="./hostAssets/Button-modal-ecommerce-styles.css" />
   <link rel="stylesheet" href="./hostAssets/Hover-Button-1.css" />
   <link rel="stylesheet" href="./hostAssets/bootstrap/css/bootstrap.min-1.css" />
-  <nav className="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
-    <div className="container">
-      <button
-        data-bs-toggle="collapse"
-        className="navbar-toggler"
-        data-bs-target="#navcol-1"
-      >
-        <span className="visually-hidden">Toggle navigation</span>
-        <span className="navbar-toggler-icon" />
-      </button>
-      <div className="collapse navbar-collapse" id="navcol-1">
-        <a
-          className="navbar-brand logo"
-          href="#"
-          style={{ paddingRight: 0, marginBottom: 0, fontSize: 32 }}
-        >
-          WeRent
-        </a>
-        <div>
-          <a
-            className="bs4_modal_trigger"
-            href="/MainPage?userid=${userid}"
-            data-modal-id="bs4_sldr_cmrce"
-            data-bs-toggle="modal"
-            style={{
-              fontSize: 16,
-              background: "var(--bs-blue)",
-              color: "var(--bs-white)",
-              fontFamily: "Montserrat, sans-serif"
-            }}
+      <nav className="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
+        <div className="container">
+          <button
+              data-bs-toggle="collapse"
+              className="navbar-toggler"
+              data-bs-target="#navcol-1"
           >
-            SWITCH TO CUSTOMER MODE
-          </a>
-          <div
-            id="bs4_sldr_cmrce"
-            className="modal fade bs4_modal bs4_blue bs4_bg_white bs4_bd_black bs4_bd_semi_trnsp bs4_none_radius bs4_shadow_none bs4_center bs4_animate bs4FadeInDown bs4_duration_md bs4_easeOutQuint bs4_size_sldr_cmrce"
-            role="dialog"
-            data-modal-backdrop="true"
-            data-show-on="click"
-            data-modal-delay="false"
-            data-modal-duration="false"
-          >
-            <div className="modal-dialog">
-              <div className="modal-content">
-                <a
-                  className="bs4_btn_x_out_shtr bs4_sldr_cmrce_close"
-                  href="/MainPage?userid=${userid}"
-                  data-bs-dismiss="modal"
-                >
-                  close
+            <span className="visually-hidden">Toggle navigation</span>
+            <span className="navbar-toggler-icon" />
+          </button>
+          <div className="collapse navbar-collapse" id="navcol-1">
+            <a
+                className="navbar-brand logo"
+                style={{ paddingRight: 0, marginBottom: 0, fontSize: 32 }}
+            >
+              WeRent
+            </a>
+            <ul className="navbar-nav ms-auto" />
+            <ul className="navbar-nav">
+              <li className="nav-item">
+                <NavLink onClick={gotoHostRentingCurrentRents} className="nav-link">
+                  YOUR CURRENT RENTS
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="#">
+                  <i className="fas fa-user" style={{ fontSize: 24 }} />
                 </a>
-                <div className="row">
-                  <div className="col-12 col-md-5">
-                    <div
-                      id="bs4_sldr_commerce"
-                      className="carousel slide bs4-carousel bs4_sldr_cmrce_indicators thumb-scroll-x swipe-x bs4s_easeOutInCubic"
-                      data-duration={2000}
-                      data-bs-ride="carousel"
-                      data-bs-pause="hover"
-                      data-bs-interval="false"
-                    >
-                      <div className="carousel-inner" role="listbox">
-                        <div className="carousel-item active">
-                          <img
-                            src="/bs4_slider_commerce_01.png"
-                            alt="bs4_slider_commerce_01"
-                          />
-                        </div>
-                        <div className="carousel-item">
-                          <img
-                            src="/bs4_slider_commerce_02.png"
-                            alt="bs4_slider_commerce_02"
-                          />
-                        </div>
-                        <div className="carousel-item">
-                          <img
-                            src="/bs4_slider_commerce_03.png"
-                            alt="bs4_slider_commerce_03"
-                          />
-                        </div>
-                        <div className="carousel-item">
-                          <img
-                            src="/bs4_slider_commerce_04.png"
-                            alt="bs4_slider_commerce_04"
-                          />
-                        </div>
-                      </div>
-                      <ol className="carousel-indicators">
-                        <li
-                          className="active"
-                          data-bs-target="#bs4_sldr_commerce"
-                          data-bs-slide-to={0}
-                        >
-                          <img
-                            src="/bs4_slider_commerce_01.png"
-                            alt="bs4_slider_commerce_01"
-                          />
-                        </li>
-                        <li
-                          data-bs-target="#bs4_sldr_commerce"
-                          data-bs-slide-to={1}
-                        >
-                          <img
-                            src="/bs4_slider_commerce_02.png"
-                            alt="bs4_slider_commerce_02"
-                          />
-                        </li>
-                        <li
-                          data-bs-target="#bs4_sldr_commerce"
-                          data-bs-slide-to={2}
-                        >
-                          <img
-                            src="/bs4_slider_commerce_03.png"
-                            alt="bs4_slider_commerce_03"
-                          />
-                        </li>
-                        <li
-                          data-bs-target="#bs4_sldr_commerce"
-                          data-bs-slide-to={3}
-                        >
-                          <img
-                            src="/bs4_slider_commerce_04.png"
-                            alt="bs4_slider_commerce_04"
-                          />
-                        </li>
-                      </ol>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+              </li>
+              <li className="nav-item">
+                <NavLink onClick={gotoGeneralLogin} className="nav-link">
+                  LOGOUT
+                </NavLink>
+              </li>
+
+            </ul>
           </div>
         </div>
-        <ul className="navbar-nav ms-auto" />
-        <ul className="navbar-nav">
-          <li className="nav-item">
-            <Link className="nav-link" to={`/HostRentingProperty?userid=${userId}`}>
-              RENT YOUR HOME
-            </Link>
-          </li>
-
-          <li className="nav-item">
-            <a className="nav-link active" href="#">
-              YOUR RENTS
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#">
-              <i className="fas fa-user" style={{ fontSize: 24 }} />
-            </a>
-          </li>
-          <li
-            className="nav-item text-uppercase border rounded"
-            style={{ color: "var(--bs-blue)", background: "var(--bs-blue)" }}
-          >
-            <a
-              className="nav-link active"
-              href="#"
-              style={{ color: "var(--bs-gray-100)" }}
-            >
-              LOG OUT
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+      </nav>
   <main className="page registration-page">
     <section className="clean-block clean-form dark">
       <div className="container">

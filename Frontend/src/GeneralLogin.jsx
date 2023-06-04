@@ -4,12 +4,40 @@ import './adminAssets/css/vanilla-zoom.min.css';
 import  { Link } from "react-router-dom";
 import { Navbar } from './Navbar.jsx';
 import bgImage from './background.gif';
+import {NavLink} from "react-bootstrap";
 
 export const GeneralLogin = () => {
 
   return (
       <div style={{background: `url(${bgImage})`, backgroundSize: 'cover', height: '140vh'}}>
-        <Navbar/>
+        <nav className="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
+          <div className="container">
+            <button
+                data-bs-toggle="collapse"
+                className="navbar-toggler"
+                data-bs-target="#navcol-1"
+            >
+              <span className="visually-hidden">Toggle navigation</span>
+              <span className="navbar-toggler-icon" />
+            </button>
+            <div className="collapse navbar-collapse" id="navcol-1">
+              <a
+                  className="navbar-brand logo"
+                  style={{ paddingRight: 0, marginBottom: 0, fontSize: 32 }}
+              >
+                WeRent
+              </a>
+              <ul className="navbar-nav ms-auto" />
+              <ul className="navbar-nav">
+                <li className="nav-item">
+                  <NavLink  className="nav-link">
+                    ABOUT US
+                  </NavLink>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
         <main className="page registration-page">
           <section className="clean-block clean-form dark" style={{backgroundColor: 'rgba(0,0,0,0.5)'}}>
             <div className="container">

@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { useNavigate } from "react-router-dom";
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 import axios from "axios";
+import {NavLink} from "react-bootstrap";
 
 const containerStyle = {
   width: "100%",
@@ -116,6 +117,18 @@ const HostRentingFlatLocation = () => {
     }
   };
 
+  const gotoGeneralLogin
+      = (event) => {
+    event.preventDefault();
+    navigate('/');
+  }
+
+  const gotoHostRentingCurrentRents
+      = (event) => {
+    event.preventDefault();
+    navigate('/HostRentingCurrentRents?userid=' + userid);
+  }
+
   return (
     <>
       <meta charSet="utf-8" />
@@ -188,244 +201,38 @@ const HostRentingFlatLocation = () => {
       <nav className="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
         <div className="container">
           <button
-            data-bs-toggle="collapse"
-            className="navbar-toggler"
-            data-bs-target="#navcol-1"
+              data-bs-toggle="collapse"
+              className="navbar-toggler"
+              data-bs-target="#navcol-1"
           >
             <span className="visually-hidden">Toggle navigation</span>
             <span className="navbar-toggler-icon" />
           </button>
           <div className="collapse navbar-collapse" id="navcol-1">
             <a
-              className="navbar-brand logo"
-              href="#"
-              style={{ paddingRight: 0, marginBottom: 0, fontSize: 32 }}
+                className="navbar-brand logo"
+                style={{ paddingRight: 0, marginBottom: 0, fontSize: 32 }}
             >
               WeRent
             </a>
-            <div>
-              <a
-                className="bs4_modal_trigger"
-                href="#"
-                data-modal-id="bs4_sldr_cmrce"
-                data-bs-toggle="modal"
-                style={{
-                  fontSize: 16,
-                  background: "var(--bs-blue)",
-                  color: "var(--bs-white)",
-                  fontFamily: "Montserrat, sans-serif",
-                }}
-              >
-                SWITCH TO CUSTOMER MODE
-              </a>
-              <div
-                id="bs4_sldr_cmrce"
-                className="modal fade bs4_modal bs4_blue bs4_bg_white bs4_bd_black bs4_bd_semi_trnsp bs4_none_radius bs4_shadow_none bs4_center bs4_animate bs4FadeInDown bs4_duration_md bs4_easeOutQuint bs4_size_sldr_cmrce"
-                role="dialog"
-                data-modal-backdrop="true"
-                data-show-on="click"
-                data-modal-delay="false"
-                data-modal-duration="false"
-              >
-                <div className="modal-dialog">
-                  <div className="modal-content">
-                    <a
-                      className="bs4_btn_x_out_shtr bs4_sldr_cmrce_close"
-                      href="#"
-                      data-bs-dismiss="modal"
-                    >
-                      close
-                    </a>
-                    <div className="row">
-                      <div className="col-12 col-md-5">
-                        <div
-                          id="bs4_sldr_commerce"
-                          className="carousel slide bs4-carousel bs4_sldr_cmrce_indicators thumb-scroll-x swipe-x bs4s_easeOutInCubic"
-                          data-duration={2000}
-                          data-bs-ride="carousel"
-                          data-bs-pause="hover"
-                          data-bs-interval="false"
-                        >
-                          <div className="carousel-inner" role="listbox">
-                            <div className="carousel-item active">
-                              <img
-                                src="/bs4_slider_commerce_01.png"
-                                alt="bs4_slider_commerce_01"
-                              />
-                            </div>
-                            <div className="carousel-item">
-                              <img
-                                src="/bs4_slider_commerce_02.png"
-                                alt="bs4_slider_commerce_02"
-                              />
-                            </div>
-                            <div className="carousel-item">
-                              <img
-                                src="/bs4_slider_commerce_03.png"
-                                alt="bs4_slider_commerce_03"
-                              />
-                            </div>
-                            <div className="carousel-item">
-                              <img
-                                src="/bs4_slider_commerce_04.png"
-                                alt="bs4_slider_commerce_04"
-                              />
-                            </div>
-                          </div>
-                          <ol className="carousel-indicators">
-                            <li
-                              className="active"
-                              data-bs-target="#bs4_sldr_commerce"
-                              data-bs-slide-to={0}
-                            >
-                              <img
-                                src="/bs4_slider_commerce_01.png"
-                                alt="bs4_slider_commerce_01"
-                              />
-                            </li>
-                            <li
-                              data-bs-target="#bs4_sldr_commerce"
-                              data-bs-slide-to={1}
-                            >
-                              <img
-                                src="/bs4_slider_commerce_02.png"
-                                alt="bs4_slider_commerce_02"
-                              />
-                            </li>
-                            <li
-                              data-bs-target="#bs4_sldr_commerce"
-                              data-bs-slide-to={2}
-                            >
-                              <img
-                                src="/bs4_slider_commerce_03.png"
-                                alt="bs4_slider_commerce_03"
-                              />
-                            </li>
-                            <li
-                              data-bs-target="#bs4_sldr_commerce"
-                              data-bs-slide-to={3}
-                            >
-                              <img
-                                src="/bs4_slider_commerce_04.png"
-                                alt="bs4_slider_commerce_04"
-                              />
-                            </li>
-                          </ol>
-                        </div>
-                      </div>
-                      <div className="col-12 col-md-7">
-                        <div className="bs4_sldr_cmrce_txt">
-                          <h1>name of product, company plus modal number</h1>
-                          <ul>
-                            <li>
-                              <i className="fa fa-star" />
-                            </li>
-                            <li>
-                              <i className="fa fa-star" />
-                            </li>
-                            <li>
-                              <i className="fa fa-star" />
-                            </li>
-                            <li>
-                              <i className="fa fa-star-o" />
-                            </li>
-                          </ul>
-                          <h2 className="bs4_sldr_cmrce_txt">$130.00</h2>
-                          <p style={{ fontSize: 15, fontWeight: 200 }}>
-                            Lorem ipsum dolor sit amet, consectetuer adipiscing
-                            elit. Nam nibh. Nunc varius facilisis eros. Sed
-                            erat. In in velit quis arcu ornare laoreet.
-                            Curabitur adipiscing luctus massa. Integer ut purus
-                            ac augue commodo commodo. Nunc nec mi eu justo
-                            tempor consectetuer. Etiam vitae nisl. In dignissim
-                            lacus ut ante. Cras elit lectus, bibendum a,
-                            adipiscing vitae, commodo et, dui.
-                          </p>
-                          <form action="#">
-                            <div className="bs4_form_num">
-                              <label className="form-label">quantity</label>
-                              <input
-                                className="form-control"
-                                type="number"
-                                name="quantity"
-                                min={1}
-                                max={20}
-                              />
-                            </div>
-                            <div className="bs4_form_color">
-                              <label className="form-label">colours</label>
-                              <select className="form-select form-select-sm">
-                                <optgroup label="Pick a color">
-                                  <option value={12} selected="">
-                                    RED
-                                  </option>
-                                  <option value={13}>BLUE</option>
-                                  <option value={14} selected="">
-                                    GREEN
-                                  </option>
-                                </optgroup>
-                              </select>
-                            </div>
-                            <div className="bs4_form_size">
-                              <label className="form-label">size</label>
-                              <select className="form-select">
-                                <optgroup label="select a size">
-                                  <option value={12} selected="">
-                                    18
-                                  </option>
-                                  <option value={13}>25</option>
-                                  <option value={14}>36</option>
-                                </optgroup>
-                              </select>
-                            </div>
-                            <div className="bs4_form_cmrce_btn">
-                              <button
-                                className="btn btn-primary bs4_btn_x_out_shtr"
-                                type="submit"
-                              >
-                                add to cart
-                              </button>
-                            </div>
-                          </form>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
             <ul className="navbar-nav ms-auto" />
             <ul className="navbar-nav">
               <li className="nav-item">
-                <a className="nav-link" href="#registration.html">
-                  RENT YOUR HOME
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link active" href="#">
-                  YOUR RENTS
-                </a>
+                <NavLink onClick={gotoHostRentingCurrentRents} className="nav-link">
+                  YOUR CURRENT RENTS
+                </NavLink>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="#">
                   <i className="fas fa-user" style={{ fontSize: 24 }} />
                 </a>
               </li>
-              <li
-                className="nav-item text-uppercase border rounded"
-                style={{
-                  color: "var(--bs-blue)",
-                  background: "var(--bs-blue)",
-                }}
-              >
-                <a
-                  className="nav-link active"
-                  href="#"
-                  style={{ color: "var(--bs-gray-100)" }}
-                >
-                  LOG OUT
-                </a>
+              <li className="nav-item">
+                <NavLink onClick={gotoGeneralLogin} className="nav-link">
+                  LOGOUT
+                </NavLink>
               </li>
+
             </ul>
           </div>
         </div>

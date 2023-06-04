@@ -67,5 +67,10 @@ public class RentalController {
 
     //DELETE Mapping???
     // You can add a method to handle the DELETE request and delete a rental
+    @DeleteMapping("/deleteRental")
+    public void deleteRental(@RequestParam Integer rentalId)
+    {
+        rentalRepository.deleteRental(rentalId);
+    }
 }
 
