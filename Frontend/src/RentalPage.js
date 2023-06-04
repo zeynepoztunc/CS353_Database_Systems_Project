@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {  useNavigate } from 'react-router-dom';
+import {useNavigate, useParams} from 'react-router-dom';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import {useState} from 'react'; 
@@ -60,6 +60,8 @@ const  RentalPage= () => {
   const urlParams = new URLSearchParams(window.location.search);
   const userIdString = urlParams.get('userid');
   const rentalIdString = urlParams.get('rentalId');
+
+    const { id } = useParams();
 
 
 

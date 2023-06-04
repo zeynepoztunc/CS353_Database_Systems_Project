@@ -11,6 +11,7 @@ import java.sql.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -121,4 +122,54 @@ public class RentalRepository {
         String sql = "DELETE FROM \"Rental\" WHERE \"rental-id\" = ?";
         jdbcTemplate.update(sql, id);
     }
+
+    public List<Double[]> getAllRentalLocations() {
+        String sql = "SELECT latitude, longitude FROM \"Rental\"";
+        List<Double[]> locations = jdbcTemplate.query(sql, new RowMapper<Double[]>() {
+            @Override
+            public Double[] mapRow(ResultSet rs, int rowNum) throws SQLException {
+                Double latitude = rs.getDouble("latitude");
+                Double longitude = rs.getDouble("longitude");
+                return new Double[]{latitude, longitude};
+            }
+        });
+        return locations;
+    }
+
+    // Function to calculate the distance between two points based on their latitudes and longitudes
+    public double calculateDistance(float lat1, float lon1, float lat2, float lon2) {
+        final int R = 6371; // Radius of the earth
+
+        double latDistance = Math.toRadians(lat2 - lat1);
+        double lonDistance = Math.toRadians(lon2 - lon1);
+        double a = Math.sin(latDistance / 2) * Math.sin(latDistance / 2)
+                + Math.cos(Math.toRadians(lat1)) * Math.cos(Math.toRadians(lat2))
+                * Math.sin(lonDistance / 2) * Math.sin(lonDistance / 2);
+        double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+
+        double distance = R * c;
+
+        return distance;
+    }
+
+    // Modify your database function to filter by distance
+    public List<String> getAllRentalLocations(float selectedLat, float selectedLon) {
+        String sql = "SELECT \"rental-name\", latitude, longitude FROM \"Rental\"";
+        List<String> locations = new ArrayList<>();
+
+        List<Map<String, Object>> rows = jdbcTemplate.queryForList(sql);
+        for (Map row : rows) {
+            float lat = (float) row.get("latitude");
+            float lon = (float) row.get("longitude");
+
+            double distance = calculateDistance(selectedLat, selectedLon, lat, lon);
+            if (distance <= 100) {
+                locations.add((String) row.get("rental-name"));
+            }
+        }
+
+        return locations;
+    }
+
+
 }
