@@ -166,7 +166,7 @@ public class AdminController {
     }
 
     @RequestMapping(value = "/listPastBookings", method = RequestMethod.GET)
-    public List<Map<String, Object>> listPastBookings(@RequestParam String userId){
-        return adminRepository.listPastBookings(userId);
+    public List<Map<String, Object>> listPastBookings(@RequestParam String userid){
+        return adminRepository.listPastBookings(userid);
     }
 }

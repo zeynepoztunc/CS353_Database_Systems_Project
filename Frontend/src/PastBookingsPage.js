@@ -31,7 +31,7 @@ function PastBookingsPage() {
 
   const fetchPast = async () => {
     try {
-      const response = await axios.get('http://localhost:8080/listPastBookings?userId=' + userIdString);
+      const response = await axios.get('http://localhost:8080/listPastBookings?userid=' + userIdString);
       console.log(response.data);
       if(response.data.length > 0){
         setItemExist(true);
