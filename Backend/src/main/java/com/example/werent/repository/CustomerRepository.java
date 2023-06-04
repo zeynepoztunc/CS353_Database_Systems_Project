@@ -355,10 +355,6 @@ public class CustomerRepository {
         }
     }
 
-    public void addLandmark(LandmarksDTO landmarkInfo){
-        String sqlAddLandmark = "INSERT INTO \"Landmark\" (\"user-id\", \"landmark-name\", description, city, province, latitude, longitude, accepted) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-        jdbcTemplate.update(sqlAddLandmark, landmarkInfo.getUserId(), landmarkInfo.getLandmarkName(), landmarkInfo.getDescription(), landmarkInfo.getCity(), landmarkInfo.getProvince(), landmarkInfo.getLatitude(), landmarkInfo.getLongitude(), null);
-    }
 
     public void leaveRating(ReviewDTO review){
         String sqlLeaveRating = "INSERT INTO \"Review\" (review, \"cleanliness-rating\", \"check-in-rating\", \"communication-rating\", \"accuracy-rating\", \"safety-rating\", \"location-rating\", \"value-rating\", \"is-anonymous\") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";

@@ -326,4 +326,18 @@ public class AdminRepository {
             return rows;
         }
     }
+
+    public void addLandmarkCust(String userId, String name,String desc, String city,String province,String lat,String longit){
+        String sqlAddLandmark = "INSERT INTO \"Landmark\" (\"user-id\", \"landmark-name\", description, city, province, latitude, longitude, accepted) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        jdbcTemplate.update(sqlAddLandmark, userId, name, desc, city, province, lat, longit, null);
+    }
+
+    public int reportStayedRental(String userId, String rentalId){
+        String sqlAddLandmarkSugg = "INSERT INTO \"Reports\"(\"user-id\", \"rental-id\", \"report-date\", description, \"is-confirmed\", evaluated) VALUES (?, ?, CURRENT_DATE, ?, ?, ?)";
+
+        int userIdInt = Integer.parseInt(userId);
+        int rentalIdInt = Integer.parseInt(rentalId);
+        int res = jdbcTemplate.update(sqlAddLandmarkSugg,userIdInt, rentalIdInt, "", false, false);
+        return res;
+    }
 }

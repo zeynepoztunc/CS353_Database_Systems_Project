@@ -146,11 +146,6 @@ public class CustomerController {
         return customerRepository.getPreviousBookings(userId);
     }
 
-    @RequestMapping(value = "/addLandmark", method = RequestMethod.POST)
-    public void addLandmark(@RequestBody LandmarksDTO landmarkInfo){
-        customerRepository.addLandmark(landmarkInfo);
-    }
-
     @RequestMapping(value = "/leaveRating", method = RequestMethod.POST)
     public void leaveRating(@RequestBody ReviewDTO review){
         customerRepository.leaveRating(review);

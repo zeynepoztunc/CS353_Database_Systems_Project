@@ -137,4 +137,14 @@ public class AdminController {
     public List<Map<String, Object>> listAnalytics(){
         return adminRepository.listAnalytics();
     }
+
+    @RequestMapping(value = "/addLandmarkCust", method = RequestMethod.POST)
+    public void addLandmarkCust(@RequestParam String userId,@RequestParam String name,@RequestParam String desc,@RequestParam String city,@RequestParam String province,@RequestParam String lat,@RequestParam String longit){
+        adminRepository.addLandmarkCust(userId, name, desc, city, province, lat, longit);
+    }
+
+    @RequestMapping(value = "/reportStayedRental", method = RequestMethod.POST)
+    public int reportStayedRental(@RequestParam String userId, @RequestParam String rentalId){
+        return adminRepository.reportStayedRental(userId, rentalId);
+    }
 }
