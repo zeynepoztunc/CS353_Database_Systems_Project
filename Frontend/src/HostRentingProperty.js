@@ -75,6 +75,11 @@ const  HostRentingProperty= () => {
     event.preventDefault();
     navigate('/HostRentingCurrentRents?userid=' + hostId);
   }
+
+  const gotoProfilePage = (event) => {
+    event.preventDefault();
+    navigate('/HostRentingProfilePage?userid=' + hostId);
+  }
   return (
     <>
   <meta charSet="utf-8" />
@@ -133,9 +138,9 @@ const  HostRentingProperty= () => {
                 </NavLink>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <NavLink onClick={gotoProfilePage} className="nav-link">
                   <i className="fas fa-user" style={{ fontSize: 24 }} />
-                </a>
+                </NavLink>
               </li>
               <li className="nav-item">
                 <NavLink onClick={gotoGeneralLogin} className="nav-link">

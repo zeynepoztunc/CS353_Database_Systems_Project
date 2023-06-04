@@ -129,6 +129,11 @@ const HostRentingFlatLocation = () => {
     navigate('/HostRentingCurrentRents?userid=' + userid);
   }
 
+  const gotoProfilePage = (event) => {
+    event.preventDefault();
+    navigate('/HostRentingProfilePage?userid=' + userid);
+  }
+
   return (
     <>
       <meta charSet="utf-8" />
@@ -223,9 +228,9 @@ const HostRentingFlatLocation = () => {
                 </NavLink>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <NavLink onClick={gotoProfilePage} className="nav-link">
                   <i className="fas fa-user" style={{ fontSize: 24 }} />
-                </a>
+                </NavLink>
               </li>
               <li className="nav-item">
                 <NavLink onClick={gotoGeneralLogin} className="nav-link">
