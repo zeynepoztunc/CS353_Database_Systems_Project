@@ -356,9 +356,10 @@ public class CustomerRepository {
     }
 
 
-    public void leaveRating(ReviewDTO review){
+    public int leaveRating(ReviewDTO review){
         String sqlLeaveRating = "INSERT INTO \"Review\" (review, \"cleanliness-rating\", \"check-in-rating\", \"communication-rating\", \"accuracy-rating\", \"safety-rating\", \"location-rating\", \"value-rating\", \"is-anonymous\") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        jdbcTemplate.update(sqlLeaveRating, review.getReview(), review.getCleanlinessRating(), review.getCheckInRating(), review.getCommunicationRating(), review.getAccuracyRating(), review.getSafetyRating(), review.getLocationRating(), review.getValueRating(), review.isAnonymous());
+        int res = jdbcTemplate.update(sqlLeaveRating, review.getReview(), review.getCleanlinessRating(), review.getCheckInRating(), review.getCommunicationRating(), review.getAccuracyRating(), review.getSafetyRating(), review.getLocationRating(), review.getValueRating(), review.isAnonymous());
+        return res;
     }
 
     public void putReport(ReportsDTO reportDetails){

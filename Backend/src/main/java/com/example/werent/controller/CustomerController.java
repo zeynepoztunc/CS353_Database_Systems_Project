@@ -147,8 +147,8 @@ public class CustomerController {
     }
 
     @RequestMapping(value = "/leaveRating", method = RequestMethod.POST)
-    public void leaveRating(@RequestBody ReviewDTO review){
-        customerRepository.leaveRating(review);
+    public int leaveRating(@RequestBody ReviewDTO review){
+        return customerRepository.leaveRating(review);
     }
 
     @RequestMapping(value = "/putReport", method = RequestMethod.POST)
