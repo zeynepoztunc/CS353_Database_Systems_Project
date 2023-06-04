@@ -18,6 +18,11 @@ public class AdminController {
         this.adminRepository = adminRepository;
     }
 
+    @RequestMapping(value = "/searchAtMain", method = RequestMethod.GET)
+    public List<Map<String, Object>> searchAtMain(@RequestParam String title){
+        return adminRepository.searchAtMain(title);
+    }
+
     @RequestMapping(value = "/adminHome", method = RequestMethod.GET)
     public GeneratedReportsDTO generateReport(){
         return adminRepository.generateReport();

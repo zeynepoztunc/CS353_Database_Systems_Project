@@ -5,7 +5,36 @@ import axios from "axios";
 
 const MainPage = () => {
 
+  const [search, setSearch] = useState("");
+  const [itemExist, setItemExist] = useState(false);
   const [placeValues, setPlaceValues] = useState([]);
+
+  const handleChange = (event) => {
+    setSearch(event.target.value);
+  }
+
+  const handleSearch = async (e) => {
+    e.preventDefault();
+
+    var searchInput = search;
+
+    try {
+      //console.log("BURAK: ", search);
+      const response = await axios.get('http://localhost:8080/searchAtMain?title=' + searchInput);
+      console.log(response.data);
+      if(response.data.length > 0){
+        setItemExist(true);
+        setPlaceValues(response.data);
+      }
+      else{
+        setItemExist(false);
+        setPlaceValues([{}]);
+      }
+    } catch (error) {
+      console.error('Failed:', error);
+      setPlaceValues([]);
+    }
+  }
 
   useEffect(() => {
     fetchData().then(r => console.log('fetched data'));
@@ -264,11 +293,14 @@ const MainPage = () => {
                               <i className="fa fa-search" />
                             </span>
                             <input
+                                id="searchInput"
                               className="form-control"
                               type="text"
                               placeholder="I am looking for.."
+                                value={search}
+                                onChange={handleChange}
                             />
-                            <button className="btn btn-light" type="button">
+                            <button className="btn btn-light" type="button" onClick={handleSearch}>
                               Search{" "}
                             </button>
                           </div>
