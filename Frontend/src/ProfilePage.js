@@ -20,6 +20,8 @@ function ProfilePage() {
     { id: 3, author: 'Liz', comment: 'Was very nice and welcoming', image: "./customerAssets/img/360_F_367464887_f0w1JrL8PddfuH3P2jSPlIGjKU2BI0rn.jpg" },
     { id: 4, author: 'Deniz', comment: 'Super guest!', image: "./customerAssets/img/smile-young-man-close-gorgeous-260nw-186076112.webp" }
   ]);
+  const [name, setName] = React.useState("");
+
   const reviewList = reviews.map((review) => (
     <div className="row">
 
@@ -401,7 +403,7 @@ function ProfilePage() {
                   <strong> </strong>
                 </h4>
                 <h4 className="fs-2" style={{ paddingBottom: 0, marginBottom: 28 }}>
-                  <strong>Welcome, Alice</strong>
+                  <strong>Welcome, {name}</strong>
                 </h4>
                 <div className="row">
                   <div className="col-lg-12">
