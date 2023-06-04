@@ -22,15 +22,16 @@ function CustomerAddLandmark() {
   };
 
   const modalAddLandmark = async (event) => {
+    event.preventDefault();
     try {
-      const response = await axios.post('http://localhost:8080//addLandmark?userId=' + userId);
+      const response = await axios.post('http://localhost:8080/addLandmarkCust?userId=' + userId + '&name=deniyoruzzz&desc=descriptonyaz&city=ankara&province=cankaya&lat=15&longit=15'); //TODO
       console.log(response.data);
       if(response.data == 0){
-        alert("Error Adding Landmark");
+        alert("Error Adding LANDMARK");
       }
       else if (response.data == 1){
-        navigate('/ProfilePage?userid='  + userId);
-        alert("Landmark Added successfully!");
+        navigate('/PastBookingsPage?userId=' + userId);
+        alert("User deleted successfully!");
       }
     } catch (error) {
       console.error('Failed:', error);
