@@ -19,6 +19,272 @@ export const AdminReviews = () => {
   const [evals, setEvals] = useState([]);
   const [itemExist, setItemExist] = useState(false);
 
+  
+  
+  
+  const [isCheckedCleanliness, setIsCheckedCleanliness] = useState(false);
+  const [isCheckedCheckin, setIsCheckedCheckin] = useState(false);
+  const [isCheckedCommunication, setIsCheckedCommunication] = useState(false);
+  const [isCheckedAccuracy, setIsCheckedAccuracy] = useState(false);
+  const [isCheckedSafety, setIsCheckedSafety] = useState(false);
+  const [isCheckedLocation, setIsCheckedLocation] = useState(false);
+  const [isCheckedValue, setIsCheckedValue] = useState(false);
+  const [isCheckedMostReviewed, setIsCheckedMostReviewed] = useState(false);
+  const [isCheckedLeastReviewed, setIsCheckedLeastReviewed] = useState(false);
+
+  const handleCleanliness = () => {
+    setIsCheckedCleanliness(!isCheckedCleanliness);
+    if (isCheckedCheckin) {
+      setIsCheckedCheckin(!isCheckedCheckin);
+    }
+    if ( isCheckedCommunication){
+      setIsCheckedCommunication(!isCheckedCommunication);
+    }
+    if (isCheckedAccuracy){
+      setIsCheckedAccuracy(!isCheckedAccuracy);
+    }
+    if (isCheckedSafety){
+      setIsCheckedSafety(!isCheckedSafety);
+    }
+    if (isCheckedLocation){
+      setIsCheckedLocation(!isCheckedLocation);
+    }
+    if (isCheckedValue) {
+      setIsCheckedValue(!isCheckedValue);
+    }
+    if (isCheckedMostReviewed) {
+      setIsCheckedMostReviewed(!isCheckedMostReviewed);
+    }
+    if (isCheckedLeastReviewed) {
+      setIsCheckedLeastReviewed(!isCheckedLeastReviewed);
+    }
+  }
+  
+  const handleCheckin = () => {
+    setIsCheckedCheckin(!isCheckedCheckin);
+    if (isCheckedCleanliness) {
+      setIsCheckedCleanliness(!isCheckedCleanliness);
+    }
+    if ( isCheckedCommunication){
+      setIsCheckedCommunication(!isCheckedCommunication);
+    }
+    if (isCheckedAccuracy){
+      setIsCheckedAccuracy(!isCheckedAccuracy);
+    }
+    if (isCheckedSafety){
+      setIsCheckedSafety(!isCheckedSafety);
+    }
+    if (isCheckedLocation){
+      setIsCheckedLocation(!isCheckedLocation);
+    }
+    if (isCheckedValue) {
+      setIsCheckedValue(!isCheckedValue);
+    }
+    if (isCheckedMostReviewed) {
+      setIsCheckedMostReviewed(!isCheckedMostReviewed);
+    }
+    if (isCheckedLeastReviewed) {
+      setIsCheckedLeastReviewed(!isCheckedLeastReviewed);
+    }
+  }
+  
+    
+  const handleCommunication = () => {
+    setIsCheckedCommunication(!isCheckedCommunication);
+    if (isCheckedCleanliness) {
+      setIsCheckedCleanliness(!isCheckedCleanliness);
+    }
+    if ( isCheckedCheckin){
+      setIsCheckedCheckin(!isCheckedCheckin);
+    }
+    if (isCheckedAccuracy){
+      setIsCheckedAccuracy(!isCheckedAccuracy);
+    }
+    if (isCheckedSafety){
+      setIsCheckedSafety(!isCheckedSafety);
+    }
+    if (isCheckedLocation){
+      setIsCheckedLocation(!isCheckedLocation);
+    }
+    if (isCheckedValue) {
+      setIsCheckedValue(!isCheckedValue);
+    }
+    if (isCheckedMostReviewed) {
+      setIsCheckedMostReviewed(!isCheckedMostReviewed);
+    }
+    if (isCheckedLeastReviewed) {
+      setIsCheckedLeastReviewed(!isCheckedLeastReviewed);
+    }
+  }
+  
+  const handleAccuracy = () => {
+    setIsCheckedAccuracy(!isCheckedAccuracy);
+    if (isCheckedCleanliness) {
+      setIsCheckedCleanliness(!isCheckedCleanliness);
+    }
+    if ( isCheckedCheckin){
+      setIsCheckedCheckin(!isCheckedCheckin);
+    }
+    if (isCheckedCommunication){
+      setIsCheckedCommunication(!isCheckedCommunication);
+    }
+    if (isCheckedSafety){
+      setIsCheckedSafety(!isCheckedSafety);
+    }
+    if (isCheckedLocation){
+      setIsCheckedLocation(!isCheckedLocation);
+    }
+    if (isCheckedValue) {
+      setIsCheckedValue(!isCheckedValue);
+    }
+    if (isCheckedMostReviewed) {
+      setIsCheckedMostReviewed(!isCheckedMostReviewed);
+    }
+    if (isCheckedLeastReviewed) {
+      setIsCheckedLeastReviewed(!isCheckedLeastReviewed);
+    }
+  }
+  
+  const handleSafety = () => {
+    setIsCheckedSafety(!isCheckedSafety);
+    if (isCheckedCleanliness) {
+      setIsCheckedCleanliness(!isCheckedCleanliness);
+    }
+    if ( isCheckedCheckin){
+      setIsCheckedCheckin(!isCheckedCheckin);
+    }
+    if (isCheckedCommunication){
+      setIsCheckedCommunication(!isCheckedCommunication);
+    }
+    if (isCheckedAccuracy){
+      setIsCheckedAccuracy(!isCheckedAccuracy);
+    }
+    if (isCheckedLocation){
+      setIsCheckedLocation(!isCheckedLocation);
+    }
+    if (isCheckedValue) {
+      setIsCheckedValue(!isCheckedValue);
+    }
+    if (isCheckedMostReviewed) {
+      setIsCheckedMostReviewed(!isCheckedMostReviewed);
+    }
+    if (isCheckedLeastReviewed) {
+      setIsCheckedLeastReviewed(!isCheckedLeastReviewed);
+    }
+  }
+  
+  const handleLocation = () => {
+    setIsCheckedLocation(!isCheckedLocation);
+    if (isCheckedCleanliness) {
+      setIsCheckedCleanliness(!isCheckedCleanliness);
+    }
+    if ( isCheckedCheckin){
+      setIsCheckedCheckin(!isCheckedCheckin);
+    }
+    if (isCheckedCommunication){
+      setIsCheckedCommunication(!isCheckedCommunication);
+    }
+    if (isCheckedAccuracy){
+      setIsCheckedAccuracy(!isCheckedAccuracy);
+    }
+    if (isCheckedSafety){
+      setIsCheckedSafety(!isCheckedSafety);
+    }
+    if (isCheckedValue) {
+      setIsCheckedValue(!isCheckedValue);
+    }
+    if (isCheckedMostReviewed) {
+      setIsCheckedMostReviewed(!isCheckedMostReviewed);
+    }
+    if (isCheckedLeastReviewed) {
+      setIsCheckedLeastReviewed(!isCheckedLeastReviewed);
+    }
+  }
+  
+  const handleValue = () => {
+    setIsCheckedValue(!isCheckedValue);
+    if (isCheckedCleanliness) {
+      setIsCheckedCleanliness(!isCheckedCleanliness);
+    }
+    if ( isCheckedCheckin){
+      setIsCheckedCheckin(!isCheckedCheckin);
+    }
+    if (isCheckedCommunication){
+      setIsCheckedCommunication(!isCheckedCommunication);
+    }
+    if (isCheckedAccuracy){
+      setIsCheckedAccuracy(!isCheckedAccuracy);
+    }
+    if (isCheckedSafety){
+      setIsCheckedSafety(!isCheckedSafety);
+    }
+    if (isCheckedLocation) {
+      setIsCheckedLocation(!isCheckedLocation);
+    }
+    if (isCheckedMostReviewed) {
+      setIsCheckedMostReviewed(!isCheckedMostReviewed);
+    }
+    if (isCheckedLeastReviewed) {
+      setIsCheckedLeastReviewed(!isCheckedLeastReviewed);
+    }
+  }
+  
+  const handleLeastReviewed = () => {
+    setIsCheckedLeastReviewed(!isCheckedLeastReviewed);
+    if (isCheckedCleanliness) {
+      setIsCheckedCleanliness(!isCheckedCleanliness);
+    }
+    if ( isCheckedCheckin){
+      setIsCheckedCheckin(!isCheckedCheckin);
+    }
+    if (isCheckedCommunication){
+      setIsCheckedCommunication(!isCheckedCommunication);
+    }
+    if (isCheckedAccuracy){
+      setIsCheckedAccuracy(!isCheckedAccuracy);
+    }
+    if (isCheckedSafety){
+      setIsCheckedSafety(!isCheckedSafety);
+    }
+    if (isCheckedLocation) {
+      setIsCheckedLocation(!isCheckedLocation);
+    }
+    if (isCheckedMostReviewed) {
+      setIsCheckedMostReviewed(!isCheckedMostReviewed);
+    }
+    if (isCheckedValue) {
+      setIsCheckedValue(!isCheckedValue);
+    }
+  }
+  
+  const handleMostReviewed = () => {
+    setIsCheckedMostReviewed(!isCheckedMostReviewed);
+    if (isCheckedCleanliness) {
+      setIsCheckedCleanliness(!isCheckedCleanliness);
+    }
+    if ( isCheckedCheckin){
+      setIsCheckedCheckin(!isCheckedCheckin);
+    }
+    if (isCheckedCommunication){
+      setIsCheckedCommunication(!isCheckedCommunication);
+    }
+    if (isCheckedAccuracy){
+      setIsCheckedAccuracy(!isCheckedAccuracy);
+    }
+    if (isCheckedSafety){
+      setIsCheckedSafety(!isCheckedSafety);
+    }
+    if (isCheckedLocation) {
+      setIsCheckedLocation(!isCheckedLocation);
+    }
+    if (isCheckedLeastReviewed) {
+      setIsCheckedLeastReviewed(!isCheckedLeastReviewed);
+    }
+    if (isCheckedValue) {
+      setIsCheckedValue(!isCheckedValue);
+    }
+  }
+  
   const reviews = [
     {
       name: "Airi Satou",
@@ -138,6 +404,8 @@ export const AdminReviews = () => {
                     className="form-check-input"
                     type="checkbox"
                     id="formCheck-1"
+                    checked={isCheckedCleanliness}
+                    onChange={handleCleanliness}
                   />
                   <label className="form-check-label" htmlFor="formCheck-1">
                     Highest Cleanliness
@@ -148,6 +416,8 @@ export const AdminReviews = () => {
                     className="form-check-input"
                     type="checkbox"
                     id="formCheck-2"
+                    checked={isCheckedCheckin}
+                    onChange={handleCheckin}
                   />
                   <label className="form-check-label" htmlFor="formCheck-2">
                     Highest Check-in
@@ -158,6 +428,8 @@ export const AdminReviews = () => {
                     className="form-check-input"
                     type="checkbox"
                     id="formCheck-3"
+                    checked={isCheckedCommunication}
+                    onChange={handleCommunication}
                   />
                   <label className="form-check-label" htmlFor="formCheck-3">
                     Highest Communication
@@ -168,6 +440,8 @@ export const AdminReviews = () => {
                     className="form-check-input"
                     type="checkbox"
                     id="formCheck-4"
+                    checked={isCheckedAccuracy}
+                    onChange={handleAccuracy}
                   />
                   <label className="form-check-label" htmlFor="formCheck-4">
                     Highest Accuracy
@@ -178,6 +452,8 @@ export const AdminReviews = () => {
                     className="form-check-input"
                     type="checkbox"
                     id="formCheck-5"
+                    checked={isCheckedSafety}
+                    onChange={handleSafety}
                   />
                   <label className="form-check-label" htmlFor="formCheck-5">
                     Highest Safety
@@ -188,6 +464,8 @@ export const AdminReviews = () => {
                     className="form-check-input"
                     type="checkbox"
                     id="formCheck-6"
+                    checked={isCheckedLocation}
+                    onChange={handleLocation}
                   />
                   <label className="form-check-label" htmlFor="formCheck-6">
                     Highest Location
@@ -198,6 +476,8 @@ export const AdminReviews = () => {
                     className="form-check-input"
                     type="checkbox"
                     id="formCheck-7"
+                    checked={isCheckedValue}
+                    onChange={handleValue}
                   />
                   <label className="form-check-label" htmlFor="formCheck-7">
                     Highest Value
@@ -208,6 +488,8 @@ export const AdminReviews = () => {
                     className="form-check-input"
                     type="checkbox"
                     id="formCheck-8"
+                    checked={isCheckedLeastReviewed}
+                    onChange={handleLeastReviewed}
                   />
                   <label className="form-check-label" htmlFor="formCheck-8">
                     Least Reviewed
@@ -218,6 +500,8 @@ export const AdminReviews = () => {
                     className="form-check-input"
                     type="checkbox"
                     id="formCheck-9"
+                    checked={isCheckedMostReviewed}
+                    onChange={handleMostReviewed}
                   />
                   <label className="form-check-label" htmlFor="formCheck-9">
                     Most Reviewed
