@@ -165,6 +165,7 @@ function PastBookingsPage() {
                     <th className="text-danger">Rental Name</th>
                     <th className="text-danger">Host</th>
                     <th className="text-danger">Guest Number</th>
+                    <th className="text-danger">Price</th>
                     <th className="text-danger">Leave Review</th>
                   </tr>
                 </thead>
@@ -207,6 +208,7 @@ function PastBookingsPage() {
                       </Modal.Footer>
                     </Modal>
                     <td className="text-left" >{item['number-of-guests']}</td>
+                    <td className="text-left" >{item['price']}</td>
                     <td className="text-left" >
                       <button
                       className="btn btn-primary btn btn-custom-class"
@@ -221,7 +223,7 @@ function PastBookingsPage() {
                         marginTop: "-25px"
                       }}
                     >
-                      Back
+                      Leave Review
                     </button>
                     </td>
                    

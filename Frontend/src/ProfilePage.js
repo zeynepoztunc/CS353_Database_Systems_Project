@@ -125,10 +125,6 @@ useEffect(() => {
   const [username, setUsername] = useState('');
   //const [surname, setSurname] = useState('JohnDoe');
   //const [fullname, setFullName] = useState('');
-  //const [profileName, setProfileName] = useState('Alice Thompson');
-  //const [email, setEmail] = useState('alice.thompson@gmail.com');
-  //const [description, setDescription] = useState('Hi! My  name is Alice and I currently live in Spain');
-  //const [password, setPassword] = useState('******');
   const handleEditClick = () => {
     setEditMode(true);
   };
