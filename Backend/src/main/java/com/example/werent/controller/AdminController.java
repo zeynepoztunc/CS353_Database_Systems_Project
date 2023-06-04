@@ -18,6 +18,8 @@ public class AdminController {
         this.adminRepository = adminRepository;
     }
 
+
+
     @RequestMapping(value = "/searchAtMain", method = RequestMethod.GET)
     public List<Map<String, Object>> searchAtMain(@RequestParam String title){
         return adminRepository.searchAtMain(title);
@@ -151,6 +153,16 @@ public class AdminController {
     @RequestMapping(value = "/reportStayedHost", method = RequestMethod.POST)
     public int reportStayedHost(@RequestParam String userId, @RequestParam String userId2){
         return adminRepository.reportStayedHost(userId, userId2);
+    }
+
+    @RequestMapping(value = "/heartRental", method = RequestMethod.POST)
+    public int heartRental(@RequestParam String userId, @RequestParam String rentalId){
+        return adminRepository.heartRental(userId, rentalId);
+    }
+
+    @RequestMapping(value = "/unheartRental", method = RequestMethod.DELETE)
+    public int unheartRental(@RequestParam String userId, @RequestParam String rentalId){
+        return adminRepository.unheartRental(userId, rentalId);
     }
 
     @RequestMapping(value = "/listPastBookings", method = RequestMethod.GET)

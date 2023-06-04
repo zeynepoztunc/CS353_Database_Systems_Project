@@ -31,7 +31,7 @@ function PastBookingsPage() {
 
   const fetchPast = async () => {
     try {
-      const response = await axios.get('http://localhost:8080/listPastBookings?userId=' + userId);
+      const response = await axios.get('http://localhost:8080/listPastBookings?userId=' + userIdString);
       console.log(response.data);
       if(response.data.length > 0){
         setItemExist(true);
@@ -191,7 +191,7 @@ function PastBookingsPage() {
                       </Modal.Footer>
                     </Modal>
                           </td>
-                    <td>{item['host-name']} <i className="fas fa-flag" onClick={() => setIsModal2Open(true)}></i></td>
+                    <td>{item['name']} <i className="fas fa-flag" onClick={() => setIsModal2Open(true)}></i></td>
                     <Modal show={isModal2Open} onHide={() => setIsModal2Open(false)}>
                       <Modal.Header closeButton>
                         <Modal.Title>Confirmation</Modal.Title>
