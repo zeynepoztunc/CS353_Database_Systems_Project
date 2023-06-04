@@ -432,11 +432,12 @@ useEffect(() => {
                 <h4 className="fs-2" style={{ paddingBottom: 0, marginBottom: 28 }}>
                   <strong> </strong>
                 </h4>
+
                 <h4 className="fs-2" style={{ paddingBottom: 0, marginBottom: 28 }}>
                   <strong> </strong>
                 </h4>
-                <h4 className="fs-2" style={{ paddingBottom: 0, marginBottom: 28 }}>
-                  <strong>Welcome, {name}</strong>
+                <h4 className="fs-2" style={{ paddingBottom: 0, marginBottom: 28,marginTop:40 }}>
+                  <strong > Welcome, {name}</strong>
                 </h4>
                 <div className="row">
                   <div className="col-lg-12">
@@ -576,6 +577,7 @@ useEffect(() => {
                         <h5 className="card-title">
                           <strong>Description</strong>
                         </h5>
+                        
                         {/* <h6 className="text-muted card-subtitle mb-2">
                             <span style={{ color: "rgb(5, 6, 7)" }}>
                               Hi, my name is Alice and I currently live in Spain
