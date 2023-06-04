@@ -1,50 +1,55 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useEffect,  useState } from "react";
-import NavBar from './NavBar.js';
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import NavBar from "./NavBar.js";
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
-import Modal from 'react-bootstrap/Modal';
-import axios from 'axios';
-import Button from 'react-bootstrap/Button';
+import Modal from "react-bootstrap/Modal";
+import axios from "axios";
+import Button from "react-bootstrap/Button";
 
 function CustomerAddLandmark() {
-
+  const [name, setName] = useState("");
+  const [desc, setDesc] = useState("");
+  const [city, setCity] = useState("");
+  const [province, setProvince] = useState("");
+  const [lat, setLat] = useState();
+  const [longit, setLongit] = useState();
+  const [files, setFiles] = useState([]);
+  const [formIsValid, setIsFormValid] = useState(false);
   const navigate = useNavigate();
 
   const urlParams = new URLSearchParams(window.location.search);
-  const userIdString = urlParams.get('userid');
+  const userIdString = urlParams.get("userid");
   const userId = parseInt(userIdString, 10);
-
+  const dropdownCities = [];
+  const dropdownProvinces = [];
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleAddLandmark = () => {
-      setIsModalOpen(true);
+    setIsModalOpen(true);
   };
 
   const modalAddLandmark = async (event) => {
     event.preventDefault();
 
-    const name = "deniyoruzzz";
-    const desc = "descriptonyaz";
-    const city = "ankara";
-    const province = "cankaya";
-    const lat = 15;
-    const longit = 15;
-
     try {
+      console.log("the name" + name);
+      console.log("the city"+city);
+      console.log("the province"+province);
+      console.log("the desc"+desc);
+
       const response = await axios.post(
-            `http://localhost:8080/addLandmarkCust?userId=${userId}&name=${name}&desc=${desc}&city=${city}&province=${province}&lat=${lat}&longit=${longit}`
+        `http://localhost:8080/addLandmarkCust?userId=${userId}&name=${name}&desc=${desc}&city=${city}&province=${province}&lat=${lat}&longit=${longit}`
       );
-      console.log( response.data);
-      if( response.data == 0){
+      console.log(response.data);
+      if (response.data == 0) {
         alert("Error Adding LANDMARK");
-      }
-      else if (response.data == 1){
-        navigate('/PastBookingsPage?userId=' + userId);
+      } else if (response.data == 1) {
+        navigate("/PastBookingsPage?userId=" + userId);
         alert("User deleted successfully!");
       }
     } catch (error) {
-      console.error('Failed:', error);
+      console.error("Failed:", error);
     }
 
     setIsModalOpen(false);
@@ -52,25 +57,24 @@ function CustomerAddLandmark() {
   };
 
   const containerStyle = {
-    width: '435px',
-    height: '400px',
+    width: "435px",
+    height: "400px",
   };
 
   const defaultCenter = {
     lat: 39.8813,
-    lng: 32.6984
+    lng: 32.6984,
   };
   const handleMapClick = (event) => {
     setSelectedLocation({
       lat: event.latLng.lat(),
-      lng: event.latLng.lng()
+      lng: event.latLng.lng(),
     });
   };
 
   const [selectedLocation, setSelectedLocation] = useState(null);
 
   return (
-
     <>
       <meta charSet="utf-8" />
       <meta
@@ -83,22 +87,37 @@ function CustomerAddLandmark() {
         rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i&display=swap"
       />
-      <link rel="stylesheet" href="assets/css/Font%20Awesome%205%20Brands.css" />
+      <link
+        rel="stylesheet"
+        href="assets/css/Font%20Awesome%205%20Brands.css"
+      />
       <link rel="stylesheet" href="assets/css/Font%20Awesome%205%20Free.css" />
       <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css" />
       <link rel="stylesheet" href="assets/fonts/font-awesome.min.css" />
-      <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css" />
+      <link
+        rel="stylesheet"
+        href="assets/fonts/fontawesome5-overrides.min.css"
+      />
       <link rel="stylesheet" href="assets/css/baguetteBox.min.css" />
       <link
         rel="stylesheet"
         href="assets/css/Bootstrap-4-Calendar-No-Custom-Code.css"
       />
       <link rel="stylesheet" href="assets/css/Drag--Drop-Upload-Form.css" />
-      <link rel="stylesheet" href="assets/css/Drag-Drop-File-Input-Upload.css" />
+      <link
+        rel="stylesheet"
+        href="assets/css/Drag-Drop-File-Input-Upload.css"
+      />
       <link rel="stylesheet" href="assets/css/pop-up-boxes.css" />
       <link rel="stylesheet" href="assets/css/vanilla-zoom.min.css" />
-      <link rel="stylesheet" href="assets/css/bootstrap/css/bootstrap.min.css" />
-      <link rel="stylesheet" href="https://cdn.reflowhq.com/v2/toolkit.min.css" />
+      <link
+        rel="stylesheet"
+        href="assets/css/bootstrap/css/bootstrap.min.css"
+      />
+      <link
+        rel="stylesheet"
+        href="https://cdn.reflowhq.com/v2/toolkit.min.css"
+      />
       <link rel="stylesheet" href="assets/css/fonts/fontawesome-all.min.css" />
       <link rel="stylesheet" href="assets/css/css/baguetteBox.min.css" />
       <link
@@ -109,9 +128,15 @@ function CustomerAddLandmark() {
         rel="stylesheet"
         href="assets/css/Button-modal-ecommerce-bs4_modal.min.css"
       />
-      <link rel="stylesheet" href="assets/css/Button-modal-ecommerce-styles.css" />
+      <link
+        rel="stylesheet"
+        href="assets/css/Button-modal-ecommerce-styles.css"
+      />
       <link rel="stylesheet" href="assets/css/Hover-Button-1.css" />
-      <link rel="stylesheet" href="assets/css/bootstrap/css/bootstrap.min-1.css" />
+      <link
+        rel="stylesheet"
+        href="assets/css/bootstrap/css/bootstrap.min-1.css"
+      />
 
       <NavBar></NavBar>
 
@@ -133,9 +158,7 @@ function CustomerAddLandmark() {
                     zoom={10}
                     onClick={handleMapClick}
                   >
-                    {selectedLocation && (
-                      <Marker position={selectedLocation} />
-                    )}
+                    {selectedLocation && <Marker position={selectedLocation} />}
                   </GoogleMap>
                 </LoadScript>
 
@@ -150,6 +173,17 @@ function CustomerAddLandmark() {
               <span />
               <div>
                 <label className="form-label" style={{ fontWeight: "bold" }}>
+                  Name
+                </label>
+                <div>
+                  <input type="text" value={name} onChange={(input)=>{setName(input)}}/>
+                </div>
+                <div>
+                  <span className="text-white-50">Text</span>
+                </div>
+              </div>
+              <div>
+                <label className="form-label" style={{ fontWeight: "bold" }}>
                   City
                 </label>
                 <div className="dropdown">
@@ -162,21 +196,22 @@ function CustomerAddLandmark() {
                     Select your city
                   </button>
                   <div className="dropdown-menu">
-                    <a className="dropdown-item" href="#">
-                      First Item
-                    </a>
-                    <a className="dropdown-item" href="#">
-                      Second Item
-                    </a>
-                    <a className="dropdown-item" href="#">
-                      Third Item
-                    </a>
+                    {dropdownCities.map((item) => (
+                      <a
+                        className="dropdown-item"
+                        key={item.value}
+                        onClick={() => setCity(item.label)}
+                      >
+                        {item.label}
+                      </a>
+                    ))}
                   </div>
                 </div>
               </div>
               <div>
                 <span className="text-white-50">Text</span>
               </div>
+
               <div>
                 <label className="form-label" style={{ fontWeight: "bold" }}>
                   Province
@@ -191,15 +226,15 @@ function CustomerAddLandmark() {
                     Select your province
                   </button>
                   <div className="dropdown-menu">
-                    <a className="dropdown-item" href="#">
-                      First Item
-                    </a>
-                    <a className="dropdown-item" href="#">
-                      Second Item
-                    </a>
-                    <a className="dropdown-item" href="#">
-                      Third Item
-                    </a>
+                    {dropdownProvinces.map((item) => (
+                      <a
+                        className="dropdown-item"
+                        key={item.value}
+                        onClick={() => setProvince(item.label)}
+                      >
+                        {item.label}
+                      </a>
+                    ))}
                   </div>
                 </div>
                 <div>
@@ -210,11 +245,11 @@ function CustomerAddLandmark() {
                 Information about the landmark *optional
               </label>
               <div>
-              <textarea
-                className="form-control"
-                value={landmarkInfo} // Bind the textarea value to the landmark info state
-                onChange={handleLandmarkInfoChange} // Call the event handler when the textarea value changes
-              />
+                <textarea
+                  className="form-control"
+                  value={desc} // Bind the textarea value to the landmark info state
+                  onChange={(desc)=>{setDesc(desc)}}
+                />
               </div>
               <div>
                 <span className="text-white-50">Text</span>
@@ -228,100 +263,43 @@ function CustomerAddLandmark() {
                     className="form-control"
                     type="file"
                     multiple=""
-                    name="files"
+                    value={files}
+                    onChange={(event)=>{setFiles(event)}}
                   />
                 </div>
                 <div style={{ textAlign: "left" }} />
               </div>
-              <button className="btn btn-primary" type="button" onClick={handleAddLandmark}>
+              <button
+                className="btn btn-primary"
+                type="button"
+                onClick={handleAddLandmark}
+              >
                 Add Landmark
               </button>
               <Modal show={isModalOpen} onHide={() => setIsModalOpen(false)}>
-              <Modal.Header >
-                <Modal.Title>Confirmation</Modal.Title>
-              </Modal.Header>
-              <Modal.Body>
-                Are you sure you want to add the landmark?
-              </Modal.Body>
-              <Modal.Footer>
-                <Button variant="secondary" onClick={() => setIsModalOpen(false)}>
-                  Cancel
-                </Button>
-                <Button variant="danger" onClick={modalAddLandmark}>
-                  Add
-                </Button>
-              </Modal.Footer>
+                <Modal.Header>
+                  <Modal.Title>Confirmation</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                  Are you sure you want to add the landmark?
+                </Modal.Body>
+                <Modal.Footer>
+                  <Button
+                    variant="secondary"
+                    onClick={() => setIsModalOpen(false)}
+                  >
+                    Cancel
+                  </Button>
+                  <Button variant="danger" onClick={modalAddLandmark}>
+                    Add
+                  </Button>
+                </Modal.Footer>
               </Modal>
               <div />
             </form>
           </div>
         </section>
       </main>
-      <footer className="page-footer dark">
-        <div className="container">
-          <div className="row">
-            <div className="col-sm-3">
-              <h5>Get started</h5>
-              <ul>
-                <li>
-                  <a href="#">Home</a>
-                </li>
-                <li>
-                  <a href="#">Sign up</a>
-                </li>
-                <li>
-                  <a href="#">Downloads</a>
-                </li>
-              </ul>
-            </div>
-            <div className="col-sm-3">
-              <h5>About us</h5>
-              <ul>
-                <li>
-                  <a href="#">Company Information</a>
-                </li>
-                <li>
-                  <a href="#">Contact us</a>
-                </li>
-                <li>
-                  <a href="#">Reviews</a>
-                </li>
-              </ul>
-            </div>
-            <div className="col-sm-3">
-              <h5>Support</h5>
-              <ul>
-                <li>
-                  <a href="#">FAQ</a>
-                </li>
-                <li>
-                  <a href="#">Help desk</a>
-                </li>
-                <li>
-                  <a href="#">Forums</a>
-                </li>
-              </ul>
-            </div>
-            <div className="col-sm-3">
-              <h5>Legal</h5>
-              <ul>
-                <li>
-                  <a href="#">Terms of Service</a>
-                </li>
-                <li>
-                  <a href="#">Terms of Use</a>
-                </li>
-                <li>
-                  <a href="#">Privacy Policy</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div className="footer-copyright">
-          <p>© 2023 WeRent Inc.</p>
-        </div>
-      </footer>
     </>
   );
 }
