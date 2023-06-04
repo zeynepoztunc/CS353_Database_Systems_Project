@@ -223,7 +223,7 @@ function PastBookingsPage() {
                         marginTop: "-25px"
                       }}
                     >
-                      Leave Rating
+                      Leave Review
                     </button>
                     </td>
                    
