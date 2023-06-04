@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect,  useState } from "react";
 import NavBar from './NavBar.js';
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 import Modal from 'react-bootstrap/Modal';
@@ -23,10 +23,20 @@ function CustomerAddLandmark() {
 
   const modalAddLandmark = async (event) => {
     event.preventDefault();
+
+    const name = "deniyoruzzz";
+    const desc = "descriptonyaz";
+    const city = "ankara";
+    const province = "cankaya";
+    const lat = 15;
+    const longit = 15;
+
     try {
-      const response = await axios.post('http://localhost:8080/addLandmarkCust?userId=' + userId + '&name=deniyoruzzz&desc=descriptonyaz&city=ankara&province=cankaya&lat=15&longit=15'); //TODO
-      console.log(response.data);
-      if(response.data == 0){
+      const response = await axios.post(
+            `http://localhost:8080/addLandmarkCust?userId=${userId}&name=${name}&desc=${desc}&city=${city}&province=${province}&lat=${lat}&longit=${longit}`
+      );
+      console.log( response.data);
+      if( response.data == 0){
         alert("Error Adding LANDMARK");
       }
       else if (response.data == 1){
@@ -200,7 +210,11 @@ function CustomerAddLandmark() {
                 Information about the landmark *optional
               </label>
               <div>
-                <textarea className="form-control" defaultValue={""} />
+              <textarea
+                className="form-control"
+                value={landmarkInfo} // Bind the textarea value to the landmark info state
+                onChange={handleLandmarkInfoChange} // Call the event handler when the textarea value changes
+              />
               </div>
               <div>
                 <span className="text-white-50">Text</span>
