@@ -327,9 +327,14 @@ public class AdminRepository {
         }
     }
 
-    public void addLandmarkCust(String userId, String name,String desc, String city,String province,String lat,String longit){
-        String sqlAddLandmark = "INSERT INTO \"Landmark\" (\"user-id\", \"landmark-name\", description, city, province, latitude, longitude, accepted) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-        jdbcTemplate.update(sqlAddLandmark, userId, name, desc, city, province, lat, longit, null);
+    public int addLandmarkCust(String userId, String name,String desc, String city,String province,String lat,String longit){
+        String sqlAddLandmark = "INSERT INTO \"Landmarks\" (\"user-id\", \"landmark-name\", description, city, province, latitude, longitude, accepted) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+
+        int userIdInt = Integer.parseInt(userId);
+        float latInt = Float.parseFloat(lat);
+        float longitInt = Float.parseFloat(longit);
+        int res = jdbcTemplate.update(sqlAddLandmark, userIdInt, name, desc, city, province, latInt, longitInt, null);
+        return res;
     }
 
     public int reportStayedRental(String userId, String rentalId){

@@ -139,8 +139,8 @@ public class AdminController {
     }
 
     @RequestMapping(value = "/addLandmarkCust", method = RequestMethod.POST)
-    public void addLandmarkCust(@RequestParam String userId,@RequestParam String name,@RequestParam String desc,@RequestParam String city,@RequestParam String province,@RequestParam String lat,@RequestParam String longit){
-        adminRepository.addLandmarkCust(userId, name, desc, city, province, lat, longit);
+    public int addLandmarkCust(@RequestParam String userId,@RequestParam String name,@RequestParam String desc,@RequestParam String city,@RequestParam String province,@RequestParam String lat,@RequestParam String longit){
+        return adminRepository.addLandmarkCust(userId, name, desc, city, province, lat, longit);
     }
 
     @RequestMapping(value = "/reportStayedRental", method = RequestMethod.POST)
