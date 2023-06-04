@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e555480-ab5a-407e-a171-4062daf29606" name="Changes" comment="small fixes">
+    <list default="true" id="5e555480-ab5a-407e-a171-4062daf29606" name="Changes" comment="customer landmark city and district problem solved">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/CustomerAddLandmark.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/CustomerAddLandmark.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/controller/RentalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/controller/RentalController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/repository/RentalRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/repository/RentalRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/MapPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/MapPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/RentalPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/RentalPage.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -199,7 +203,7 @@
       <workItem from="1685880282116" duration="124000" />
       <workItem from="1685880947164" duration="5443000" />
       <workItem from="1685886916197" duration="194000" />
-      <workItem from="1685891024925" duration="3654000" />
+      <workItem from="1685891024925" duration="10485000" />
     </task>
     <task id="LOCAL-00001" summary="new upload">
       <created>1684410800015</created>
@@ -453,7 +457,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685893521383</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="customer landmark city and district problem solved">
+      <created>1685895305193</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1685895305193</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -472,7 +483,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="up to price selection is done" />
     <MESSAGE value="flat selection pages processing" />
     <MESSAGE value="flat details done" />
     <MESSAGE value="price and cancel policy done" />
@@ -497,7 +507,8 @@
     <MESSAGE value="host profile page done" />
     <MESSAGE value="auto approve deleted" />
     <MESSAGE value="small fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="small fixes" />
+    <MESSAGE value="customer landmark city and district problem solved" />
+    <option name="LAST_COMMIT_MESSAGE" value="customer landmark city and district problem solved" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

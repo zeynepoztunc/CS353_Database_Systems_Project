@@ -90,6 +90,7 @@ function App() {
         <Route exact path='/HostLogin' element={<HostLogin/>} />
         <Route exact path='/AddLandmark' element={<CustomerAddLandmark/>} />
         <Route exact path='/HostRentingProfilePage' element={<HostRentingProfilePage/>} />
+       <Route path="/RentalPage/:id" element={<RentalPage />} />
 
 
     </Routes>

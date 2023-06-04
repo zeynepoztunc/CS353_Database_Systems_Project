@@ -47,6 +47,18 @@ public class RentalController {
         rentalRepository.updateLocation(rentalLocation.getRentalId(), rentalLocation.getCity(), rentalLocation.getProvince(), rentalLocation.getAddress(),rentalLocation.getLatitude(), rentalLocation.getLongitude());
     }
 
+    @GetMapping("/getRentalLocation")
+    public List<Double[]> getAllRentalLocations()
+    {
+        return rentalRepository.getAllRentalLocations();
+    }
+
+    @GetMapping("getRentalLocationInRange")
+    public List<String> getRentalLocationsInRange(@RequestParam float lat, @RequestParam float lng)
+    {
+        return rentalRepository.getAllRentalLocations(lat,lng);
+    }
+
     @PutMapping("/updateRentalInfo")
     public void updateRentalInfo(@RequestBody RentalDTO rentalDTO)
     {

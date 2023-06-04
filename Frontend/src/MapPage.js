@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import { useState } from 'react';
 import NavBar from './NavBar.js';
+import axios from "axios";
 
 function MapPage() {
 
@@ -25,15 +26,64 @@ function MapPage() {
     },
   ]);
 
+
+  const [selectedLocation, setSelectedLocation] = useState(null);
+
   const [selectedFilters, setSelectedFilters] = useState([]);
   const [showFavoritesOnly, setShowFavoritesOnly] = useState(false);
 
+  const urlParams = new URLSearchParams(window.location.search);
+  const userid = urlParams.get("userid");
+
+  const [rentalLocations, setRentalLocations] = useState([]);
+  const [nearbyRentals,setNearbyRentals] = useState([]);
+
+  const fetchAllRentalLocations = async () => {
+    try {
+      const response = await axios.get('http://localhost:8080/Rentals/getRentalLocation');
+      setRentalLocations(response.data);
+      console.log(response.data);
+      return response.data;
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const fetchNearbyRentalLocations = async (lat, lng) => {
+    try {
+      const response = await axios.get(`http://localhost:8080/Rentals/getRentalLocationInRange?lat=${lat}&lng=${lng}`);
+      setNearbyRentals(response.data);
+      console.log(response.data);
+      return response.data;
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+
+  // Fetch all rental locations when the component mounts
+  useEffect(() => {
+    fetchAllRentalLocations();
+  }, []);
+
+// Fetch rental locations within 100km whenever the selected location changes
+  useEffect(() => {
+    if (selectedLocation) {
+      fetchNearbyRentalLocations(selectedLocation.lat, selectedLocation.lng);
+    }
+  }, [selectedLocation]);
+
+
+
+
+
+
   const applyFilters = () => {
-    let filteredRentals = placeValues;
+    let filteredRentals = nearbyRentals;
 
     if (selectedFilters.length > 0) {
       filteredRentals = filteredRentals.filter((item) => {
-        const rentalName = item.rentalName.toLowerCase();
+        const rentalName = item["rental-name"].toLowerCase();
         return selectedFilters.some((filter) => rentalName.includes(filter));
       });
     }
@@ -82,7 +132,6 @@ function MapPage() {
     });
   };
 
-  const [selectedLocation, setSelectedLocation] = useState(null);
 
   const navigate = useNavigate();
 
@@ -120,16 +169,18 @@ function MapPage() {
               <h2 className="text-info">MAP</h2>
               <LoadScript googleMapsApiKey="AIzaSyAdc1phOB8xRTsyJwEa3wBuAGPIg9ZFnJ4">
                 <GoogleMap
-                  mapContainerStyle={containerStyle}
-                  center={defaultCenter}
-                  zoom={10}
-                  onClick={handleMapClick}
+                    mapContainerStyle={containerStyle}
+                    center={defaultCenter}
+                    zoom={10}
+                    onClick={handleMapClick}
                 >
-                  {selectedLocation && (
-                    <Marker position={selectedLocation} />
-                  )}
+                  {rentalLocations.map((location, index) => (
+                      <Marker key={index} position={{ lat: location[0], lng: location[1] }} />
+                  ))}
+                  {selectedLocation && <Marker position={selectedLocation} />}
                 </GoogleMap>
               </LoadScript>
+
 
               {selectedLocation && (
                 <div>
@@ -198,69 +249,32 @@ function MapPage() {
                 </div>
               </div>
               <div
-                className="col-md-6 col-xl-5 col-xxl-9"
-                style={{
-                  borderStyle: "none",
-              /*borderRightStyle: 'solid', */ borderLeftStyle: "none",
-                  marginLeft: 0
-                }}
+                  className="col-md-6 col-xl-5 col-xxl-9 mx-auto"
               >
                 <div>
-                  {applyFilters().map((item, index) => (
-                    <div className="row">
+                  {nearbyRentals.map((item,index) => (
+                      <div key={index} className="row">
                       <div className="col-xl-6">
-                        <div
-                          className="clean-product-item"
-                          style={{ marginLeft: 76 }}
-                        >
-                          <img
-                            className="img-fluid d-block mx-auto"
-                            src={item.img}
-                            width={113}
-                            height={113}
-                          />
-                        </div>
+
                       </div>
-                      <div
-                        className="col-xl-6"
-                        style={{
-                          marginTop: 18,
-                          paddingRight: 4,
-                          marginRight: 0,
-                          marginLeft: "-38px"
-                        }}
-                      >
-                        <div style={{ position: "relative" }}>
-                          <label
-                            onClick={goToRentalPage}
-                            className="form-label"
-                            style={{
-                              color: "var(--bs-blue)",
-                              textDecoration: "underline",
-                              paddingRight: 30 // Adjust padding as needed
-                            }}
-                          >
-                            {item.rentalName}
-                          </label>
-                          <i
-                            className={item['is-favorited'] ? "fas fa-heart" : "far fa-heart"}
-                            style={{
-                              position: "absolute",
-                              right: 0,
-                              top: "50%",
-                              transform: "translateY(-50%)",
-                              fontSize: 20
-                            }}
-                          />
+                        <div className="col-xl-6 mt-3">
+                          <div className="card">
+                            <div className="card-body">
+                              <h5 className="card-title">Rental Location</h5>
+                              <p className="card-text">
+                                { "Rental Name: " + nearbyRentals[index] }
+                              </p>
+                              <button
+                                  onClick={goToRentalPage}
+                                  className="btn btn-primary"
+                              >
+                                View Details
+                              </button>
+                            </div>
+                          </div>
                         </div>
 
-                        <div>
-                          <label className="form-label" style={{ marginTop: 26 }}>
-                            {item.description}
-                          </label>
-                        </div>
                       </div>
-                    </div>
                   ))}
                 </div>
 
