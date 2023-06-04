@@ -191,7 +191,7 @@ function PastBookingsPage() {
                       </Modal.Footer>
                     </Modal>
                           </td>
-                    <td>{item['name']} <i className="fas fa-flag" onClick={() => setIsModal2Open(true)}></i></td>
+                    <td>{item['name']} {item['surname']}<i className="fas fa-flag" onClick={() => setIsModal2Open(true)}></i></td>
                     <Modal show={isModal2Open} onHide={() => setIsModal2Open(false)}>
                       <Modal.Header closeButton>
                         <Modal.Title>Confirmation</Modal.Title>
