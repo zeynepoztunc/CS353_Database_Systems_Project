@@ -169,7 +169,7 @@ const HostRentingProfilePage = () => {
                                 <img
                                     className="rounded-circle d-lg-flex align-items-lg-start"
                                     src="./hostAssets/img/photo-1603775020644-eb8decd79994.jpg"
-                                    style={{ paddingLeft: 0, marginLeft: 48 }}
+                                    style={{ paddingLeft: 0, marginLeft: 100 }}
                                     width={126}
                                     height={111}
                                 />
