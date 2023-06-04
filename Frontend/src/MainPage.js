@@ -38,7 +38,10 @@ const MainPage = () => {
 
   useEffect(() => {
     fetchData().then(r => console.log('fetched data'));
-  }, []);
+
+  },
+   []);
+  
 
   const urlParams = new URLSearchParams(window.location.search);
   const userIdString = urlParams.get('userid');
@@ -49,6 +52,7 @@ const MainPage = () => {
       const response = await axios.get(`http://localhost:8080/Customers/main/listRentalsForCustomer?userId=${userId}`);
       console.log(response.data);
       setPlaceValues(response.data);
+      console.log(response.data['image-path']);
     } catch (error) {
       console.error('Failed to fetch rentals:', error);
       setPlaceValues([]);
@@ -321,7 +325,7 @@ const MainPage = () => {
                               <a href="#">
                                 <img
                                   className="img-fluid d-block mx-auto"
-                                  src={item.img}
+                                  src={item['image-path']}
                                   width={181}
                                   height={180}
                                 />
