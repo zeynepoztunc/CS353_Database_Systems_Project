@@ -30,6 +30,7 @@ import AdminReport from './AdminReport';
 import AdminReviews from './AdminReviews';
 import AdminViewPost from './AdminViewPost';
 import AdminViewReporting from './AdminViewReporting';
+import AdminViewUser from './AdminViewUser';
 
 //Customer Pages
 import LeaveRating from './LeaveRating';
@@ -70,6 +71,7 @@ function App() {
         <Route exact path='/AdminManagePosts' element={<AdminManagePosts/>} />
         <Route exact path='/AdminManageUsers' element={<AdminManageUsers/>} />
         <Route exact path='/AdminReport' element={<AdminReport/>} />
+        <Route exact path='/AdminViewUser' element={<AdminViewUser/>} />
         <Route exact path='/AdminReviews' element={<AdminReviews/>} />
         <Route exact path='/AdminViewPost' element={<AdminViewPost/>} />
         <Route exact path='/AdminViewReporting' element={<AdminViewReporting/>} />
