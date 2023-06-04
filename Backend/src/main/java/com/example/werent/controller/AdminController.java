@@ -77,7 +77,7 @@ public class AdminController {
 
     //NEREDE KULLANICAM???
     @RequestMapping(value = "/viewUser", method = RequestMethod.GET)
-    public List<Map<String, Object>> viewUser(@RequestParam int userId){
+    public List<Map<String, Object>> viewUser(@RequestParam String userId){
         return adminRepository.viewUser(userId);
     }
 
@@ -146,5 +146,15 @@ public class AdminController {
     @RequestMapping(value = "/reportStayedRental", method = RequestMethod.POST)
     public int reportStayedRental(@RequestParam String userId, @RequestParam String rentalId){
         return adminRepository.reportStayedRental(userId, rentalId);
+    }
+
+    @RequestMapping(value = "/reportStayedHost", method = RequestMethod.POST)
+    public int reportStayedHost(@RequestParam String userId, @RequestParam String userId2){
+        return adminRepository.reportStayedHost(userId, userId2);
+    }
+
+    @RequestMapping(value = "/listPastBookings", method = RequestMethod.GET)
+    public List<Map<String, Object>> listPastBookings(@RequestParam String userId){
+        return adminRepository.listPastBookings(userId);
     }
 }

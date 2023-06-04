@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import { useNavigate } from "react-router-dom";
 import { Navbar } from "./Navbar.jsx";
 import axios from "axios";
@@ -7,13 +7,16 @@ import Button from "react-bootstrap/Button";
 
 function AdminViewUser() {
   const urlParams = new URLSearchParams(window.location.search);
-  const userIdString = urlParams.get("userid");
+  const userIdString = urlParams.get("userId");
   const userId = parseInt(userIdString, 10);
 
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const averageRating = useState(4.5);
   const [isModalOpen2, setIsModalOpen2] = useState(false);
+  const [user, setUser] = useState([]);
+  const [itemExist, setItemExist] = useState(false);
+  const [name, setName] = useState("");
 
   const [reviews] = useState([
     {
@@ -45,11 +48,36 @@ function AdminViewUser() {
     },
   ]);
 
-  const handleDeleteUserModal = async () => {
+  const fetchUser = async () => {
+    try {
+      const response = await axios.get('http://localhost:8080/viewUser?userId=' + userIdString);
+      console.log(response.data);
+      if(response.data.length > 0){
+        //console.log(user['name']);
+        //setName(response.data['name']);
+        console.log(response.data.name);
+        setUser(response.data);
+        setItemExist(true);
+      }
+      else{
+        setItemExist(false);
+        setUser([{}]);
+      }
+    } catch (error) {
+      console.error('Failed:', error);
+      setUser([]);
+    }
+  };
+
+  useEffect(() => {
+    fetchUser().then(r => console.log("done"));
+  }, []);
+
+  const handleDeleteUserModal = async (userId) => {
     try {
       var userid = "df";
       const response = await axios.delete(
-        "http://localhost:8080/deleteReportedUser?userId=" + userid
+        "http://localhost:8080/deleteReportedUser?userId=" + userId
       );
       console.log(response.data);
       if (response.data == 0) {
@@ -191,7 +219,8 @@ function AdminViewUser() {
       <main className="page">
         <section className="clean-block about-us">
           <div className="container">
-            <div className="row text-bg-light">
+            {user.map((item, index) => (
+            <div key={index} className="row text-bg-light">
               <div
                 className="col-md-6 col-lg-4 text-center"
                 style={{
@@ -234,7 +263,7 @@ function AdminViewUser() {
                       />
                       &nbsp; &nbsp;&nbsp;
                       <span style={{ backgroundColor: "rgb(248, 249, 250)" }}>
-                        {averageRating} rating average
+                        {item['user-rating']} rating average
                       </span>
                       <br />
                       <br />
@@ -311,7 +340,7 @@ function AdminViewUser() {
                       >
                         Cancel
                       </Button>
-                      <Button variant="danger" onClick={handleDeleteUserModal}>
+                      <Button variant="danger" onClick={() => handleDeleteUserModal(item['user-id'])}>
                         Delete
                       </Button>
                     </Modal.Footer>
@@ -330,7 +359,7 @@ function AdminViewUser() {
                           style={{ marginRight: 0 }}
                         >
                           <span style={{ color: "rgb(5, 6, 7)" }}>
-                            {profileName}
+                            {item['name']} {item['surname']}
                           </span>
                         </h6>
                       </div>
@@ -346,7 +375,7 @@ function AdminViewUser() {
                           className="text-muted card-subtitle mb-2"
                           style={{ marginRight: 0 }}
                         >
-                          <span style={{ color: "rgb(5, 6, 7)" }}>{email}</span>
+                          <span style={{ color: "rgb(5, 6, 7)" }}>{item['e-mail']}</span>
                         </h6>
                       </div>
                     </div>
@@ -385,7 +414,7 @@ function AdminViewUser() {
                           style={{ marginRight: 0 }}
                         >
                           <span style={{ color: "rgb(5, 6, 7)" }}>
-                            {description}
+                            {item['description']}
                           </span>
                         </h6>
                       </div>
@@ -394,6 +423,7 @@ function AdminViewUser() {
                 </div>
               </div>
             </div>
+            ))}
           </div>
 
           <div className="container">

@@ -1,7 +1,7 @@
 import {  useNavigate } from 'react-router-dom';
 import NavBar from './NavBar';
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import {Button} from 'react-bootstrap';
 import Modal from 'react-bootstrap/Modal';
 
@@ -13,6 +13,9 @@ function PastBookingsPage() {
   const userId = parseInt(userIdString, 10);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isModal2Open, setIsModal2Open] = useState(false);
+  const [posts, setPosts] = useState([]);
+  const [itemExist, setItemExist] = useState(false);
+  const isReviewed=useState(false);
 
   const navigate = useNavigate();
   const [booking] = useState([
@@ -21,10 +24,61 @@ function PastBookingsPage() {
     { id:3, sdate: "20/11/2022", edate: "14/11/2022",name: 'İzmir Beach House ',  city:"İzmir", host: 'Melih',guestNum:5 },
     { id:4, sdate: "2/02/2021", edate: "30/01/2021",name: 'Villa Suites', city:"Muğla", host:'Jenna',guestNum:3 },
   ]);
-  const handleDeleteUserModal = () => {
+
+  const fetchPast = async () => {
+    try {
+      const response = await axios.get('http://localhost:8080/listPastBookings?userId=' + userId);
+      console.log(response.data);
+      if(response.data.length > 0){
+        setItemExist(true);
+        setPosts(response.data);
+      }
+      else{
+        setItemExist(false);
+        setPosts([{}]);
+      }
+    } catch (error) {
+      console.error('Failed:', error);
+      setPosts([]);
+    }
+  };
+
+  useEffect(() => {
+    fetchPast().then(r => console.log('fetched data'));
+  }, []);
+
+  const handleDeleteUserModal = async (userId, rentalId) => {
+    try {
+      const response = await axios.post('http://localhost:8080/reportStayedRental?userId=' + userId + '&rentalId=' + rentalId);
+      console.log(response.data);
+      if(response.data == 0){
+        alert("Error Reporting Rental");
+      }
+      else if (response.data == 1){
+        navigate('/PastBookingsPage?userId=' + userId);
+        alert("Rental reported successfully!");
+      }
+    } catch (error) {
+      console.error('Failed:', error);
+    }
+
     setIsModalOpen(false);
   };
-  const handleDeleteUserModal2 = () => {
+  const handleDeleteUserModal2 = async (userId, userId2) => {
+    try {
+      const response = await axios.post('http://localhost:8080/reportStayedHost?userId=' + userId + '&userId2=' + userId2);
+      console.log(response.data);
+      if(response.data == 0){
+        alert("Error Reporting Host");
+      }
+      else if (response.data == 1){
+        navigate('/PastBookingsPage?userId=' + userId);
+        alert("User reported successfully!");
+      }
+    } catch (error) {
+      console.error('Failed:', error);
+    }
+
     setIsModal2Open(false);
   };
 
@@ -107,15 +161,16 @@ function PastBookingsPage() {
                     <th className="text-danger">Rental Name</th>
                     <th className="text-danger">Host</th>
                     <th className="text-danger">Guest Number</th>
+                    <th className="text-danger">Leave Review</th>
                   </tr>
                 </thead>
-                {booking.map((booking) => (
-                <tbody>
+                {posts.map((item, index) => (
+                <tbody key={index}>
                   <tr>
-                    <td>{booking.sdate}</td>
-                    <td>{booking.edate}</td>
-                    <td>{booking.city}</td>
-                    <td>{booking.name}<i className="fas fa-flag" onClick={() => setIsModalOpen(true)}></i> 
+                    <td>{item['reservation-start-date']}</td>
+                    <td>{item['reservation-end-date']}</td>
+                    <td>{item['city']}</td>
+                    <td>{item['rental-name']}<i className="fas fa-flag" onClick={() => setIsModalOpen(true)}></i>
                       <Modal show={isModalOpen} onHide={() => setIsModalOpen(false)}>
                       <Modal.Header closeButton>
                         <Modal.Title>Confirmation</Modal.Title>
@@ -125,13 +180,14 @@ function PastBookingsPage() {
                         <Button variant="secondary" onClick={() => setIsModalOpen(false)}>
                           Cancel
                         </Button>
-                        <Button variant="danger" onClick={handleDeleteUserModal}>
+                        <Button variant="danger"
+                                onClick={() => handleDeleteUserModal(userId, item['rental-id'])} >
                           Report
                         </Button>
                       </Modal.Footer>
                     </Modal>
                           </td>
-                    <td>{booking.host} <i className="fas fa-flag" onClick={() => setIsModal2Open(true)}></i></td>
+                    <td>{item['host-name']} <i className="fas fa-flag" onClick={() => setIsModal2Open(true)}></i></td>
                     <Modal show={isModal2Open} onHide={() => setIsModal2Open(false)}>
                       <Modal.Header closeButton>
                         <Modal.Title>Confirmation</Modal.Title>
@@ -141,19 +197,36 @@ function PastBookingsPage() {
                         <Button variant="secondary" onClick={() => setIsModal2Open(false)}>
                           Cancel
                         </Button>
-                        <Button variant="danger" onClick={handleDeleteUserModal2}>
+                        <Button variant="danger" onClick={() => handleDeleteUserModal2(userId, item['user-id'])}>
                           Report
                         </Button>
                       </Modal.Footer>
                     </Modal>
-                    <td className="text-left" ><p style={{
-                    marginLeft: "50px",}}>{booking.guestNum}</p></td>
+                    <td className="text-left" >{item['number-of-guests']}</td>
+                    <td className="text-left" >
+                      <button
+                      className="btn btn-primary btn btn-custom-class"
+                      type="button"
+                      onClick={goBackToProfile}
+                      style={{
+                        paddingLeft: 25,
+                        paddingRight: 32,
+                        paddingTop: 0,
+                        marginRight: "-8px",
+                        marginBottom: "-7px",
+                        marginTop: "-25px"
+                      }}
+                    >
+                      Back
+                    </button>
+                    </td>
                    
                   </tr>
                
                 
                 </tbody>
                 ))}
+                
 
               </table>
             </div>
