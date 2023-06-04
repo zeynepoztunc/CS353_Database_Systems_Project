@@ -3,9 +3,42 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import NavBar from './NavBar.js';
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
-
+import Modal from 'react-bootstrap/Modal';
+import axios from 'axios';
+import Button from 'react-bootstrap/Button';
 
 function CustomerAddLandmark() {
+
+  const navigate = useNavigate();
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const userIdString = urlParams.get('userid');
+  const userId = parseInt(userIdString, 10);
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleAddLandmark = () => {
+      setIsModalOpen(true);
+  };
+
+  const modalAddLandmark = async (event) => {
+    try {
+      const response = await axios.post('http://localhost:8080//addLandmark?userId=' + userId);
+      console.log(response.data);
+      if(response.data == 0){
+        alert("Error Adding Landmark");
+      }
+      else if (response.data == 1){
+        navigate('/ProfilePage?userid='  + userId);
+        alert("Landmark Added successfully!");
+      }
+    } catch (error) {
+      console.error('Failed:', error);
+    }
+
+    setIsModalOpen(false);
+    alert("You have successfully added a landmark");
+  };
 
   const containerStyle = {
     width: '435px',
@@ -185,9 +218,25 @@ function CustomerAddLandmark() {
                 </div>
                 <div style={{ textAlign: "left" }} />
               </div>
-              <button className="btn btn-primary" type="button">
+              <button className="btn btn-primary" type="button" onClick={handleAddLandmark}>
                 Add Landmark
               </button>
+              <Modal show={isModalOpen} onHide={() => setIsModalOpen(false)}>
+              <Modal.Header >
+                <Modal.Title>Confirmation</Modal.Title>
+              </Modal.Header>
+              <Modal.Body>
+                Are you sure you want to add the landmark?
+              </Modal.Body>
+              <Modal.Footer>
+                <Button variant="secondary" onClick={() => setIsModalOpen(false)}>
+                  Cancel
+                </Button>
+                <Button variant="danger" onClick={modalAddLandmark}>
+                  Add
+                </Button>
+              </Modal.Footer>
+              </Modal>
               <div />
             </form>
           </div>

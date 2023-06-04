@@ -79,6 +79,11 @@ function ProfilePage() {
     setSelectedFile(file);
   };
 
+  const goToAddLandmark = (event) => {
+      event.preventDefault();
+      navigate('/AddLandmark?userid='  + userId);
+  };
+
   const [editMode, setEditMode] = useState(false);
   const [username, setUsername] = useState('JohnDoe');
   const [profileName, setProfileName] = useState('Alice Thompson');
@@ -269,7 +274,7 @@ function ProfilePage() {
                     <p />
                   </div>
                 </div>
-                {/* <div className="card">
+                <div className="card">
                   <div
                     className="card-body"
                     style={{
@@ -294,13 +299,18 @@ function ProfilePage() {
                           color: "rgb(16, 15, 13)"
                         }}
                       >
-                        Show favorited rentals
+                        <a
+                          onClick={goToAddLandmark}
+                        >
+                          Add Landmark
+
+                        </a>
                       </span>
                     </p>
                     <h6 className="text-muted card-subtitle mb-2" />
                     <p />
                   </div>
-                </div> */}
+                </div>
                 <div
                   className="card"
                   style={{
