@@ -51,6 +51,12 @@ const HostRentingCurrentRents = () => {
         navigate('/');
     }
 
+
+    const gotoProfilePage = (event) => {
+        event.preventDefault();
+        navigate('/HostRentingProfilePage?userid=' + userid);
+    }
+
     const deleteSpecificRental = async (rentalId) => {
         try {
             const response = await axios.delete(`http://localhost:8080/Rentals/deleteRental?rentalId=${rentalId}`);
@@ -104,9 +110,9 @@ const HostRentingCurrentRents = () => {
                             </li>
 
                             <li className="nav-item">
-                                <a className="nav-link" href="#">
+                                <NavLink onClick={gotoProfilePage} className="nav-link">
                                     <i className="fas fa-user" style={{ fontSize: 24 }} />
-                                </a>
+                                </NavLink>
                             </li>
                             <li className="nav-item">
                                 <NavLink onClick={gotoGeneralLogin} className="nav-link">
