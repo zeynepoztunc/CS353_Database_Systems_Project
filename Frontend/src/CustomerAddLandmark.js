@@ -12,10 +12,9 @@ function CustomerAddLandmark() {
   const [desc, setDesc] = useState("");
   const [city, setCity] = useState("");
   const [province, setProvince] = useState("");
-  const [lat, setLat] = useState();
-  const [longit, setLongit] = useState();
+  const [lat, setLat] = useState("");
+  const [longit, setLongit] = useState("");
   const [files, setFiles] = useState([]);
-  const [formIsValid, setIsFormValid] = useState(false);
   const navigate = useNavigate();
 
   const urlParams = new URLSearchParams(window.location.search);
@@ -33,6 +32,11 @@ function CustomerAddLandmark() {
     event.preventDefault();
 
     try {
+      if ( name === "" || city === "" || province === "" || lat === "" || longit === "" ){
+        alert("You have to enter all fields!");
+        setIsModalOpen(false);
+        return;
+      }
       console.log("the name" + name);
       console.log("the city"+city);
       console.log("the province"+province);
@@ -176,7 +180,7 @@ function CustomerAddLandmark() {
                   Name
                 </label>
                 <div>
-                  <input type="text" value={name} onChange={(input)=>{setName(input)}}/>
+                  <input type="text" value={name} onChange={(input)=>{setName(input.value)}} required/>
                 </div>
                 <div>
                   <span className="text-white-50">Text</span>
@@ -248,7 +252,7 @@ function CustomerAddLandmark() {
                 <textarea
                   className="form-control"
                   value={desc} // Bind the textarea value to the landmark info state
-                  onChange={(desc)=>{setDesc(desc)}}
+                  onChange={(desc)=>{setDesc(desc.value)}}
                 />
               </div>
               <div>
@@ -264,7 +268,7 @@ function CustomerAddLandmark() {
                     type="file"
                     multiple=""
                     value={files}
-                    onChange={(event)=>{setFiles(event)}}
+                    onChange={(event)=>{setFiles(event.value)}} required
                   />
                 </div>
                 <div style={{ textAlign: "left" }} />
