@@ -63,10 +63,18 @@ public class AdminRepository {
         }
     }
 
-    public List<Map<String, Object>> listFilteredReportings(String title, boolean host_checked, boolean customer_checked, boolean evaluated, int recent_to_latest, int latest_to_recent){
-        String sqlListFiltered = "SELECT * FROM \"Reports\" r, \"RegisteredUser\" u, \"Rental\" re, \"Complaints\" c WHERE r.\"user-id\" = u.\"user-id\" AND re.\"rental-id\" = r.\"rental-id\" AND \"user-id\" LIKE '?' AND c.\"user-id1\" = u.\"user-id\" AND ( u.\"user-type\" = ? OR u.\"user-type\" = ?) AND ( r.evaluated = ? OR r.evaluated = ? ) AND ( c.evaluated = ? OR c.evaluated = ?) ORDER BY CASE WHEN ? = 1 THEN date END DESC CASE WHEN ? = 1 THEN date END ASC";
+    public List<Map<String, Object>> listFilteredReportings(String title, String check3, String check4, String check5, String check6){
+        //String sqlListFiltered = "SELECT * FROM \"Reports\" r, \"RegisteredUser\" u, \"Rental\" re, \"Complaints\" c WHERE r.\"user-id\" = u.\"user-id\" AND re.\"rental-id\" = r.\"rental-id\" AND \"user-id\" LIKE '?' AND c.\"user-id1\" = u.\"user-id\" AND ( u.\"user-type\" = ? OR u.\"user-type\" = ?) AND ( r.evaluated = ? OR r.evaluated = ? ) AND ( c.evaluated = ? OR c.evaluated = ?) ORDER BY CASE WHEN ? = 1 THEN date END DESC CASE WHEN ? = 1 THEN date END ASC";
+        //String sqlListFiltered = "SELECT * FROM \"Reports\" r, \"RegisteredUser\" u, \"User\" us, \"Rental\" re, \"Complaints\" c WHERE re.\"rental-name\" LIKE "+  +" r.\"rental-id\" = re.\"rental-id\" AND u.\"user-id\" = r.\"user-id\" AND c.\"user-id1\" = u.\"user-id\" AND u.\"user-id\" = us.\"user-id\" ORDER BY CASE WHEN ? = 1 THEN r.\"report-date\" END DESC, CASE WHEN ? = 1 THEN r.\"report-date\" END ASC, CASE WHEN ? = 1 THEN re.rating END DESC, CASE WHEN ? = 1 THEN re.rating END ASC";
 
-        List<Map<String, Object>> rows = jdbcTemplate.queryForList(sqlListFiltered, title, host_checked, customer_checked, evaluated, !evaluated, evaluated, !evaluated, recent_to_latest, latest_to_recent);
+        String sqlListFiltered = "SELECT * FROM \"Reports\" r, \"RegisteredUser\" u, \"User\" us, \"Rental\" re, \"Complaints\" c WHERE (re.\"rental-name\" LIKE '%" + title + "%' OR us.name LIKE '%" + title + "%' OR us.surname LIKE '%" + title + "%')\n" +
+                "AND r.\"rental-id\" = re.\"rental-id\" AND u.\"user-id\" = r.\"user-id\" AND c.\"user-id1\" = u.\"user-id\" AND u.\"user-id\" = us.\"user-id\" ORDER BY CASE WHEN ? = 1 THEN r.\"report-date\" END DESC, CASE WHEN ? = 1 THEN r.\"report-date\" END ASC, CASE WHEN ? = 1 THEN re.rating END DESC, CASE WHEN ? = 1 THEN re.rating END ASC";
+
+        int check3Int = Integer.parseInt(check3);
+        int check4Int = Integer.parseInt(check4);
+        int check5Int = Integer.parseInt(check5);
+        int check6Int = Integer.parseInt(check6);
+        List<Map<String, Object>> rows = jdbcTemplate.queryForList(sqlListFiltered, check3Int, check4Int, check5Int, check6Int);
         if (rows.isEmpty()){
             return null;
         }
@@ -103,8 +111,15 @@ public class AdminRepository {
 
     public int deleteReportedUser(int userId){
         String sqlDeleteRepUser = "DELETE FROM \"User\" WHERE \"user-id\" = ?";
+        String sqlDeleteRepRegUser = "DELETE FROM \"RegisteredUser\" WHERE \"user-id\" = ?";
+        String sqlDeleteAsCust = "DELETE FROM \"Customer\" WHERE \"user-id\" = ?";
+        String sqlDeleteAsHost = "DELETE FROM \"Host\" WHERE \"user-id\" = ?";
+
         int res = jdbcTemplate.update(sqlDeleteRepUser, userId);
-        return res;
+        int res2 = jdbcTemplate.update(sqlDeleteRepRegUser, userId);
+        int res3 = jdbcTemplate.update(sqlDeleteAsCust, userId);
+        int res4 = jdbcTemplate.update(sqlDeleteAsHost, userId);
+        return res2;
     }
 
     public int deletePost(int rentalId){
@@ -165,7 +180,7 @@ public class AdminRepository {
     }
 
     public List<Map<String, Object>> listAllPosts(){
-        String sqlListAll = "SELECT \"rental-name\", \"rental-id\" FROM \"Rental\"";
+        String sqlListAll = "SELECT \"rental-name\", \"rental-id\", \"rating\" FROM \"Rental\"";
 
         List<Map<String, Object>> rows = jdbcTemplate.queryForList(sqlListAll);
         if (rows.isEmpty()){
@@ -190,7 +205,7 @@ public class AdminRepository {
     }
 
     public List<Map<String, Object>> allLandmarkForms(){
-        String sqlListAll = "SELECT \"landmark-id\", \"landmark-name\" FROM \"Landmarks\"";
+        String sqlListAll = "SELECT \"landmark-id\", \"landmark-name\", city, province FROM \"Landmarks\" ORDER BY \"date-added\" DESC";
 
         List<Map<String, Object>> rows = jdbcTemplate.queryForList(sqlListAll);
         if (rows.isEmpty()){
@@ -201,16 +216,30 @@ public class AdminRepository {
         }
     }
 
-    public List<Map<String, Object>> searchPosts(String title, String check1, String check2, String check3, String check4, String check5, String check6){
-        String sqlListFiltered = "SELECT * FROM \"Posts\" p, \"Rental\" r, \"RegisteredUser\" ru ";
+    public List<Map<String, Object>> searchPosts(String title, String check3, String check4, String check5, String check6){
+        System.out.println("tile bu: "+ title);
+        System.out.println("3 bu: "+ check3);
+        System.out.println("4 bu: "+ check4);
+        System.out.println("5 bu: "+ check5);
+        System.out.println("6 bu: "+ check6);
 
-        int check1Int = Integer.parseInt(check1);
-        int check2Int = Integer.parseInt(check2);
+        //String sqlListFiltered = new StringBuilder().append("SELECT * FROM \"Rental\" r, \"RegisteredUser\" ru WHERE ru.\"user-id\" LIKE ‘%").append(title).append("%' AND r.\"rental-id\" =  HAVING COUNT(*) = (SELECT MAX(reservation-cnt) FROM (SELECT res.\"rental-id\", COUNT(*) AS \"reservation-cnt\" FROM \"Reservation\" res, GROUP BY \"rental-id\")) ORDER BY CASE WHEN ? = 1 THEN \"reservation-cnt\" END DESC, CASE WHEN ? = 1 THEN \"reservation-cnt\" END ASC, CASE WHEN ? = 1 THEN r.\"date-added\" END DESC, CASE WHEN ? = 1 THEN r.\"date-added\" END ASC, CASE WHEN ? = 1 THEN r.rating END DESC, CASE WHEN ? = 1 THEN r.rating END ASC").toString();
+        String sqlListFiltered = "SELECT * FROM \"Rental\" WHERE \"rental-name\" LIKE '%" + title + "%'\n" +
+                "ORDER BY\n" +
+                "  CASE WHEN ? = 1 THEN \"date-added\" END DESC,\n" +
+                "  CASE WHEN ? = 1 THEN \"date-added\" END ASC,\n" +
+                "  CASE WHEN ? = 1 THEN rating END DESC,\n" +
+                "  CASE WHEN ? = 1 THEN rating END ASC";
+
+               // "         SELECT m.\"rental-id\", COUNT(*) AS \"reservation-cnt\"\n" +
+               // "          FROM \"Rental\" r, \"Reservation\" res, \"Makes\" m WHERE res.\"reservation-id\" = m.\"reservation-id\" \n" +
+               // "          GROUP BY m.\"rental-id\"";
+
         int check3Int = Integer.parseInt(check3);
         int check4Int = Integer.parseInt(check4);
         int check5Int = Integer.parseInt(check5);
         int check6Int = Integer.parseInt(check6);
-        List<Map<String, Object>> rows = jdbcTemplate.queryForList(sqlListFiltered, check1Int, check2Int, check3Int, check4Int, check5Int, check6Int);
+        List<Map<String, Object>> rows = jdbcTemplate.queryForList(sqlListFiltered, check3Int, check4Int, check5Int, check6Int);
         if (rows.isEmpty()){
             return null;
         }
@@ -220,7 +249,7 @@ public class AdminRepository {
     }
 
     public List<Map<String, Object>> searchLandmarks(String title, String latest, String oldest){
-        String sqlListAll = "SELECT * FROM \"Landmarks\" WHERE \"landmark-name\" LIKE '%" + title + "%' ORDER BY CASE WHEN ? = 1 THEN latitude END DESC, CASE WHEN ? = 1 THEN latitude END ASC";
+        String sqlListAll = "SELECT * FROM \"Landmarks\" WHERE \"landmark-name\" LIKE '%" + title + "%' ORDER BY CASE WHEN ? = 1 THEN \"date-added\" END DESC, CASE WHEN ? = 1 THEN \"date-added\" END ASC";
 
         int latestInt = Integer.parseInt(latest);
         int oldestInt = Integer.parseInt(oldest);

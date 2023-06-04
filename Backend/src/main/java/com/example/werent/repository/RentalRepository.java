@@ -108,6 +108,7 @@ public class RentalRepository {
                 rental.setDescription(rs.getString("description"));
                 rental.setNumOfBeds(rs.getInt("num-of-beds"));
                 rental.setCancellationRefund(rs.getInt("cancellation-refund"));
+                rental.setCouchsurfing(rs.getBoolean("couchsurfing"));
                 return rental;
             }
         });

@@ -5,6 +5,11 @@ import React, { useState } from 'react';
 
 
 function PastTransactionsPage() {
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const userIdString = urlParams.get('userid');
+    const userId = parseInt(userIdString, 10);
+    
     const navigate = useNavigate();
     const [transaction]= useState([
         { id:1, date: "24/03/2023", name: 'Kaş Luxury Villa ', type: 'Payment', amount: "420₺",status:"Successful" },
@@ -15,7 +20,7 @@ function PastTransactionsPage() {
   
     const goBackToProfile = (event) => {
         event.preventDefault();
-        navigate('/ProfilePage');
+        navigate('/ProfilePage?userid='  + userId);
     };
   return (
     <container>

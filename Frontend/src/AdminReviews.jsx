@@ -363,7 +363,7 @@ export const AdminReviews = () => {
                       </div>
                     </div>
                   ))}
-                {!itemExist && <h1>NO REVIEW EXISTS!</h1>}
+                {!itemExist && <h1></h1>}
               </div>
             </div>
           </div>

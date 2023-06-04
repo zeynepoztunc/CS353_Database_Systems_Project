@@ -19,32 +19,32 @@ const  HostRentingMainPage= () => {
     content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
   />
   <title>Features - WeRent</title>
-  <link rel="stylesheet" href="./hostAssets/css/bootstrap.min.css" />
+  <link rel="stylesheet" href={"./hostAssets/css/bootstrap.min.css"} />
   <link
     rel="stylesheet"
     href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i&display=swap"
   />
-  <link rel="stylesheet" href="./hostAssets/ome 5 Brands.css" />
-  <link rel="stylesheet" href="./hostAssets/ome 5 Free.css" />
-  <link rel="stylesheet" href="./hostAssets/tawesome-all.min.css" />
-  <link rel="stylesheet" href="./hostAssets/t-awesome.min.css" />
-  <link rel="stylesheet" href="./hostAssets/ple-line-icons.min.css" />
-  <link rel="stylesheet" href="./hostAssets/tawesome5-overrides.min.css" />
-  <link rel="stylesheet" href="./hostAssets/ox.min.css" />
-  <link rel="stylesheet" href="./hostAssets/-4-Calendar-No-Custom-Code.css" />
-  <link rel="stylesheet" href="./hostAssets/p-Upload-Form.css" />
-  <link rel="stylesheet" href="./hostAssets/-File-Input-Upload.css" />
-  <link rel="stylesheet" href="./hostAssets/xes.css" />
-  <link rel="stylesheet" href="./hostAssets/oom.min.css" />
-  <link rel="stylesheet" href="./hostAssets/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="https://cdn.reflowhq.com/v2/toolkit.min.css" />
-  <link rel="stylesheet" href="./hostAssets/tawesome-all.min.css" />
-  <link rel="stylesheet" href="./hostAssets/tteBox.min.css" />
-  <link rel="stylesheet" href="./hostAssets/r-Heading-Image-images.css" />
-  <link rel="stylesheet" href="./hostAssets/dal-ecommerce-bs4_modal.min.css" />
-  <link rel="stylesheet" href="./hostAssets/dal-ecommerce-styles.css" />
-  <link rel="stylesheet" href="./hostAssets/ton-1.css" />
-  <link rel="stylesheet" href="./hostAssets/css/bootstrap.min-1.css" />
+  <link rel="stylesheet" href={"./hostAssets/ome 5 Brands.css"} />
+  <link rel="stylesheet" href={"./hostAssets/ome 5 Free.css"} />
+  <link rel="stylesheet" href={"./hostAssets/tawesome-all.min.css"} />
+  <link rel="stylesheet" href={"./hostAssets/t-awesome.min.css"} />
+  <link rel="stylesheet" href={"./hostAssets/ple-line-icons.min.css"} />
+  <link rel="stylesheet" href={"./hostAssets/tawesome5-overrides.min.css"} />
+  <link rel="stylesheet" href={"./hostAssets/ox.min.css"} />
+  <link rel="stylesheet" href={"./hostAssets/-4-Calendar-No-Custom-Code.css"} />
+  <link rel="stylesheet" href={"./hostAssets/p-Upload-Form.css"} />
+  <link rel="stylesheet" href={"./hostAssets/-File-Input-Upload.css"} />
+  <link rel="stylesheet" href={"./hostAssets/xes.css"} />
+  <link rel="stylesheet" href={"./hostAssets/oom.min.css"} />
+  <link rel="stylesheet" href={"./hostAssets/css/bootstrap.min.css"} />
+  <link rel="stylesheet" href={"https://cdn.reflowhq.com/v2/toolkit.min.css"} />
+  <link rel="stylesheet" href={"./hostAssets/tawesome-all.min.css"} />
+  <link rel="stylesheet" href={"./hostAssets/tteBox.min.css"} />
+  <link rel="stylesheet" href={"./hostAssets/r-Heading-Image-images.css"} />
+  <link rel="stylesheet" href={"./hostAssets/dal-ecommerce-bs4_modal.min.css"} />
+  <link rel="stylesheet" href={"./hostAssets/dal-ecommerce-styles.css"} />
+  <link rel="stylesheet" href={"./hostAssets/ton-1.css"} />
+  <link rel="stylesheet" href={"./hostAssets/css/bootstrap.min-1.css"} />
   <nav className="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
     <div className="container">
       <button

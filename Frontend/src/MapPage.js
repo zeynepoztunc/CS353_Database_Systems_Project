@@ -8,7 +8,7 @@ function MapPage() {
 
   const [placeValues, setPlaceValues] = useState([
     {
-      ID: "123345",
+      ID: "1233",
       rentalName: "2+1 Villa",
       description: "Luxury Villa With Jakuzzi",
       isFavorited: "true",
@@ -16,7 +16,7 @@ function MapPage() {
       img: "customerAssets/img/Ekran%20Görüntüsü%20(1189).png"
     },
     {
-      ID: "123345",
+      ID: "123",
       rentalName: "Seaside Villa",
       description: "Luxury Villa With Sea View",
       isFavorited: "false",
@@ -61,8 +61,6 @@ function MapPage() {
   };
 
   const handleApiLoaded = (map, maps) => {
-    // Handle the map and maps objects after they are loaded
-    // You can perform additional operations or add markers, etc.
     console.log(map);
     console.log(maps);
   };
@@ -70,7 +68,7 @@ function MapPage() {
   const containerStyle = {
     width: '720px',
     height: '322px',
-    marginLeft: '200px'
+    margin: '0 auto'
   };
 
   const defaultCenter = {
@@ -82,7 +80,7 @@ function MapPage() {
       lat: event.latLng.lat(),
       lng: event.latLng.lng()
     });
-  };  
+  };
 
   const [selectedLocation, setSelectedLocation] = useState(null);
 
@@ -134,11 +132,11 @@ function MapPage() {
               </LoadScript>
 
               {selectedLocation && (
-    <div>
-      <p>Latitude: {selectedLocation.lat}</p>
-      <p>Longitude: {selectedLocation.lng}</p>
-    </div>
-  )}
+                <div>
+                  <p>Latitude: {selectedLocation.lat}</p>
+                  <p>Longitude: {selectedLocation.lng}</p>
+                </div>
+              )}
             </div>
             <div style={{ marginLeft: 72 }}>
               <h3
@@ -245,7 +243,7 @@ function MapPage() {
                             {item.rentalName}
                           </label>
                           <i
-                            className="fas fa-heart"
+                            className={item['is-favorited'] ? "fas fa-heart" : "far fa-heart"}
                             style={{
                               position: "absolute",
                               right: 0,

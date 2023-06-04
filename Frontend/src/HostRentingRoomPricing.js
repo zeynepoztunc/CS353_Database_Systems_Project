@@ -74,7 +74,7 @@ const  HostRentingRoomPricing= () => {
       latestCheckOutHour: latestCheckOut,
       cancellationHourLimit: cancellationHourLimit,
       dailyPrice: price,
-      refundFee: refundFee,
+      cancellationRefund: refundFee,
       autoApprove: autoApprove,
       isAdminApproved: isAdminApproved
 

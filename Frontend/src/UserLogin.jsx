@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { Navbar } from "./Navbar.jsx";
 import axios from 'axios';
 import {  useNavigate } from 'react-router-dom';
+import bgImage from './userlogin.gif';
 
 export const UserLogin = () => {
   const [email, setEmail] = useState("");
@@ -72,6 +73,7 @@ export const UserLogin = () => {
 
   return (
     <>
+
       <meta charSet="utf-8" />
       <meta
         name="viewport"
@@ -88,15 +90,16 @@ export const UserLogin = () => {
         href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.css"
       />
       <link rel="stylesheet" href="./adminAssets/css/vanilla-zoom.min.css" />
+
       <Navbar />
       <main className="page login-page">
-        <section className="clean-block clean-form dark">
-          <div className="container">
-            <div className="block-heading">
+        <section className="clean-block clean-form dark" style={{ backgroundImage: `url(${bgImage})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover', position: 'relative' }}>
+          <div className="container" >
+            <div className="block-heading" style={{ backgroundColor: 'rgba(255, 255, 255, 0.8)', padding: '20px', borderRadius: '10px' }}>
               <h2 className="text-info">Customer Log In</h2>
               <p>Welcome to WeRent!</p>
             </div>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} style={{ backgroundColor: 'rgba(255, 255, 255, 0.8)', padding: '20px', borderRadius: '10px' }}>
               <div className="mb-3">
                 <label className="form-label" htmlFor="email">
                   Email

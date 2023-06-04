@@ -3,22 +3,22 @@ import {  useNavigate } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import {useState} from 'react'; 
-import { addDays, subDays } from "date-fns";
+import {addDays, format, parseISO, subDays} from "date-fns";
 import DropdownMenu from './DropdownMenu';
 import {Circle, GoogleMap, LoadScript, Marker} from '@react-google-maps/api';
 import NavBar from './NavBar';
 import Modal from 'react-modal';
 import axios from 'axios';
-import { FaMountain } from 'react-icons/fa';
+import {FaCouch, FaMountain} from 'react-icons/fa';
+
 
 
 const  RentalPage= () => {
-  const [dateRange, setDateRange] = useState([null, null]);
-  const [startDate, endDate] = dateRange;
+    let date = new Date();
+
   const [selectedCounts, setSelectedCounts] = useState({});
   const [selectedItems, setSelectedItems] = useState({});
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isModal2Open, setIsModal2Open] = useState(false);
   const avgRating=useState(4.5);
   const avgCleanlinessRating=useState(4.5);
   const avgCommunicationRating=useState(4.25);
@@ -27,21 +27,9 @@ const  RentalPage= () => {
   const avgValueRating=useState(4.5);
   const avgLocationRating=useState(4.75);
   const numOfReview=useState(15);
-  const isSuperHost=useState(null);
-  const isHearted=useState(null);
-  const isFreeforEarthquakeVictims=useState(null);
-  const maxAccomodation=useState(6);
-  const bedroomNum=useState(3);
-  const bathroomNum=useState(3);
   const [rentalName, setRentalName] = useState('');
   const [hostFullName, setHostFullName] = useState('');
   const [isFavorited, setIsFavorited] = useState(false);
-  const [cleanlinessRating, setCleanlinessRating] = useState(0);
-  const [communicationRating, setCommunicationRating] = useState(0);
-  const [accuracyRating, setAccuracyRating] = useState(0);
-  const [checkinRating, setCheckinRating] = useState(0);
-  const [valueRating, setValueRating] = useState(0);
-  const [locationRating, setLocationRating] = useState(0);
 
   const [dailyPrice, setPrice] = useState(0);
   const [earthquakeSupport, setEarthquakeSupport] = useState(false);
@@ -49,13 +37,20 @@ const  RentalPage= () => {
   const [areaInM2, setAreaInM2] = useState(0);
   const [description, setDescription] = useState('');
   const [numOfBeds, setNumOfBeds] = useState(0);
-  const [latitude, setLatitude] = useState(0.0);
-  const [longitude, setLongitude] = useState(0.0);
   const [location, setLocation] = useState({lat: 0.0, lng: 0.0});
   const [amenities, setAmenities] = useState([]);
   const [city, setCity] = useState('');
   const [province, setProvince] = useState('');
-  const [refundFee, setRefundFee] = useState(0);
+  const [cancellationRefund, setcancellationRefund] = useState(0);
+  const [couchsurfing, setCouchsurfing] = useState(false);
+  const [hostSelectedStartDate, setHostSelectedRentalStartDate] = useState(date);
+  const [hostSelectedEndDate, setHostSelectedRentalEndDate] = useState(date);
+  const [earliestcheckin, setEarliestCheckin] = useState("00:00:00");
+  const [latestcheckout, setLatestCheckout] = useState("00:00:00");
+  const [startDate, setStartDate] = useState(date);
+  const [endDate, setEndDate] = useState(date);
+  const [selectedNumber, setSelectedNumber] = useState(1);
+  let price = 0;
 
 
 
@@ -65,6 +60,31 @@ const  RentalPage= () => {
   const rentalIdString = urlParams.get('rentalId');
 
 
+
+  const calculatePrice = () => {
+    const start = startDate;
+    const end = endDate;
+    const diffTime = Math.abs(end - start);
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    price = dailyPrice * diffDays;
+    if (earthquakeSupport === true) {
+      price = 0;
+    }
+    console.log(price);
+    return price;
+  }
+
+  const calculateDays = () => {
+    const start = startDate;
+    const end = endDate;
+    const diffTime = Math.abs(end - start);
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    return diffDays;
+  }
+  const goToShoppingCartPage = ( event) => {
+    event.preventDefault();
+    navigate( '/ShoppingCart?userid='  + userIdString);
+  };
   const fetchRentalDetails = async (rentalIdString) => {
     try {
       const response = await axios.get(`http://localhost:8080/Rentals/getRentalsRentalId?rentalId=${rentalIdString}`);
@@ -78,7 +98,7 @@ const  RentalPage= () => {
 
   const fetchHostDetails = async (rentalIdString) => {
     try {
-      const response = await axios.get(`http://localhost:8080/Customers/hostInfo?rentalid=${rentalIdString}`);
+      const response = await axios.get(`http://localhost:8080/Customers/hostInfo?rentalId=${rentalIdString}`);
       console.log(response.data);
       return response.data;
     } catch(error) {
@@ -117,7 +137,11 @@ const  RentalPage= () => {
           console.log(rental.longitude);
           console.log(rental.city);
           console.log(rental.province);
-          console.log(rental.cancellationRefundFee);
+          console.log(rental.cancellationRefund);
+          console.log(rental.numOfBathrooms);
+          console.log(rental.couchsurfing);
+          console.log(rental.earliestCheckInHour);
+          console.log(rental.latestCheckOutHour);
           setRentalName(rental.rentalName);
           setPrice(rental.dailyPrice);
           setEarthquakeSupport(rental.earthquakeSupport);
@@ -125,14 +149,23 @@ const  RentalPage= () => {
           setAreaInM2(rental.areaInM2);
           setDescription(rental.description);
           setNumOfBeds(rental.numOfBeds);
-          setLatitude(rental.latitude);
-          setLongitude(rental.longitude);
           setLocation({lat: rental.latitude, lng: rental.longitude});
           setCity(rental.city);
           setProvince(rental.province);
-          setRefundFee(rental.cancellationRefundFee);
+          setcancellationRefund(rental.cancellationRefund);
+          setCouchsurfing(rental.couchsurfing);
+          setEarliestCheckin(rental.earliestCheckInHour);
+          setLatestCheckout(rental.latestCheckOutHour);
+          console.log(rental.hostSelectedRentalStartDate);
+          console.log(rental.hostSelectedRentalEndDate);
+          rental.hostSelectedRentalStartDate = parseISO(rental.hostSelectedRentalStartDate, );
+          rental.hostSelectedRentalEndDate = parseISO(rental.hostSelectedRentalEndDate);
+          console.log(rental.hostSelectedRentalStartDate);
+          console.log(rental.hostSelectedRentalEndDate);
+          setHostSelectedRentalStartDate(rental.hostSelectedRentalStartDate);
+          setHostSelectedRentalEndDate(rental.hostSelectedRentalEndDate);
 
-          return fetchHostDetails(rental.hostId);
+          return fetchHostDetails(rental.rentalId);
         })
         .then(host => {
           console.log('fetched host data');
@@ -152,28 +185,29 @@ const  RentalPage= () => {
   }, [rentalIdString]);
   // Include dependencies your effect uses
 
+    const handleReservation = async (event) => {
+    event.preventDefault();
+    price = calculatePrice();
+    const reservation = {
+        rentalId: rentalIdString,
+        customerId: userIdString,
+        reservationStartDate: startDate,
+        reservationEndDate: endDate,
+        price: price,
+        numberOfGuests: guestNo,
+        stayOfDuration: calculateDays()
+    };
 
-
-
-  const handleStarClick = (rating) => {
-    setCleanlinessRating(rating);
-  };
-  const handleCommunication= (rating) => {
-    setCommunicationRating(rating);
-  };
-  const handleAccuracy = (rating) => {
-    setAccuracyRating(rating);
-  };
-  const handleCheckin = (rating) => {
-    setCheckinRating(rating);
-  };const handleValue = (rating) => {
-    setValueRating(rating);
-  };const handleLocation = (rating) => {
-    setLocationRating(rating);
-  };const handleCleanliness = (rating) => {
-    setCleanlinessRating(rating);
-  };
-
+    try {
+        const response = await axios.post('http://localhost:8080/Reservations/addReservation', reservation);
+        console.log(response.data);
+        navigate('/ShoppingCart?userid=' + userIdString);
+    }
+    catch (error) {
+        console.error('Error:', error);
+    }
+    console.log(reservation);
+    }
   const handleFavoriteClick = () => {
     setIsFavorited(!isFavorited);
   };
@@ -235,12 +269,7 @@ const  RentalPage= () => {
   const amenitiesList = reviews.map((review) => (
     <div></div>
   ));
-  const handleShowAllReviews = () => {
-    setIsModalOpen(true);
-  };
-  const handleShowAllAmenities = () => {
-    setIsModal2Open(true);
-  };
+
   const containerStyle = {
     width: '600px',
     height: '360px',
@@ -255,6 +284,7 @@ const  RentalPage= () => {
     });
   };
   const [selectedLocation, setSelectedLocation] = useState(null);
+
   const handleDropdownItemClick = (dropdownId, value) => {
     setSelectedCounts({ ...selectedCounts, [dropdownId]: value });
   };
@@ -335,46 +365,93 @@ const  RentalPage= () => {
                     </div>
                   </div>
                 </div>
-                <p style={{ marginTop: "20px" }}>
-                  <span style={{ color: "rgb(34, 34, 34)" }}>
-                   <strong>Property Description:</strong>
-                    <br />
-                    {description}
-                  </span>
-                  <br />
-                  <br />
-                </p>
-                <p style={{ marginTop: "-13px" }}>
-                  <strong>
-                    <span style={{ color: "rgb(34, 34, 34)" }}>
-                      Can accommodate up to {guestNo} people&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                      &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
-                    </span>
-                  </strong>
-                </p>
-                <div style={{ display: 'flex', justifyContent: 'space-between', color: 'rgb(34, 34, 34)', fontSize: 16 }}>
-                  <div>
-                    <i className="fas fa-bed" />
-                    <strong> {numOfBeds} beds </strong>
+                  <div style={{
+                      padding: '10px',
+                      margin: '10px 0',
+                      borderRadius: '5px',
+                      backgroundColor: '#f8f9fa',
+                      boxShadow: '0 2px 5px rgba(0, 0, 0, 0.15)',
+                      color: 'rgb(34, 34, 34)',
+                      fontSize: 16
+                  }}>
+                      <strong>Property Description:</strong>
+                      <p style={{ marginTop: '10px' }}>{description}</p>
                   </div>
-                  <div>
-                    <i className="fas fa-shower" />
-                    <strong> {bathroomNum} bathrooms </strong>
+
+                  <div style={{
+                      display: 'flex',
+                      padding: '10px',
+                      margin: '10px 0',
+                      borderRadius: '5px',
+                      backgroundColor: '#f8f9fa',
+                      boxShadow: '0 2px 5px rgba(0, 0, 0, 0.15)',
+                      color: 'rgb(34, 34, 34)',
+                      fontSize: 16
+                  }}>
+                      <strong>Can accommodate up to {guestNo} people</strong>
                   </div>
-                  <div>
-                    <i className="fas fa-border-all" />
-                    <strong> Total Area: {areaInM2} m2 </strong>
+
+                  <div style={{
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      color: 'rgb(34, 34, 34)',
+                      fontSize: 16,
+                      padding: '10px',
+                      borderRadius: '5px',
+                      backgroundColor: '#f8f9fa',
+                      boxShadow: '0 2px 5px rgba(0, 0, 0, 0.15)',
+                      margin: '10px 0'
+                  }}>
+                      <div style={{ display: 'flex', alignItems: 'center'}}>
+                          <i className="fas fa-bed" style={{ marginRight: '5px', color: '#007bff' }} />
+                          <strong> {numOfBeds} beds </strong>
+                      </div>
+                      <div style={{ display: 'flex', alignItems: 'center'}}>
+                          <i className="fas fa-border-all" style={{ marginRight: '5px', color: '#007bff' }} />
+                          <strong> Total Area: {areaInM2} m2 </strong>
+                      </div>
                   </div>
-                </div>
-                <p>
-                  <i className="fas fa-exclamation" style={{ fontSize: 16 }} />
-                  <strong>
-                    <span style={{ color: "rgb(34, 34, 34)" }}>
-                      &nbsp; No pets are allowed
-                    </span>
-                  </strong>
-                </p>
+
+                  <div style={{
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      color: 'rgb(34, 34, 34)',
+                      fontSize: 16,
+                      padding: '10px',
+                      borderRadius: '5px',
+                      backgroundColor: '#f8f9fa',
+                      boxShadow: '0 2px 5px rgba(0, 0, 0, 0.15)',
+                      margin: '10px 0'
+                  }}>
+                      <div style={{ display: 'flex', alignItems: 'center'}}>
+                          <i className="fas fa-clock" style={{ marginRight: '5px', color: '#007bff' }} />
+                          <strong> earliest check-in hour: {earliestcheckin} </strong>
+                      </div>
+                      <div style={{ display: 'flex', alignItems: 'center'}}>
+                          <i className="fas fa-clock" style={{ marginRight: '5px', color: '#007bff' }} />
+                          <strong> latest check-out hour: {latestcheckout} </strong>
+                      </div>
+                  </div>
+                  <p>
+                      <div style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          padding: '10px',
+                          margin: '10px 0',
+                          borderRadius: '5px',
+                          backgroundColor: '#f8f9fa',
+                          boxShadow: '0 2px 5px rgba(0, 0, 0, 0.15)'
+                      }}>
+                          <i className="fas fa-exclamation" style={{ fontSize: 16, color: '#dc3545', marginRight: '10px' }} />
+                          <strong>
+    <span style={{ color: "rgb(34, 34, 34)" }}>
+      Cancellation Refund Fee: {cancellationRefund} $
+    </span>
+                          </strong>
+                      </div>
+
+                  </p>
+
               </div>
               <div className="col-auto col-md-6 col-lg-6 text-start">
                 <div className="info">
@@ -444,6 +521,21 @@ const  RentalPage= () => {
                           {earthquakeSupport ? "Earthquake support" : "No earthquake support"}
   </span>
                     </p>
+                      <p
+                          className="fs-6"
+                          style={{
+                              marginBottom: "-4px",
+                              paddingRight: 0,
+                              paddingTop: 0,
+                              paddingBottom: 0,
+                              marginRight: 113
+                          }}
+                      >
+                        <span style={{ color: couchsurfing ? "green" : "red" }}>
+    <FaCouch style={{ marginRight: "10px" }} />
+                            { couchsurfing ? "CouchSurfing: Yes" : "CouchSurfing: No"}
+  </span>
+                      </p>
                   </div>
                   <div className="price">
                     <h3>${dailyPrice} /night</h3>
@@ -452,57 +544,49 @@ const  RentalPage= () => {
                         <div className="card">
                           <div className="card-body">
                             <h5 className="card-title">select dates</h5>
-                            <DatePicker
-                            className="text card-subtitle mb-2"
-                              selected={startDate}
-                              onChange={(update) => {
-                                setDateRange(update);
-                              }}
-                              startDate={startDate}
-                              endDate={endDate}
-                              selectsRange
-                              dateFormat="yyyy/MM/dd"
-                              minDate={new Date()} // disable past dates
-                              excludeDateIntervals={[{start: subDays(new Date(), 5), end: addDays(new Date(), 5) }]}
-                            />
-                            
+                              <DatePicker
+                                  className="text card-subtitle mb-2"
+                                  selected={startDate}
+                                  onChange={(update) => {
+                                      setStartDate(update[0]);
+                                      setEndDate(update[1]);
+                                  }}
+                                  startDate={startDate}
+                                  endDate={endDate}
+                                  minDate={new Date(hostSelectedStartDate)} // convert the timestamp to milliseconds
+                                  maxDate={new Date(hostSelectedEndDate)} // convert the timestamp to milliseconds
+                                  selectsRange
+                                  dateFormat="MM/dd/yyyy"
+                              />
                           </div>
-                          
                         </div>
                       </div>
-                      <div className="col-lg-4">
-                        <div className="card">
-                          <div className="card-body text-start">
-                            <h5 className="card-title">guest number</h5>
-                          </div>
+                        <div className="col-lg-4">
+                            <div className="card">
+                                <div className="card-body text-start">
+                                    <h5 className="card-title">Guest number</h5>
+                                </div>
+                            </div>
+                            <div className="dropdown fancy-dropdown">
+                                <button className="btn btn-secondary dropdown-toggle fancy-button" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="true">
+                                    <strong>Guests: {selectedNumber}</strong>
+                                </button>
+                                <ul className="dropdown-menu fancy-menu" aria-labelledby="dropdownMenuButton">
+                                    {[...Array(guestNo)].map((_, index) => (
+                                        <li key={index} className="fancy-item">
+                                            <a
+                                                className="dropdown-item fancy-link"
+                                                href="#nogo"
+                                                onClick={() => setSelectedNumber(index + 1)} // Set the selected number on click
+                                            >
+                                                {index + 1}
+                                            </a>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
                         </div>
-                        {/* <div className="dropdown">
-                          <button
-                            className="btn btn-danger dropdown-toggle text-start text-bg-light"
-                            aria-expanded="false"
-                            data-bs-toggle="dropdown"
-                            type="button"
-                            style={{ marginTop: 15 }}
-                          >
-                            1 guest
-                          </button>
-                          <div className="dropdown-menu">
-                            <a className="dropdown-item" href="#">
-                              Adults
-                            </a>
-                            <a className="dropdown-item" href="#">
-                              Childrens
-                            </a>
-                            <a className="dropdown-item" href="#">
-                              Pets
-                            </a>
-                          </div>
-                        </div> */}
-                        <DropdownMenu/>
-                        <div className="dropdown">
-                </div>
 
-                      </div>
                       <div
                         className="col"
                         style={{
@@ -515,6 +599,7 @@ const  RentalPage= () => {
                         <button
                           className="btn btn-danger text-start"
                           type="button"
+                          onClick={handleReservation}
                           style={{
                             marginTop: 28,
                             paddingBottom: 10,
@@ -972,7 +1057,6 @@ const  RentalPage= () => {
                           <button
                             className="btn btn-danger"
                             type="button"
-                            onClick={handleShowAllReviews}
                             style={{
                               paddingTop: 7,
                               paddingLeft: 0,

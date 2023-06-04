@@ -1,6 +1,8 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import NavBar from './NavBar.js';
+import axios from "axios";
+import Modal from "react-modal";
 
 function PaymentPage() {
 
@@ -8,39 +10,59 @@ function PaymentPage() {
   const userIdString = urlParams.get('userid');
   const userId = parseInt(userIdString, 10);
 
-  const ApprovedRentalValues = [
-    {
-      ID: "123345",
-      rentalName: "Luxury Villa",
-      price: "200",
-      description: "Luxury Villa with a Jacuzzi, Antalya Kalkan",
-      startDate: "18/08/2023",
-      endDate: "25/08/2023",
-      img: "./customerAssets/img/Ekran%20Görüntüsü%20(1188).png",
-    },
-    {
-      ID: "123345",
-      rentalName: "House With Garden",
-      price: "120",
-      description: "A House With a Garden by the Sea Apart2",
-      startDate: "17/10/2024",
-      endDate: "27/10/2024",
-      img: "./customerAssets/img/Ekran%20Görüntüsü%20(1189).png",
-    },
-  ];
+  const [reservationList, setReservationList] = useState([]);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
+
+  const fetchReservations = async (userId) => {
+    const response = await axios.get(`http://localhost:8080/Reservations/getReservationByUserId?userId=${userId}`);
+
+    // Assuming response.data is an array of objects
+    const reservations = response.data.map(reservation => ({
+      reservationId: reservation.reservationId,
+      customerId: reservation.customerId,
+      rentalId: reservation.rentalId,
+      startDate: reservation.reservationStartDate,
+      endDate: reservation.reservationEndDate,
+      duration: reservation.stayOfDuration,
+      price: reservation.price,
+      isPaidFor: false,
+      numberOfGuests: reservation.numberOfGuests,
+      rentalName: reservation.rentalName // assuming reservation includes rentalName
+    }));
+
+    console.log(reservations);
+    setReservationList(reservations);
+    return reservations;
+  }
+
+  const proceedPayment = async (reservationId) => {
+    const response = await axios.put(`http://localhost:8080/Reservations/proceedPayment?reservationId=${reservationId}`);
+    console.log(response);
+    setModalIsOpen(true);
+  }
+
+
+
+  useEffect(() => {
+    fetchReservations(userId).then(r => console.log(r));
+  }, [userId]);
+
 
   const navigate = useNavigate();
 
   const goToMainPage = (event) => {
     event.preventDefault();
+    for (const reservation of reservationList) {
+      proceedPayment(reservation.reservationId).then(r => console.log(r));
+    }
     navigate('/MainPage?userid='  + userId);
   };
 
   const calculateTotalPrice = () => {
     let totalPrice = 0;
-    for (const rental of ApprovedRentalValues) {
-      const rentalPrice = parseInt(rental.price.replace("", ""));
-      totalPrice += rentalPrice;
+    for (const rental of reservationList) {
+      totalPrice += rental.price;
     }
     return totalPrice;
   };
@@ -74,7 +96,7 @@ function PaymentPage() {
             <form>
               <div className="products">
                 <h3 className="title">Checkout</h3>
-                {ApprovedRentalValues.map((item, index) => (
+                {reservationList.map((item, index) => (
                   <div className="item">
                     <span className="price">${item.price}</span>
                     <p className="item-name" />
@@ -163,10 +185,50 @@ function PaymentPage() {
                       <button
                         onClick={goToMainPage}
                         className="btn btn-primary d-block w-100"
-                        type="submit"
                       >
                         Proceed
                       </button>
+                      <Modal
+                          isOpen={modalIsOpen}
+                          onRequestClose={() => setModalIsOpen(false)}
+                          contentLabel="My Dialog"
+                          style={{
+                            overlay: {
+                              backgroundColor: 'rgba(0, 0, 0, 0.75)',
+                            },
+                            content: {
+                              top: '50%',
+                              left: '50%',
+                              right: 'auto',
+                              bottom: 'auto',
+                              marginRight: '-50%',
+                              transform: 'translate(-50%, -50%)',
+                              backgroundColor: '#f4f4f4',
+                              border: '1px solid #ccc',
+                              borderRadius: '20px',
+                              boxShadow: '0 10px 20px rgba(0, 0, 0, 0.2)',
+                              padding: '20px',
+                            },
+                          }}
+                      >
+                        <h2 style={{ textAlign: 'center', marginBottom: '20px' }}>Modal Title</h2>
+                        <p>Thank you! </p>
+                        <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
+                          <button
+                              onClick={() => setModalIsOpen(false)}
+                              style={{
+                                backgroundColor: '#007bff',
+                                color: '#fff',
+                                border: 'none',
+                                borderRadius: '5px',
+                                padding: '10px 20px',
+                                cursor: 'pointer',
+                              }}
+                          >
+                            Close modal
+                          </button>
+                        </div>
+                      </Modal>
                     </div>
                   </div>
                 </div>

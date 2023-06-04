@@ -15,38 +15,192 @@ export const AdminManagePosts = () => {
     const [search, setSearch] = useState("");
   const [posts, setPosts] = useState([]);
   const [itemExist, setItemExist] = useState(false);
+  //const [isCheckedMost, setIsCheckedMost] = useState(false);
+  //const [isCheckedLeast, setIsCheckedLeast] = useState(false);
+  const [isCheckedLatest, setIsCheckedLatest] = useState(false);
+  const [isCheckedOldest, setIsCheckedOldest] = useState(false);
+  const [isCheckedHighest, setIsCheckedHighest] = useState(false);
+  const [isCheckedLowest, setIsCheckedLowest] = useState(false);
+
+  /*const handleChangeLeast = () => {
+    setIsCheckedLeast(!isCheckedLeast);
+    if (isCheckedOldest) {
+      setIsCheckedOldest(!isCheckedOldest);
+    }
+    if (isCheckedLatest) {
+      setIsCheckedLatest(!isCheckedLatest);
+    }
+    if (isCheckedMost) {
+      setIsCheckedMost(!isCheckedMost);
+    }
+    if (isCheckedHighest) {
+      setIsCheckedHighest(!isCheckedHighest);
+    }
+    if (isCheckedLowest) {
+      setIsCheckedLowest(!isCheckedLowest);
+    }
+  }
+
+  const handleChangeMost = () => {
+    setIsCheckedMost(!isCheckedMost);
+    if (isCheckedOldest) {
+      setIsCheckedOldest(!isCheckedOldest);
+    }
+    if (isCheckedLatest) {
+      setIsCheckedLatest(!isCheckedLatest);
+    }
+    if (isCheckedLeast) {
+      setIsCheckedLeast(!isCheckedLeast);
+    }
+    if (isCheckedHighest) {
+      setIsCheckedHighest(!isCheckedHighest);
+    }
+    if (isCheckedLowest) {
+      setIsCheckedLowest(!isCheckedLowest);
+    }
+  }
+  */
+
+  const handleChangeLatest = () => {
+    setIsCheckedLatest(!isCheckedLatest);
+    if (isCheckedOldest) {
+      setIsCheckedOldest(!isCheckedOldest);
+    }
+    /*if (isCheckedMost) {
+      setIsCheckedMost(!isCheckedMost);
+    }
+    if (isCheckedLeast) {
+      setIsCheckedLeast(!isCheckedLeast);
+    }*/
+    if (isCheckedHighest) {
+      setIsCheckedHighest(!isCheckedHighest);
+    }
+    if (isCheckedLowest) {
+      setIsCheckedLowest(!isCheckedLowest);
+    }
+  }
+
+  const handleChangeOldest = () => {
+    setIsCheckedOldest(!isCheckedOldest);
+    if (isCheckedLatest) {
+      setIsCheckedLatest(!isCheckedLatest);
+    }
+    /*if (isCheckedMost) {
+      setIsCheckedMost(!isCheckedMost);
+    }
+    if (isCheckedLeast) {
+      setIsCheckedLeast(!isCheckedLeast);
+    }*/
+    if (isCheckedHighest) {
+      setIsCheckedHighest(!isCheckedHighest);
+    }
+    if (isCheckedLowest) {
+      setIsCheckedLowest(!isCheckedLowest);
+    }
+  }
+
+  const handleChangeHighest = () => {
+    setIsCheckedHighest(!isCheckedHighest);
+    if (isCheckedLatest) {
+      setIsCheckedLatest(!isCheckedLatest);
+    }
+    /*if (isCheckedMost) {
+      setIsCheckedMost(!isCheckedMost);
+    }
+    if (isCheckedLeast) {
+      setIsCheckedLeast(!isCheckedLeast);
+    }*/
+    if (isCheckedOldest) {
+      setIsCheckedOldest(!isCheckedOldest);
+    }
+    if (isCheckedLowest) {
+      setIsCheckedLowest(!isCheckedLowest);
+    }
+  }
+
+  const handleChangeLowest = () => {
+    setIsCheckedLowest(!isCheckedLowest);
+    if (isCheckedLatest) {
+      setIsCheckedLatest(!isCheckedLatest);
+    }
+    /*if (isCheckedMost) {
+      setIsCheckedMost(!isCheckedMost);
+    }
+    if (isCheckedLeast) {
+      setIsCheckedLeast(!isCheckedLeast);
+    }*/
+    if (isCheckedHighest) {
+      setIsCheckedHighest(!isCheckedHighest);
+    }
+    if (isCheckedOldest) {
+      setIsCheckedOldest(!isCheckedOldest);
+    }
+  }
 
   const navigate = useNavigate();
+
+  const handleChange = (event) => {
+    setSearch(event.target.value);
+  }
     
-    function handleSearch(){
-      if ( document.getElementById("formCheck-1").checked ){
+    const handleSearch = async (e) => {
+      e.preventDefault();
+      /*let most = "0";
+      let least = "0";*/
+      let latest = "0";
+      let oldest = "0";
+      let highest = "0";
+      let lowest = "0";
+
+      /*if ( document.getElementById("formCheck-1").checked ){
         console.log("is checked 1");
+        most = "1";
         setMostRented(true);
       }
       if ( document.getElementById("formCheck-2").checked ){
         console.log("is checked 2");
+        least = "1";
         setLeastRented(true);
-      }
+      }*/
       if (document.getElementById("formCheck-3").checked ){
         console.log("is checked 3");
+        latest = "1";
         setLatestAdded(true);
       }
       if (document.getElementById("formCheck-4").checked ){
         console.log("is checked 4");
+        oldest = "1";
         setOldestAdded(true);
       }
       if (document.getElementById("formCheck-5").checked ){
-        console.log("is checked 5"); 
+        console.log("is checked 5");
+        highest = "1";
         setHighestRating(true);
       }
       if (document.getElementById("formCheck-6").checked ){
         console.log("is checked 6");
+        lowest = "1";
         setLowestRating(true);
       }
       
-      const searchInput = document.getElementById("searchInput").value;
-      setSearch(searchInput);
-      console.log(search);
+      var searchInput = search;
+
+    try {
+      console.log("BURAK: ", search);
+      const response = await axios.get('http://localhost:8080/searchPosts?title=' + searchInput + '&check3=' + latest + '&check4=' + oldest + '&check5=' + highest + '&check6=' + lowest);
+      console.log(response.data);
+      if(response.data.length > 0){
+          setItemExist(true);
+        setPosts(response.data);
+      }
+      else{
+        setItemExist(false);
+        setPosts([{}]);
+      }
+    } catch (error) {
+      console.error('Failed:', error);
+      setPosts([]);
+    }
     }
 
   const fetchPosts = async () => {
@@ -107,27 +261,9 @@ export const AdminManagePosts = () => {
               <input
                 className="form-check-input"
                 type="checkbox"
-                id="formCheck-1"
-              />
-              <label className="form-check-label" htmlFor="formCheck-1">
-                Most rented
-              </label>
-            </div>
-            <div className="form-check">
-              <input
-                className="form-check-input"
-                type="checkbox"
-                id="formCheck-2"
-              />
-              <label className="form-check-label" htmlFor="formCheck-2">
-                Least rented
-              </label>
-            </div>
-            <div className="form-check">
-              <input
-                className="form-check-input"
-                type="checkbox"
                 id="formCheck-3"
+                checked={isCheckedLatest}
+                onChange={handleChangeLatest}
               />
               <label className="form-check-label" htmlFor="formCheck-3">
                 Latest Added
@@ -138,6 +274,8 @@ export const AdminManagePosts = () => {
                 className="form-check-input"
                 type="checkbox"
                 id="formCheck-4"
+                checked={isCheckedOldest}
+                onChange={handleChangeOldest}
               />
               <label className="form-check-label" htmlFor="formCheck-4">
                 Oldest Added
@@ -148,6 +286,8 @@ export const AdminManagePosts = () => {
                 className="form-check-input"
                 type="checkbox"
                 id="formCheck-5"
+                checked={isCheckedHighest}
+                onChange={handleChangeHighest}
               />
               <label className="form-check-label" htmlFor="formCheck-5">
                 Highest Rating
@@ -158,6 +298,8 @@ export const AdminManagePosts = () => {
                 className="form-check-input"
                 type="checkbox"
                 id="formCheck-6"
+                checked={isCheckedLowest}
+                onChange={handleChangeLowest}
               />
               <label className="form-check-label" htmlFor="formCheck-6">
                 Lowest Rating
@@ -166,10 +308,11 @@ export const AdminManagePosts = () => {
           </div>
         </div>
         <div>
-          <input type="search" id="searchInput" style={{ marginLeft: 100 }} />
+          <input type="text" id="searchInput" style={{ marginLeft: 100 }} value={search}
+                 onChange={handleChange}/>
           <button
             className="btn btn-primary"
-            type="button" onClick={handleSearch}
+            type="submit" onClick={handleSearch}
             style={{ marginLeft: 10 }}
           >
             Search
@@ -206,7 +349,6 @@ export const AdminManagePosts = () => {
               ))}
                 {!itemExist && (
                     <h1>
-                      NO RENTAL POST EXISTS!
                     </h1>
                 )}
               </div>

@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e555480-ab5a-407e-a171-4062daf29606" name="Changes" comment="changes in customer side" />
+    <list default="true" id="5e555480-ab5a-407e-a171-4062daf29606" name="Changes" comment="customer done">
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_06_2023_13_41_[Changes]/shelved.patch" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/controller/ReservationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/controller/ReservationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/repository/ReservationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/repository/ReservationRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/PaymentPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/PaymentPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/RentalPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/RentalPage.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -103,7 +110,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Application.WeRentApplication">
+  <component name="RunManager" selected="Spring Boot.WeRentApplication">
     <configuration name="WeRentApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.werent.WeRentApplication" />
       <module name="WeRent" />
@@ -185,6 +192,12 @@
       <workItem from="1685714769700" duration="2374000" />
       <workItem from="1685718359811" duration="4250000" />
       <workItem from="1685734150683" duration="5664000" />
+      <workItem from="1685790986353" duration="9480000" />
+      <workItem from="1685807174484" duration="163000" />
+      <workItem from="1685807355475" duration="5952000" />
+      <workItem from="1685815082241" duration="3577000" />
+      <workItem from="1685821091581" duration="2766000" />
+      <workItem from="1685871590658" duration="1156000" />
     </task>
     <task id="LOCAL-00001" summary="new upload">
       <created>1684410800015</created>
@@ -347,7 +360,56 @@
       <option name="project" value="LOCAL" />
       <updated>1685716796856</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="hostAssets changes. photo uploading tries goes">
+      <created>1685793236544</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1685793236544</updated>
+    </task>
+    <task id="LOCAL-00025" summary="important changes in rental page">
+      <created>1685800280100</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1685800280101</updated>
+    </task>
+    <task id="LOCAL-00026" summary="reservation process done">
+      <created>1685813360835</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1685813360835</updated>
+    </task>
+    <task id="LOCAL-00027" summary="shopping cart done.">
+      <created>1685818629271</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1685818629271</updated>
+    </task>
+    <task id="LOCAL-00028" summary="small fixes">
+      <created>1685821866961</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1685821866961</updated>
+    </task>
+    <task id="LOCAL-00029" summary="small fixes">
+      <created>1685821879145</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1685821879145</updated>
+    </task>
+    <task id="LOCAL-00030" summary="customer done">
+      <created>1685823304131</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1685823304131</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -366,7 +428,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="new upload" />
     <MESSAGE value="entity classes are uploaded" />
     <MESSAGE value="together" />
     <MESSAGE value="Room controller started" />
@@ -386,7 +447,13 @@
     <MESSAGE value="changes on customer side x2" />
     <MESSAGE value="changes on customer side x3" />
     <MESSAGE value="login pages are designed again" />
-    <option name="LAST_COMMIT_MESSAGE" value="login pages are designed again" />
+    <MESSAGE value="hostAssets changes. photo uploading tries goes" />
+    <MESSAGE value="important changes in rental page" />
+    <MESSAGE value="reservation process done" />
+    <MESSAGE value="shopping cart done." />
+    <MESSAGE value="small fixes" />
+    <MESSAGE value="customer done" />
+    <option name="LAST_COMMIT_MESSAGE" value="customer done" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
