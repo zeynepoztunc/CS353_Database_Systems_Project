@@ -14,7 +14,13 @@ export const AdminManageUsers = () => {
   const [lowestRating, setLowestRating] = useState(false);
   const [search, setSearch] = useState("");
   const [users, setUsers] = useState([]);
-
+  
+  const [isCheckedLatest, setIsCheckedLatest] = useState(false);
+  const [isCheckedOldest, setIsCheckedOldest] = useState(false);
+  const [isCheckedLowestRating, setIsCheckedLowestRating] = useState(false);
+  const [isCheckedHighestRating, setIsCheckedHighestRating] = useState(false);
+  const [isCheckedLeastRented, setIsCheckedLeastRented] = useState(false);
+  const [isCheckedMostRented, setIsCheckedMostRented] = useState(false);
   /*const users = [
     {
       name: "Airi Satou",
@@ -65,7 +71,140 @@ export const AdminManageUsers = () => {
       console.log(search);
     }
   }
+  
+  const handleChangeMostRented = () => {
+    setIsCheckedMostRented(!isCheckedMostRented);
+    if (isCheckedLatest) {
+      setIsCheckedLatest(!isCheckedLatest);
+    }
+    if ( isCheckedOldest){
+      setIsCheckedOldest(!isCheckedOldest);
+    }
+    if (isCheckedLowestRating){
+      setIsCheckedLowestRating(!isCheckedLowestRating);
+    }
+    if (isCheckedHighestRating){
+      setIsCheckedHighestRating(!isCheckedHighestRating);
+    }
+    if (isCheckedLeastRented){
+      setIsCheckedLeastRented(!isCheckedLeastRented);
+    }
+  }
+  
+  const handleChangeLatest = () => {
+    setIsCheckedLatest(!isCheckedLatest);
+    if (isCheckedLeastRented) {
+      setIsCheckedLeastRented(!isCheckedLeastRented);
+    }
+    if ( isCheckedOldest){
+      setIsCheckedOldest(!isCheckedOldest);
+    }
+    if (isCheckedLowestRating){
+      setIsCheckedLowestRating(!isCheckedLowestRating);
+    }
+    if (isCheckedHighestRating){
+      setIsCheckedHighestRating(!isCheckedHighestRating);
+    }
+    if (isCheckedLeastRented){
+      setIsCheckedLeastRented(!isCheckedLeastRented);
+    }
+    if (isCheckedMostRented) {
+      setIsCheckedMostRented(!isCheckedMostRented);
+    }
+  }
+  
+  
+  const handleChangeLeastRented = () => {
+    setIsCheckedLeastRented(!isCheckedLeastRented);
+    if (isCheckedLatest) {
+      setIsCheckedLatest(!isCheckedLatest);
+    }
+    if ( isCheckedOldest){
+      setIsCheckedOldest(!isCheckedOldest);
+    }
+    if (isCheckedLowestRating){
+      setIsCheckedLowestRating(!isCheckedLowestRating);
+    }
+    if (isCheckedHighestRating){
+      setIsCheckedHighestRating(!isCheckedHighestRating);
+    }
+    if (isCheckedMostRented){
+      setIsCheckedMostRented(!isCheckedMostRented);
+    }
+    if (isCheckedMostRented) {
+      setIsCheckedMostRented(!isCheckedMostRented);
+    }
+  }
+  
 
+
+  const handleChangeOldest = () => {
+    setIsCheckedOldest(!isCheckedOldest);
+    if (isCheckedLeastRented) {
+      setIsCheckedLeastRented(!isCheckedLeastRented);
+    }
+    if ( isCheckedLatest){
+      setIsCheckedLatest(!isCheckedLatest);
+    }
+    if (isCheckedLowestRating){
+      setIsCheckedLowestRating(!isCheckedLowestRating);
+    }
+    if (isCheckedHighestRating){
+      setIsCheckedHighestRating(!isCheckedHighestRating);
+    }
+    if (isCheckedLeastRented){
+      setIsCheckedLeastRented(!isCheckedLeastRented);
+    }
+    if (isCheckedMostRented) {
+      setIsCheckedMostRented(!isCheckedMostRented);
+    }
+  }
+  
+  const handleChangeHighestRating = () => {
+    setIsCheckedHighestRating(!isCheckedHighestRating);
+    if (isCheckedLeastRented) {
+      setIsCheckedLeastRented(!isCheckedLeastRented);
+    }
+    if ( isCheckedLatest){
+      setIsCheckedLatest(!isCheckedLatest);
+    }
+    if (isCheckedLowestRating){
+      setIsCheckedLowestRating(!isCheckedLowestRating);
+    }
+    if (isCheckedOldest){
+      setIsCheckedOldest(!isCheckedOldest);
+    }
+    if (isCheckedLeastRented){
+      setIsCheckedLeastRented(!isCheckedLeastRented);
+    }
+    if (isCheckedMostRented) {
+      setIsCheckedMostRented(!isCheckedMostRented);
+    }
+  }
+  
+  const handleChangeLowestRating = () => {
+    setIsCheckedLowestRating(!isCheckedLowestRating);
+    if (isCheckedLeastRented) {
+      setIsCheckedLeastRented(!isCheckedLeastRented);
+    }
+    if ( isCheckedLatest){
+      setIsCheckedLatest(!isCheckedLatest);
+    }
+    if (isCheckedHighestRating){
+      setIsCheckedHighestRating(!isCheckedHighestRating);
+    }
+    if (isCheckedOldest){
+      setIsCheckedOldest(!isCheckedOldest);
+    }
+    if (isCheckedLeastRented){
+      setIsCheckedLeastRented(!isCheckedLeastRented);
+    }
+    if (isCheckedMostRented) {
+      setIsCheckedMostRented(!isCheckedMostRented);
+    }
+  }
+  
+  
   const fetchUsers = async () => {
     try {
       const response = await axios.get("http://localhost:8080/listAllUsers");
@@ -134,6 +273,8 @@ export const AdminManageUsers = () => {
                               className="form-check-input"
                               type="checkbox"
                               id="formCheck-1"
+                              checked={isCheckedMostRented}
+                              onChange={handleChangeMostRented}
                             />
                             <label
                               className="form-check-label"
@@ -147,6 +288,8 @@ export const AdminManageUsers = () => {
                               className="form-check-input"
                               type="checkbox"
                               id="formCheck-2"
+                              checked={isCheckedLeastRented}
+                              onChange={handleChangeLeastRented}
                             />
                             <label
                               className="form-check-label"
@@ -160,6 +303,8 @@ export const AdminManageUsers = () => {
                               className="form-check-input"
                               type="checkbox"
                               id="formCheck-3"
+                              checked={isCheckedLatest}
+                              onChange={handleChangeLatest}
                             />
                             <label
                               className="form-check-label"
@@ -173,6 +318,8 @@ export const AdminManageUsers = () => {
                               className="form-check-input"
                               type="checkbox"
                               id="formCheck-4"
+                              checked={isCheckedOldest}
+                              onChange={handleChangeOldest}
                             />
                             <label
                               className="form-check-label"
@@ -186,6 +333,8 @@ export const AdminManageUsers = () => {
                               className="form-check-input"
                               type="checkbox"
                               id="formCheck-5"
+                              checked={isCheckedHighestRating}
+                              onChange={handleChangeHighestRating}
                             />
                             <label
                               className="form-check-label"
@@ -199,6 +348,8 @@ export const AdminManageUsers = () => {
                               className="form-check-input"
                               type="checkbox"
                               id="formCheck-6"
+                              checked={isCheckedLowestRating}
+                              onChange={handleChangeLowestRating}
                             />
                             <label
                               className="form-check-label"
