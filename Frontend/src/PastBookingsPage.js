@@ -107,7 +107,6 @@ function PastBookingsPage() {
                     <th className="text-danger">Rental Name</th>
                     <th className="text-danger">Host</th>
                     <th className="text-danger">Guest Number</th>
-                    <th className="text-danger">Add Landmark</th>
                   </tr>
                 </thead>
                 {booking.map((booking) => (
@@ -148,16 +147,7 @@ function PastBookingsPage() {
                       </Modal.Footer>
                     </Modal>
                     <td className="text-center">3</td>
-                    <td>
-                      <button
-                        className="btn btn-danger text-center btn-custom-class"
-                        type="button"
-                        style={{ marginLeft: 36 }}
-                        onClick={addLandmrak}
-                      >
-                        Add
-                      </button>
-                    </td>
+                   
                   </tr>
                
                  
