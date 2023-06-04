@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import NavBar from './NavBar';
 import Modal from 'react-modal';
 import axios from 'axios';
+import  {useEffect} from "react";
+
 
 
 function ProfilePage() {
@@ -21,6 +23,39 @@ function ProfilePage() {
     { id: 4, author: 'Deniz', comment: 'Super guest!', image: "./customerAssets/img/smile-young-man-close-gorgeous-260nw-186076112.webp" }
   ]);
   const [name, setName] = React.useState("");
+    const [surname, setSurname] = React.useState("");
+    const[password, setPassword] = React.useState("");
+    const [email, setEmail] = React.useState("");
+    const [fullName, setFullName] = React.useState("");
+    const [description, setDescription] = useState('');
+    const [userRating, setUserRating] = useState('');
+
+
+
+  const fetchCustomer = async () => {
+    try {
+        const response = await axios.get(`http://localhost:8080/Customers/getCustomerDetails?customerid=${userId}`); // replace with your API endpoint
+        console.log(response.data);
+
+        setName(response.data.user.name);
+        setDescription(response.data.registeredUser.description);
+        setSurname(response.data.user.surname);
+        setPassword(response.data.user.password);
+        setFullName(response.data.user.name + " " + response.data.user.surname);
+        setEmail(response.data.registeredUser.email);
+        setUserRating(response.data.registeredUser.userRating);
+        console.log("DESCRIPTION IS: "+ response.data.user.description);
+
+
+        return response;
+    } catch (error) {
+        console.error('Failed to fetch customer:', error);
+    }
+}
+useEffect(() => {
+  fetchCustomer().then(r => console.log('fetched customer')
+  );
+}, []);
 
   const reviewList = reviews.map((review) => (
     <div className="row">
@@ -87,11 +122,13 @@ function ProfilePage() {
   };
 
   const [editMode, setEditMode] = useState(false);
-  const [username, setUsername] = useState('JohnDoe');
-  const [profileName, setProfileName] = useState('Alice Thompson');
-  const [email, setEmail] = useState('alice.thompson@gmail.com');
-  const [description, setDescription] = useState('Hi! My  name is Alice and I currently live in Spain');
-  const [password, setPassword] = useState('******');
+  const [username, setUsername] = useState('');
+  //const [surname, setSurname] = useState('JohnDoe');
+  //const [fullname, setFullName] = useState('');
+  //const [profileName, setProfileName] = useState('Alice Thompson');
+  //const [email, setEmail] = useState('alice.thompson@gmail.com');
+  //const [description, setDescription] = useState('Hi! My  name is Alice and I currently live in Spain');
+  //const [password, setPassword] = useState('******');
   const handleEditClick = () => {
     setEditMode(true);
   };
@@ -162,7 +199,7 @@ function ProfilePage() {
                       src="customerAssets/img/istockphoto-1225524274-612x612.jpg"
                       width={126}
                       height={111}
-                      style={{ paddingLeft: 0, marginLeft: 90 }}
+                      style={{ paddingLeft: 0, marginLeft: 120 }}
                     />
                     <p style={{ marginTop: 16 }}>
                       <strong>
@@ -195,7 +232,7 @@ function ProfilePage() {
                       />
                       &nbsp; &nbsp;&nbsp;
                       <span style={{ backgroundColor: "rgb(248, 249, 250)" }}>
-                        {averageRating} rating average
+                        {userRating} rating average
                       </span>
                       <br />
                       <br />
@@ -420,12 +457,12 @@ function ProfilePage() {
                           {editMode ? (
                             <input
                               type="text"
-                              value={profileName}
-                              onChange={(e) => setProfileName(e.target.value)}
+                              value={fullName}
+                              onChange={(e) => setFullName(e.target.value)}
                             />
                           ) : (
                             <span style={{ color: "rgb(5, 6, 7)" }}>
-                              {profileName}
+                              {fullName}
                             </span>
                           )}
                           {editMode ? (
