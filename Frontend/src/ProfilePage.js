@@ -199,7 +199,7 @@ useEffect(() => {
                       src="customerAssets/img/istockphoto-1225524274-612x612.jpg"
                       width={126}
                       height={111}
-                      style={{ paddingLeft: 0, marginLeft: 90 }}
+                      style={{ paddingLeft: 0, marginLeft: 120 }}
                     />
                     <p style={{ marginTop: 16 }}>
                       <strong>
