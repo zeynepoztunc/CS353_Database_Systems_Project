@@ -22,6 +22,18 @@ public class AdminRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
 
+    public List<Map<String, Object>> searchAtMain(String title){
+        String sqlSearchMain = "SELECT * FROM \"Rental\" WHERE \"rental-name\" LIKE '%" + title + "%' OR description LIKE '%" + title + "%'";
+
+        List<Map<String, Object>> rows = jdbcTemplate.queryForList(sqlSearchMain);
+        if (rows.isEmpty()){
+            return null;
+        }
+        else{
+            return rows;
+        }
+    }
+
     public GeneratedReportsDTO generateReport(){
         String sqlGenerateReport = "SELECT * FROM \"GeneratedReports\" WHERE CURRENT_DATE = (SELECT max(date) FROM \"GeneratedReports\") ";
 

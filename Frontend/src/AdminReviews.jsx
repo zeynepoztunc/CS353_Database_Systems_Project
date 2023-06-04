@@ -256,7 +256,7 @@ export const AdminReviews = () => {
 
             <div className="block-content">
               <div className="faq-item">
-                <h4 className="question">Host Evaluation</h4>
+                <h4 className="question">Stay Evaluation</h4>
                 {itemExist &&
                   evals.map((item, index) => (
                     <div key={index} className="answer">
