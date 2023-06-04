@@ -107,6 +107,11 @@ const  HostRentingRoomPricing= () => {
     navigate('/HostRentingCurrentRents?userid=' + userid);
   }
 
+  const gotoProfilePage = (event) => {
+    event.preventDefault();
+    navigate('/HostRentingProfilePage?userid=' + userid);
+  }
+
     // Example of occupied dates
   const occupiedDates = [
     new Date(2023, 5, 10),
@@ -171,9 +176,9 @@ const  HostRentingRoomPricing= () => {
                     </NavLink>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" href="#">
+                    <NavLink onClick={gotoProfilePage} className="nav-link">
                       <i className="fas fa-user" style={{ fontSize: 24 }} />
-                    </a>
+                    </NavLink>
                   </li>
                   <li className="nav-item">
                     <NavLink onClick={gotoGeneralLogin} className="nav-link">
@@ -352,30 +357,7 @@ const  HostRentingRoomPricing= () => {
         <span className="text-black-50">Enable Custom Refund Fee</span>
       </div>
     </div>
-          
-          <div>
-            <div>
-              <div className="form-check">
-                <input
-                  className="form-check-input"
-                  type="checkbox"
-                  id="formCheck-3"
-                  value={autoApprove}
-                  onChange={event => setAutoApprove(event.target.value)}
-                />
-                <label
-                  className="form-check-label fs-4 fw-semibold"
-                  htmlFor="formCheck-3"
-                >
-                  Auto approve cancellation requests
-                </label>
-              </div>
-              <label className="form-label">
-                WeRent can automatically accept cancellation requests sent by
-                customers.&nbsp;
-              </label>
-            </div>
-          </div>
+
           <span className="text-white-50">Text</span>
           <div className="row justify-content-center">
             <button type="submit" className="btn btn-primary">

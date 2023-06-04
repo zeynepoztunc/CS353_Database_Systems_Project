@@ -4,21 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e555480-ab5a-407e-a171-4062daf29606" name="Changes" comment="some fixes in the customer side">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/controller/RentalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/controller/RentalController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/repository/RentalRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/repository/RentalRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/GeneralLogin.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/GeneralLogin.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/HostRentingCurrentRents.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/HostRentingCurrentRents.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/HostRentingFlatDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/HostRentingFlatDetails.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/HostRentingFlatLocation.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/HostRentingFlatLocation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/HostRentingFlatPricing.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/HostRentingFlatPricing.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/HostRentingMainPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/HostRentingMainPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/HostRentingProperty.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/HostRentingProperty.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/HostRentingRoomDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/HostRentingRoomDetails.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/HostRentingRoomLocation.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/HostRentingRoomLocation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/src/HostRentingRoomPricing.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/HostRentingRoomPricing.js" afterDir="false" />
-    </list>
+    <list default="true" id="5e555480-ab5a-407e-a171-4062daf29606" name="Changes" comment="host profile page done" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -206,7 +192,9 @@
       <workItem from="1685821091581" duration="2766000" />
       <workItem from="1685871590658" duration="1550000" />
       <workItem from="1685875496233" duration="110000" />
-      <workItem from="1685875625725" duration="3171000" />
+      <workItem from="1685875625725" duration="3817000" />
+      <workItem from="1685880282116" duration="124000" />
+      <workItem from="1685880947164" duration="5443000" />
     </task>
     <task id="LOCAL-00001" summary="new upload">
       <created>1684410800015</created>
@@ -425,7 +413,21 @@
       <option name="project" value="LOCAL" />
       <updated>1685873053113</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="some fixes in the host side">
+      <created>1685879030105</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1685879030106</updated>
+    </task>
+    <task id="LOCAL-00033" summary="host profile page done">
+      <created>1685886361356</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1685886361356</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -444,8 +446,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="together" />
-    <MESSAGE value="Room controller started" />
     <MESSAGE value="queries executed for room, data passing" />
     <MESSAGE value="up to price selection is done" />
     <MESSAGE value="flat selection pages processing" />
@@ -469,7 +469,9 @@
     <MESSAGE value="small fixes" />
     <MESSAGE value="customer done" />
     <MESSAGE value="some fixes in the customer side" />
-    <option name="LAST_COMMIT_MESSAGE" value="some fixes in the customer side" />
+    <MESSAGE value="some fixes in the host side" />
+    <MESSAGE value="host profile page done" />
+    <option name="LAST_COMMIT_MESSAGE" value="host profile page done" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

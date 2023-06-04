@@ -12,6 +12,7 @@ import HostRentingFlatLocation from './HostRentingFlatLocation';
 import HostRentingFlatPricing from './HostRentingFlatPricing';
 import HostRentingMainPage from './HostRentingMainPage';
 import HostRentingCurrentRents from './HostRentingCurrentRents';
+import HostRentingProfilePage from "./HostRentingProfilePage";
 
 import Register from './Register';
 import GeneralLogin from './GeneralLogin';
@@ -88,9 +89,8 @@ function App() {
         <Route exact path='/HostRentingCurrentRents' element={<HostRentingCurrentRents/>} />
         <Route exact path='/HostLogin' element={<HostLogin/>} />
         <Route exact path='/AddLandmark' element={<CustomerAddLandmark/>} />
+        <Route exact path='/HostRentingProfilePage' element={<HostRentingProfilePage/>} />
 
-
-        
 
     </Routes>
   );
