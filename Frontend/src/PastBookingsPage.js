@@ -15,6 +15,7 @@ function PastBookingsPage() {
   const [isModal2Open, setIsModal2Open] = useState(false);
   const [posts, setPosts] = useState([]);
   const [itemExist, setItemExist] = useState(false);
+  const isReviewed=useState(false);
 
   const navigate = useNavigate();
   const [booking] = useState([
@@ -160,6 +161,7 @@ function PastBookingsPage() {
                     <th className="text-danger">Rental Name</th>
                     <th className="text-danger">Host</th>
                     <th className="text-danger">Guest Number</th>
+                    <th className="text-danger">Leave Review</th>
                   </tr>
                 </thead>
                 {posts.map((item, index) => (
@@ -185,7 +187,7 @@ function PastBookingsPage() {
                       </Modal.Footer>
                     </Modal>
                           </td>
-                    <td>{item['name']} <i className="fas fa-flag" onClick={() => setIsModal2Open(true)}></i></td>
+                    <td>{item['host-name']} <i className="fas fa-flag" onClick={() => setIsModal2Open(true)}></i></td>
                     <Modal show={isModal2Open} onHide={() => setIsModal2Open(false)}>
                       <Modal.Header closeButton>
                         <Modal.Title>Confirmation</Modal.Title>
@@ -200,14 +202,31 @@ function PastBookingsPage() {
                         </Button>
                       </Modal.Footer>
                     </Modal>
-                    <td className="text-left" ><p style={{
-                    marginLeft: "50px",}}>{item['number-of-guests']}</p></td>
+                    <td className="text-left" >{item['number-of-guests']}</td>
+                    <td className="text-left" >
+                      <button
+                      className="btn btn-primary btn btn-custom-class"
+                      type="button"
+                      onClick={goBackToProfile}
+                      style={{
+                        paddingLeft: 25,
+                        paddingRight: 32,
+                        paddingTop: 0,
+                        marginRight: "-8px",
+                        marginBottom: "-7px",
+                        marginTop: "-25px"
+                      }}
+                    >
+                      Back
+                    </button>
+                    </td>
                    
                   </tr>
                
                 
                 </tbody>
                 ))}
+                
 
               </table>
             </div>
