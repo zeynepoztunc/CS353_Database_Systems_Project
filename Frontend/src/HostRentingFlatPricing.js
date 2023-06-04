@@ -395,31 +395,6 @@ const HostRentingFlatPricing = () => {
                   </span>
                 </div>
               </div>
-
-              <div>
-                <div>
-                  <div className="form-check">
-                    <input
-                      className="form-check-input"
-                      type="checkbox"
-                      id="formCheck-3"
-                    />
-                    <label
-                      className="form-check-label fs-4 fw-semibold"
-                      htmlFor="formCheck-3"
-                      type="Boolean"
-                      value={autoApprove}
-                      onChange={(event) => setAutoApprove(event.target.value)}
-                    >
-                      Auto approve cancellation requests
-                    </label>
-                  </div>
-                  <label className="form-label">
-                    WeRent can automatically accept cancellation requests sent
-                    by customers.&nbsp;
-                  </label>
-                </div>
-              </div>
               <span className="text-white-50">Text</span>
               <div className="row justify-content-center">
                 <button type="submit" className="btn btn-primary">
