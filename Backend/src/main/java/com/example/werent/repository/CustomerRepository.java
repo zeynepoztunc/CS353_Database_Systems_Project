@@ -390,7 +390,7 @@ public class CustomerRepository {
         jdbcTemplate.update(sqlRemoveRentalFromWishlist, userId, rentalInfo.getRentalId());
     }
     public Map<String, Object> getCustomerDetails(Integer customerid) {
-        String sql = "SELECT H.*, U.name AS name, U.surname AS surname, U.password  AS password, R.\"e-mail\" AS email, R.\"date-of-birth\" AS birthdate,R.\"description\" AS description, R.\"telephone-no\" AS telephoneNo, R.\"gender\" AS gender FROM \"Host\" H LEFT JOIN \"User\" U ON H.\"user-id\" = U.\"user-id\" LEFT JOIN \"RegisteredUser\" R ON H.\"user-id\" = R.\"user-id\" WHERE H.\"user-id\" = ?";
+        String sql = "SELECT H.*, U.name AS name, U.surname AS surname, U.password  AS password, R.\"e-mail\" AS email,R.\"user-rating\" AS userRating, R.\"date-of-birth\" AS birthdate,R.\"description\" AS description, R.\"telephone-no\" AS telephoneNo, R.\"gender\" AS gender FROM \"Host\" H LEFT JOIN \"User\" U ON H.\"user-id\" = U.\"user-id\" LEFT JOIN \"RegisteredUser\" R ON H.\"user-id\" = R.\"user-id\" WHERE H.\"user-id\" = ?";
         return jdbcTemplate.queryForObject(sql, new Object[]{customerid}, (resultSet, i) -> {
             UserDTO userDTO = new UserDTO();
             RegisteredUserDTO registeredUserDTO = new RegisteredUserDTO();
@@ -403,6 +403,7 @@ public class CustomerRepository {
             registeredUserDTO.setEmail(resultSet.getString("email"));
             registeredUserDTO.setTelephoneNo(resultSet.getString("telephoneNo"));
             registeredUserDTO.setDescription(resultSet.getString("description"));
+            registeredUserDTO.setUserRating(resultSet.getFloat("userRating"));
 
             Map<String, Object> result = new HashMap<>();
             result.put("user", userDTO);
