@@ -172,7 +172,7 @@ export const AdminHome = () => {
                   <div className="col">
                     <div className="row">
                       <div className="col-lg-6 mb-4">
-                        <Link to="/AdminCustomerReportings">
+                        <Link to="/AdminCustomerReportings" style={{ textDecoration: 'none', color: 'inherit' }}>
                           <div className="card text-white bg-primary shadow">
                             <div className="card-body">
                               <p className="m-0">Customer Reporting</p>
@@ -181,7 +181,7 @@ export const AdminHome = () => {
                         </Link>
                       </div>
                       <div className="col-lg-6 mb-4">
-                        <Link to="/AdminManageUsers">
+                        <Link to="/AdminManageUsers" style={{ textDecoration: 'none', color: 'inherit' }}>
                           <div className="card text-white bg-success shadow">
                             <div className="card-body">
                               <p className="m-0">Manage Users</p>
@@ -190,7 +190,7 @@ export const AdminHome = () => {
                         </Link>
                       </div>
                       <div className="col-lg-6 mb-4">
-                        <Link to="/AdminManagePosts">
+                        <Link to="/AdminManagePosts" style={{ textDecoration: 'none', color: 'inherit' }}>
                           <div className="card text-white bg-info shadow">
                             <div className="card-body">
                               <p className="m-0">Manage Posts</p>
@@ -199,7 +199,7 @@ export const AdminHome = () => {
                         </Link>
                       </div>
                       <div className="col-lg-6 mb-4">
-                        <Link to="/AdminLandmarkSuggestions">
+                        <Link to="/AdminLandmarkSuggestions" style={{ textDecoration: 'none', color: 'inherit' }}>
                           <div className="card text-white bg-warning shadow">
                             <div className="card-body">
                               <p className="m-0">Landmark Postings</p>
@@ -208,7 +208,7 @@ export const AdminHome = () => {
                         </Link>
                       </div>
                       <div className="col-lg-6 mb-4">
-                        <Link to="/AdminReviews">
+                        <Link to="/AdminReviews" style={{ textDecoration: 'none', color: 'inherit' }}>
                           <div className="card text-white bg-danger shadow">
                             <div className="card-body">
                               <p className="m-0">Reviews</p>
@@ -217,7 +217,7 @@ export const AdminHome = () => {
                         </Link>
                       </div>
                       <div className="col-lg-6 mb-4">
-                        <Link to="/AdminMaintenanceForm">
+                        <Link to="/AdminMaintenanceForm" style={{ textDecoration: 'none', color: 'inherit' }}>
                           <div className="card text-white bg-secondary shadow">
                             <div className="card-body">
                               <p className="m-0">Maintenance Mode</p>
