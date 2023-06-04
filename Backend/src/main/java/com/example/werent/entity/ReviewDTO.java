@@ -3,6 +3,7 @@ package com.example.werent.entity;
 import java.sql.Date;
 
 public class ReviewDTO {
+    private int userId;
     private int reviewId;
     private String review;
     private Date date;
@@ -27,6 +28,14 @@ public class ReviewDTO {
 
     public String getReview() {
         return review;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public void setReview(String review) {

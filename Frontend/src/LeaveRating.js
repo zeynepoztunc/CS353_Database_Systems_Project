@@ -50,10 +50,19 @@ function LeaveRating()
       // console.log("the city"+city);
       // console.log("the province"+province);
       // console.log("the desc"+desc);
+      const reviewData = {
+        review: reviewData, //TODO: bunu emin değilim variable bu mu??
+        userId: userId,
+        cleanlinessRating: cleanlinessValue,
+            communicationRating: communicationValue,
+                checkInRating: checkInValue,
+                    accuracyRating: accuracyValue,
+                        locationRating: locationValue,
+                            valueRating: valueValue
+      }
 
-      const response = await axios.post(
-        `http://localhost:8080/leaveRatingCust?userId=${userId}&cleanVal=${cleanlinessValue}&comVal=${communicationValue}&checkVal=${checkInValue}&accuracyVal=${accuracyValue}&locVal=${locationValue}&valVal=${valueValue}`
-      );
+      //const response = await axios.post(`http://localhost:8080/leaveRatingCust?userId=${userId}&cleanVal=${cleanlinessValue}&comVal=${communicationValue}&checkVal=${checkInValue}&accuracyVal=${accuracyValue}&locVal=${locationValue}&valVal=${valueValue}`);
+      const response = await axios.post('http://localhost:8080/leaveRating', reviewData);
       console.log(response.data);
       if (response.data == 0) {
         alert("Error Adding Rating");
