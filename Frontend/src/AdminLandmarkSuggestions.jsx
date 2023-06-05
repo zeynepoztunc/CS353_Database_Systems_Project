@@ -228,7 +228,7 @@ export const AdminLandmarkSuggestions = () => {
                 <div className="card">
                   <img
                     className="card-img-top w-100 d-block"
-                    src="adminAssets/img/scenery/turkey-alanya-top-things-to-do-explore-alanya-castle.jpg"
+                    src={items[image-path]}
                   />
                   <div className="card-body">
                     <h3 className="card-title">{item['landmark-name']}</h3>
