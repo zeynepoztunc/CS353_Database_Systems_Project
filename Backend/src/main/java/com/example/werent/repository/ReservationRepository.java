@@ -1,6 +1,7 @@
 package com.example.werent.repository;
 
 import com.example.werent.entity.ReservationDTO;
+import jakarta.persistence.criteria.CriteriaBuilder;
 import org.springframework.stereotype.Repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -59,13 +60,12 @@ public class ReservationRepository
         });
     }
 
-    public void processPayment(ReservationDTO reservation)
+    public void processPayment(Integer reservationid)
     {
         String sql = "UPDATE \"Reservation\" SET \"is-paid-for\" = true WHERE \"reservation-id\" = ?";
-        jdbcTemplate.update(sql, reservation.getReservationId());
-        String sql2 = "DELETE  FROM \"Rental\"  WHERE \"rental-id\" = ?";
-        jdbcTemplate.update(sql2, reservation.getRentalId());
+        jdbcTemplate.update(sql, reservationid);
     }
+
 
 
 

@@ -31,9 +31,9 @@ public class ReservationController {
     }
 
     @PostMapping("/proceedPayment")
-    public void processPayment(@RequestBody ReservationDTO reservation)
+    public void processPayment(@RequestParam Integer reservationid)
     {
-        reservationRepository.processPayment(reservation);
+        reservationRepository.processPayment(reservationid);
     }
 
 }

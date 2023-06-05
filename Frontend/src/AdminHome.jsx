@@ -38,8 +38,7 @@ export const AdminHome = () => {
     try {
       const reportResponse = await axios.get("http://localhost:8080/adminHome");
       console.log(reportResponse.data);
-      console.log(reportResponse.data.length);
-      if (reportResponse.data.length > 0) {
+      //console.log(reportResponse.data.length);
         reportValues[0].date = reportResponse.data.date;
         reportValues[0].reportID = reportResponse.data.reportId;
         reportValues[0].userCount = reportResponse.data.userCnt;
@@ -120,9 +119,7 @@ export const AdminHome = () => {
         link.href = window.URL.createObjectURL(blob);
         link.download = "report.pdf";
         link.click();
-      } else {
-        alert("The report is not up to date!");
-      }
+
     } catch (error) {
       console.error("Error generating PDF:", error);
       alert("Could not generate PDF");

@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e555480-ab5a-407e-a171-4062daf29606" name="Changes" comment="some fixes in the customer side">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/controller/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/controller/CustomerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/repository/CustomerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/repository/CustomerRepository.java" afterDir="false" />
-    </list>
+    <list default="true" id="5e555480-ab5a-407e-a171-4062daf29606" name="Changes" comment="unnecessary entity files are deleted" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -107,7 +103,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Application.WeRentApplication">
+  <component name="RunManager" selected="Spring Boot.WeRentApplication">
     <configuration name="WeRentApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.werent.WeRentApplication" />
       <module name="WeRent" />
@@ -197,6 +193,7 @@
       <workItem from="1685871590658" duration="1550000" />
       <workItem from="1685875496233" duration="110000" />
       <workItem from="1685875625725" duration="3171000" />
+      <workItem from="1685942253091" duration="890000" />
     </task>
     <task id="LOCAL-00001" summary="new upload">
       <created>1684410800015</created>
@@ -415,7 +412,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685873053113</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="unnecessary entity files are deleted">
+      <created>1685943080715</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1685943080715</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -434,7 +438,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="together" />
     <MESSAGE value="Room controller started" />
     <MESSAGE value="queries executed for room, data passing" />
     <MESSAGE value="up to price selection is done" />
@@ -459,7 +462,8 @@
     <MESSAGE value="small fixes" />
     <MESSAGE value="customer done" />
     <MESSAGE value="some fixes in the customer side" />
-    <option name="LAST_COMMIT_MESSAGE" value="some fixes in the customer side" />
+    <MESSAGE value="unnecessary entity files are deleted" />
+    <option name="LAST_COMMIT_MESSAGE" value="unnecessary entity files are deleted" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
