@@ -57,7 +57,7 @@ export const AdminLandmarkDetailed = () => {
   const addLandmarkSugg = async (e) => {
       e.preventDefault();
     try {
-      const response = await axios.delete('http://localhost:8080/addLandmarkSugg?landmarkId=' + landmarkId);
+      const response = await axios.put('http://localhost:8080/addLandmarkSugg?landmarkId=' + landmarkId);
       console.log(response.data);
       if(response.data == 0){
         alert("Error Adding Landmark suggestion as official");
@@ -69,7 +69,7 @@ export const AdminLandmarkDetailed = () => {
     } catch (error) {
       console.error('Failed:', error);
     }
-  }
+}
     
     return (
 
