@@ -553,7 +553,7 @@ useEffect(() => {
                             />
                           ) : (
                             <span style={{ color: "rgb(5, 6, 7)" }}>
-                              {password}
+                              {password.replace(/./g, "*")}
                             </span>
                           )}
                           {editMode ? (
