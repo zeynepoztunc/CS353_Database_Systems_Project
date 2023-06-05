@@ -4,10 +4,50 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e555480-ab5a-407e-a171-4062daf29606" name="Changes" comment="some fixes in the customer side">
+    <list default="true" id="5e555480-ab5a-407e-a171-4062daf29606" name="Changes" comment="nearby rentals are shown">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/controller/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/controller/CustomerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/repository/CustomerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/repository/CustomerRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/controller/ReservationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/controller/ReservationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/entity/AdminEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/entity/AmenitiesEntityPK.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/entity/CommentsEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/entity/ComplaintsEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/entity/ComplaintsEntityPK.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/entity/CustomerEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/entity/EGovernmentFileEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/entity/FavoritedLocationsEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/entity/FavoritedLocationsEntityPK.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/entity/FlatEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/entity/GeneratedReportsEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/entity/GeneratedReportsEntityPK.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/entity/GuestEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/entity/GuestEntityPK.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/entity/HostEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/entity/ImagesEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/entity/ImagesEntityPK.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/entity/LandmarksEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/entity/LeavesEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/entity/LeavesEntityPK.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/entity/MakesEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/entity/MakesEntityPK.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/entity/MapLocationEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/entity/OwnsEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/entity/OwnsEntityPK.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/entity/PostsEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/entity/RentalLocationsEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/entity/RentalLocationsEntityPK.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/entity/ReportsEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/entity/ReportsEntityPK.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/entity/ReservationDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/entity/ReservationDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/entity/ReservationEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/entity/ReviewEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/entity/RoomEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/entity/ShoppingCartEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/entity/ShoppingCartEntityPK.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/entity/TransactionEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/entity/WishlistsEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/entity/WishlistsEntityPK.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/repository/ReservationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/werent/repository/ReservationRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/PaymentPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/PaymentPage.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +147,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Application.WeRentApplication">
+  <component name="RunManager" selected="Spring Boot.WeRentApplication">
     <configuration name="WeRentApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.werent.WeRentApplication" />
       <module name="WeRent" />
@@ -197,6 +237,7 @@
       <workItem from="1685871590658" duration="1550000" />
       <workItem from="1685875496233" duration="110000" />
       <workItem from="1685875625725" duration="3171000" />
+      <workItem from="1685942253091" duration="756000" />
     </task>
     <task id="LOCAL-00001" summary="new upload">
       <created>1684410800015</created>

@@ -11,7 +11,6 @@ function PaymentPage() {
   const userId = parseInt(userIdString, 10);
 
   const [reservationList, setReservationList] = useState([]);
-  const [modalIsOpen, setModalIsOpen] = useState(false);
 
 
   const fetchReservations = async (userId) => {
@@ -36,10 +35,10 @@ function PaymentPage() {
     return reservations;
   }
 
-  const proceedPayment = async (reservationId) => {
-    const response = await axios.put(`http://localhost:8080/Reservations/proceedPayment?reservationId=${reservationId}`);
+  const proceedPayment = (reservationId) => {
+    const response = axios.put(`http://localhost:8080/Reservations/proceedPayment?reservationid=${reservationId}`);
     console.log(response);
-    setModalIsOpen(true);
+
   }
 
 
@@ -51,10 +50,10 @@ function PaymentPage() {
 
   const navigate = useNavigate();
 
-  const goToMainPage = (event) => {
+  const goToMainPage = async (event) => {
     event.preventDefault();
     for (const reservation of reservationList) {
-      proceedPayment(reservation.reservationId).then(r => console.log(r));
+      proceedPayment(reservation.reservationId);
     }
     navigate('/MainPage?userid='  + userId);
   };
@@ -188,47 +187,6 @@ function PaymentPage() {
                       >
                         Proceed
                       </button>
-                      <Modal
-                          isOpen={modalIsOpen}
-                          onRequestClose={() => setModalIsOpen(false)}
-                          contentLabel="My Dialog"
-                          style={{
-                            overlay: {
-                              backgroundColor: 'rgba(0, 0, 0, 0.75)',
-                            },
-                            content: {
-                              top: '50%',
-                              left: '50%',
-                              right: 'auto',
-                              bottom: 'auto',
-                              marginRight: '-50%',
-                              transform: 'translate(-50%, -50%)',
-                              backgroundColor: '#f4f4f4',
-                              border: '1px solid #ccc',
-                              borderRadius: '20px',
-                              boxShadow: '0 10px 20px rgba(0, 0, 0, 0.2)',
-                              padding: '20px',
-                            },
-                          }}
-                      >
-                        <h2 style={{ textAlign: 'center', marginBottom: '20px' }}>Modal Title</h2>
-                        <p>Thank you! </p>
-                        <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
-                          <button
-                              onClick={() => setModalIsOpen(false)}
-                              style={{
-                                backgroundColor: '#007bff',
-                                color: '#fff',
-                                border: 'none',
-                                borderRadius: '5px',
-                                padding: '10px 20px',
-                                cursor: 'pointer',
-                              }}
-                          >
-                            Close modal
-                          </button>
-                        </div>
-                      </Modal>
                     </div>
                   </div>
                 </div>

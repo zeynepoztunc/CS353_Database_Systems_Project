@@ -18,7 +18,7 @@ public class ReservationDTO {
 
     private String rentalName;
 
-    public ReservationDTO(int reservationId, int customerId, int rentalId, java.sql.Date reservationStartDate, java.sql.Date reservationEndDate, int stayOfDuration, int price, boolean isPaidFor, int numberOfGuests, String rentalName)
+    public ReservationDTO(Integer reservationId, int customerId, int rentalId, java.sql.Date reservationStartDate, java.sql.Date reservationEndDate, int stayOfDuration, int price, boolean isPaidFor, int numberOfGuests, String rentalName)
     {
         this.reservationId = reservationId;
         this.customerId = customerId;
@@ -32,7 +32,7 @@ public class ReservationDTO {
         this.rentalName = rentalName;
     }
 
-    public int getReservationId() {
+    public Integer getReservationId() {
         return reservationId;
     }
 
