@@ -109,7 +109,7 @@ export const AdminLandmarkDetailed = () => {
                       <img
                         width={468}
                         height={364}
-                        src="adminAssets/img/scenery/turkey-alanya-top-things-to-do-explore-alanya-castle.jpg"
+                        src={item["image-path"]}
                       />
                     </div>
                   </div>
