@@ -228,7 +228,7 @@ export const AdminLandmarkSuggestions = () => {
                 <div className="card">
                   <img
                     className="card-img-top w-100 d-block"
-                    src={items[image-path]}
+                    src={item['image-path']}
                   />
                   <div className="card-body">
                     <h3 className="card-title">{item['landmark-name']}</h3>

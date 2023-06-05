@@ -277,7 +277,7 @@ public class AdminRepository {
     }
 
     public List<Map<String, Object>> singleLandmarkForm(String landmarkId) {
-        String sqlLandmark = "SELECT u.\"user-id\", u.name, u.surname, l.\"landmark-id\", l.\"landmark-name\", l.description, l.latitude, l.longitude, l.city, l.province FROM \"Landmarks\" l, \"User\" u WHERE \"landmark-id\" = ? AND u.\"user-id\" = l.\"user-id\"";
+        String sqlLandmark = "SELECT * FROM \"Landmarks\" l, \"User\" u WHERE \"landmark-id\" = ? AND u.\"user-id\" = l.\"user-id\"";
         String sqlDene = "SELECT * FROM single_landmark WHERE \"landmark-id\" = 4";
 
         int landmarkIdInt = Integer.parseInt(landmarkId);
