@@ -73,11 +73,11 @@ function CustomerAddLandmark() {
     event.preventDefault();
 
     try {
-      if ( name === "" || city === "" || province === "" || lat === "" || longit === "" ){
-        alert("You have to enter all required fields!");
-        setIsModalOpen(false);
-        return;
-      }
+      // if ( name === "" || city === "" || province === "" || lat === "" || longit === "" ){
+      //   alert("You have to enter all required fields!");
+      //   setIsModalOpen(false);
+      //   return;
+      // }
       console.log("the name" + name);
       console.log("the city"+city);
       console.log("the province"+province);
