@@ -55,6 +55,7 @@ const  AdminViewPost= () => {
 
   const fetchPost = async () => {
     try {
+      console.log("BURAKKK: ", rentalId);
       const response = await axios.get('http://localhost:8080/singlePost?rentalId=' + rentalId);
       console.log(response.data);
       setPost(response.data);

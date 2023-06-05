@@ -151,11 +151,6 @@ public class CustomerController {
         return customerRepository.getPreviousBookings(userId);
     }
 
-    @RequestMapping(value = "/leaveRating", method = RequestMethod.POST)
-    public int leaveRating(@RequestBody ReviewDTO review){
-        return customerRepository.leaveRating(review);
-    }
-
     @RequestMapping(value = "/putReport", method = RequestMethod.POST)
     public void putReport(@RequestBody ReportsDTO reportDetails){
         customerRepository.putReport(reportDetails);
