@@ -4,6 +4,7 @@ public class LandmarksDTO {
     private int landmarkId;
     private int userId;
     private String landmarkName;
+
     private String path;
     private String description;
     private String city;
