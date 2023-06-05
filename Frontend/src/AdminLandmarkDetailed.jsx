@@ -69,7 +69,7 @@ export const AdminLandmarkDetailed = () => {
     } catch (error) {
       console.error('Failed:', error);
     }
-  }
+}
     
     return (
 
