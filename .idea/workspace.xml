@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e555480-ab5a-407e-a171-4062daf29606" name="Changes" comment="unnecessary entity files are deleted" />
+    <list default="true" id="5e555480-ab5a-407e-a171-4062daf29606" name="Changes" comment="script.sql is updated.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/AdminLandmarkDetailed.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/AdminLandmarkDetailed.jsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -68,7 +71,7 @@
     &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
     &quot;git-widget-placeholder&quot;: &quot;frontend+backend&quot;,
     &quot;last_directory_selection&quot;: &quot;C:/Users/user/IdeaProjects/WeRent/src/main/java/com/example/werent&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/user/Desktop/WeRent/Frontend&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/user/Desktop/WeRent&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -194,6 +197,8 @@
       <workItem from="1685875496233" duration="110000" />
       <workItem from="1685875625725" duration="3171000" />
       <workItem from="1685942253091" duration="890000" />
+      <workItem from="1685943228582" duration="492000" />
+      <workItem from="1685946211115" duration="1094000" />
     </task>
     <task id="LOCAL-00001" summary="new upload">
       <created>1684410800015</created>
@@ -419,7 +424,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685943080715</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="script.sql is updated.">
+      <created>1685943426272</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1685943426272</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -438,7 +450,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Room controller started" />
     <MESSAGE value="queries executed for room, data passing" />
     <MESSAGE value="up to price selection is done" />
     <MESSAGE value="flat selection pages processing" />
@@ -463,7 +474,8 @@
     <MESSAGE value="customer done" />
     <MESSAGE value="some fixes in the customer side" />
     <MESSAGE value="unnecessary entity files are deleted" />
-    <option name="LAST_COMMIT_MESSAGE" value="unnecessary entity files are deleted" />
+    <MESSAGE value="script.sql is updated." />
+    <option name="LAST_COMMIT_MESSAGE" value="script.sql is updated." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
