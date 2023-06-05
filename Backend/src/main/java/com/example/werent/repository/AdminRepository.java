@@ -205,6 +205,7 @@ public class AdminRepository {
     }
 
     public List<Map<String, Object>> singlePost(String rentalId){
+        System.out.println("girdikmi "+ rentalId);
         String sqlPost = "SELECT * FROM \"Rental\" r, \"RegisteredUser\" ru, \"User\" u WHERE r.\"rental-id\" = ? AND r.\"host-id\" = ru.\"user-id\" AND ru.\"user-id\" = u.\"user-id\"";
 
         int rentalIdInt = Integer.parseInt(rentalId);
@@ -218,7 +219,7 @@ public class AdminRepository {
     }
 
     public List<Map<String, Object>> allLandmarkForms(){
-        String sqlListAll = "SELECT \"landmark-id\", \"landmark-name\", city, province FROM \"Landmarks\" ORDER BY \"date-added\" DESC";
+        String sqlListAll = "SELECT * FROM \"Landmarks\" ORDER BY \"date-added\" DESC";
 
         List<Map<String, Object>> rows = jdbcTemplate.queryForList(sqlListAll);
         if (rows.isEmpty()){
