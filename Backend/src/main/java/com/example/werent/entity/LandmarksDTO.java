@@ -4,6 +4,7 @@ public class LandmarksDTO {
     private int landmarkId;
     private int userId;
     private String landmarkName;
+    private String path;
     private String description;
     private String city;
     private String province;
@@ -41,6 +42,10 @@ public class LandmarksDTO {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
     }
 
     public String getCity() {

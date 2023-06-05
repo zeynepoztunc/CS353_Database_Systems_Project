@@ -46,6 +46,14 @@ public class LandmarksEntity {
     @Column(name = "description", nullable = true, length = -1)
     private String description;
 
+    @Basic
+    @Column(name = "image-path", nullable = true, length = -1)
+    private String path;
+    public void setPath(String path) {
+        this.path = path;
+    }
+
+
     public String getDescription() {
         return description;
     }

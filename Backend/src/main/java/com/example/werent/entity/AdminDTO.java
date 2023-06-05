@@ -39,6 +39,11 @@ public class AdminDTO {
     public void setUserId(int userId) {
         this.userId = userId;
     }
+    private String path;
+
+    public void setPath(String path) {
+        this.path = path;
+    }
 
     public void setName(String name) {
         this.name = name;

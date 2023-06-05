@@ -13,6 +13,12 @@ public class AdminEntity {
     public int getUserId() {
         return userId;
     }
+    private String path;
+
+    public void setPath(String path) {
+        this.path = path;
+    }
+
 
     public void setUserId(int userId) {
         this.userId = userId;
