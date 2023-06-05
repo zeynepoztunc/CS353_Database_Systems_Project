@@ -39,8 +39,6 @@ function ProfilePage() {
         const response = await axios.get(`http://localhost:8080/Customers/getCustomerDetails?customerid=${userId}`); // replace with your API endpoint
         console.log(response.data);
 
-
-
         setName(response.data.user.name);
         setDescription(response.data.registeredUser.description);
         setSurname(response.data.user.surname);
@@ -658,7 +656,7 @@ useEffect(() => {
             </h2>
             <div className="row">
 
-              {forms.map((item, index) => (
+              {itemExist && forms.map((item, index) => (
                 <div key={index} className="col-md-6" style={{ paddingTop: 17 }}>
                   <img
                     className="rounded-circle"
@@ -712,6 +710,10 @@ useEffect(() => {
                   </div>
                 </div>
               ))}
+                {!itemExist && (
+                    <h1>
+                    </h1>
+                )}
 
               <div className="col-md-6" style={{ paddingTop: 8 }}>
                 <button

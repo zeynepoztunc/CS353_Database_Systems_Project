@@ -210,6 +210,7 @@ export const AdminManageUsers = () => {
       const response = await axios.get("http://localhost:8080/listAllUsers");
       console.log(response.data);
       setUsers(response.data);
+
     } catch (error) {
       console.error("Failed to fetch cities:", error);
       setUsers([]);
@@ -257,138 +258,6 @@ export const AdminManageUsers = () => {
                     <p className="text-primary m-0 fw-bold">User Info</p>
                   </div>
                   <div className="card-body">
-                    <div className="row">
-                      <div className="col-md-6 text-nowrap">
-                        <div
-                          id="dataTable_length"
-                          className="dataTables_length"
-                          aria-controls="dataTable"
-                        ></div>
-                      </div>
-                      <p>Select search inputs</p>
-                      <div>
-                        <div>
-                          <div className="form-check">
-                            <input
-                              className="form-check-input"
-                              type="checkbox"
-                              id="formCheck-1"
-                              checked={isCheckedMostRented}
-                              onChange={handleChangeMostRented}
-                            />
-                            <label
-                              className="form-check-label"
-                              htmlFor="formCheck-1"
-                            >
-                              Most rented
-                            </label>
-                          </div>
-                          <div className="form-check">
-                            <input
-                              className="form-check-input"
-                              type="checkbox"
-                              id="formCheck-2"
-                              checked={isCheckedLeastRented}
-                              onChange={handleChangeLeastRented}
-                            />
-                            <label
-                              className="form-check-label"
-                              htmlFor="formCheck-2"
-                            >
-                              Least rented
-                            </label>
-                          </div>
-                          <div className="form-check">
-                            <input
-                              className="form-check-input"
-                              type="checkbox"
-                              id="formCheck-3"
-                              checked={isCheckedLatest}
-                              onChange={handleChangeLatest}
-                            />
-                            <label
-                              className="form-check-label"
-                              htmlFor="formCheck-3"
-                            >
-                              Latest Added
-                            </label>
-                          </div>
-                          <div className="form-check">
-                            <input
-                              className="form-check-input"
-                              type="checkbox"
-                              id="formCheck-4"
-                              checked={isCheckedOldest}
-                              onChange={handleChangeOldest}
-                            />
-                            <label
-                              className="form-check-label"
-                              htmlFor="formCheck-4"
-                            >
-                              Oldest Added
-                            </label>
-                          </div>
-                          <div className="form-check">
-                            <input
-                              className="form-check-input"
-                              type="checkbox"
-                              id="formCheck-5"
-                              checked={isCheckedHighestRating}
-                              onChange={handleChangeHighestRating}
-                            />
-                            <label
-                              className="form-check-label"
-                              htmlFor="formCheck-5"
-                            >
-                              Highest Rating
-                            </label>
-                          </div>
-                          <div className="form-check">
-                            <input
-                              className="form-check-input"
-                              type="checkbox"
-                              id="formCheck-6"
-                              checked={isCheckedLowestRating}
-                              onChange={handleChangeLowestRating}
-                            />
-                            <label
-                              className="form-check-label"
-                              htmlFor="formCheck-6"
-                            >
-                              Lowest Rating
-                            </label>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div className="col-md-6">
-                        <div
-                          className="text-md-end dataTables_filter"
-                          id="dataTable_filter"
-                        >
-                          <input
-                            type="search"
-                            id="searchInput"
-                            className="form-control form-control-sm"
-                            aria-controls="dataTable"
-                            placeholder="Search"
-                          />
-                          <button
-                            className="btn btn-primary"
-                            type="button"
-                            onClick={handleSearch}
-                            style={{
-                              paddingLeft: 10,
-                              margin: "auto",
-                              /*borderLeft: 10, */ textAlign: "center",
-                            }}
-                          >
-                            Search
-                          </button>
-                          <label className="form-label" />
-                        </div>
-                      </div>
-                    </div>
                     <div
                       className="table-responsive table mt-2"
                       id="dataTable-1"
