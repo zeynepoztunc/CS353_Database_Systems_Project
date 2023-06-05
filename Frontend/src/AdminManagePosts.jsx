@@ -325,7 +325,7 @@ export const AdminManagePosts = () => {
                   <a className="lightbox" href="assets/img/scenery/image1.jpg">
                     <img
                       className="img-thumbnail img-fluid image"
-                      src="adminAssets/img/scenery/e6034faf-5c55-42a0-b5e8-ed0b8e330b33.jpeg"
+                      src={item['image-path']}
                       width={356}
                       height={270}
                     />
