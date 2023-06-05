@@ -79,11 +79,12 @@ function LeaveRating()
       //const response = await axios.post(`http://localhost:8080/leaveRatingCust?userId=${userId}&cleanVal=${cleanlinessValue}&comVal=${communicationValue}&checkVal=${checkInValue}&accuracyVal=${accuracyValue}&locVal=${locationValue}&valVal=${valueValue}`);
       const response = await axios.post('http://localhost:8080/leaveRating', reviewData);
       console.log(response.data);
-      if (response.data == 0) {
-        alert("Error Adding Rating");
-      } else if (response.data == 1) {
+      if (response.data == 1) {
         navigate("/ProfilePage?userid=" + userId);
         alert("Added Rating successfully!");
+
+      } else {
+        alert("Error Adding Rating");
       }
     } catch (error) {
       console.error("Failed:", error);

@@ -401,4 +401,16 @@ public class AdminRepository {
             return rows;
         }
     }
+
+    public List<Map<String, Object>> listReviews(String userid){
+        String sqlListAll = "SELECT * FROM \"Review\" r, \"Leaves\" l, \"RegisteredUser\" ru, \"User\" u, \"Reservation\" res, \"Rental\" ren WHERE l.\"user-id2\" = ? AND r.\"review-id\" = l.\"review-id\" AND l.\"user-id1\" = u.\"user-id\" AND u.\"user-id\" = ru.\"user-id\" AND l.\"reservation-id\" = res.\"reservation-id\" AND res.\"rental-id\" = ren.\"rental-id\"";
+
+        int userIdInt = Integer.parseInt(userid);
+        List<Map<String, Object>> rows = jdbcTemplate.queryForList(sqlListAll, userIdInt);
+        if (rows.isEmpty()) {
+            return null;
+        } else {
+            return rows;
+        }
+    }
 }

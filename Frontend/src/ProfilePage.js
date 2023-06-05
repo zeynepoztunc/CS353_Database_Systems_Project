@@ -29,6 +29,8 @@ function ProfilePage() {
     const [fullName, setFullName] = React.useState("");
     const [description, setDescription] = useState('');
     const [userRating, setUserRating] = useState('');
+    const [forms, setForms] = useState([]);
+    const [itemExist, setItemExis] = useState(false);
 
 
 
@@ -36,6 +38,8 @@ function ProfilePage() {
     try {
         const response = await axios.get(`http://localhost:8080/Customers/getCustomerDetails?customerid=${userId}`); // replace with your API endpoint
         console.log(response.data);
+
+
 
         setName(response.data.user.name);
         setDescription(response.data.registeredUser.description);
@@ -46,6 +50,16 @@ function ProfilePage() {
         setUserRating(response.data.registeredUser.userRating);
         console.log("DESCRIPTION IS: "+ response.data.user.description);
 
+        const response2 = await axios.get(`http://localhost:8080/listReviews?userid=${userIdString}`); // replace with your API endpoint
+        console.log(response2.data);
+        if(response2.data.length > 0){
+            setItemExis(true);
+            setForms(response2.data);
+        }
+        else{
+            setItemExis(false);
+            setForms([{}]);
+        }
 
         return response;
     } catch (error) {
@@ -644,11 +658,11 @@ useEffect(() => {
             </h2>
             <div className="row">
 
-              {reviews.map((review) => (
-                <div className="col-md-6" style={{ paddingTop: 17 }}>
+              {forms.map((item, index) => (
+                <div key={index} className="col-md-6" style={{ paddingTop: 17 }}>
                   <img
                     className="rounded-circle"
-                    src={review.image}
+                    src="customerAssets/img/istockphoto-1225524274-612x612.jpg"
                     width={101}
                     height={87}
                   />
@@ -672,13 +686,28 @@ useEffect(() => {
                     >
 
                       <h4 className="card-title" style={{ marginLeft: "-56px" }}>
-                        <p>{review.author}</p>
+                        <p>{item['name']} - reviewing {item['rental-name']}</p>
 
                       </h4>
 
                       <p className="card-text" style={{ marginLeft: "-56px" }}>
-                        {review.comment}
+                        {item['review']}
                       </p>
+                        <p className="card-text" style={{ marginLeft: "-56px" }}>
+                            Cleanliness: {item['cleanliness-rating']}
+                        </p>
+                        <p className="card-text" style={{ marginLeft: "-56px" }}>
+                            Communication: {item['communication-rating']}
+                        </p>
+                        <p className="card-text" style={{ marginLeft: "-56px" }}>
+                            Check-in: {item['check-in-rating']}
+                        </p>
+                        <p className="card-text" style={{ marginLeft: "-56px" }}>
+                            Accuracy: {item['accuracy-rating']}
+                        </p>
+                        <p className="card-text" style={{ marginLeft: "-56px" }}>
+                            Location: {item['location-rating']}
+                        </p>
                     </div>
                   </div>
                 </div>

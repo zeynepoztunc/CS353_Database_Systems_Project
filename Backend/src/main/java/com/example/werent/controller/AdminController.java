@@ -174,4 +174,9 @@ public class AdminController {
     public List<Map<String, Object>> listPastBookings(@RequestParam String userid){
         return adminRepository.listPastBookings(userid);
     }
+
+    @RequestMapping(value = "/listReviews", method = RequestMethod.GET)
+    public List<Map<String, Object>> listReviews(@RequestParam String userid){
+        return adminRepository.listReviews(userid);
+    }
 }
