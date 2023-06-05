@@ -193,7 +193,7 @@ public class AdminRepository {
     }
 
     public List<Map<String, Object>> listAllPosts(){
-        String sqlListAll = "SELECT \"rental-name\", \"rental-id\", \"rating\" FROM \"Rental\"";
+        String sqlListAll = "SELECT * FROM \"Rental\"";
 
         List<Map<String, Object>> rows = jdbcTemplate.queryForList(sqlListAll);
         if (rows.isEmpty()){

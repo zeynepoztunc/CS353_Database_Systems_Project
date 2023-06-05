@@ -398,7 +398,7 @@ export const AdminCustomerReportings = () => {
                           backgroundColor: "rgb(255, 255, 255)",
                         }}
                       >
-                        View Details
+                        View User's Reportings
                       </span>
                     </button>
                   </div>
