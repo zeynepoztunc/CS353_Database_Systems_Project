@@ -1,6 +1,6 @@
 # CS353_Database_Systems_Project
 Term project for CS353 Database System Course
-# Project Title
+# WeRent
 
 WeRent is a website application that  allows users to rent rooms or flats that have been posted on the application by hosts.
 
