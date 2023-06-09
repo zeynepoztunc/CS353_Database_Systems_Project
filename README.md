@@ -29,4 +29,8 @@ code blocks for commands
 
 ## Authors
 
-ex. (to be added)
+- [Burak Erkoçak](https://github.com/erkocak)
+- [Emre Karataş](https://github.com/emre-karatas)
+- [Selin Bahar Gündoğar](https://github.com/SelinBaharGundogar)
+- [Zeynep Hanife Akgül](https://github.com/zeynephakgul)
+- [Zeynep Selcen Öztunç](https://github.com/zeynepoztunc)
