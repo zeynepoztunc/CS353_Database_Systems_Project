@@ -167,7 +167,7 @@ function MapPage() {
           <div className="container">
             <div className="block-heading">
               <h2 className="text-info">MAP</h2>
-              <LoadScript googleMapsApiKey="AIzaSyAdc1phOB8xRTsyJwEa3wBuAGPIg9ZFnJ4">
+              <LoadScript>
                 <GoogleMap
                     mapContainerStyle={containerStyle}
                     center={defaultCenter}
